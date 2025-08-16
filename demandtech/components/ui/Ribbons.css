@@ -1,0 +1,67 @@
+/* Ribbon components styling */
+
+.ribbon1 {
+    pointer-events: none;
+    /* Prevent ribbons from interfering with user interactions */
+    overflow: visible;
+    max-width: 100vw;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    /* Keep fixed position to stay on screen while scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    /* Ensure ribbons are visible above other content */
+    display: block;
+    /* Ensure ribbons are displayed */
+}
+
+.ribbon2 {
+    pointer-events: none;
+    /* Prevent ribbons from interfering with user interactions */
+    overflow: visible;
+    max-width: 100vw;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    /* Keep fixed position to stay on screen while scrolling */
+    top: 3000px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    /* Ensure ribbons are visible above other content */
+    display: block;
+    /* Ensure ribbons are displayed */
+}
+
+/* Initial state for paths */
+.ribbon1 path,
+.ribbon2 path {
+    stroke-dasharray: 8000;
+    /* Match the pathLength value used in the components */
+    stroke-dashoffset: 8000;
+    /* Start fully hidden */
+    transition: stroke-dashoffset 0.1s ease;
+    will-change: stroke-dashoffset;
+    /* Optimize for animation performance */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .ribbon1,
+    .ribbon2 {
+        width: 100%;
+        height: auto;
+        transform: scale(0.8);
+    }
+}
+
+/* Container styling to prevent overflow */
+.relative {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+}

@@ -1,0 +1,74 @@
+/* Homepage Styles */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+}
+
+.headline {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 7rem;
+    font-weight: regular;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.accent {
+    color: #1D00F8;
+    background: #1D00F8;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-col {
+    display: flex;
+    justify-content: left;
+    margin: 0rem 0;
+}
+
+.desc-col {
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: right;
+}
+
+.lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-right: 90px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .headline {
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 1rem;
+    }
+}

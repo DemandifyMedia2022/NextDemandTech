@@ -1,0 +1,56 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import "lenis/dist/lenis.css";
+import { SmoothScroll } from "../../components";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "DemandTech | Accelerate Your Business Growth",
+    template: "%s | DemandTech"
+  },
+  description: "Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.",
+  keywords: ["demand generation", "marketing automation", "lead generation", "B2B marketing", "growth marketing"],
+  authors: [{ name: "DemandTech" }],
+  creator: "DemandTech",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://demandtech.com",
+    siteName: "DemandTech",
+    title: "DemandTech | Accelerate Your Business Growth",
+    description: "Transform your demand generation with cutting-edge technology and proven strategies.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DemandTech | Accelerate Your Business Growth",
+    description: "Transform your demand generation with cutting-edge technology and proven strategies.",
+    creator: "@demandtech",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <body className="font-inter antialiased">
+        <SmoothScroll />
+        {/* Header component will be added here */}
+        <main>{children}</main>
+        {/* Footer component will be added here */}
+      </body>
+    </html>
+  );
+}

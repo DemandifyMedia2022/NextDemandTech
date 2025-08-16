@@ -1,0 +1,58 @@
+@keyframes logo-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.logo-slider {
+    margin-top: 100px;
+    overflow: hidden;
+    padding: 48px 0;
+    background: #F0F1FA;
+    position: relative;
+}
+
+.logo-slider::before,
+.logo-slider::after {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    content: "";
+    z-index: 1;
+}
+
+.logo-slider::before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+}
+
+.logo-slider::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+}
+
+.logo-slider-track {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 80px;
+    animation: 35s logo-slide linear infinite;
+    will-change: transform;
+}
+
+.logo-slider:hover .logo-slider-track {
+    animation-play-state: paused;
+}
+
+.logo-slider-track img {
+    height: 50px;
+    object-fit: contain;
+    /* Show full-color logos */
+    filter: none;
+    opacity: 1;
+}
