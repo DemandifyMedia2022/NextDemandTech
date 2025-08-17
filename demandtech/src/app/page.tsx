@@ -123,15 +123,28 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <div className='testimonials-section' style={{ marginTop: '180px' }}>
         <div className='testimonials-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '50px' }}>
-          <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '75px', textAlign: 'center', color: '#000000' }}
-            stagger={0.12}
-            duration={0.9}
-            yOffset={70}
-            start="top 80%"
-          >
-            Success Through Their Lens
-          </GSAPTextReveal>
+          <div style={{ display: 'flex', alignItems: 'center', fontFamily: 'Clash Display', fontSize: '75px', textAlign: 'center' }}>
+            <GSAPTextReveal
+              style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '85px', textAlign: 'center', color: '#000cf8' }}
+              stagger={0.12}
+              duration={0.9}
+              yOffset={70}
+              start="top 80%"
+            >
+              Success
+            </GSAPTextReveal>
+            <span style={{ color: '#000000', marginLeft: '10px' }}>
+              <GSAPTextReveal
+                style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '75px', textAlign: 'center', color: '#000000' }}
+                stagger={0.12}
+                duration={0.9}
+                yOffset={70}
+                start="top 80%"
+              >
+                Through Their Lens
+              </GSAPTextReveal>
+            </span>
+          </div>
         </div>
         <div className="testimonials-container">
           <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
