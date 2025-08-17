@@ -53,6 +53,16 @@
     margin-right: 90px;
 }
 
+.servicestitle {
+    font-size: 6rem;
+    color: #1D00F8;
+    background: #1D00F8;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .title {
@@ -71,4 +81,6 @@
     .hero {
         padding: 1rem;
     }
+
+
 }

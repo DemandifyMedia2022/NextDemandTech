@@ -1,21 +1,26 @@
 import { CardBody, CardContainer, CardItem } from './3d-card';
 
-function Card1() {
+interface Card2Props {
+    imageSrc?: string;
+    alt?: string;
+}
+
+function Card2({ imageSrc = "/image1.jpeg", alt = "Card image" }: Card2Props) {
     return (
         <CardContainer className="inter-var">
             <CardBody
                 className="relative group/card"
-                style={{ width: '640px' }}
+                style={{ width: '440px', height: '250px' }}
             >
                 <div style={{ position: 'relative' }}>
                     <CardItem translateZ={60} className="w-full">
                         <img
-                            src="/image1.jpeg"
+                            src={imageSrc}
                             height={800}
                             width={1280}
-                            style={{ height: '340px', width: '100%', objectFit: 'cover', borderRadius: '28px' }}
+                            style={{ height: '250px', width: '100%', objectFit: 'cover', borderRadius: '28px' }}
                             className="group-hover/card:shadow-xl"
-                            alt="Card image"
+                            alt={alt}
                         />
                     </CardItem>
                     {/* <button
@@ -44,4 +49,4 @@ function Card1() {
     );
 }
 
-export default Card1;
+export default Card2;

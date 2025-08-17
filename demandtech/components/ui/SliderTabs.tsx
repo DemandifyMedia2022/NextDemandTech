@@ -45,10 +45,15 @@ const SlideTabs: React.FC = () => {
             }}
             className="relative mx-auto flex w-fit rounded-full px-1 py-2"
             style={{
+                // backgroundColor: '#ffff',
                 background: 'rgba(158, 146, 146, 0.25)',
                 backdropFilter: 'blur(25px)',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
                 // boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '0px',
             }}
         >
             <Tab setPosition={setPosition}>Home</Tab>
@@ -58,7 +63,7 @@ const SlideTabs: React.FC = () => {
             <Tab setPosition={setPosition}>Pricing</Tab>
 
             <Cursor position={position} />
-        </ul>
+        </ul >
     );
 };
 
@@ -79,8 +84,18 @@ const Tab: React.FC<TabProps> = ({ children, setPosition }) => {
                     opacity: 1,
                 });
             }}
-            className="relative z-10 block cursor-pointer px-5 py-1 text-3xl text-white md:px-6 md:py-1 md:text-base"
-            style={{ fontFamily: 'Clash Display, sans-serif', fontWeight: '400' }}
+            className="relative z-10 block cursor-pointer text-white"
+            style={{
+                fontFamily: 'Clash Display, sans-serif',
+                fontWeight: '400',
+                fontSize: '17px',
+                padding: '3.8px 24px',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minWidth: '90px'
+            }}
         >
             {children}
         </li>
@@ -95,7 +110,7 @@ const Cursor: React.FC<CursorProps> = ({ position }) => {
             }}
             className="absolute z-0 rounded-full"
             style={{
-                backgroundColor: '#4F46E5', // CHANGED: Specific blue color to match your image
+                backgroundColor: '#1D00F8', // CHANGED: Specific blue color to match your image
                 height: '40px', // CHANGED: Fixed height to match the tab height
                 top: '4px' // CHANGED: Position it properly within the container
             }}
