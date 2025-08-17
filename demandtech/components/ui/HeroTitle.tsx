@@ -38,6 +38,27 @@ export const HeroTitle = () => {
                 ease: 'power2.out'
             }, '-=0.8');
 
+        // Parallax effect - opposite directions
+        gsap.to('.hero-line-1', {
+            x: -120, // Move first line 120px to the left
+            scrollTrigger: {
+                trigger: container,
+                start: 'top center',
+                end: 'bottom top',
+                scrub: 0.2
+            }
+        });
+
+        gsap.to('.hero-line-2', {
+            x: 120, // Move second line 120px to the right
+            scrollTrigger: {
+                trigger: container,
+                start: 'top center',
+                end: 'bottom top',
+                scrub: 0.2
+            }
+        });
+
         return () => {
             ScrollTrigger.getAll().forEach(trigger => {
                 if (trigger.trigger === container) {
@@ -51,9 +72,15 @@ export const HeroTitle = () => {
         <div
             ref={containerRef}
             className="title"
-            style={{ textAlign: 'center', marginRight: '200px', lineHeight: '1.5' }}
+            style={{
+                textAlign: 'center',
+                lineHeight: '1.5',
+                width: '100%',
+                overflow: 'visible',
+                position: 'relative'
+            }}
         >
-            <div style={{ overflow: 'hidden' }}>
+            <div style={{ overflow: 'visible' }}>
                 <div
                     className="hero-line-1"
                     style={{
@@ -63,13 +90,14 @@ export const HeroTitle = () => {
                         fontWeight: 'inherit',
                         lineHeight: 'inherit',
                         fontFamily: 'inherit',
-                        margin: 0
+                        margin: 0,
+                        whiteSpace: 'nowrap'
                     }}
                 >
                     Intelligence that
                 </div>
             </div>
-            <div style={{ overflow: 'hidden', marginTop: '-20px' }}>
+            <div style={{ overflow: 'visible', marginTop: '-20px' }}>
                 <div
                     className="hero-line-2"
                     style={{
@@ -79,7 +107,8 @@ export const HeroTitle = () => {
                         fontWeight: 'inherit',
                         lineHeight: 'inherit',
                         fontFamily: 'inherit',
-                        margin: 0
+                        margin: 0,
+                        whiteSpace: 'nowrap'
                     }}
                 >
                     Drives <span className="accent">Growth</span>

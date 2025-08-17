@@ -62,7 +62,7 @@ export default function HomePage() {
           <DotGrid />
         </div>
 
-        <div className="headline" style={{ display: 'flex', justifyContent: 'center', marginTop: '0px', marginBottom: '50px', fontFamily: 'Clash Display', marginLeft: '100px' }}>
+        <div className="headline" style={{ display: 'flex', justifyContent: 'center', marginTop: '0px', marginBottom: '50px', fontFamily: 'Clash Display' }}>
           <HeroTitle />
         </div>
         <section className='cardAndDesc' style={{ display: 'flex', marginTop: '40px', marginLeft: '50px' }}>
