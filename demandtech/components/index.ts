@@ -5,7 +5,8 @@ export { default as DotGrid } from './ui/DotGrid';
 export { default as LogoSlider } from './ui/LogoSlider';
 export { default as Ribbon1 } from './ui/Ribbon1';
 export { default as Ribbon2 } from './ui/Ribbon2';
-export { SlideTabsExample } from './ui/SliderTabs';
+export { SlideTabsExample, EnhancedNavigationMenu } from './ui/SliderTabs';
+export { default as NavigationExample } from './ui/NavigationExample';
 export { CardContainer, CardBody, CardItem } from './ui/3d-card';
 export { default as SmoothScroll } from './ui/SmoothScroll';
 
