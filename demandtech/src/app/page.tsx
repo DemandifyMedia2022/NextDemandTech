@@ -17,6 +17,7 @@ import { GSAPTextReveal } from '../../components/ui/GSAPTextReveal';
 import { HeroTitle } from '../../components/ui/HeroTitle';
 import { ScrollAnimations } from '../../components/ui/ScrollAnimations';
 import { AnimatedParagraph } from '../../components/ui/AnimatedParagraph';
+import SimpleGlobe from "@/components/ui/globe";
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -24,6 +25,14 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const globeConfig = {
+    continentColor: "#005be5ff",
+    seaColor: "#FFFFFF", // bright white
+    showAtmosphere: true,
+    atmosphereColor: "#FFFFFF",
+    autoRotate: true,
+    autoRotateSpeed: 0.8,
+  };
   const testimonials = [
     {
       quote: "DemandTech transformed our lead generation process completely. We saw a 300% increase in qualified leads within the first quarter. Their AI-driven approach is simply revolutionary.",
@@ -50,7 +59,7 @@ export default function HomePage() {
       <ScrollAnimations />
       <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
         <Ribbon1 />
-        <Ribbon2 />
+        {/* <Ribbon2 /> */}
       </div>
       {/* Navigation */}
       <div className="navigation-container" style={{ marginBottom: '40px' }}>
@@ -59,9 +68,9 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="hero" style={{ marginBottom: '80px' }}>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: -2 }}>
+        {/* <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: -2 }}>
           <DotGrid />
-        </div>
+        </div> */}
 
         <div className="headline" style={{ display: 'flex', justifyContent: 'center', marginTop: '30px', marginBottom: '50px', fontFamily: 'Clash Display' }}>
           <HeroTitle />
@@ -151,6 +160,24 @@ export default function HomePage() {
           <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
         </div>
       </div >
+
+      {/* Globe Section */}
+      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '120px', marginBottom: '0px' }}>
+          <GSAPTextReveal
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+            stagger={0.15}
+            duration={1.0}
+            yOffset={80}
+            start="top 75%"
+          >
+            Our Global Reach
+          </GSAPTextReveal>
+        </div>
+      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', margin: '-20px -500px' }}>
+        <div style={{ width: '1200px', height: '1200px' }}>
+          <SimpleGlobe globeConfig={globeConfig} />
+        </div>
+      </div>
 
       {/*Services Grid*/}
       <div>
