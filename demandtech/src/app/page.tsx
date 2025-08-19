@@ -6,7 +6,8 @@ import {
   Card1,
   SlideTabsExample,
   Button,
-  DotGrid
+  DotGrid,
+  BentoGridSecondDemo
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';
@@ -153,10 +154,23 @@ export default function HomePage() {
 
       {/*Services Grid*/}
       <div>
-
-
+        <div className='services-grid-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '80px', marginBottom: '50px' }}>
+          <GSAPTextReveal
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+            stagger={0.15}
+            duration={1.0}
+            yOffset={80}
+            start="top 75%"
+          >
+            Services We Offer
+          </GSAPTextReveal>
+        </div>
+        
+        <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-90px' }}>
+          <BentoGridSecondDemo />
+        </div>
       </div>
-
+  
     </>
   );
 }

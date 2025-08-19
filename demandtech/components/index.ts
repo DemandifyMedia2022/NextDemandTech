@@ -9,6 +9,7 @@ export { SlideTabsExample, EnhancedNavigationMenu } from './ui/SliderTabs';
 export { default as NavigationExample } from './ui/NavigationExample';
 export { CardContainer, CardBody, CardItem } from './ui/3d-card';
 export { default as SmoothScroll } from './ui/SmoothScroll';
+export { BentoGridSecondDemo } from './ui/bento-grid';
 
 // Layout Components (when you add them)
 // export { default as Header } from './layout/Header';
