@@ -1,14 +1,20 @@
 "use client";
 
 import styles from "./Button.module.scss";
+import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Button = () => {
+interface ButtonProps {
+    label?: string;
+    href?: string;
+}
+
+const Button = ({ label = "About Us", href }: ButtonProps) => {
     const [isHover, setIsHover] = useState(false);
 
-    return (
+    const content = (
         <div className="font-inter">
             <motion.div
                 className={styles.buttonContainer}
@@ -37,7 +43,7 @@ const Button = () => {
                         color: isHover ? "#FFFFFF" : "#000000",
                     }}
                 >
-                    <p>About     Us</p>
+                    <p>{label}</p>
                 </motion.div>
 
                 {/* Icon */}
@@ -57,6 +63,16 @@ const Button = () => {
             </motion.div>
         </div>
     );
+    
+    if (href) {
+        return (
+            <Link href={href} className="inline-block">
+                {content}
+            </Link>
+        );
+    }
+
+    return content;
 };
 
 export default Button;

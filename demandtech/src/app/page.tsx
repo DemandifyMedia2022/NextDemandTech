@@ -61,10 +61,7 @@ export default function HomePage() {
         <Ribbon1 />
         {/* <Ribbon2 /> */}
       </div>
-      {/* Navigation */}
-      <div className="navigation-container" style={{ marginBottom: '40px' }}>
-        <SlideTabsExample />
-      </div>
+      {/* Navigation rendered globally in layout */}
 
       {/* Hero Section */}
       <section className="hero" style={{ marginBottom: '80px' }}>

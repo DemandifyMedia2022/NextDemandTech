@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
 import { SmoothScroll } from "../../components";
+import HeaderNav from "@/components/ui/HeaderNav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,7 +48,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-inter antialiased">
         <SmoothScroll />
-        {/* Header component will be added here */}
+        <HeaderNav />
         <main>{children}</main>
         {/* Footer component will be added here */}
       </body>

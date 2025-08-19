@@ -10,20 +10,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
 	return (
 		<div className="min-h-screen bg-[#EEF0FF]">
-			{/* Top navigation bar with slider tabs and CTA */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative flex items-center justify-center">
-				<div className="flex justify-center">
-					<SlideTabsExample />
-				</div>
-				<div className="absolute right-4 sm:right-6 lg:right-8">
-					<Link
-						href="/contact"
-						className="inline-flex items-center gap-2 rounded-full border border-[#C7C7F9] bg-white/60 px-5 py-2 text-sm font-medium text-gray-900 hover:bg-white"
-					>
-						<span className="text-[#5B5BFF]">•</span> Let’s Talk
-					</Link>
-				</div>
-			</div>
+			{/* Top navigation moved to global layout */}
 
 			{/* Hero section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14">
