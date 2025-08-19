@@ -100,7 +100,7 @@ function SimpleGlobe({ globeConfig }: { globeConfig?: GlobeConfig }) {
         far: 2000,
       }}
       gl={{ antialias: true, alpha: true }}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%", pointerEvents: "none" }}
     >
       {/* Use pure ambient light to avoid grey shading on white ocean */}
       <ambientLight intensity={5} />

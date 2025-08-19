@@ -194,7 +194,7 @@ export default function HomePage() {
       <div>
         <div className='services-grid-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '180px', marginBottom: '0px' }}>
           <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
             stagger={0.15}
             duration={1.0}
             yOffset={80}
@@ -204,11 +204,39 @@ export default function HomePage() {
           </GSAPTextReveal>
         </div>
         
-        <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-90px' }}>
+        <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-50px' }}>
           <BentoGridSecondDemo />
         </div>
+
+        {/* Post-Bento Content */}
+        <div className='post-bento-content' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '0px', marginBottom: '0px' }}>
+          <GSAPTextReveal
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '48px', textAlign: 'center', color: '#5B52FF' ,fontWeight: 'medium'}}
+            stagger={0.12}
+            duration={0.9}
+            yOffset={60}
+            start="top 80%"
+          >
+            Get the Best with Demand Tech
+          </GSAPTextReveal>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <AnimatedParagraph
+            className="post-bento-desc"
+            style={{ maxWidth: '920px', textAlign: 'center', color: '#333333', lineHeight: 1.6, fontSize: '16px', padding: '0 24px' }}
+            stagger={0.05}
+            duration={0.5}
+            start="top 85%"
+            byLines
+          >
+            We deliver more than just leads—we deliver results. Our services include Intent Qualified Leads, engaging webinars, impactful brand awareness campaigns, single & multi-touch content syndication, call-back consent programs, and strategic lead nurturing. Every solution is designed to connect you with the right audience, at the right time, and move them seamlessly from interest to conversion.
+          </AnimatedParagraph>
+        </div>
+
+        {/* Ensure scrollable space after content */}
+        <div style={{ height: '120px' }} />
       </div>
-  
+          
     </>
   );
 }

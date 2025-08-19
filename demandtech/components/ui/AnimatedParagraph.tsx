@@ -11,6 +11,7 @@ interface AnimatedParagraphProps {
     stagger?: number;
     duration?: number;
     start?: string;
+    byLines?: boolean; // when true, animate line-by-line instead of word-by-word
 }
 
 export const AnimatedParagraph = ({
@@ -18,8 +19,9 @@ export const AnimatedParagraph = ({
     className = '',
     style = {},
     stagger = 0.02,
-    duration = 0.6,
-    start = 'top 85%'
+    duration = 0.5,
+    start = 'top 85%',
+    byLines = false,
 }: AnimatedParagraphProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isClient, setIsClient] = useState(false);
@@ -67,13 +69,46 @@ export const AnimatedParagraph = ({
             }
         });
 
-        tl.to(wordElements, {
-            y: 0,
-            opacity: 1,
-            duration: duration,
-            ease: 'power2.out',
-            stagger: stagger
-        });
+        if (byLines) {
+            // Group word spans into lines by top position
+            const lines: HTMLElement[][] = [];
+            let currentTop: number | null = null;
+            let currentLine: HTMLElement[] = [];
+            wordElements.forEach((node) => {
+                const el = node as HTMLElement;
+                const top = el.offsetTop; // relative to container
+                if (currentTop === null) {
+                    currentTop = top;
+                }
+                if (Math.abs(top - currentTop) <= 2) {
+                    currentLine.push(el);
+                } else {
+                    lines.push(currentLine);
+                    currentLine = [el];
+                    currentTop = top;
+                }
+            });
+            if (currentLine.length > 0) lines.push(currentLine);
+
+            lines.forEach((line, index) => {
+                tl.to(line, {
+                    y: 0,
+                    opacity: 1,
+                    duration: duration,
+                    ease: 'power2.out',
+                    // slight intra-line stagger for niceness
+                    stagger: 0.01,
+                }, index === 0 ? 0 : '>'); // sequence line-by-line
+            });
+        } else {
+            tl.to(wordElements, {
+                y: 0,
+                opacity: 1,
+                duration: duration,
+                ease: 'power2.out',
+                stagger: stagger
+            });
+        }
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => {
@@ -82,7 +117,7 @@ export const AnimatedParagraph = ({
                 }
             });
         };
-    }, [isClient, words, stagger, duration, start]);
+    }, [isClient, words, stagger, duration, start, byLines]);
 
     if (!isClient) {
         return (
