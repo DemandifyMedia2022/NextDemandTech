@@ -162,18 +162,29 @@ export default function HomePage() {
       </div >
 
       {/* Globe Section */}
-      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '120px', marginBottom: '0px' }}>
+      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '150px', marginLeft: '500px' }}>
           <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
             stagger={0.15}
             duration={1.0}
             yOffset={80}
             start="top 75%"
           >
-            Our Global Reach
+            Global Reach
           </GSAPTextReveal>
         </div>
-      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', margin: '-20px -500px' }}>
+        <div className='globe-title2' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-40px', marginLeft: '500px' }}>
+          <GSAPTextReveal
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf7' }}
+            stagger={0.15}
+            duration={1.0}
+            yOffset={80}
+            start="top 75%"
+          >
+            Local Impact
+          </GSAPTextReveal>
+        </div>
+      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', margin: '-250px -500px' }}>
         <div style={{ width: '1200px', height: '1200px' }}>
           <SimpleGlobe globeConfig={globeConfig} />
         </div>
@@ -181,7 +192,7 @@ export default function HomePage() {
 
       {/*Services Grid*/}
       <div>
-        <div className='services-grid-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '80px', marginBottom: '50px' }}>
+        <div className='services-grid-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '180px', marginBottom: '0px' }}>
           <GSAPTextReveal
             style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
             stagger={0.15}
