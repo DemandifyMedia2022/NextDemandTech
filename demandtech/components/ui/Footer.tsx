@@ -2,77 +2,108 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "About", href: "/about" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact", href: "/contact" },
+
+import { FaLinkedin, FaTwitter, FaInstagram, FaArrowRight } from "react-icons/fa";
+
+const linkSections = [
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blogs", href: "/about/blogs" },
+      { label: "Case Studies", href: "/about/case-studies" },
+      { label: "Clients", href: "/about/clients" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-of-service" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white px-8 md:px-16 pt-20 pb-10 overflow-hidden">
-      {/* Top section */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-        {/* Logo + CTA */}
-        <div className="space-y-6">
+
+
+
+<footer className="relative bg-#F0F1FA text-gray-800 pt-20 pb-10 overflow-hidden">
+      <div className="container mx-auto px-8 md:px-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        {/* Logo + Newsletter */}
+        <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-1">
           <h1 className="text-4xl font-bold tracking-tight">
-            Demand<span className="text-purple-500">Tech</span>
+            Demand<span className="text-blue-600">Tech</span>
           </h1>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/contact"
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-semibold"
+          <p className="text-gray-500">
+            Stay ahead of the curve. Get the latest marketing insights and trends delivered to your inbox.
+          </p>
+          <form className="flex">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            />
+            <button
+              type="submit"
+              className="px-4 py-3 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-all"
             >
-              Let’s Talk →
-            </Link>
-          </motion.div>
+              <FaArrowRight />
+            </button>
+          </form>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex flex-wrap gap-6 md:gap-10 text-lg">
-          {links.map((link) => (
-            <motion.div
-              key={link.label}
-              whileHover={{ y: -2 }}
-              className="relative group"
-            >
-              <Link href={link.href} className="relative">
-                {link.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300" />
-              </Link>
-            </motion.div>
-          ))}
-        </nav>
+        {/* Navigation Links */}
+        {linkSections.map((section) => (
+          <div key={section.title} className="space-y-4">
+            <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
+            <ul className="space-y-2">
+              {section.links.map((link) => (
+                <li key={link.label}>
+                  <motion.div whileHover={{ x: 4 }} className="relative group">
+                    <Link href={link.href} className="text-gray-600 hover:text-blue-600 transition-colors">
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
       {/* Divider */}
-      <div className="h-[1px] bg-gradient-to-r from-purple-600/40 via-pink-500/40 to-purple-600/40 my-12" />
+      <div className="h-px bg-gray-200 my-12" />
 
       {/* Bottom section */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-400">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500">
         <p>© {new Date().getFullYear()} DemandTech. All rights reserved.</p>
 
         {/* Socials */}
         <div className="flex gap-5">
-          <motion.a whileHover={{ scale: 1.2 }} href="#">
-            <FaLinkedin className="w-5 h-5 hover:text-purple-400 transition-colors" />
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+            <FaLinkedin className="w-5 h-5" />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href="#">
-            <FaTwitter className="w-5 h-5 hover:text-purple-400 transition-colors" />
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+            <FaTwitter className="w-5 h-5" />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href="#">
-            <FaInstagram className="w-5 h-5 hover:text-purple-400 transition-colors" />
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+            <FaInstagram className="w-5 h-5" />
           </motion.a>
         </div>
       </div>
-
-      {/* Background glow */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 via-pink-500/10 to-transparent blur-3xl -z-10" />
+      </div>
     </footer>
   );
 }
