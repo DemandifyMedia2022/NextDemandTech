@@ -48,7 +48,7 @@ const stepTitle: Record<StepKey, string> = {
 };
 
 const card = "rounded-3xl bg-white shadow-sm border border-gray-100";
-const field = "block w-full rounded-2xl border-0 bg-gray-50 px-2 py-2 text-gray-900 placeholder-gray-400 ring-1 ring-inset ring-gray-200 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-base";
+const field = "block w-full rounded-xl border-0 bg-gray-50 px-4 py-2 text-gray-900 placeholder-gray-400 ring-1 ring-inset ring-gray-200 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-base";
 const label = "mb-6 text-base font-medium text-gray-700 pl-1";
 
 const stepVariants: Variants = {
