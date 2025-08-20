@@ -18,6 +18,7 @@ import { HeroTitle } from '../../components/ui/HeroTitle';
 import { ScrollAnimations } from '../../components/ui/ScrollAnimations';
 import { AnimatedParagraph } from '../../components/ui/AnimatedParagraph';
 import SimpleGlobe from "@/components/ui/globe";
+import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -86,7 +87,7 @@ export default function HomePage() {
             >
               We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast. We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast.
             </AnimatedParagraph>
-            <div className="actions" >
+            <div className="actions" style={{ marginRight: '50px' }}>
               <Button />
             </div>
           </div>
@@ -217,6 +218,23 @@ export default function HomePage() {
         <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-50px' }}>
           <ProgressiveBlurBentoGrid />
         </div>
+
+        {/*Contact Section */}
+
+        <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '50px', marginLeft: '0px' }}>
+          <GSAPTextReveal
+            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
+            stagger={0.15}
+            duration={1.0}
+            yOffset={80}
+            start="top 75%"
+          >
+            Contact Us
+          </GSAPTextReveal>
+        </div>
+        <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
+      <MultiStepContactForm />
+    </div>
 
         
 

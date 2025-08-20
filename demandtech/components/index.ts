@@ -12,6 +12,7 @@ export { default as NavigationExample } from './ui/NavigationExample';
 export { CardContainer, CardBody, CardItem } from './ui/3d-card';
 export { default as SmoothScroll } from './ui/SmoothScroll';
 export { ProgressiveBlurBentoGrid } from './ui/progressive-blur-bento-grid';
+export { default as MultiStepContactForm } from './ui/MultiStepContactForm';
 
 // Core Components
 export { ProgressiveBlur } from './core/progressive-blur';
