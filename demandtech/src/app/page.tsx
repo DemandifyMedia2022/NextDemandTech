@@ -19,6 +19,7 @@ import { ScrollAnimations } from '../../components/ui/ScrollAnimations';
 import { AnimatedParagraph } from '../../components/ui/AnimatedParagraph';
 import SimpleGlobe from "@/components/ui/globe";
 import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
+import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -239,10 +240,13 @@ export default function HomePage() {
         
 
         {/* Ensure scrollable space after content */}
-        <div style={{ height: '120px' }} />
+        <div style={{ height: '100%',width: '100%' }} />
       </div>
-          
+      {/* <div className="footer-container" style={{ padding: '100px', marginTop: '-50px' }}>
+          <Footer />
+        </div>     */}
     </>
+    
   );
 }
 
