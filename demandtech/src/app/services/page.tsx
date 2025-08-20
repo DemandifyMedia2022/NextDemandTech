@@ -42,9 +42,7 @@ export default function ServicesPage() {
 
 				<p className="mt-6 max-w-2xl text-base sm:text-lg text-gray-700">
 					At Demand Tech, we deliver Intent Qualified Leads powered by real-time intent data,
-					helping you connect with buyers actively searching for your solution. With smarter
-					targeting and verified intent, your team focuses only on high-conversion opportunities—
-					no more cold outreach, just leads that are ready to buy.
+					helping you connect with buyers actively searching for your solution. 
 				</p>
 
 				<div className="mt-10 flex flex-wrap gap-4">

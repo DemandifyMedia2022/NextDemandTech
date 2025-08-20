@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function HeaderNav() {
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 relative flex items-center justify-center">
             <div className="flex justify-center">
                 <SlideTabsExample />
             </div>
