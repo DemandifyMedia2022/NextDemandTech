@@ -40,7 +40,7 @@ export function ProgressiveBentoItem({
             to-transparent = 0% black opacity at bottom-right
             Increase numbers (e.g., /40, /30) for darker overlay
             Decrease numbers (e.g., /15, /10) for lighter overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-transparent" />
         
         {/* 🔧 BACKGROUND BLUR - Adjust blurIntensity value:
             Lower values (1-3) = less blur, more image detail
@@ -59,7 +59,7 @@ export function ProgressiveBentoItem({
             text-white = text color (text-gray-100, text-blue-50, etc.)
             drop-shadow-lg = shadow intensity (drop-shadow-sm, drop-shadow-xl, etc.)
             mb-0 = bottom margin (mb-1, mb-3, mb-4, etc.) */}
-        <h3 className="text-sm sm:text-base lg:text-lg font-light text-white drop-shadow-lg font-neue-montreal">
+        <h3 className="text-sm sm:text-base lg:text-lg font-light text-white drop-shadow-md font-neue-montreal">
           {title}
         </h3>
       </div>
