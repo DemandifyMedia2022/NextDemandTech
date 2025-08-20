@@ -40,7 +40,7 @@ export function ProgressiveBentoItem({
             to-transparent = 0% black opacity at bottom-right
             Increase numbers (e.g., /40, /30) for darker overlay
             Decrease numbers (e.g., /15, /10) for lighter overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-transparent" />
         
         {/* 🔧 BACKGROUND BLUR - Adjust blurIntensity value:
             Lower values (1-3) = less blur, more image detail
@@ -52,7 +52,7 @@ export function ProgressiveBentoItem({
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex h-full flex-col justify-end p-3 sm:p-4 lg:p-6">
+      <div className="relative z-10 flex h-full flex-col justify-end p-3 sm:p-4 lg:p-5">
         {/* 🔧 TITLE STYLING - Customize these values:
             text-base = font size (text-sm, text-lg, text-xl, etc.)
             font-bold = font weight (font-medium, font-semibold, etc.)
