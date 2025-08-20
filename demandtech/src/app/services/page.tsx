@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { SlideTabsExample } from '@/components/ui/SliderTabs'
+import Button3 from '@/components/ui/Button3'
+
 
 export const metadata: Metadata = {
     title: 'Services | DemandTech',
@@ -46,19 +48,15 @@ export default function ServicesPage() {
 				</p>
 
 				<div className="mt-10 flex flex-wrap gap-4">
-					<Link
-						href="/services/demand-generation"
-						className="inline-flex items-center gap-2 rounded-full border border-[#7D7DFF] px-6 py-3 text-base font-medium text-[#1C1C1C] bg-transparent hover:bg-white/70"
-					>
-						<span className="text-[#5B5BFF]">•</span> Demand Generation
-					</Link>
-					<Link
-                            href="/services/marketing"
-						className="inline-flex items-center gap-2 rounded-full border border-[#7D7DFF] px-6 py-3 text-base font-medium text-[#1C1C1C] bg-transparent hover:bg-white/70"
-                        >
-						<span className="text-[#5B5BFF]">•</span> Marketing
-					</Link>
-                </div>
+					<Button3 
+						text="Demand Generation" 
+						href="/services/demand-generation" 
+					/>
+					<Button3 
+						text="Marketing" 
+						href="/services/marketing" 
+					/>
+				</div>
             </div>
         </div>
     )

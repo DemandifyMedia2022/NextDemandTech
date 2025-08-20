@@ -1,5 +1,7 @@
 // UI Components
 export { default as Button } from './ui/Button';
+export { default as Button2 } from './ui/Button2';
+export { default as Button3 } from './ui/Button3';
 export { default as Card1 } from './ui/Card1';
 export { default as DotGrid } from './ui/DotGrid';
 export { default as LogoSlider } from './ui/LogoSlider';
