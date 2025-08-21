@@ -2,7 +2,6 @@ import React from 'react';
 import { cn } from "../../lib/utils";
 import { ProgressiveBlur } from "../core/progressive-blur";
 
-
 interface ProgressiveBentoItemProps {
   title: string;
   imageSrc: string;
@@ -125,5 +124,57 @@ export function ProgressiveBlurBentoGrid() {
         className="sm:col-span-2 lg:col-span-2 xl:col-span-2 2xl:col-span-2"
       />
     </div>
+    );
+  }
+
+ export function ProgressiveBlurBentoGridV2() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
+      
+      {/* LEFT COLUMN */}
+      <div className="grid grid-rows-2 gap-6">
+        {/* Large card on top */}
+        <ProgressiveBentoItem
+          title="Brand Awareness and Display Campaign"
+          imageSrc="/image1.jpeg"
+          className="row-span-1"
+        />
+
+        {/* Two small cards below */}
+        <div className="grid grid-cols-2 gap-6">
+          <ProgressiveBentoItem
+            title="Small Campaign 1"
+            imageSrc="/image2.jpeg"
+          />
+          <ProgressiveBentoItem
+            title="Small Campaign 2"
+            imageSrc="/image3.jpeg"
+          />
+        </div>
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <div className="grid grid-rows-2 gap-6">
+        {/* Two small cards on top */}
+        <div className="grid grid-cols-2 gap-6">
+          <ProgressiveBentoItem
+            title="Small Campaign 3"
+            imageSrc="/LNP.png"
+          />
+          <ProgressiveBentoItem
+            title="Small Campaign 4"
+            imageSrc="/MTCS.png"
+          />
+        </div>
+
+        {/* Large card on bottom */}
+        <ProgressiveBentoItem
+          title="Brand Awareness and Display Campaign"
+          imageSrc="/webinar.png"
+          className="row-span-1"
+        />
+      </div>
+    </div>
   );
 }
+  

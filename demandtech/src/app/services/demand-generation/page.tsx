@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Button3 from '@/components/ui/Button3'
-import Card1 from '@/components/ui/Card1' // 👈 Import your Card1 component
+
 import Card2 from '@/components/ui/Card2'
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function DemandGenerationPage() {
 
                 {/* Heading */}
                 <h1
-                    className="text-[#574BEF] font-bold"
+                    className="text-[#574BEF]"
                     style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '52px', lineHeight: '1.2' }}
                 >
                     Demand Generation
@@ -24,7 +24,7 @@ export default function DemandGenerationPage() {
 
                 {/* Subheading */}
                 <h2
-                    className="mt-4 text-black font-semibold"
+                    className="mt-4 text-black"
                     style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '44px', lineHeight: '1.3' }}
                 >
                     That Turns Interest into Revenue
@@ -58,13 +58,13 @@ export default function DemandGenerationPage() {
                 {/* Section Title */}
                 <div className="mt-20 flex justify-center items-center gap-3">
                     <span
-                        className="font-semibold text-black"
+                        className="text-black"
                         style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
                     >
                         Areas of
                     </span>
                     <span
-                        className="font-semibold text-[#2717E8]"
+                        className="text-[#2717E8]"
                         style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
                     >
                         Focus
@@ -77,7 +77,7 @@ export default function DemandGenerationPage() {
                         {/* Left Side - Text */}
                         <div className="text-left">
                             <h2
-                                className="font-bold text-black mb-4"
+                                className="text-black mb-4"
                                 style={{
                                     fontFamily: 'Clash Display, sans-serif',
                                     fontSize: '30px',
@@ -160,7 +160,7 @@ export default function DemandGenerationPage() {
                         {/* Left Side - Text */}
                         <div className="text-left">
                             <h2
-                                className="font-bold text-black mb-4"
+                                className="text-black mb-4"
                                 style={{
                                     fontFamily: 'Clash Display, sans-serif',
                                     fontSize: '30px',
@@ -243,7 +243,7 @@ export default function DemandGenerationPage() {
                         {/* Left Side - Text */}
                         <div className="text-left">
                             <h2
-                                className="font-bold text-black mb-4"
+                                className="text-black mb-4"
                                 style={{
                                     fontFamily: 'Clash Display, sans-serif',
                                     fontSize: '30px',
@@ -327,7 +327,7 @@ export default function DemandGenerationPage() {
                         {/* Left Side - Text */}
                         <div className="text-left">
                             <h2
-                                className="font-bold text-black mb-4"
+                                className="text-black mb-4"
                                 style={{
                                     fontFamily: 'Clash Display, sans-serif',
                                     fontSize: '30px',

@@ -1,4 +1,7 @@
 import { Metadata } from 'next'
+import Button3 from '@/components/ui/Button3'
+import Card2 from '@/components/ui/Card2'
+import { ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'  // ✅ import your second grid
 
 export const metadata: Metadata = {
     title: 'Marketing Solutions | DemandTech',
@@ -8,79 +11,80 @@ export const metadata: Metadata = {
 export default function MarketingPage() {
     return (
         <div className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                        Marketing Solutions
-                    </h1>
-                    <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        Build your brand and engage customers with our comprehensive marketing strategies designed for the modern digital landscape.
-                    </p>
-                </div>
+            <div className="bg-[#F6F7FB] py-16">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+                    <div className="flex">
+                        <Card2 imageSrc="/creative Edge.png" alt="creative edge" />
+                    </div>
 
-                <div className="mt-16">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Content Marketing</h3>
-                            <p className="text-gray-600 mb-4">Create compelling content that resonates with your audience and drives engagement.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Blog content strategy</li>
-                                <li>• Video marketing</li>
-                                <li>• Social media content</li>
-                            </ul>
-                        </div>
+                    <div className="text-center">
+                        <span
+                            className="text-black mb-4"
+                            style={{
+                                fontFamily: 'Clash Display, sans-serif',
+                                fontSize: '55px',
+                            }}
+                        >
+                            Your B2B{' '}
+                        </span>
+                        <span
+                            className="text-[#2717E8]"
+                            style={{
+                                fontFamily: 'Clash Display, sans-serif',
+                                fontSize: '55px',
+                            }}
+                        >
+                            Creative Edge
+                        </span>
 
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Digital Advertising</h3>
-                            <p className="text-gray-600 mb-4">Reach your target audience with precision-targeted digital advertising campaigns.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Google Ads management</li>
-                                <li>• Social media advertising</li>
-                                <li>• Display advertising</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Marketing</h3>
-                            <p className="text-gray-600 mb-4">Nurture leads and maintain customer relationships with strategic email campaigns.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Automated workflows</li>
-                                <li>• Newsletter campaigns</li>
-                                <li>• Lead nurturing sequences</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">SEO & SEM</h3>
-                            <p className="text-gray-600 mb-4">Improve your online visibility and drive organic traffic to your website.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Technical SEO audits</li>
-                                <li>• Keyword research</li>
-                                <li>• Search engine marketing</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Brand Strategy</h3>
-                            <p className="text-gray-600 mb-4">Develop a strong brand identity that differentiates you from competitors.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Brand positioning</li>
-                                <li>• Visual identity design</li>
-                                <li>• Brand messaging</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Marketing Automation</h3>
-                            <p className="text-gray-600 mb-4">Streamline your marketing processes with intelligent automation tools.</p>
-                            <ul className="text-sm text-gray-500 space-y-1">
-                                <li>• Lead scoring</li>
-                                <li>• Campaign automation</li>
-                                <li>• Customer journey mapping</li>
-                            </ul>
-                        </div>
+                        <p
+                            className="text-gray-600 leading-relaxed mb-6 text-center"
+                            style={{
+                                fontFamily: 'Neue Montreal, sans-serif',
+                                fontSize: '16px',
+                            }}
+                        >
+                            In a world where attention spans are short and digital channels are
+                            overflowing with noise, standing out isn’t optional—it’s essential.
+                            At DemandTech, we create scroll-stopping, conversion-driven content
+                            that captures attention, sparks engagement, and positions your brand
+                            as the one to watch. We don’t just make prospects pause—we make them
+                            take action.
+                        </p>
                     </div>
                 </div>
+            </div>
+
+
+            <div className="mt-20 flex flex-col justify-center items-center text-center">
+                <div>
+                    <span
+                        className="text-black"
+                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                    >
+                        Your one-stop-shop for
+                    </span>
+                </div>
+                <div>
+                    <span
+                        className="text-[#2717E8]"
+                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                    >
+                        B2B content
+                    </span>
+                </div>
+                <p
+                    className="text-gray-600"
+                    style={{ fontFamily: 'Neue Montreal, sans-serif', fontSize: '18px' }}
+                >
+                    From SEO to LinkedIn Thoughtleadership, and everything in between.
+                </p>
+
+            </div>
+
+            {/* ✅ Add your second grid here */}
+            <div className="bento-grid-container" style={{ padding: '100px', }}>
+                <ProgressiveBlurBentoGridV2 />
             </div>
         </div>
     )
