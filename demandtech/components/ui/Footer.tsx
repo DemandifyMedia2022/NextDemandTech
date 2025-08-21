@@ -40,7 +40,7 @@ export default function Footer() {
 
 <footer className="relative bg-#F0F1FA text-gray-800 pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-8 md:px-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
         {/* Logo + Newsletter */}
         <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-1">
           <h1 className="text-4xl font-bold tracking-tight">
@@ -53,11 +53,15 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
             />
             <button
               type="submit"
-              className="px-4 py-3 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-all"
+              className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
+              style={{
+                borderRadius: '50%',
+                marginLeft: '10px',
+              }}
             >
               <FaArrowRight />
             </button>
