@@ -242,9 +242,7 @@ export default function HomePage() {
         {/* Ensure scrollable space after content */}
         <div style={{ height: '100%',width: '100%' }} />
       </div>
-      <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
-          <Footer />
-        </div>    
+         
     </>
     
   );

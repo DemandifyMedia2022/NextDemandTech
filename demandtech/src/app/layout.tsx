@@ -3,6 +3,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import { SmoothScroll } from "../../components";
 import HeaderNav from "@/components/ui/HeaderNav";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -45,6 +46,9 @@ export default function RootLayout({
         <HeaderNav />
         <main>{children}</main>
         {/* Footer component will be added here */}
+        <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
+          <Footer />
+        </div> 
       </body>
     </html>
   );
