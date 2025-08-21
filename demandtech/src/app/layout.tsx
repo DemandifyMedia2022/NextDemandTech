@@ -4,6 +4,7 @@ import "lenis/dist/lenis.css";
 import { SmoothScroll } from "../../components";
 import HeaderNav from "@/components/ui/HeaderNav";
 import Footer from "@/components/ui/Footer";
+import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
   title: {
@@ -36,19 +37,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className="font-inter antialiased">
-        <SmoothScroll />
-        <HeaderNav />
-        <main>{children}</main>
-        {/* Footer component will be added here */}
-        <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
-          <Footer />
-        </div> 
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

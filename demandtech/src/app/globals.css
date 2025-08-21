@@ -131,3 +131,27 @@ h2{
   font-family: 'Clash Display';
   font-weight: 500;
 }
+
+/* === Preloader utilities and keyframes === */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent scrolling when preloader is active */
+.preloader-active {
+  overflow: hidden;
+  height: 100vh;
+}
