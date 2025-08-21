@@ -1,0 +1,73 @@
+.icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+    color: #ffffff;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 22px;
+}
+
+.buttonContainer.secondary .iconContainer {
+    right: auto;
+    left: 22px;
+}
+
+.title {
+    font-family: Clash Display;
+    font-size: 16px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    z-index: 1;
+    position: relative;
+    min-width: fit-content;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 12px 32px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    min-width: 140px;
+    transition: all 0.2s ease;
+}
+
+.buttonContainer:hover {
+    border-color: #0a00c1;
+}
+
+.buttonContainer.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.buttonContainer.secondary {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #374151;
+}
+
+.buttonContainer.secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #9ca3af;
+}
+
+.circle {
+    width: 6px;
+    height: 6px;
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    left: 22px;
+}

@@ -118,3 +118,16 @@ button:focus-visible {
 .font-inter {
   font-family: var(--font-inter);
 }
+.font-clash {
+  font-family: 'Clash Display', sans-serif;
+}
+
+.font-neu{
+  font-family: 'Neue Montreal', sans-serif;
+
+}
+
+h2{
+  font-family: 'Clash Display';
+  font-weight: 500;
+}
