@@ -133,7 +133,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
         </div>
 
         <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-          <div className="text-blue-500 text-md tracking-widest mb-3 md:mb-4">
+          <div className="text-blue-500 text-2xl tracking-widest mb-3 md:mb-4">
             CRAFTING DIGITAL EXCELLENCE
           </div>
           
