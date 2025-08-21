@@ -48,7 +48,7 @@ export default function FAQ() {
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+            className="rounded-2xl border-gray-200 bg-white shadow-sm overflow-hidden"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
