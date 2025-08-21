@@ -17,7 +17,7 @@ export default function DemandGenerationPage() {
                 {/* Heading */}
                 <h1
                     className="text-[#574BEF]"
-                    style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '52px', lineHeight: '1.2' }}
+                    style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '92px', lineHeight: '1.2' }}
                 >
                     Demand Generation
                 </h1>
@@ -25,7 +25,7 @@ export default function DemandGenerationPage() {
                 {/* Subheading */}
                 <h2
                     className="mt-4 text-black"
-                    style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '44px', lineHeight: '1.3' }}
+                    style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px', lineHeight: '1.3' }}
                 >
                     That Turns Interest into Revenue
                 </h2>
@@ -59,13 +59,13 @@ export default function DemandGenerationPage() {
                 <div className="mt-20 flex justify-center items-center gap-3">
                     <span
                         className="text-black"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '70px' }}
                     >
                         Areas of
                     </span>
                     <span
                         className="text-[#2717E8]"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '70px' }}
                     >
                         Focus
                     </span>
@@ -73,8 +73,7 @@ export default function DemandGenerationPage() {
                 {/* Areas Of Success Content */}
                 <div className="bg-[#F6F7FB] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-
-                        {/* Left Side - Text */}
+                    {/* Left Side - Text */}
                         <div className="text-left">
                             <h2
                                 className="text-black mb-4"
@@ -128,7 +127,7 @@ export default function DemandGenerationPage() {
                             <h2
                                 className="text-black mb-4"
                                 style={{
-                                    fontFamily: 'Abhaya Libre',
+                                    fontFamily: 'Clash Display, sans-serif',
                                     fontSize: '30px',
                                 }}
                             >

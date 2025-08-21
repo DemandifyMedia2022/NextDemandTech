@@ -32,15 +32,15 @@ export function ProgressiveBentoItem({
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 sm:group-hover:scale-110"
         />
-        
+
         {/* 🔧 DARKNESS OVERLAY - Adjust these values to control darkness:
             from-black/25 = 25% black opacity at top-left
             via-black/15 = 15% black opacity in middle  
             to-transparent = 0% black opacity at bottom-right
             Increase numbers (e.g., /40, /30) for darker overlay
             Decrease numbers (e.g., /15, /10) for lighter overlay */}
-        {/* <div className="absolute inset-0 bg-white/15" /> */}
-        
+        <div className="absolute inset-0 bg-transparent" />
+
         {/* 🔧 BACKGROUND BLUR - Adjust blurIntensity value:
             Lower values (1-3) = less blur, more image detail
             Higher values (5-8) = more blur, less image detail */}
@@ -124,13 +124,14 @@ export function ProgressiveBlurBentoGrid() {
         className="sm:col-span-2 lg:col-span-2 xl:col-span-2 2xl:col-span-2"
       />
     </div>
-    );
-  }
+  );
+}
 
- export function ProgressiveBlurBentoGridV2() {
+export function ProgressiveBlurBentoGridV2() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
-      
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full 
+    auto-rows-[600px] sm:auto-rows-[640px] lg:auto-rows-[680px]">
+
       {/* LEFT COLUMN */}
       <div className="grid grid-rows-2 gap-6">
         {/* Large card on top */}
@@ -173,8 +174,10 @@ export function ProgressiveBlurBentoGrid() {
           imageSrc="/webinar.png"
           className="row-span-1"
         />
+        
       </div>
     </div>
+
   );
 }
-  
+
