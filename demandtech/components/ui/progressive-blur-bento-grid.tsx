@@ -39,7 +39,7 @@ export function ProgressiveBentoItem({
             to-transparent = 0% black opacity at bottom-right
             Increase numbers (e.g., /40, /30) for darker overlay
             Decrease numbers (e.g., /15, /10) for lighter overlay */}
-        <div className="absolute inset-0 bg-transparent" />
+        {/* <div className="absolute inset-0 bg-white/15" /> */}
         
         {/* 🔧 BACKGROUND BLUR - Adjust blurIntensity value:
             Lower values (1-3) = less blur, more image detail

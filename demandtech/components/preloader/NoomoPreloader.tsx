@@ -113,29 +113,29 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
             </div>
           </div>
 
-          <div className="flex justify-between items-center text-xs md:text-sm">
+          {/* <div className="flex justify-between items-center text-xs md:text-sm">
             <span className="text-blue-500 tracking-wider">
               {currentPhase === 'loading' ? 'LOADING' : currentPhase === 'complete' ? 'COMPLETE' : 'LAUNCHING'}
             </span>
-            {/* <span className="text-blue-500 font-mono text-base md:text-lg">
+            <span className="text-blue-500 font-mono text-base md:text-lg">
               {Math.round(progress)}%
-            </span> */}
-          </div>
+            </span>
+          </div> */}
 
-          <div className="text-blue-500 text-xs tracking-wider h-3 md:h-4">
+          {/* <div className="text-blue-500 text-xs tracking-wider h-3 md:h-4">
             {progress < 20 && "INITIALIZING EXPERIENCE..."}
             {progress >= 20 && progress < 40 && "LOADING ASSETS..."}
             {progress >= 40 && progress < 60 && "PREPARING INTERFACE..."}
             {progress >= 60 && progress < 80 && "OPTIMIZING PERFORMANCE..."}
             {progress >= 80 && progress < 100 && "FINALIZING..."}
             {progress >= 100 && currentPhase === 'complete' && "READY TO LAUNCH"}
-          </div>
-        </div>
+          </div> */}
+        {/* </div>
 
         <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
           <div className="text-blue-500 text-2xl tracking-widest mb-3 md:mb-4">
             CRAFTING DIGITAL EXCELLENCE
-          </div>
+          </div> */}
           
           <div className="flex space-x-1 justify-center">
             {[...Array(3)].map((_, i) => (
