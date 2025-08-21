@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { SlideTabsExample } from '@/components/ui/SliderTabs'
 import Button3 from '@/components/ui/Button3'
-
+import LogoSlider from '../../../components/ui/LogoSlider'
 
 export const metadata: Metadata = {
     title: 'Services | DemandTech',
@@ -56,6 +56,9 @@ export default function ServicesPage() {
 					/>
 				</div>
             </div>
+			<div className="logo-slider-container my-20 sm:my-16 xs:my-10">
+  					<LogoSlider />
+			</div>
         </div>
     )
 }
