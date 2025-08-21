@@ -82,7 +82,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
-        {showBrand && (
+        {/* {showBrand && (
           <div className={`mb-8 md:mb-12 transition-all duration-1000 ${
             currentPhase === 'complete' ? 'scale-110 opacity-100' : 'scale-100 opacity-70'
           }`}>
@@ -97,13 +97,13 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
             </h1>
             
           </div>
-        )}
+        )} */}
 
         <div className="w-full max-w-xs md:max-w-md space-y-6 md:space-y-8">
           <div className="relative">
-            <div className="w-full h-px bg-zinc-800">
+            <div className="w-full h-px bg-white">
               <div 
-                className="h-full bg-gradient-to-r from-black via-zinc-300 to-white transition-all duration-300 ease-out relative"
+                className="h-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-300 transition-all duration-300 ease-out relative"
                 style={{ width: `${progress}%` }}
               >
                 <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
@@ -114,15 +114,15 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
           </div>
 
           <div className="flex justify-between items-center text-xs md:text-sm">
-            <span className="text-zinc-500 tracking-wider">
+            <span className="text-blue-500 tracking-wider">
               {currentPhase === 'loading' ? 'LOADING' : currentPhase === 'complete' ? 'COMPLETE' : 'LAUNCHING'}
             </span>
-            <span className="text-white font-mono text-base md:text-lg">
+            {/* <span className="text-blue-500 font-mono text-base md:text-lg">
               {Math.round(progress)}%
-            </span>
+            </span> */}
           </div>
 
-          <div className="text-zinc-600 text-xs tracking-wider h-3 md:h-4">
+          <div className="text-blue-500 text-xs tracking-wider h-3 md:h-4">
             {progress < 20 && "INITIALIZING EXPERIENCE..."}
             {progress >= 20 && progress < 40 && "LOADING ASSETS..."}
             {progress >= 40 && progress < 60 && "PREPARING INTERFACE..."}
@@ -133,7 +133,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
         </div>
 
         <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-          <div className="text-zinc-600 text-md tracking-widest mb-3 md:mb-4">
+          <div className="text-blue-500 text-md tracking-widest mb-3 md:mb-4">
             CRAFTING DIGITAL EXCELLENCE
           </div>
           
@@ -141,7 +141,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
             {[...Array(3)].map((_, i) => (
               <div
                 key={i}
-                className={`w-1 h-1 bg-zinc-600 rounded-full transition-all duration-500 ${
+                className={`w-1 h-1 bg-blue-500 rounded-full transition-all duration-500 ${
                   Math.floor((progress / 33.33)) > i ? 'opacity-100 scale-100' : 'opacity-30 scale-75'
                 }`}
                 style={{ 
