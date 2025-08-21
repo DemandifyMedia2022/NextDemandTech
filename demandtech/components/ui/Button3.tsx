@@ -66,7 +66,16 @@ const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
     
     if (href) {
         return (
-            <Link href={href} className="inline-block">
+            <Link
+                href={href}
+                className="inline-block"
+                onClick={() => {
+                    // Dispatch a custom event so the layout can show preloader before navigation
+                    if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new Event('show-preloader'));
+                    }
+                }}
+            >
                 {content}
             </Link>
         );

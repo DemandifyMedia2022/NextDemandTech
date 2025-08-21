@@ -16,7 +16,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
   onComplete,
   duration = 3000,
   showBrand = true,
-  brandName = "NOOMO",
+  brandName = "DEMAND TECH",
   brandSubtitle = "DIGITAL EXPERIENCES"
 }) => {
   const [progress, setProgress] = useState(0);
@@ -66,7 +66,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
     return null;
   }
 
-  return (
+  return (    
     <div className={`fixed inset-0 z-[9999] bg-white transition-all duration-800 ${
       currentPhase === 'exit' ? 'translate-y-full' : 'translate-y-0'
     }`}>
@@ -82,7 +82,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
-        {/* {showBrand && (
+        {showBrand && (
           <div className={`mb-8 md:mb-12 transition-all duration-1000 ${
             currentPhase === 'complete' ? 'scale-110 opacity-100' : 'scale-100 opacity-70'
           }`}>
@@ -92,14 +92,12 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
               <div className="absolute inset-3 md:inset-4 bg-white rounded-full animate-pulse" />
             </div>
             
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-white tracking-[0.2em] mb-1 md:mb-2">
-              {brandName}
+            <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-blue tracking-[0.2em] mb-1 md:mb-2">
+              DemandTech
             </h1>
-            <p className="text-zinc-400 text-xs md:text-sm tracking-widest">
-              {brandSubtitle}
-            </p>
+            
           </div>
-        )} */}
+        )}
 
         <div className="w-full max-w-xs md:max-w-md space-y-6 md:space-y-8">
           <div className="relative">
@@ -135,7 +133,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
         </div>
 
         <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-          <div className="text-zinc-600 text-xs tracking-widest mb-3 md:mb-4">
+          <div className="text-zinc-600 text-md tracking-widest mb-3 md:mb-4">
             CRAFTING DIGITAL EXCELLENCE
           </div>
           
