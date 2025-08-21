@@ -161,7 +161,7 @@ export default function HomePage() {
       </div >
 
       {/* Globe Section */}
-      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '150px', marginLeft: '500px' }}>
+      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '150px', marginLeft: '600px' }}>
           <GSAPTextReveal
             style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
             stagger={0.15}
@@ -172,7 +172,7 @@ export default function HomePage() {
             Global Reach
           </GSAPTextReveal>
         </div>
-        <div className='globe-title2' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-40px', marginLeft: '500px' }}>
+        <div className='globe-title2' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-40px', marginLeft: '600px' }}>
           <GSAPTextReveal
             style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf7' }}
             stagger={0.15}
@@ -186,6 +186,32 @@ export default function HomePage() {
       <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', margin: '-250px -500px' }}>
         <div style={{ width: '1200px', height: '1200px' }}>
           <SimpleGlobe globeConfig={globeConfig} />
+        </div>
+        <div style={{
+    width: '600px',
+    height: '600px',
+    borderRadius: '20px',
+    marginLeft: '60px',
+    marginTop: '350px',
+    padding: '20px',
+    marginRight: '300px',
+
+    // Liquid glass core effect
+    background: `
+      linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(173, 173, 173, 0.05) 100%),
+      radial-gradient(circle at top left, rgba(255,255,255,0.4) 0%, transparent 70%),
+      rgba(255, 255, 255, 0.1)
+    `,
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+
+    // Depth and shine
+    boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37), inset 0 0 20px rgba(255,255,255,0.2)',
+  }}>        
+          <p style={{ fontFamily: 'Clash Display', fontSize: '36px', textAlign: 'center', color: '#1D00F8', marginTop:'100px' }}>At DemandTech, we believe growth knows no boundaries.  </p>
+          <p style={{ fontFamily: 'Neue Montreal', fontSize: '18px', textAlign: 'center', color: '#000000', marginTop:'50px' }}>That’s why our solutions are designed to support businesses across the globe—helping companies expand their presence, generate demand, and connect with buyers wherever they are.
+          We proudly deliver services in North America, Asia Pacific, the Middle East, Europe, and Africa, ensuring that our clients benefit from a truly international approach.</p>
         </div>
       </div>
 

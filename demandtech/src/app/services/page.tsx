@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { SlideTabsExample } from '@/components/ui/SliderTabs'
 import Button3 from '@/components/ui/Button3'
 import LogoSlider from '../../../components/ui/LogoSlider'
+import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation'
 
 export const metadata: Metadata = {
     title: 'Services | DemandTech',
@@ -58,6 +59,44 @@ export default function ServicesPage() {
             </div>
 			<div className="logo-slider-container my-20 sm:my-16 xs:my-10">
   					<LogoSlider />
+			</div>
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14 ">
+				<BackgroundGradientAnimation>
+					<div className="px-5 py-5 md:px-12 md:py-14 lg:px-16 lg:py-20 text-white">
+						<p className="text-sm uppercase tracking-wide opacity-90 font-light font-clash">Lead Nurture Program</p>
+						<div className="mt-3 font-clash max-w-5xl leading-tight tracking-tight text-[44px] md:text-[56px] lg:text-[64px] transition-colors duration-300 hover:text-[#C7D0FF]">
+							Turning Prospects into Loyal Customers, One Step at a Time.
+						</div>
+						<div className="mt-6 max-w-5xl space-y-4 text-white/85 text-sm md:text-base">
+							<p>
+								At DemandTech, our Lead Nurture Program is designed to build meaningful connections with prospects and guide them seamlessly through every stage of the buyer’s journey. We go beyond simply generating leads—we focus on educating, engaging, and building trust, ensuring your prospects are equipped with the knowledge and confidence to make informed purchase decisions.
+							</p>
+							<p>
+								Our data-driven strategy uses advanced analytics and behavioral insights to tailor every interaction, ensuring it’s timely, relevant, and personalized to each prospect’s unique needs. By delivering the right message at the right time, we keep your brand top-of-mind, positioning you as the trusted, go-to solution when the buying decision happens.
+							</p>
+							<p>
+								From welcome sequences and targeted email campaigns to thought leadership content, product education, and event invitations, our nurturing flows are built to anticipate prospect needs, address objections, and create a natural path toward conversion.
+							</p>
+						</div>
+
+						<div className="mt-12 md:mt-14">
+							<div className="relative pt-6 md:pt-8">
+								{/* Slanted separators matching the reference design */}
+								<div className="hidden md:block absolute inset-0 pointer-events-none" aria-hidden="true">
+									<span className="absolute top-0 left-[25%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+									<span className="absolute top-0 left-[50%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+									<span className="absolute top-0 left-[75%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+								</div>
+								<div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-0 items-start text-center">
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Segmentation & Targeting</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Personalized Content Journey</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Multi-Channel Engagement</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Behaviour Tracking</p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</BackgroundGradientAnimation>
 			</div>
         </div>
     )
