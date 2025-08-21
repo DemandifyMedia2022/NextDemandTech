@@ -1,141 +1,103 @@
 import { Metadata } from 'next'
-import Card2 from '@/components/ui/Card2'
-import { ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'  // ✅ import your second grid
-import Faq from '@/components/ui/faq';
+import Link from 'next/link'
+import { SlideTabsExample } from '@/components/ui/SliderTabs'
+import Button3 from '@/components/ui/Button3'
+import LogoSlider from '../../../components/ui/LogoSlider'
+import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation'
+
 export const metadata: Metadata = {
-    title: 'Marketing Solutions | DemandTech',
-    description: 'Comprehensive marketing strategies that build brand awareness and drive customer engagement.',
+    title: 'Services | DemandTech',
+    description: 'Explore our comprehensive range of services designed to accelerate your business growth.',
 }
 
-export default function MarketingPage() {
+export default function ServicesPage() {
     return (
-        <div className="min-h-screen bg-[#F6F7FB]">
-            <div className="py-16">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
-                    <div className="flex">
-                        <Card2 imageSrc="/creative Edge.png" alt="creative edge" />
-                    </div>
-
-                    <div className="text-center">
-                        <span
-                            className="text-black mb-4"
-                            style={{
-                                fontFamily: 'Clash Display, sans-serif',
-                                fontSize: '55px',
-                            }}
-                        >
-                            Your B2B
-                        </span>
-                        <span
-                            className="text-[#2717E8] font-clash"
-                            style={{
-
-                                fontSize: '55px',
-                            }}
-                        >
-                            Creative Edge
-                        </span>
-
-                        <p
-                            className="text-gray-600 leading-relaxed mb-6 text-center font-neu"
-                            style={{
-
-                                fontSize: '18px',
-                            }}
-                        >
-                            In a world where attention spans are short and digital channels are
-                            overflowing with noise, standing out isn’t optional—it’s essential.
-                            At DemandTech, we create scroll-stopping, conversion-driven content
-                            that captures attention, sparks engagement, and positions your brand
-                            as the one to watch. We don’t just make prospects pause—we make them
-                            take action.
-                        </p>
-                    </div>
+		<div className="min-h-screen bg-[#F0F1FA]">
+			{/* Top navigation bar with slider tabs and CTA */}
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 relative flex items-center justify-center">
+				
+				
                 </div>
-            </div>
 
+			{/* Hero section */}
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14">
+				<p className="text-2xl sm:text-3xl text-gray-900" style={{ fontFamily: 'Clash Display, sans-serif' }}>
+					<span className="font-regular ">Stop Guessing. </span>{' '}
+					<span className="text-[#5B5BFF] font-regular">Start Closing</span>
+				</p>
 
-            <div className="mt-20 flex flex-col justify-center items-center text-center">
-                <div>
-                    <span
-                        className="text-black font-clash"
-                        style={{ fontSize: '55px' }}
-                    >
-                        Your one-stop-shop for
-                    </span>
-                </div>
-                <div>
-                    <span
-                        className="text-[#2717E8] font-clash"
-                        style={{ fontSize: '55px' }}
-                    >
-                        B2B content
-                    </span>
-                </div>
-                <p
-                    className="text-gray-600 font-neu"
-                    style={{ fontSize: '18px' }}
+				<h1
+                  className="mt-4 leading-tight tracking-tight text-gray-900"
+                  style={{
+                    fontFamily: 'Clash Display, sans-serif',
+                    fontSize: '92px', // Set exact font size
+                    lineHeight: '1.1', // Adjust line-height to match
+                  }}
                 >
-                    From SEO to LinkedIn Thoughtleadership, and everything in between.
-                </p>
+                  <span className="block">Turn Buyer Intent</span>
+                  <span className="block">
+                    into <span className="text-[#5B5BFF]">Sales-Ready</span>
+                  </span>
+                  <span className="block">Opportunity</span>
+                </h1>
 
+				<p className="mt-6 max-w-2xl text-base sm:text-lg text-gray-700">
+					At Demand Tech, we deliver Intent Qualified Leads powered by real-time intent data,
+					helping you connect with buyers actively searching for your solution. 
+				</p>
+
+				<div className="mt-10 flex flex-wrap gap-4">
+					<Button3 
+						text="Demand Generation" 
+						href="/services/demand-generation" 
+					/>
+					<Button3 
+						text="Marketing" 
+						href="/services/marketing" 
+					/>
+				</div>
             </div>
+			<div className="logo-slider-container my-20 sm:my-16 xs:my-10">
+  					<LogoSlider />
+			</div>
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14 ">
+				<BackgroundGradientAnimation>
+					<div className="px-5 py-5 md:px-12 md:py-14 lg:px-16 lg:py-20 text-white">
+						<p className="text-sm uppercase tracking-wide opacity-90 font-light font-clash">Lead Nurture Program</p>
+						<div className="mt-3 font-clash max-w-5xl leading-tight tracking-tight text-[44px] md:text-[56px] lg:text-[64px] transition-colors duration-300 hover:text-[#C7D0FF]">
+							Turning Prospects into Loyal Customers, One Step at a Time.
+						</div>
+						<div className="mt-6 max-w-5xl space-y-4 text-white/85 text-sm md:text-base">
+							<p>
+								At DemandTech, our Lead Nurture Program is designed to build meaningful connections with prospects and guide them seamlessly through every stage of the buyer’s journey. We go beyond simply generating leads—we focus on educating, engaging, and building trust, ensuring your prospects are equipped with the knowledge and confidence to make informed purchase decisions.
+							</p>
+							<p>
+								Our data-driven strategy uses advanced analytics and behavioral insights to tailor every interaction, ensuring it’s timely, relevant, and personalized to each prospect’s unique needs. By delivering the right message at the right time, we keep your brand top-of-mind, positioning you as the trusted, go-to solution when the buying decision happens.
+							</p>
+							<p>
+								From welcome sequences and targeted email campaigns to thought leadership content, product education, and event invitations, our nurturing flows are built to anticipate prospect needs, address objections, and create a natural path toward conversion.
+							</p>
+						</div>
 
-            {/* ✅ Add your second grid here */}
-            <div className="bento-grid-container" style={{ padding: '50px', }}>
-                <ProgressiveBlurBentoGridV2 />
-            </div>
-
-
-            <div className="bg-[#F6F7FB] py-16">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-                    <div>
-                        <span
-                            className="font-semibold text-black mb-4 font-clash"
-                            style={{
-
-                                fontSize: '40px',
-                            }}
-                        >
-                            We Know How To Grab Your
-                        </span>
-
-                        <span
-                            className="font-semibold text-[#2717E8] font-clash"
-                            style={{
-
-                                fontSize: '40px',
-                            }}
-                        >
-                        Prospect's Attention
-                        </span>
-
-                        <p
-                            className="text-gray-600 leading-relaxed mb-6 mt-10 font-neu"
-                            style={{
-                            fontSize: '20px',
-                            }}
-                        >
-                            Attention spans are shrinking, and social media is more crowded than ever.
-                            Now’s the time for content and creative that truly stands out.
-                            We’ll make your prospects stop scrolling.
-                        </p>
-                    </div>
-
-                    {/* Right Side - Image (Card2) */}
-                    <div className="flex justify-center ">
-                        <Card2
-                            imageSrc="/creative Edge.png"
-                            alt="Brand Awareness"
-                        />
-                    </div>
-                </div>
-                <div className="max-w-2xl mx-auto py-12">
-          <Faq />
-    </div>
-            </div>
+						<div className="mt-12 md:mt-14">
+							<div className="relative pt-6 md:pt-8">
+								{/* Slanted separators matching the reference design */}
+								<div className="hidden md:block absolute inset-0 pointer-events-none" aria-hidden="true">
+									<span className="absolute top-0 left-[25%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+									<span className="absolute top-0 left-[50%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+									<span className="absolute top-0 left-[75%] h-[120px] w-[2px] bg-white/60 origin-top rotate-[8deg]"></span>
+								</div>
+								<div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-0 items-start text-center">
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Segmentation & Targeting</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Personalized Content Journey</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Multi-Channel Engagement</p></div>
+									<div className="px-4"><p className="font-clash text-[17px] md:text-[18px] leading-snug">Behaviour Tracking</p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</BackgroundGradientAnimation>
+			</div>
         </div>
-
-
     )
 }
