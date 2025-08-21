@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function DemandGenerationPage() {
     return (
-        <div className="min-h-screen bg-[#F6F7FB]">
+        <div className="min-h-screen bg-[#F0F1FA]">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
 
                 {/* Heading */}
@@ -71,7 +71,7 @@ export default function DemandGenerationPage() {
                     </span>
                 </div>
                 {/* Areas Of Success Content */}
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                     {/* Left Side - Text */}
                         <div className="text-left">
@@ -113,7 +113,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         <div className="flex">
@@ -153,7 +153,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         {/* Left Side - Text */}
@@ -196,7 +196,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         <div className="flex">
@@ -236,7 +236,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         {/* Left Side - Text */}
@@ -280,7 +280,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         <div className="flex">
@@ -320,7 +320,7 @@ export default function DemandGenerationPage() {
                     </div>
                 </div>
 
-                <div className="bg-[#F6F7FB] py-16">
+                <div className="bg-[#F0F1FA] py-16">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
                         {/* Left Side - Text */}

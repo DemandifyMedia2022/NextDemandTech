@@ -14,7 +14,7 @@ export default function ServicesPage() {
     return (
 		<div className="min-h-screen bg-[#F0F1FA]">
 			{/* Top navigation bar with slider tabs and CTA */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 relative flex items-center justify-center">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 relative flex items-center justify-center ">
 				
 				
                 </div>
