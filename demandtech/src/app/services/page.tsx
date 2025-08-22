@@ -64,11 +64,11 @@ export default function ServicesPage() {
         <BackgroundGradientAnimation>
           <div className="w-full max-w-5xl mx-auto px-5 py-6 md:px-12 md:py-14 lg:px-16 lg:py-20 text-white">
             {/* Title */}
-            <p className="text-sm uppercase tracking-wide opacity-90 font-light font-clash text-center md:text-left">
+            <p className="text-lg uppercase tracking-wide opacity-90 font-light font-clash text-center md:text-left">
               Lead Nurture Program
             </p>
 
-            <h2 className="mt-3 font-clash leading-tight tracking-tight text-center md:text-left text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px] transition-colors duration-300 hover:text-[#C7D0FF]">
+            <h2 className="mt-3 mb-5 font-clash leading-tight tracking-tight text-center md:text-left text-[32px] sm:text-[40px] md:text-[56px] lg:text-[60px] transition-colors duration-300 hover:text-[#C7D0FF]">
               Turning Prospects into Loyal Customers, One Step at a Time.
             </h2>
 
@@ -93,7 +93,7 @@ export default function ServicesPage() {
 
             {/* Features grid with straight separators */}
             <div className="mt-12 md:mt-14">
-              <div className="relative pt-6 md:pt-8">
+              <div className="relative pt-6 md:pt-6">
                 {/* Vertical separators (straight lines) */}
                 <div
                   className="hidden md:block absolute inset-0 pointer-events-none"
@@ -105,7 +105,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 text-center">
-                  <div className="px-4">
+                  <div className="px-2">
                     <p className="font-clash text-base md:text-lg leading-snug">
                       Segmentation & Targeting
                     </p>

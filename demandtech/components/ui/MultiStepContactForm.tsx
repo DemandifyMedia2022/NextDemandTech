@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Button4 from "./Button4";
+import { BackgroundGradientAnimation } from "./background-gradient-animation";
 
 type StepKey = "about" | "project" | "company" | "meeting";
 
@@ -71,7 +72,7 @@ const stepIcons: Record<StepKey, React.ReactNode> = {
   ),
 };
 
-const card = "rounded-3xl bg-white shadow-sm border border-gray-100";
+const card = "rounded-3xl bg-transparent shadow-sm border border-gray-100";
 const field = "block w-full rounded-xl border-0 bg-gray-50 px-4 py-2 text-gray-900 placeholder-gray-400 ring-1 ring-inset ring-gray-200 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-base";
 const label = "mb-6 text-base font-medium text-gray-700 pl-1 font-neu";
 
@@ -168,7 +169,14 @@ const MultiStepContactForm = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(6, 10, 52)"
+        gradientBackgroundEnd="rgb(15, 28, 149)"
+        pointerColor="140, 100, 255"
+        size="80%"
+        blendingValue="hard-light"
+        className="flex items-center justify-center px-4"
+      >
         <motion.div 
           className={`${card} p-12 text-center max-w-lg mx-auto`}
           initial={{ opacity: 0, scale: 0.9 }}
@@ -185,61 +193,67 @@ const MultiStepContactForm = () => {
             Your inquiry has been submitted successfully. We'll get back to you within 24 hours to discuss how we can accelerate your path to revenue.
           </p>
         </motion.div>
-      </div>
+      </BackgroundGradientAnimation>
     );
   }
 
   return (
-    <div className="min-h-screen bg-transparent flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-5xl">
-        <div className={`${card} p-6 lg:p-8`}>
-          <div className="flex gap-8 ">
-            
-            {/* Left Side Stepper */}
-            <div className="w-80 flex-shrink-0">
-              <div className="bg-gray-100 rounded-2xl p-6 h-full">
-                <div className="space-y-6 mt-19">
-                  {STEP_ORDER.map((step, index) => (
-                    <div key={step} className="flex flex-col items-center">
-                      <motion.div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
-                          index <= stepIndex
-                            ? "bg-[#1D00F8] text-white"
-                            : "bg-gray-100 text-gray-400"
-                        }`}
-                        animate={{ 
-                          scale: index === stepIndex ? 1.1 : 1,
-                        }}
-                      >
-                        {stepIcons[step]}
-                      </motion.div>
-                      {index < STEP_ORDER.length - 1 && (
-                        <div className={`w-0.5 h-8 mt-2 transition-all ${
-                          index < stepIndex ? "bg-[#1D00F8]" : "bg-gray-200"
-                        }`} />
-                      )}
-                    </div>
-                  ))}
+        <BackgroundGradientAnimation
+          gradientBackgroundStart="rgb(6, 10, 52)"
+          gradientBackgroundEnd="rgb(15, 28, 149)"
+          pointerColor="140, 100, 255"
+          size="80%"
+          blendingValue="hard-light"
+          className="rounded-3xl overflow-hidden ${card} p-6 lg:p-8"
+        >
+          <div className="flex gap-8 ">           
+              {/* Left Side Stepper */}
+              <div className="w-80 flex-shrink-0">
+                <div className="bg-gray-100 rounded-2xl p-6 h-full">
+                  <div className="space-y-6 mt-19">
+                    {STEP_ORDER.map((step, index) => (
+                      <div key={step} className="flex flex-col items-center">
+                        <motion.div
+                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                            index <= stepIndex
+                              ? "bg-[#1D00F8] text-white"
+                              : "bg-gray-100 text-gray-400"
+                          }`}
+                          animate={{ 
+                            scale: index === stepIndex ? 1.1 : 1,
+                          }}
+                        >
+                          {stepIcons[step]}
+                        </motion.div>
+                        {index < STEP_ORDER.length - 1 && (
+                          <div className={`w-0.5 h-8 mt-2 transition-all ${
+                            index < stepIndex ? "bg-[#1D00F8]" : "bg-gray-200"
+                          }`} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
                         {/* Right Side Form */}
-            <div className="flex-1 flex flex-col min-h-[600px]">
-              <div className="mb-8">
-                <motion.h2 
-                  className="text-3xl font-bold text-gray-900 mb-4"
-                  key={currentStep}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {stepTitle[currentStep]}
-                </motion.h2>
-              </div>
+              <div className="flex-1 flex flex-col min-h-[600px]">
+                <div className="mb-8">
+                  <motion.h2 
+                    className="text-3xl font-bold text-gray-900 mb-4"
+                    key={currentStep}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {stepTitle[currentStep]}
+                  </motion.h2>
+                </div>
 
-              <div className="flex-1 flex flex-col">
-                <AnimatePresence mode="wait">
+                <div className="flex-1 flex flex-col">
+                  <AnimatePresence mode="wait">
               {currentStep === "about" && (
                 <motion.div key="step-about" variants={stepVariants} initial="initial" animate="animate" exit="exit" className="space-y-8">
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -503,7 +517,8 @@ const MultiStepContactForm = () => {
               </div>
             </div>
           </div>
-        </div>
+          
+        </BackgroundGradientAnimation>
       </div>
     </div>
   );

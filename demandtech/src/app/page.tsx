@@ -6,8 +6,7 @@ import {
   Card1,
   SlideTabsExample,
   Button,
-  DotGrid,
-  ProgressiveBlurBentoGrid
+  DotGrid
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';
@@ -20,6 +19,7 @@ import { AnimatedParagraph } from '../../components/ui/AnimatedParagraph';
 import SimpleGlobe from "@/components/ui/globe";
 import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
 import Footer from '@/components/ui/Footer';
+import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -243,7 +243,7 @@ export default function HomePage() {
         </div>
         
         <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-50px' }}>
-          <ProgressiveBlurBentoGrid />
+        <ProgressiveBlurBentoGridV2 />
         </div>
 
         {/*Contact Section */}
