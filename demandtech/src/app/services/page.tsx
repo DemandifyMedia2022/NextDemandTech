@@ -131,9 +131,10 @@ export default function ServicesPage() {
           </div>
         </BackgroundGradientAnimation>
       </div>
-	  <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14'>
-		<Stepper />
-	  </div>
+
+        <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
+		    <Stepper />
+	      </div>
     </div>
   )
 }
