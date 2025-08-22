@@ -20,9 +20,8 @@ export const Stepper = () => {
     offset: ["start start", "end end"],
   });
 
-  const clampedProgress = useTransform(scrollYProgress, [0, 1], [0, 1], {
-    clamp: true,
-  });
+  // dynamic clamp so the line stops exactly at step 5
+  const [maxProgress, setMaxProgress] = useState(1);
 
   const [lineBounds, setLineBounds] = useState<{ top: number; height: number }>({
     top: 28,
@@ -44,6 +43,10 @@ export const Stepper = () => {
         top: firstCenter,
         height: Math.max(0, lastCenter - firstCenter),
       });
+
+      const totalScrollable = Math.max(1, containerRect.height - window.innerHeight);
+      const lastOffset = Math.max(0, lastRect.top - containerRect.top);
+      setMaxProgress(Math.min(1, lastOffset / totalScrollable));
     };
 
     update();
@@ -51,13 +54,24 @@ export const Stepper = () => {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  // clamp progress so the vertical line stops at step 5
+  const clampedProgress = useTransform(scrollYProgress, [0, maxProgress], [0, 1], {
+    clamp: true,
+  });
+
+  const Title = ({ children }: { children: React.ReactNode }) => (
+    <h3 className="text-xl font-semibold bg-gradient-to-r from-[#3722D3] to-[#1C126D] bg-clip-text text-transparent font-clash">
+      {children}
+    </h3>
+  );
+
   return (
     <div ref={containerRef} className="relative mx-auto max-w-4xl py-20">
       {/* Vertical line from step 1 to step 5 */}
       <motion.div
         className="absolute w-[4px] rounded-full"
         style={{
-          left: 28,
+          left: 28, // center of 56px circle
           top: lineBounds.top,
           height: lineBounds.height,
           scaleY: clampedProgress,
@@ -77,12 +91,11 @@ export const Stepper = () => {
                   className="absolute left-0 flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
                   style={{ background: "linear-gradient(135deg, #3722D3, #1C126D)" }}
                 >
-                  <span className="font-bold text-white font-clash text-5xl">{i + 1}</span>
+                  <span className="font-bold text-white font-clash text-2xl">{i + 1}</span>
                 </div>
-                {/* Plain text (no card) */}
-                <div className="ml-24 max-w-2xl">
-                  <h3 className="text-xl font-semibold text-purple-700">{step.title}</h3>
-                  <p className="mt-2 text-gray-600">{step.text}</p>
+                <div className="ml-24 max-w-2xl ">
+                  <Title>{step.title}</Title>
+                  <p className="mt-2 text-gray-600 font-neu text-xl">{step.text}</p>
                 </div>
               </div>
             );
@@ -98,6 +111,7 @@ export const Stepper = () => {
 
           return (
             <div key={i} className="relative flex items-start">
+              {/* Invisible anchor to measure last circle without transform effects */}
               {isLast && (
                 <div
                   ref={lastAnchorRef}
@@ -106,6 +120,7 @@ export const Stepper = () => {
                 />
               )}
 
+              {/* Animated circle with larger number font for ALL steps */}
               <motion.div
                 className="absolute left-0 flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
                 style={{
@@ -114,17 +129,17 @@ export const Stepper = () => {
                   background: "linear-gradient(135deg, #3722D3, #1C126D)",
                 }}
               >
-                <span className="text-lg font-bold text-white">{i + 1}</span>
+                <span className="font-bold text-white font-clash text-2xl">{i + 1}</span>
               </motion.div>
 
-              {/* Plain animated text */}
+              {/* Animated text */}
               <motion.div
                 style={{ opacity: textOpacity, y: textY }}
                 transition={{ duration: 0.6 }}
                 className="ml-24 max-w-2xl"
               >
-                <h3 className="text-xl font-semibold text-purple-700">{step.title}</h3>
-                <p className="mt-2 text-gray-600">{step.text}</p>
+                <Title>{step.title}</Title>
+                <p className="mt-2 text-gray-600 font-neu text-xl">{step.text}</p>
               </motion.div>
             </div>
           );
