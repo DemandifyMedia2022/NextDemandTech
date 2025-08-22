@@ -2,7 +2,7 @@
 
 import styles from "./Button2.module.scss";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Button2Props {
@@ -11,13 +11,32 @@ interface Button2Props {
 
 const Button2 = ({ text = "About Us" }: Button2Props) => {
     const [isHover, setIsHover] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const handleInteraction = (isActive: boolean) => {
+        if (!isMobile) {
+            setIsHover(isActive);
+        }
+    };
 
     return (
         <div className="font-inter">
             <motion.div
                 className={styles.buttonContainer}
-                onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
+                onMouseEnter={() => handleInteraction(true)}
+                onMouseLeave={() => handleInteraction(false)}
+                onTouchStart={() => isMobile && setIsHover(true)}
+                onTouchEnd={() => isMobile && setIsHover(false)}
                 animate={{
                     backgroundColor: isHover ? "transparent" : "transparent",
                 }}

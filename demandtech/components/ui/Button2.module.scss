@@ -32,5 +32,72 @@
     padding: 18px 54px;
     min-width: 220px;
     min-height: 60px;
-    overflow: clip; // Ensures animated elements don’t overflow
+    overflow: clip; // Ensures animated elements don't overflow
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .buttonContainer {
+        padding: 16px 40px;
+        min-width: 180px;
+        min-height: 56px;
+        border-radius: 28px;
+    }
+    
+    .title {
+        font-size: 28px;
+    }
+    
+    .icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .iconContainer {
+        right: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttonContainer {
+        padding: 14px 32px;
+        min-width: 160px;
+        min-height: 52px;
+        border-radius: 24px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .iconContainer {
+        right: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttonContainer {
+        padding: 12px 24px;
+        min-width: 140px;
+        min-height: 48px;
+        border-radius: 20px;
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .iconContainer {
+        right: 14px;
+    }
 }

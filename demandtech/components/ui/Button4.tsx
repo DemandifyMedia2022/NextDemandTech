@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./Button4.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Button4Props {
@@ -13,6 +13,23 @@ interface Button4Props {
 
 const Button4 = ({ label, onClick, disabled = false, variant = "primary" }: Button4Props) => {
     const [isHover, setIsHover] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const handleInteraction = (isActive: boolean) => {
+        if (!isMobile && !disabled) {
+            setIsHover(isActive);
+        }
+    };
 
     const handleClick = () => {
         if (!disabled && onClick) {
@@ -24,8 +41,10 @@ const Button4 = ({ label, onClick, disabled = false, variant = "primary" }: Butt
         <div className="font-inter">
             <motion.div
                 className={`${styles.buttonContainer} ${disabled ? styles.disabled : ''} ${variant === "secondary" ? styles.secondary : ''}`}
-                onMouseEnter={() => !disabled && setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
+                onMouseEnter={() => handleInteraction(true)}
+                onMouseLeave={() => handleInteraction(false)}
+                onTouchStart={() => isMobile && !disabled && setIsHover(true)}
+                onTouchEnd={() => isMobile && !disabled && setIsHover(false)}
                 onClick={handleClick}
                 animate={{
                     backgroundColor: disabled 

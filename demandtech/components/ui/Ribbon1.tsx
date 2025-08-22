@@ -49,7 +49,7 @@ function Ribbon1({ className = '' }: Ribbon1Props) {
             viewBox="0 0 1920 3689"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={`ribbon1 ${className}`}
+            className={`ribbon1 ribbon1-responsive ${className}`}
         >
             <g clipPath="url(#clip0_879_174)">
                 <path
@@ -70,6 +70,18 @@ function Ribbon1({ className = '' }: Ribbon1Props) {
                     <rect width="1962" height="3689" fill="white" transform="translate(-6)" />
                 </clipPath>
             </defs>
+            
+            <style jsx>{`
+                .ribbon1-responsive {
+                    display: block;
+                }
+                
+                @media (max-width: 768px) {
+                    .ribbon1-responsive {
+                        display: none !important;
+                    }
+                }
+            `}</style>
         </svg>
     );
 }
