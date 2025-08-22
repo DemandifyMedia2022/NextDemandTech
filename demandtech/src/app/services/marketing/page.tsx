@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MarketingPage() {
   return (
-    <div className="min-h-screen bg-[#F0F1FA]">
+    <div className="min-h-screen bg-[#F0F1FA]"> 
       {/* Hero Section */}
       <div className="bg-[#F0F1FA] py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">

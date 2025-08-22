@@ -90,7 +90,8 @@ export default function FAQ() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-gray-800 leading-relaxed text-sm sm:text-base bg-white/10 backdrop-blur-sm">
+                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-white leading-relaxed
+                   text-sm sm:text-base bg-white/10 backdrop-blur-sm">
                     {faq.answer}
                   </div>
                 </motion.div>
