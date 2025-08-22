@@ -131,10 +131,17 @@ export default function ServicesPage() {
           </div>
         </BackgroundGradientAnimation>
       </div>
-
         <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
 		    <Stepper />
 	      </div>
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2">
+            <p className="text-center text-7xl sm:text-5xl md:text-3xl lg:text-4xl text-gray-900 font-medium font-clash leading-relaxed">
+               See how Demand Tech powers your business forward.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button3 text="Contact US" href="/services/demand-generation" />
+          </div>
     </div>
   )
 }
