@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Card2 from '@/components/ui/Card2'
 import { ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'  // ✅ import your second grid
 import Faq from '@/components/ui/faq';
+import MultiStepContactForm from '@/components/ui/MultiStepContactForm'
 
 export const metadata: Metadata = {
     title: 'Marketing Solutions | DemandTech',
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function MarketingPage() {
     return (
-        <div className="min-h-screen bg-[#F6F7FB]">
+        <div className="min-h-screen bg-[#F0F1FA]">
             {/* Hero Section */}
-            <div className="bg-[#F6F7FB] py-16">
+            <div className="bg-[#F0F1FA] py-16">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
                     <div className="flex">
                         <Card2 imageSrc="/creative Edge.png" alt="creative edge" />
@@ -60,23 +61,23 @@ export default function MarketingPage() {
             <div className="mt-20 flex flex-col justify-center items-center text-center">
                 <div>
                     <span
-                        className="text-black"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        className="text-black font-clash"
+                        style={{fontSize: '55px' }}
                     >
                         Your one-stop-shop for
                     </span>
                 </div>
                 <div>
                     <span
-                        className="text-[#2717E8]"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        className="text-[#2717E8] font-clash"
+                        style={{fontSize: '55px' }}
                     >
                         {" "}B2B content
                     </span>
                 </div>
                 <p
-                    className="text-gray-600"
-                    style={{ fontFamily: 'Neue Montreal, sans-serif', fontSize: '18px' }}
+                    className="text-gray-600 font-neu"
+                    style={{fontSize: '18px' }}
                 >
                     From SEO to LinkedIn Thoughtleadership, and everything in between.
                 </p>
@@ -90,18 +91,18 @@ export default function MarketingPage() {
             <div className="mt-20 flex flex-col justify-center items-center text-center">
             <div>
                     <span
-                        className="text-black"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        className="text-black font-clash"
+                        style={{ fontSize: '55px' }}
                     >
                         Quick Answers to Common
                     </span>
                 </div>
                 <div>
                     <span
-                        className="text-[#2717E8]"
-                        style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '55px' }}
+                        className="text-[#2717E8] font-clash"
+                        style={{ fontSize: '55px' }}
                     >
-                         Questions
+                         Questions  
                     </span>
                 </div>
                 </div>
@@ -109,6 +110,26 @@ export default function MarketingPage() {
             <div className="max-w-2xl mx-auto py-12">
                <Faq />
             </div>
+                   
+                   {/* Contact Form */}
+                   <div className="mt-20 flex justify-center items-center gap-3 font-clash">
+                    <span
+                        className="text-black mb-10"
+                        style={{fontSize: '70px' }}
+                    >
+                        Talk To Our
+                    </span>
+                    <span
+                        className="text-[#2717E8] mb-10 font-clash"
+                        style={{fontSize: '70px'}}
+                    >
+                        Sales Team
+                    </span>
+                </div>
+                <div>
+               <MultiStepContactForm/>
+            </div>
+
         </div> 
     )
 }

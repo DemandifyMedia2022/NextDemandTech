@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation"; // ✅ use PascalCase
 
 const faqs = [
   {
@@ -39,24 +40,29 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-16 px-6 md:px-20 bg-white">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-10">FAQ</h2>
+    <BackgroundGradientAnimation className="py-10 px-4 md:px-20">
+      <div className="max-w-3xl mx-auto text-center relative z-10">
+        <h2 className="text-5xl font-bold text-white mb-10 font-clash">FAQ</h2>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-4">
+      <div className="max-w-3xl mx-auto space-y-6 relative z-10">
         {faqs.map((faq, index) => (
           <motion.div
-            key={index}
-            className="rounded-2xl border-gray-200 bg-white shadow-sm overflow-hidden"
+            key={faq.question} // ✅ FIXED: Add unique key here
+            className="rounded-2xl bg-white/30 backdrop-blur-md border border-white/40 overflow-hidden"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
           >
             {/* Question */}
-            <button
+            <div
+              role="button"
+              tabIndex={0}
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between items-center px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition"
+              onKeyDown={(e) => e.key === "Enter" && toggleFAQ(index)}
+              className="cursor-pointer w-full flex justify-between items-center px-6 py-4 
+              text-left text-gray-900 hover:bg-white/40 transition font-neu text-lg 
+              backdrop-blur-md border-b border-white/30"
             >
               <span>{faq.question}</span>
               <motion.span
@@ -65,12 +71,12 @@ export default function FAQ() {
                 transition={{ duration: 0.3 }}
               >
                 {openIndex === index ? (
-                  <Minus size={20} className="text-gray-700" />
+                  <Minus size={25} className="text-blue-700" />
                 ) : (
-                  <Plus size={20} className="text-gray-700" />
+                  <Plus size={25} className="text-blue-700" />
                 )}
               </motion.span>
-            </button>
+            </div>
 
             {/* Answer */}
             <AnimatePresence>
@@ -81,7 +87,7 @@ export default function FAQ() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <div className="px-6 pb-4 text-gray-600 leading-relaxed">
+                  <div className="px-6 pb-4 text-gray-800 leading-relaxed bg-white/10 backdrop-blur-sm">
                     {faq.answer}
                   </div>
                 </motion.div>
@@ -90,6 +96,6 @@ export default function FAQ() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </BackgroundGradientAnimation>
   );
 }
