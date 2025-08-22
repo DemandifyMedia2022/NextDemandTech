@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Card2 from '@/components/ui/Card2'
 import { ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'  // ✅ import your second grid
 import Faq from '@/components/ui/faq';
-import MultiStepContactForm from '@/components/ui/MultiStepContactForm'
+
 
 export const metadata: Metadata = {
     title: 'Marketing Solutions | DemandTech',
@@ -19,25 +19,20 @@ export default function MarketingPage() {
                         <Card2 imageSrc="/creative Edge.png" alt="creative edge" />
                     </div>
 
-                    <div className="text-center">
-                        <span
-                            className="text-black mb-4"
-                            style={{
-                                fontFamily: 'Clash Display, sans-serif',
-                                fontSize: '55px',
-                            }}
-                        >
-                            Your B2B
-                        </span>
-                        <span
-                            className="text-[#2717E8]"
-                            style={{
-                                fontFamily: 'Clash Display, sans-serif',
-                                fontSize: '55px',
-                            }}
-                        >
-                            {" "}Creative Edge
-                        </span>
+                    <div>
+                    <h1
+          className="mt-4 leading-tight tracking-tight text-gray-900"
+          style={{
+            fontFamily: 'Clash Display, sans-serif',
+            fontSize: '92px',
+            lineHeight: '1.1',
+          }}
+        >
+          <span className="block">Your B2B</span>
+           <span className="text-[#5B5BFF]">Creative Edge</span>
+          
+          
+        </h1>
 
                         <p
                             className="text-gray-600 leading-relaxed mb-6 text-center"
@@ -62,7 +57,7 @@ export default function MarketingPage() {
                 <div>
                     <span
                         className="text-black font-clash"
-                        style={{fontSize: '55px' }}
+                        style={{ fontSize: '64px' }}
                     >
                         Your one-stop-shop for
                     </span>
@@ -70,14 +65,14 @@ export default function MarketingPage() {
                 <div>
                     <span
                         className="text-[#2717E8] font-clash"
-                        style={{fontSize: '55px' }}
+                        style={{ fontSize: '64px' }}
                     >
                         {" "}B2B content
                     </span>
                 </div>
                 <p
                     className="text-gray-600 font-neu"
-                    style={{fontSize: '18px' }}
+                    style={{ fontSize: '18px' }}
                 >
                     From SEO to LinkedIn Thoughtleadership, and everything in between.
                 </p>
@@ -89,10 +84,10 @@ export default function MarketingPage() {
             </div>
 
             <div className="mt-20 flex flex-col justify-center items-center text-center">
-            <div>
+                <div>
                     <span
                         className="text-black font-clash"
-                        style={{ fontSize: '55px' }}
+                        style={{ fontSize: '64px' }}
                     >
                         Quick Answers to Common
                     </span>
@@ -100,36 +95,19 @@ export default function MarketingPage() {
                 <div>
                     <span
                         className="text-[#2717E8] font-clash"
-                        style={{ fontSize: '55px' }}
+                        style={{ fontSize: '64px' }}
                     >
-                         Questions  
+                        Questions
                     </span>
                 </div>
-                </div>
+            </div>
 
             <div className="max-w-2xl mx-auto py-12">
-               <Faq />
-            </div>
-                   
-                   {/* Contact Form */}
-                   <div className="mt-20 flex justify-center items-center gap-3 font-clash">
-                    <span
-                        className="text-black mb-10"
-                        style={{fontSize: '70px' }}
-                    >
-                        Talk To Our
-                    </span>
-                    <span
-                        className="text-[#2717E8] mb-10 font-clash"
-                        style={{fontSize: '70px'}}
-                    >
-                        Sales Team
-                    </span>
-                </div>
-                <div>
-               <MultiStepContactForm/>
+                <Faq />
             </div>
 
-        </div> 
+            {/* Contact Form */}
+           
+        </div>
     )
 }
