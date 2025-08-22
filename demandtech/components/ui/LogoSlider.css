@@ -9,9 +9,9 @@
 }
 
 .logo-slider {
-    margin-top: 100px;
+    margin-top: 60px;
     overflow: hidden;
-    padding: 48px 0;
+    padding: 32px 0;
     background: transparent;
     position: relative;
 }
@@ -20,7 +20,7 @@
 .logo-slider::after {
     position: absolute;
     top: 0;
-    width: 200px;
+    width: 150px;
     height: 100%;
     content: "";
     z-index: 1;
@@ -28,19 +28,19 @@
 
 .logo-slider::before {
     left: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .logo-slider::after {
     right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .logo-slider-track {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
-    gap: 80px;
+    gap: 48px;
     animation: 35s logo-slide linear infinite;
     will-change: transform;
 }
@@ -50,9 +50,90 @@
 }
 
 .logo-slider-track img {
-    height: 50px;
+    height: 40px;
     object-fit: contain;
     /* Show full-color logos */
     filter: none;
     opacity: 1;
+    flex-shrink: 0;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .logo-slider {
+        margin-top: 80px;
+        padding: 40px 0;
+    }
+
+    .logo-slider::before,
+    .logo-slider::after {
+        width: 180px;
+    }
+
+    .logo-slider-track {
+        gap: 64px;
+    }
+
+    .logo-slider-track img {
+        height: 45px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .logo-slider {
+        margin-top: 100px;
+        padding: 48px 0;
+    }
+
+    .logo-slider::before,
+    .logo-slider::after {
+        width: 220px;
+    }
+
+    .logo-slider-track {
+        gap: 80px;
+    }
+
+    .logo-slider-track img {
+        height: 50px;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1440px) {
+    .logo-slider::before,
+    .logo-slider::after {
+        width: 250px;
+    }
+
+    .logo-slider-track {
+        gap: 96px;
+    }
+
+    .logo-slider-track img {
+        height: 55px;
+    }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+    .logo-slider {
+        margin-top: 40px;
+        padding: 24px 0;
+    }
+
+    .logo-slider::before,
+    .logo-slider::after {
+        width: 100px;
+    }
+
+    .logo-slider-track {
+        gap: 32px;
+        animation-duration: 30s; /* Slightly faster on small screens */
+    }
+
+    .logo-slider-track img {
+        height: 32px;
+    }
 }

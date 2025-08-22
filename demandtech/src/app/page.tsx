@@ -29,12 +29,13 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const globeConfig = {
     continentColor: "#005be5ff",
-    seaColor: "#FFFFFF", // bright white
+    seaColor: "#FFFFFF",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     autoRotate: true,
     autoRotateSpeed: 0.8,
   };
+
   const testimonials = [
     {
       quote: "DemandTech transformed our lead generation process completely. We saw a 300% increase in qualified leads within the first quarter. Their AI-driven approach is simply revolutionary.",
@@ -61,25 +62,28 @@ export default function HomePage() {
       <ScrollAnimations />
       <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
         <Ribbon1 />
-        {/* <Ribbon2 /> */}
       </div>
-      {/* Navigation rendered globally in layout */}
 
       {/* Hero Section */}
-      <section className="hero" style={{ marginBottom: '80px' }}>
-        {/* <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: -2 }}>
-          <DotGrid />
-        </div> */}
-
-        <div className="headline" style={{ display: 'flex', justifyContent: 'center', marginTop: '30px', marginBottom: '50px', fontFamily: 'Clash Display' }}>
+      <section className="hero section-spacing">
+        <div className="headline" style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          marginTop: '30px', 
+          marginBottom: '50px', 
+          fontFamily: 'Clash Display',
+          textAlign: 'center',
+          padding: '0 1rem'
+        }}>
           <HeroTitle />
         </div>
-        <section className='cardAndDesc' style={{ display: 'flex', marginTop: '40px', marginLeft: '50px' }}>
+
+        <section className='cardAndDesc'>
           <div className="card-col">
             <Card1 />
           </div>
 
-          <div className="desc-col" style={{ marginRight: '70px' }}>
+          <div className="desc-col">
             <AnimatedParagraph
               className="lead"
               stagger={0.03}
@@ -88,7 +92,7 @@ export default function HomePage() {
             >
               We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast. We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast.
             </AnimatedParagraph>
-            <div className="actions" style={{ marginRight: '50px' }}>
+            <div className="actions">
               <Button />
             </div>
           </div>
@@ -96,15 +100,22 @@ export default function HomePage() {
       </section>
 
       {/* Logo Slider */}
-      <div className="logo-slider-container" style={{ marginBottom: '80px' }}>
+      <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
         <LogoSlider />
       </div>
 
       {/* Features Section */}
-      <div className='features-section' style={{ marginBottom: '80px' }}>
-        <div className='features-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '50px' }}>
+      <div className='features-section section-spacing'>
+        <div className='features-title'>
           <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+            style={{ 
+              alignItems: 'center', 
+              alignContent: 'center', 
+              fontFamily: 'Clash Display', 
+              fontSize: 'clamp(48px, 8vw, 92px)', 
+              textAlign: 'center', 
+              color: '#000cf8' 
+            }}
             stagger={0.15}
             duration={1.0}
             yOffset={80}
@@ -113,16 +124,16 @@ export default function HomePage() {
             Features
           </GSAPTextReveal>
         </div>
-        <div className='servicescards' style={{ display: 'flex', alignContent: 'center', alignItems: 'flex-start', justifyContent: 'center', columnGap: '55px', padding: '0 20px', marginTop: '50px' }}>
-          <div className='service-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+        <div className='servicescards'>
+          <div className='service-item'>
             <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
             <Button2 text="Intent-Verified Lead" />
           </div>
-          <div className='service-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+          <div className='service-item'>
             <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
             <Button2 text="Brand Awareness" />
           </div>
-          <div className='service-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+          <div className='service-item'>
             <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
             <Button2 text="Sales Intent Profile" />
           </div>
@@ -130,11 +141,26 @@ export default function HomePage() {
       </div>
 
       {/* Testimonials Section */}
-      <div className='testimonials-section' style={{ marginTop: '180px' }}>
-        <div className='testimonials-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '50px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', fontFamily: 'Clash Display', fontSize: '75px', textAlign: 'center' }}>
+      <div className='testimonials-section section-spacing'>
+        <div className='testimonials-title'>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            fontFamily: 'Clash Display', 
+            textAlign: 'center',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '10px'
+          }}>
             <GSAPTextReveal
-              style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '85px', textAlign: 'center', color: '#000cf8' }}
+              style={{ 
+                alignItems: 'center', 
+                alignContent: 'center', 
+                fontFamily: 'Clash Display', 
+                fontSize: 'clamp(40px, 7vw, 85px)', 
+                textAlign: 'center', 
+                color: '#000cf8' 
+              }}
               stagger={0.12}
               duration={0.9}
               yOffset={70}
@@ -142,9 +168,16 @@ export default function HomePage() {
             >
               Success
             </GSAPTextReveal>
-            <span style={{ color: '#000000', marginLeft: '10px' }}>
+            <span style={{ color: '#000000' }}>
               <GSAPTextReveal
-                style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '75px', textAlign: 'center', color: '#000000' }}
+                style={{ 
+                  alignItems: 'center', 
+                  alignContent: 'center', 
+                  fontFamily: 'Clash Display', 
+                  fontSize: 'clamp(36px, 6vw, 75px)', 
+                  textAlign: 'center', 
+                  color: '#000000' 
+                }}
                 stagger={0.12}
                 duration={0.9}
                 yOffset={70}
@@ -158,69 +191,111 @@ export default function HomePage() {
         <div className="testimonials-container">
           <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
         </div>
-      </div >
+      </div>
 
       {/* Globe Section */}
-      <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '150px', marginLeft: '600px' }}>
-          <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
-            stagger={0.15}
-            duration={1.0}
-            yOffset={80}
-            start="top 75%"
-          >
-            Global Reach
-          </GSAPTextReveal>
+      <div className='globe-section section-spacing'>
+        <div className='globe-titles'>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            marginBottom: '20px',
+            textAlign: 'center'
+          }}>
+            <GSAPTextReveal
+              style={{ 
+                alignItems: 'center', 
+                alignContent: 'center', 
+                fontFamily: 'Clash Display', 
+                fontSize: 'clamp(48px, 8vw, 92px)', 
+                textAlign: 'center', 
+                color: '#000000' 
+              }}
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
+            >
+              Global Reach
+            </GSAPTextReveal>
+          </div>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            textAlign: 'center'
+          }}>
+            <GSAPTextReveal
+              style={{ 
+                alignItems: 'center', 
+                alignContent: 'center', 
+                fontFamily: 'Clash Display', 
+                fontSize: 'clamp(48px, 8vw, 92px)', 
+                textAlign: 'center', 
+                color: '#000cf7' 
+              }}
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
+            >
+              Local Impact
+            </GSAPTextReveal>
+          </div>
         </div>
-        <div className='globe-title2' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-40px', marginLeft: '600px' }}>
-          <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf7' }}
-            stagger={0.15}
-            duration={1.0}
-            yOffset={80}
-            start="top 75%"
-          >
-            Local Impact
-          </GSAPTextReveal>
-        </div>
-      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', margin: '-250px -500px' }}>
-        <div style={{ width: '1200px', height: '1200px' }}>
-          <SimpleGlobe globeConfig={globeConfig} />
-        </div>
-        <div style={{
-    width: '600px',
-    height: '600px',
-    borderRadius: '20px',
-    marginLeft: '60px',
-    marginTop: '350px',
-    padding: '20px',
-    marginRight: '300px',
 
-    // Liquid glass core effect
-    background: `
-      linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(173, 173, 173, 0.05) 100%),
-      radial-gradient(circle at top left, rgba(255,255,255,0.4) 0%, transparent 70%),
-      rgba(255, 255, 255, 0.1)
-    `,
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    border: '1px solid rgba(255, 255, 255, 0.3)',
+        <div className='globe-content'>
+          <div className="globe-wrapper">
+            <SimpleGlobe globeConfig={globeConfig} />
+          </div>
 
-    // Depth and shine
-    boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37), inset 0 0 20px rgba(255,255,255,0.2)',
-  }}>        
-          <p style={{ fontFamily: 'Clash Display', fontSize: '36px', textAlign: 'center', color: '#1D00F8', marginTop:'100px' }}>At DemandTech, we believe growth knows no boundaries.  </p>
-          <p style={{ fontFamily: 'Neue Montreal', fontSize: '18px', textAlign: 'center', color: '#000000', marginTop:'50px' }}>That’s why our solutions are designed to support businesses across the globe—helping companies expand their presence, generate demand, and connect with buyers wherever they are.
-          We proudly deliver services in North America, Asia Pacific, the Middle East, Europe, and Africa, ensuring that our clients benefit from a truly international approach.</p>
+          <div className="globe-text-card">
+            <p style={{ 
+              fontFamily: 'Clash Display', 
+              fontSize: 'clamp(24px, 5vw, 36px)', 
+              textAlign: 'center', 
+              color: '#1D00F8', 
+              marginTop: 'clamp(20px, 5vw, 100px)',
+              lineHeight: '1.2'
+            }}>
+              At DemandTech, we believe growth knows no boundaries.
+            </p>
+            <p style={{ 
+              fontFamily: 'Neue Montreal', 
+              fontSize: 'clamp(14px, 2.5vw, 18px)', 
+              textAlign: 'center', 
+              color: '#000000', 
+              marginTop: 'clamp(20px, 4vw, 50px)',
+              lineHeight: '1.5'
+            }}>
+               That&apos;s why our solutions are designed to support businesses across the globe—helping companies expand their presence, generate demand, and connect with buyers wherever they are. We proudly deliver services in North America, Asia Pacific, the Middle East, Europe, and Africa, ensuring that our clients benefit from a truly international approach.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/*Services Grid*/}
-      <div>
-        <div className='services-grid-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '180px', marginBottom: '0px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center' }}>
+      {/* Services Grid */}
+      <div className='services-grid-section section-spacing'>
+        <div className='services-grid-title'>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            fontFamily: 'Clash Display', 
+            textAlign: 'center',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '10px'
+          }}>
             <GSAPTextReveal
-              style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000cf8' }}
+              style={{ 
+                alignItems: 'center', 
+                alignContent: 'center', 
+                fontFamily: 'Clash Display', 
+                fontSize: 'clamp(48px, 8vw, 92px)', 
+                textAlign: 'center', 
+                color: '#000cf8' 
+              }}
               stagger={0.15}
               duration={1.0}
               yOffset={80}
@@ -228,9 +303,16 @@ export default function HomePage() {
             >
               Services
             </GSAPTextReveal>
-            <span style={{ color: '#000000', marginLeft: '10px' }}>
+            <span style={{ color: '#000000' }}>
               <GSAPTextReveal
-                style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
+                style={{ 
+                  alignItems: 'center', 
+                  alignContent: 'center', 
+                  fontFamily: 'Clash Display', 
+                  fontSize: 'clamp(48px, 8vw, 92px)', 
+                  textAlign: 'center', 
+                  color: '#000000' 
+                }}
                 stagger={0.15}
                 duration={1.0}
                 yOffset={80}
@@ -242,15 +324,23 @@ export default function HomePage() {
           </div>
         </div>
         
-        <div className="bento-grid-container" style={{ padding: '100px', marginTop: '-50px' }}>
-        <ProgressiveBlurBentoGridV2 />
+        <div className="bento-grid-container">
+          <ProgressiveBlurBentoGridV2 />
         </div>
+      </div>
 
-        {/*Contact Section */}
-
-        <div className='globe-title' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '50px', marginLeft: '0px' }}>
+      {/* Contact Section */}
+      <div className='contact-section section-spacing'>
+        <div className='contact-title'>
           <GSAPTextReveal
-            style={{ alignItems: 'center', alignContent: 'center', fontFamily: 'Clash Display', fontSize: '92px', textAlign: 'center', color: '#000000' }}
+            style={{ 
+              alignItems: 'center', 
+              alignContent: 'center', 
+              fontFamily: 'Clash Display', 
+              fontSize: 'clamp(48px, 8vw, 92px)', 
+              textAlign: 'center', 
+              color: '#000000' 
+            }}
             stagger={0.15}
             duration={1.0}
             yOffset={80}
@@ -260,18 +350,12 @@ export default function HomePage() {
           </GSAPTextReveal>
         </div>
         <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
-      <MultiStepContactForm />
-    </div>
-
-        
+          <MultiStepContactForm />
+        </div>
 
         {/* Ensure scrollable space after content */}
-        <div style={{ height: '100%',width: '100%' }} />
+        <div style={{ height: '100%', width: '100%' }} />
       </div>
-         
     </>
-    
   );
 }
-
-
