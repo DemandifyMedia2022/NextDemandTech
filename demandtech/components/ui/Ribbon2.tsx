@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import './Ribbons.css';
 
 interface Ribbon2Props {
@@ -10,39 +10,118 @@ interface Ribbon2Props {
 function Ribbon2({ className = '' }: Ribbon2Props) {
     const svgRef = useRef<SVGSVGElement>(null);
     const pathRef = useRef<SVGPathElement>(null);
+    const [isVisible, setIsVisible] = useState(true);
 
-    useEffect(() => {
+    // Enhanced scroll handler with better performance and easing
+    const handleScroll = useCallback(() => {
         const path = pathRef.current;
         if (!path) return;
 
-        const pathLength = 8000;
+        const scrollTop = window.scrollY;
+        const documentHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
+        const scrollable = documentHeight - windowHeight;
+
+        if (scrollable <= 0) return;
+
+        // Calculate raw scroll percentage
+        const rawPercentage = scrollTop / scrollable;
+        const clampedPercentage = Math.min(Math.max(rawPercentage, 0), 1);
+        
+        // Enhanced animation timing - starts later but with smoother progression
+        const startThreshold = 0.15; // Start animation at 15% scroll
+        const adjustedPercentage = Math.max(0, (clampedPercentage - startThreshold) / (1 - startThreshold));
+        
+        // Combine multiple easing functions for more natural movement
+        const easeInOutCubic = adjustedPercentage < 0.5 
+            ? 4 * adjustedPercentage * adjustedPercentage * adjustedPercentage 
+            : 1 - Math.pow(-2 * adjustedPercentage + 2, 3) / 2;
+            
+        const easeOutSine = Math.sin((adjustedPercentage * Math.PI) / 2);
+        
+        // Blend easing functions for optimal visual effect
+        const blendedEasing = easeInOutCubic * 0.6 + easeOutSine * 0.4;
+        const finalPercentage = adjustedPercentage <= 0 ? 0 : blendedEasing;
+
+        // Dynamic path length based on screen size for better performance
+        const screenWidth = window.innerWidth;
+        let pathLength = 8000;
+        
+        if (screenWidth <= 480) {
+            pathLength = 6000; // Shorter for mobile
+        } else if (screenWidth <= 768) {
+            pathLength = 7000; // Medium for tablet
+        }
+
+        const drawLength = pathLength * finalPercentage;
+        const dashOffset = pathLength - drawLength;
+        
         path.style.strokeDasharray = String(pathLength);
-        path.style.strokeDashoffset = String(pathLength);
+        path.style.strokeDashoffset = String(dashOffset);
+    }, []);
 
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            const documentHeight = document.documentElement.scrollHeight;
-            const windowHeight = window.innerHeight;
-            const scrollable = documentHeight - windowHeight;
-
-            const rawPercentage = scrollTop / scrollable;
-            const clampedPercentage = Math.min(Math.max(rawPercentage, 0), 1);
-            const adjustedPercentage = Math.max(0, (clampedPercentage - 0.1) / 0.9);
-            const easeInQuint = Math.pow(adjustedPercentage, 5);
-            const easeInOutSine = -(Math.cos(Math.PI * adjustedPercentage) - 1) / 2;
-            const scrollPercentage = adjustedPercentage <= 0 ? 0 : easeInQuint * 0.8 + easeInOutSine * 0.2;
-
-            const drawLength = pathLength * scrollPercentage;
-            const dashOffset = pathLength - drawLength;
-            path.style.strokeDashoffset = String(dashOffset);
+    // Optimized event handlers with throttling
+    useEffect(() => {
+        let ticking = false;
+        
+        const throttledScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
+        // Initial call
         handleScroll();
-        window.addEventListener('scroll', handleScroll);
+        
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        window.addEventListener('resize', handleScroll, { passive: true });
+        
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', throttledScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, [handleScroll]);
+
+    // Responsive visibility and positioning
+    useEffect(() => {
+        const checkResponsiveness = () => {
+            const screenWidth = window.innerWidth;
+            const isMobile = screenWidth <= 480;
+            
+            // Always show unless screen is extremely small
+            setIsVisible(screenWidth > 320);
+            
+            // Adjust positioning based on screen size
+            const svg = svgRef.current;
+            if (svg) {
+                const container = svg.parentElement;
+                if (container) {
+                    if (isMobile) {
+                        container.style.top = '2500px';
+                    } else if (screenWidth <= 768) {
+                        container.style.top = '2800px';
+                    } else {
+                        container.style.top = '3000px';
+                    }
+                }
+            }
+        };
+
+        checkResponsiveness();
+        window.addEventListener('resize', checkResponsiveness, { passive: true });
+        
+        return () => {
+            window.removeEventListener('resize', checkResponsiveness);
         };
     }, []);
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
         <svg
@@ -53,6 +132,11 @@ function Ribbon2({ className = '' }: Ribbon2Props) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={`ribbon2 ${className}`}
+            preserveAspectRatio="xMidYMin meet"
+            style={{ 
+                maxWidth: '100%',
+                height: 'auto'
+            }}
         >
             <g clipPath="url(#clip0_912_360)">
                 <path
@@ -61,12 +145,21 @@ function Ribbon2({ className = '' }: Ribbon2Props) {
                     stroke="url(#paint0_linear_912_360)"
                     strokeWidth="30"
                     strokeLinejoin="round"
-                    style={{ strokeLinecap: 'round' }}
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
                 />
             </g>
             <defs>
-                <linearGradient id="paint0_linear_912_360" x1="811.174" y1="186.294" x2="811.174" y2="3421.6" gradientUnits="userSpaceOnUse">
+                <linearGradient 
+                    id="paint0_linear_912_360" 
+                    x1="811.174" 
+                    y1="186.294" 
+                    x2="811.174" 
+                    y2="3421.6" 
+                    gradientUnits="userSpaceOnUse"
+                >
                     <stop stopColor="#00E0F4" />
+                    <stop offset="0.5" stopColor="#7DD8E8" />
                     <stop offset="1" stopColor="#DAD5FF" />
                 </linearGradient>
                 <clipPath id="clip0_912_360">
@@ -78,4 +171,3 @@ function Ribbon2({ className = '' }: Ribbon2Props) {
 }
 
 export default Ribbon2;
-

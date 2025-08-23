@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import './Ribbons.css';
 
 interface Ribbon1Props {
@@ -10,36 +10,125 @@ interface Ribbon1Props {
 function Ribbon1({ className = '' }: Ribbon1Props) {
     const svgRef = useRef<SVGSVGElement>(null);
     const pathRef = useRef<SVGPathElement>(null);
+    const [isVisible, setIsVisible] = useState(true);
 
-    useEffect(() => {
+    // Enhanced scroll handler with better performance and easing
+    const handleScroll = useCallback(() => {
         const svg = svgRef.current;
         const path = pathRef.current;
-
+        
         if (!svg || !path) return;
 
-        let pathLength = 0;
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Calculate scroll percentage
+        const scrollableDistance = documentHeight - windowHeight;
+        const scrollPercentage = scrollableDistance > 0 ? Math.min(1, Math.max(0, scrollY / scrollableDistance)) : 0;
+        
+        // Apply easing function for smoother animation - starts from completely off-screen
+        const easeOutCubic = 1 - Math.pow(1 - scrollPercentage, 3);
+        
         try {
-            pathLength = path.getTotalLength();
+            const pathLength = path.getTotalLength();
+            
+            // Start completely off-screen (add extra offset)
+            const totalOffset = pathLength + 1000; // Extra 1000px to ensure it starts off-screen
+            const drawLength = totalOffset * easeOutCubic;
+            const dashOffset = totalOffset - drawLength;
+            
+            path.style.strokeDasharray = `${pathLength}`;
+            path.style.strokeDashoffset = `${dashOffset}`;
         } catch (e) {
-            pathLength = 5000;
+            // Fallback for browsers that don't support getTotalLength
+            const fallbackLength = 8000;
+            const totalOffset = fallbackLength + 1000;
+            const drawLength = totalOffset * easeOutCubic;
+            const dashOffset = totalOffset - drawLength;
+            
+            path.style.strokeDasharray = `${fallbackLength}`;
+            path.style.strokeDashoffset = `${dashOffset}`;
         }
+    }, []);
 
-        path.style.strokeDasharray = `${pathLength}`;
-        path.style.strokeDashoffset = `${pathLength}`;
-
-        const handleScroll = () => {
-            const distance = window.scrollY;
-            const totalDistance = svg.clientHeight - window.innerHeight;
-            const percentage = totalDistance > 0 ? distance / totalDistance : 0;
-            path.style.strokeDashoffset = `${pathLength * (1 - Math.min(1, Math.max(0, percentage)))}`;
+    // Throttled scroll event handler
+    useEffect(() => {
+        let ticking = false;
+        
+        const throttledScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
+        // Initial call
         handleScroll();
-        window.addEventListener('scroll', handleScroll);
+        
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        window.addEventListener('resize', handleScroll, { passive: true });
+        
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', throttledScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, [handleScroll]);
+
+    // Responsive visibility and positioning handler
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const isMobile = screenWidth <= 480 ;
+            const isTablet = screenWidth > 480 && screenWidth <= 768;
+            
+            // Always show unless screen is extremely small
+            setIsVisible(screenWidth > 768); // Hide on mobile and small tablets
+
+            
+            // Adjust SVG container positioning to prevent gaps
+            const svg = svgRef.current;
+            if (svg) {
+                if (isMobile) {
+                    svg.style.position = 'fixed';
+                    svg.style.top = '0';
+                    svg.style.left = '0';
+                    svg.style.width = '100vw';
+                    svg.style.height = '100vh';
+                    svg.style.zIndex = '-1';
+                } else if (isTablet) {
+                    svg.style.position = 'absolute';
+                    svg.style.top = '0';
+                    svg.style.left = '0';
+                    svg.style.width = '100%';
+                    svg.style.height = 'auto';
+                    svg.style.zIndex = '10';
+                } else {
+                    svg.style.position = 'absolute';
+                    svg.style.top = '0';
+                    svg.style.left = '0';
+                    svg.style.width = '100%';
+                    svg.style.height = 'auto';
+                    svg.style.zIndex = '10';
+                }
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize, { passive: true });
+        
+        return () => {
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
         <svg
@@ -49,7 +138,13 @@ function Ribbon1({ className = '' }: Ribbon1Props) {
             viewBox="0 0 1920 3689"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={`ribbon1 ribbon1-responsive ${className}`}
+            className={`ribbon1 ${className}`}
+            preserveAspectRatio="xMidYMin slice"
+            style={{ 
+                maxWidth: '100vw',
+                height: 'auto',
+                overflow: 'hidden'
+            }}
         >
             <g clipPath="url(#clip0_879_174)">
                 <path
@@ -58,30 +153,27 @@ function Ribbon1({ className = '' }: Ribbon1Props) {
                     stroke="url(#paint0_linear_879_174)"
                     strokeWidth="30"
                     strokeLinejoin="round"
-                    style={{ strokeLinecap: 'round' }}
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
                 />
             </g>
             <defs>
-                <linearGradient id="paint0_linear_879_174" x1="1138.83" y1="186.294" x2="1138.83" y2="3421.6" gradientUnits="userSpaceOnUse">
+                <linearGradient 
+                    id="paint0_linear_879_174" 
+                    x1="1138.83" 
+                    y1="186.294" 
+                    x2="1138.83" 
+                    y2="3421.6" 
+                    gradientUnits="userSpaceOnUse"
+                >
                     <stop stopColor="#1D00F8" />
+                    <stop offset="0.5" stopColor="#6B46FF" />
                     <stop offset="1" stopColor="#9B8DFF" />
                 </linearGradient>
                 <clipPath id="clip0_879_174">
                     <rect width="1962" height="3689" fill="white" transform="translate(-6)" />
                 </clipPath>
             </defs>
-            
-            <style jsx>{`
-                .ribbon1-responsive {
-                    display: block;
-                }
-                
-                @media (max-width: 768px) {
-                    .ribbon1-responsive {
-                        display: none !important;
-                    }
-                }
-            `}</style>
         </svg>
     );
 }
