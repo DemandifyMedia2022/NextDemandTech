@@ -3,16 +3,18 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import NoomoPreloader from '@/components/preloader/NoomoPreloader';
+import PageTransition from '../../components/ui/PageTransition';
+import { usePageTransition } from '../../hooks/usePageTransition';
 import { SmoothScroll } from '../../components';
 import HeaderNav from '@/components/ui/HeaderNav';
 import Footer from '@/components/ui/Footer';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isInitialLoading, setIsInitialLoading] = React.useState(true);
   const [showPreloader, setShowPreloader] = React.useState(true);
-  const [preloaderKey, setPreloaderKey] = React.useState(0);
   const pathname = usePathname();
-  const lastPathRef = React.useRef<string | null>(null);
+  const { isTransitioning, completeTransition } = usePageTransition();
+  const hasInitialized = React.useRef(false);
 
   React.useEffect(() => {
     if (showPreloader) {
@@ -25,52 +27,55 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     };
   }, [showPreloader]);
 
+  // Add page transition class when transitioning
+  React.useEffect(() => {
+    if (isTransitioning) {
+      document.body.classList.add('page-transition-active');
+    } else {
+      document.body.classList.remove('page-transition-active');
+    }
+    return () => {
+      document.body.classList.remove('page-transition-active');
+    };
+  }, [isTransitioning]);
+
   const handlePreloaderComplete = () => {
-    setIsLoading(false);
+    setIsInitialLoading(false);
     setShowPreloader(false);
+    hasInitialized.current = true;
   };
 
-  // Trigger preloader on route changes (App Router)
+  // Only show preloader on initial load, not on route changes
   React.useEffect(() => {
-    if (lastPathRef.current === null) {
-      lastPathRef.current = pathname;
-      return;
-    }
-    if (lastPathRef.current !== pathname) {
-      lastPathRef.current = pathname;
-      setIsLoading(true);
-      setShowPreloader(true);
-      setPreloaderKey((k) => k + 1); // force remount for fresh animation
+    if (hasInitialized.current) {
+      return; // Don't show preloader after initial load
     }
   }, [pathname]);
-
-  // Listen for manual preloader triggers (e.g., from buttons/links) BEFORE route change
-  React.useEffect(() => {
-    const handler = () => {
-      setIsLoading(true);
-      setShowPreloader(true);
-      setPreloaderKey((k) => k + 1);
-    };
-    window.addEventListener('show-preloader', handler as EventListener);
-    return () => window.removeEventListener('show-preloader', handler as EventListener);
-  }, []);
 
   return (
     <div className={showPreloader ? '' : 'animate-fadeIn'}>
       <SmoothScroll />
       <HeaderNav />
-      <main>{children}</main>
+      
+      <PageTransition 
+        isTransitioning={isTransitioning} 
+        onTransitionComplete={completeTransition}
+      >
+        <main>{children}</main>
+      </PageTransition>
+      
       <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
         <Footer />
       </div>
-      {showPreloader && (
+      
+      {/* Only show preloader on initial page load */}
+      {showPreloader && !hasInitialized.current && (
         <NoomoPreloader
-          key={preloaderKey}
-          isLoading={isLoading}
+          isLoading={isInitialLoading}
           onComplete={handlePreloaderComplete}
           duration={3000}
-          brandName="YOUR BRAND"
-          brandSubtitle="YOUR TAGLINE"
+          brandName="DEMAND TECH"
+          brandSubtitle="DIGITAL EXPERIENCES"
         />
       )}
     </div>

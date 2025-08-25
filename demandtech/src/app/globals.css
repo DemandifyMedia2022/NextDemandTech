@@ -139,6 +139,10 @@ h2{
   .animate-fadeIn {
     animation: fadeIn 0.8s ease-out;
   }
+  
+  .page-transition-active {
+    overflow: hidden;
+  }
 }
 
 @keyframes fadeIn {
@@ -150,6 +154,22 @@ h2{
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Page transition styles */
+.page-transition-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-transition-active {
+  overflow: hidden;
+}
+
+.page-transition-active .page-transition-container {
+  pointer-events: none;
 }
 
 /* Prevent scrolling when preloader is active */

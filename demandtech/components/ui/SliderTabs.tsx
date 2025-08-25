@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,6 +25,7 @@ interface TabProps {
     children: ReactNode;
     setPosition: (position: Position | ((prev: Position) => Position)) => void;
     href?: string;
+    isActive?: boolean;
 }
 
 interface CursorProps {
@@ -44,6 +46,36 @@ const SlideTabs: React.FC = () => {
         width: 0,
         opacity: 0,
     });
+    const pathname = usePathname();
+
+    // Set initial cursor position for active tab
+    useEffect(() => {
+        // Small delay to ensure DOM is ready
+        const timer = setTimeout(() => {
+            const activeTab = document.querySelector(`[data-href="${pathname}"]`) as HTMLLIElement;
+            if (activeTab) {
+                const { width } = activeTab.getBoundingClientRect();
+                setPosition({
+                    left: activeTab.offsetLeft,
+                    width,
+                    opacity: 1,
+                });
+            } else {
+                // Fallback: set cursor to first tab if no active tab found
+                const firstTab = document.querySelector('[data-href]') as HTMLLIElement;
+                if (firstTab) {
+                    const { width } = firstTab.getBoundingClientRect();
+                    setPosition({
+                        left: firstTab.offsetLeft,
+                        width,
+                        opacity: 1,
+                    });
+                }
+            }
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, [pathname]);
 
     return (
         <motion.ul
@@ -67,19 +99,20 @@ const SlideTabs: React.FC = () => {
                 gap: '0px',
             }}
         >
-            <Tab setPosition={setPosition} href="/">Home</Tab>
-            <Tab setPosition={setPosition} href="/services">Services</Tab>
-            <Tab setPosition={setPosition} href="/solutions">Solutions</Tab>
-            <Tab setPosition={setPosition} href="/about">About</Tab>
-            <Tab setPosition={setPosition} href="/pricing">Pricing</Tab>
+            <Tab setPosition={setPosition} href="/" isActive={pathname === "/"}>Home</Tab>
+            <Tab setPosition={setPosition} href="/services" isActive={pathname.startsWith("/services")}>Services</Tab>
+            <Tab setPosition={setPosition} href="/solutions" isActive={pathname === "/solutions"}>Solutions</Tab>
+            <Tab setPosition={setPosition} href="/about" isActive={pathname.startsWith("/about")}>About</Tab>
+            <Tab setPosition={setPosition} href="/pricing" isActive={pathname === "/pricing"}>Pricing</Tab>
 
             <Cursor position={position} />
         </motion.ul>
     );
 };
 
-const Tab: React.FC<TabProps> = ({ children, setPosition, href }) => {
+const Tab: React.FC<TabProps> = ({ children, setPosition, href, isActive = false }) => {
     const ref = useRef<HTMLLIElement>(null);
+    const router = useRouter();
 
     const handleMouseEnter = () => {
         if (!ref?.current) return;
@@ -95,29 +128,47 @@ const Tab: React.FC<TabProps> = ({ children, setPosition, href }) => {
 
     const handleClick = () => {
         if (href) {
-            window.location.href = href;
+            // Trigger page transition event before navigation
+            window.dispatchEvent(new CustomEvent('start-page-transition'));
+            
+            // Small delay to allow transition to start
+            setTimeout(() => {
+                router.push(href);
+            }, 100);
         }
     };
 
     return (
         <li
             ref={ref}
+            data-href={href}
             onMouseEnter={handleMouseEnter}
             onClick={handleClick}
-            className="relative z-10 block cursor-pointer text-white"
+            className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${
+                isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
+            }`}
             style={{
                 fontFamily: 'Clash Display, sans-serif',
-                fontWeight: '400',
+                fontWeight: isActive ? '500' : '400',
                 fontSize: '17px',
                 padding: '3.8px 24px',
                 textAlign: 'center',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minWidth: '90px'
+                minWidth: '90px',
+                backgroundColor: 'transparent'
             }}
         >
             {children}
+            {isActive && (
+                <motion.div
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                />
+            )}
         </li>
     );
 };
@@ -126,7 +177,14 @@ const Cursor: React.FC<CursorProps> = ({ position }) => {
     return (
         <motion.li
             animate={{
-                ...position,
+                left: position.left,
+                width: position.width,
+                opacity: position.opacity,
+            }}
+            transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30
             }}
             className="absolute z-0 rounded-full"
             style={{
