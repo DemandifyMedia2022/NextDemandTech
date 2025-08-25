@@ -46,8 +46,7 @@ export const post = defineType({
         defineField({
             name: 'author',
             title: 'Author',
-            type: 'reference',
-            to: { type: 'author' },
+            type: 'string',
             
         }),
         defineField({
@@ -65,7 +64,7 @@ export const post = defineType({
     preview: {
         select: {
             title: 'title',
-            author: 'author.name',
+            author: 'author',
             media: 'mainImage',
         },
         prepare(selection) {
