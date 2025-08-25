@@ -1,0 +1,140 @@
+"use client";
+
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
+import Button3 from "@/components/ui/Button3";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function PricingContent() {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".pricing-card",
+        { y: 48, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, []);
+
+  const plans = [
+    {
+      title: "Starter",
+      desc: "Perfect for small businesses getting started",
+      price: "$999",
+      sub: "/month",
+      features: [
+        "Up to 5,000 contacts",
+        "Email marketing automation",
+        "Basic analytics dashboard",
+        "Lead scoring",
+        "Email support",
+      ],
+      button: "Get Started",
+    },
+    {
+      title: "Professional",
+      desc: "Ideal for growing businesses",
+      price: "$2,499",
+      sub: "/month",
+      features: [
+        "Up to 25,000 contacts",
+        "Advanced automation workflows",
+        "Advanced analytics & reporting",
+        "A/B testing",
+        "CRM integrations",
+        "Priority support",
+      ],
+      button: "Get Started",
+    },
+    {
+      title: "Enterprise",
+      desc: "For large organizations with complex needs",
+      price: "Custom",
+      sub: "",
+      features: [
+        "Unlimited contacts",
+        "Custom integrations",
+        "White-label options",
+        "Advanced security & compliance",
+        "Dedicated account manager",
+        "24/7 phone support",
+      ],
+      button: "Contact Sales",
+    },
+  ];
+
+  return (
+    <div ref={sectionRef} className="pricing-section py-16 bg-white-500">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+        {plans.map((plan) => (
+          <motion.div
+            key={plan.title}
+            whileHover={{ scale: 1.06 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="pricing-card relative w-full rounded-3xl p-8 flex flex-col
+              shadow-xl hover:shadow-2xl transition-all duration-100
+              border border-white-500 bg-indigo-900 hover:bg-indigo-800"
+          >
+            {/* Title + description */}
+            <div>
+              <h2 className="text-2xl font-bold mb-2 text-white">{plan.title}</h2>
+              <p className="text-indigo-200 mb-4">{plan.desc}</p>
+
+              <p className="text-4xl font-extrabold mb-6 text-white">
+                {plan.price}
+                <span className="text-lg font-normal text-indigo-300 ml-1">{plan.sub}</span>
+              </p>
+
+              {/* Feature List */}
+              <ul className="space-y-3 mb-8 text-left text-indigo-200">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <svg
+                      className="mt-0.5 h-5 w-5 text-indigo-400 flex-none"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Button pinned at bottom */}
+            {/* Button pinned at bottom */}
+<div className="mt-auto">
+  <Button3 className="w-full" text={plan.button} />
+</div>
+</motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default PricingContent;

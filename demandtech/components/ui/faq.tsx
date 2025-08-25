@@ -1,36 +1,38 @@
-'use client';
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
-import { useState } from 'react';
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-const faqData: FAQItem[] = [
+const faqs = [
   {
-    question: "What services does DemandTech offer?",
-    answer: "DemandTech offers comprehensive demand generation services including intent-qualified lead generation, content syndication, brand awareness campaigns, lead nurture programs, and performance analytics."
+    question: "What does a Demand Generation cost?",
+    answer:
+      "The cost depends on the scope of services tailored to your needs. Contact us for a detailed proposal.",
   },
   {
-    question: "How does your intent data work?",
-    answer: "Our intent data technology tracks real-time buyer behavior across multiple channels to identify prospects actively searching for solutions like yours, ensuring higher conversion rates."
+    question: "How quickly can we get started?",
+    answer:
+      "We can typically start within 1–2 weeks after finalizing the proposal.",
   },
   {
-    question: "What industries do you specialize in?",
-    answer: "We specialize in B2B technology, SaaS, healthcare, finance, and professional services, with expertise in complex sales cycles and enterprise solutions."
+    question: "In which countries do you operate?",
+    answer:
+      "We work with clients globally across multiple industries and regions.",
   },
   {
-    question: "How long does it take to see results?",
-    answer: "Typically, you'll see initial results within 30-60 days, with full campaign optimization and peak performance achieved within 3-6 months."
+    question: "Do you offer pilot engagements?",
+    answer:
+      "Yes, we offer pilot programs so you can see value before committing long-term.",
   },
   {
-    question: "Do you provide reporting and analytics?",
-    answer: "Yes, we provide comprehensive reporting including lead quality metrics, conversion rates, ROI tracking, and detailed performance analytics to optimize your campaigns."
-  }
+    question: "How do you measure success?",
+    answer:
+      "Success is measured with clear KPIs like lead quality, conversions, and ROI tracking.",
+  },
 ];
 
-export default function Faq() {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -38,27 +40,65 @@ export default function Faq() {
   };
 
   return (
-    <div className="space-y-4">
-      {faqData.map((item, index) => (
-        <div key={index} className="border border-gray-200 rounded-lg">
-          <button
-            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-            onClick={() => toggleFAQ(index)}
+    <BackgroundGradientAnimation className="py-10 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-3xl mx-auto text-center relative z-10">
+        {/* Responsive heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 font-clash">
+          FAQ
+        </h2>
+      </div>
+
+      <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6 relative z-10">
+        {faqs.map((faq, index) => (
+          <motion.div
+            key={faq.question}
+            className="rounded-xl sm:rounded-2xl bg-white/30 backdrop-blur-md border border-white/40 overflow-hidden"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
           >
-            <span className="font-medium text-gray-900">{item.question}</span>
-            <span className="text-gray-500">
-              {openIndex === index ? '−' : '+'}
-            </span>
-          </button>
-          {openIndex === index && (
-            <div className="px-6 pb-4">
-              <p className="text-gray-600">{item.answer}</p>
+            {/* Question */}
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => toggleFAQ(index)}
+              onKeyDown={(e) => e.key === "Enter" && toggleFAQ(index)}
+              className="cursor-pointer w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 
+              text-left text-gray-900 hover:bg-white/40 transition font-neu text-base sm:text-lg 
+              backdrop-blur-md border-b border-white/30"
+            >
+              <span>{faq.question}</span>
+              <motion.span
+                initial={false}
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {openIndex === index ? (
+                  <Minus size={22} className="sm:w-6 sm:h-6 text-blue-700" />
+                ) : (
+                  <Plus size={22} className="sm:w-6 sm:h-6 text-blue-700" />
+                )}
+              </motion.span>
             </div>
-          )}
-        </div>
-      ))}
-    </div>
+
+            {/* Answer */}
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-gray-800 leading-relaxed text-sm sm:text-base bg-white/10 backdrop-blur-sm">
+                    {faq.answer}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
+      </div>
+    </BackgroundGradientAnimation>
   );
 }
-
-

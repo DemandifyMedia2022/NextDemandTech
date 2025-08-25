@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 interface Button3Props {
     text?: string;
     href?: string;
+    className?: string;
 }
 
 const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
