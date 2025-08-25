@@ -16,6 +16,20 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const { isTransitioning, completeTransition } = usePageTransition();
   const hasInitialized = React.useRef(false);
 
+  // Determine if preloader has already been shown this session
+  React.useEffect(() => {
+    try {
+      const hasSeenPreloader = typeof window !== 'undefined' && window.sessionStorage.getItem('hasSeenPreloader');
+      if (hasSeenPreloader) {
+        setShowPreloader(false);
+        setIsInitialLoading(false);
+        hasInitialized.current = true;
+      }
+    } catch (_) {
+      // Ignore sessionStorage errors (e.g., privacy mode)
+    }
+  }, []);
+
   React.useEffect(() => {
     if (showPreloader) {
       document.body.classList.add('preloader-active');
@@ -43,6 +57,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     setIsInitialLoading(false);
     setShowPreloader(false);
     hasInitialized.current = true;
+    try {
+      if (typeof window !== 'undefined') {
+        window.sessionStorage.setItem('hasSeenPreloader', 'true');
+      }
+    } catch (_) {
+      // Ignore if sessionStorage is unavailable
+    }
   };
 
   // Only show preloader on initial load, not on route changes
