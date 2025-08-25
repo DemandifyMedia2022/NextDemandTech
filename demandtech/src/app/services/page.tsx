@@ -138,21 +138,37 @@ export default function ServicesPage() {
 		    <Stepper />
 	    </div>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
-        <p className="text-center text-7xl sm:text-5xl md:text-3xl lg:text-4xl text-gray-900 font-medium font-clash leading-relaxed">
-          See how Demand Tech powers your business forward.
-        </p>
+        <GSAPTextReveal
+          className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center"
+          stagger={0.15}
+          duration={1.0}
+          yOffset={80}
+          start="top 75%"
+        >
+          <p className="text-center text-7xl sm:text-5xl md:text-3xl lg:text-4xl text-gray-900 font-medium font-clash leading-relaxed">
+            See how Demand Tech powers your business forward.
+          </p>
+        </GSAPTextReveal>
         <div className="mt-6 flex justify-center">
           <Button3 text="Contact US" href="/services/demand-generation" />
         </div>
       </div>
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-10 mt-6">
-          <h1
-            className="text-center text-9xl sm:text-7xl md:text-5xl lg:text-6xl font-medium font-clash leading-relaxed
-               bg-gradient-to-r from-[#3a25d8] via-[#3a25d8] to-[#231683] bg-clip-text text-transparent"
-          >
-            Services
-          </h1>
-        </div>
+      <GSAPTextReveal
+              style={{ 
+                alignItems: 'center', 
+                alignContent: 'center', 
+                fontFamily: 'Clash Display', 
+                fontSize: 'clamp(48px, 8vw, 92px)', 
+                textAlign: 'center', 
+                color: '#000cf8' 
+              }}
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
+            >
+              Services
+            </GSAPTextReveal>
         <div className="bento-grid-container px-4 sm:px-8 md:px-12 lg:px-24 pt-8 pb-16 sm:pt-10 sm:pb-20">
           <ProgressiveBlurBentoGridV2 />
         </div>
