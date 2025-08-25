@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Card2 from '@/components/ui/Card2'
 import { ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'
 import Faq from '@/components/ui/faq';
+import '../../Homepage.css';
 
 export const metadata: Metadata = {
   title: 'Marketing Solutions | DemandTech',
@@ -16,7 +17,7 @@ export default function MarketingPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
           {/* Image */}
           <div className="flex justify-center md:justify-start">
-            <Card2 imageSrc="/creative Edge.png" alt="creative edge" />
+            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
           </div>
 
           {/* Text */}

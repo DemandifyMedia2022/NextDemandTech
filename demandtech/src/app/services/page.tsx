@@ -50,7 +50,7 @@ export default function ServicesPage() {
 
         <div className="mt-10 flex flex-wrap gap-4">
           <Button3 text="Demand Generation" href="/services/demand-generation" />
-          <Button3 text="Marketing" href="/services/marketing" />
+          <Button3 text="Marketing" href="/services/marketing"/>
         </div>
       </div>
 
