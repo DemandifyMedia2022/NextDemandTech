@@ -1,95 +1,72 @@
 import { Metadata } from 'next'
-
+import Button3 from '@/components/ui/Button3'
+import LogoSlider from '@/components/ui/LogoSlider' 
 export const metadata: Metadata = {
-    title: 'Solutions | DemandTech',
-    description: 'Discover our comprehensive solutions designed to solve your business challenges and drive growth.',
+  title: 'Solutions | DemandTech',
+  description:
+    'Discover our comprehensive solutions designed to solve your business challenges and drive growth.',
 }
 
 export default function SolutionsPage() {
-    return (
-        <div className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                        Our Solutions
-                    </h1>
-                    <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        Tailored solutions that address your unique business challenges and accelerate your path to success.
-                    </p>
-                </div>
+  return (
+    <div className="min-h-screen bg-[#F0F1FA]">
+      {/* keep navbar area as-is */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 relative flex items-center justify-center" />
 
-                <div className="mt-16">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="space-y-8">
-                            <div className="border-l-4 border-blue-500 pl-6">
-                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Enterprise Solutions</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Scalable solutions designed for large organizations with complex requirements and multiple stakeholders.
-                                </p>
-                                <ul className="text-gray-600 space-y-2">
-                                    <li>• Multi-channel campaign orchestration</li>
-                                    <li>• Advanced analytics and reporting</li>
-                                    <li>• Custom integrations and APIs</li>
-                                    <li>• Dedicated account management</li>
-                                </ul>
-                            </div>
+      {/* Hero */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        {/* Heading */}
+        <h1
+          className="leading-tight text-[#000000]"
+          style={{
+            fontFamily: 'Clash Display, sans-serif',
+            fontSize: 'clamp(32px, 5vw, 72px)',
+            fontWeight: 400,
+          }}
+        >
+        Demand Tech Lead Generation and        
+        </h1>
 
-                            <div className="border-l-4 border-green-500 pl-6">
-                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">SMB Solutions</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Cost-effective solutions tailored for small and medium businesses looking to scale efficiently.
-                                </p>
-                                <ul className="text-gray-600 space-y-2">
-                                    <li>• Quick-start marketing packages</li>
-                                    <li>• Automated lead nurturing</li>
-                                    <li>• Essential analytics dashboard</li>
-                                    <li>• Self-service tools and resources</li>
-                                </ul>
-                            </div>
-                        </div>
+        {/* Subheading */}
+        <p
+          className="mt-4 text-[#574bef] leading-snug  "
+          style={{
+            fontFamily: 'Clash Display, sans-serif',
+            fontSize: 'clamp(24px, 5vw, 55px)',
+            fontWeight: 500,
+          }}
+        >
+           Sales Development Solutions
+        </p>
 
-                        <div className="space-y-8">
-                            <div className="border-l-4 border-purple-500 pl-6">
-                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Industry-Specific Solutions</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Specialized solutions crafted for specific industries with unique compliance and operational requirements.
-                                </p>
-                                <ul className="text-gray-600 space-y-2">
-                                    <li>• Healthcare & Life Sciences</li>
-                                    <li>• Financial Services</li>
-                                    <li>• Technology & SaaS</li>
-                                    <li>• Manufacturing & Industrial</li>
-                                </ul>
-                            </div>
-
-                            <div className="border-l-4 border-orange-500 pl-6">
-                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Bespoke solutions built from the ground up to meet your specific business objectives and requirements.
-                                </p>
-                                <ul className="text-gray-600 space-y-2">
-                                    <li>• Custom platform development</li>
-                                    <li>• Tailored workflow automation</li>
-                                    <li>• Specialized integrations</li>
-                                    <li>• White-label solutions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mt-16 bg-gray-50 rounded-lg p-8 text-center">
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                        Ready to Find Your Perfect Solution?
-                    </h2>
-                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        Let's discuss your specific needs and create a customized solution that drives results for your business.
-                    </p>
-                    <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                        Schedule a Consultation
-                    </button>
-                </div>
-            </div>
+        <p
+            className="mt-6 text-gray-700 text-base sm:text-lg max-w-3xl mx-auto"
+            style={{
+            fontFamily: 'Clash Display, sans-serif',
+            fontWeight: 400,
+            lineHeight: '1.2',
+          }}
+        >
+           Sales and marketing solutions for enterprise and scaling businesse's growth challenges
+        </p>
+        {/* CTAs */}
+        <div className="mt-5 flex items-center justify-center gap-3 flex-wrap">
+          <Button3
+            text="Let's Talk"
+            href="/contact"
+            className="px-4 py-2 text-sm"
+          />
+          <Button3
+            text="Get Pricing"
+            href="/pricing"
+            className="px-4 py-2 text-sm"
+          />
         </div>
-    )
+      </section>
+      {/* Logo Slider */}
+      <div className="logo-slider-container my-14 sm:my-12 xs:my-6">
+        <LogoSlider />
+      </div>
+    </div>
+  )
 }
