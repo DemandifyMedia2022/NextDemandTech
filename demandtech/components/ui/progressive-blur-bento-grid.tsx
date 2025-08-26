@@ -33,20 +33,13 @@ export function ProgressiveBentoItem({
           className="h-full w-full object-cover transition-transform duration-500 sm:group-hover:scale-110"
         />
 
-        {/* 🔧 DARKNESS OVERLAY - Adjust these values to control darkness:
-            from-black/25 = 25% black opacity at top-left
-            via-black/15 = 15% black opacity in middle  
-            to-transparent = 0% black opacity at bottom-right
-            Increase numbers (e.g., /40, /30) for darker overlay
-            Decrease numbers (e.g., /15, /10) for lighter overlay */}
+        {/* 🔧 DARKNESS OVERLAY - Removed for clear image visibility */}
         <div className="absolute inset-0 bg-transparent" />
 
-        {/* 🔧 BACKGROUND BLUR - Adjust blurIntensity value:
-            Lower values (1-3) = less blur, more image detail
-            Higher values (5-8) = more blur, less image detail */}
+        {/* 🔧 BACKGROUND BLUR - Minimal blur for clear image visibility */}
         <ProgressiveBlur
           className="absolute inset-0"
-          blurIntensity={0.1}
+          blurIntensity={0}
         />
       </div>
 
