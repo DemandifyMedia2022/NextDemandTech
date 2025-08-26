@@ -181,7 +181,7 @@ export const Button4 = ({ text = "Learn More", href }: Button4Props) => {
                         opacity: isHover ? 1 : 0,
                     }}
                 >
-                    <ArrowRightIcon className={styles.icon} />
+                    
 
 
                     <ArrowRightIcon
