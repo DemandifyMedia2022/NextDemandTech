@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Button3 from '@/components/ui/Button3'
+import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 
 export const metadata: Metadata = {
     title: 'About | DemandTech',
@@ -8,15 +10,42 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                        About DemandTech
-                    </h1>
-                    <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        We're on a mission to transform how businesses generate demand and drive growth through innovative technology and proven strategies.
-                    </p>
+        <div className="min-h-screen bg-transparent">
+            {/* Hero */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 xl:gap-16 items-center">
+                    {/* Left: Headline and CTA */}
+                    <div>
+                        
+                        <h1
+                            className="leading-tight text-gray-900"
+                            style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(42px, 6vw, 96px)' }}
+                        >
+                           Partner in Scalable  <span className="text-[#5B5BFF]">Futuristic Solutions</span>
+                        </h1>
+                        <p className="mt-6 text-base sm:text-lg text-gray-700 max-w-2xl">
+                            We deliver quality leads to B2B companies worldwide using multi‑channel and data‑driven strategies to engage target markets and boost sales for your business.
+                        </p>
+                        <div className="mt-8">
+                            <Button3 text="Overview" href="/about/overview" />
+                        </div>
+                    </div>
+
+                    {/* Right: 3‑image responsive grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 ">
+                        {/* Top left */}
+                        <div className="group relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="/about1.jpeg" alt="Team" className="h-40 sm:h-48 md:h-56 lg:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                        {/* Top right */}
+                        <div className="group relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="/about3.jpeg" alt="Collaboration" className="h-40 sm:h-48 md:h-56 lg:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                        {/* Bottom full width */}
+                        <div className="group relative overflow-hidden rounded-2xl shadow-lg col-span-1 sm:col-span-2">
+                            <img src="/about2.jpeg" alt="Culture" className="h-48 sm:h-56 md:h-64 lg:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="mt-16">
