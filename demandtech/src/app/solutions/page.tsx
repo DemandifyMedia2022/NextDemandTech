@@ -6,6 +6,23 @@ export const metadata: Metadata = {
   description:
     'Discover our comprehensive solutions designed to solve your business challenges and drive growth.',
 }
+const slides = [
+  {
+    title: "ABM Campaigns that Cut Through Noise",
+    button: "Explore ABM",
+    src: "/slides/abm.jpg",
+  },
+  {
+    title: "Full-Funnel SDR Support",
+    button: "See SDR Plans",
+    src: "/slides/sdr.jpg",
+  },
+  {
+    title: "Pipeline Ops & Analytics",
+    button: "View Analytics",
+    src: "/slides/analytics.jpg",
+  },
+];
 
 export default function SolutionsPage() {
   return (
