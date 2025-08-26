@@ -4,7 +4,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import Button3, { Button4 } from "@/components/ui/Button3";
+import {Button5} from "@/components/ui/Button5";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,7 +145,7 @@ function PricingContent() {
 
               {/* Button pinned at bottom */}
               <div className="mt-auto text-white">
-                <Button4
+                <Button5
                   className={`w-full ${isMiddle
                       ? "bg-indigo-700 hover:bg-indigo-600 text-white"
                       : "hover:bg-gray-800 text-white"
