@@ -45,20 +45,22 @@ const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
                 }}
                 transition={{ ease: "easeIn", duration: 0.2 }}
             >
-                {/* Circle */}
+                {/* Circle - visible before hover */}
                 <motion.div
-                    className={`${styles.circle} bg-current`}  // use currentColor
+                    className={styles.circle}
                     animate={{
                         scale: isHover ? 1.45 : 1,
+                        backgroundColor: isHover ? "#0a00c1" : "#000000",
                     }}
                     transition={{ ease: "easeIn", duration: 0.2 }}
                 />
 
                 {/* Title */}
                 <motion.div
-                    className={`${styles.title} transition-colors`}
+                    className={styles.title}
                     animate={{
                         x: isHover ? -8 : 8,
+                        color: isHover ? "#FFFFFF" : "#000000",
                     }}
                 >
                     <p className="inherit">{text}</p>
@@ -66,15 +68,18 @@ const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
 
                 {/* Icon */}
                 <motion.div
-                    className={`${styles.iconContainer} text-current`} // use currentColor
+                    className={styles.iconContainer}
                     animate={{
                         x: isHover ? 0 : 24,
+                        color: isHover ? "#FFFFFF" : "#000000",
                         opacity: isHover ? 1 : 0,
                     }}
                 >
-                    <ArrowRightIcon className={`${styles.icon} text-current`} />
+                    <ArrowRightIcon
+                        className={styles.icon}
+                        style={{ color: isHover ? "#FFFFFF" : "#000000" }}
+                    />
                 </motion.div>
-
             </motion.div>
         </div>
     );

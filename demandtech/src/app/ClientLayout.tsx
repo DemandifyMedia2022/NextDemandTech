@@ -15,6 +15,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const pathname = usePathname();
   const { isTransitioning, completeTransition } = usePageTransition();
   const hasInitialized = React.useRef(false);
+  const isStudioRoute = pathname?.startsWith('/studio');
 
   // Determine if preloader has already been shown this session
   React.useEffect(() => {
@@ -76,7 +77,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <div className={showPreloader ? '' : 'animate-fadeIn'}>
       <SmoothScroll />
-      <HeaderNav />
+      {!isStudioRoute && <HeaderNav />}
       
       <PageTransition 
         isTransitioning={isTransitioning} 
@@ -85,9 +86,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <main>{children}</main>
       </PageTransition>
       
-      <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
-        <Footer />
-      </div>
+      {!isStudioRoute && (
+        <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
+          <Footer />
+        </div>
+      )}
       
       {/* Only show preloader on initial page load */}
       {showPreloader && !hasInitialized.current && (

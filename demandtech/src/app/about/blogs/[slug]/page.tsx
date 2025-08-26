@@ -15,8 +15,8 @@ interface Post {
     mainImage?: any
     publishedAt: string
     body: any[]
-    author: {
-        name: string
+    author?: {
+        name?: string
         image?: any
         bio?: any[]
     }
@@ -31,8 +31,9 @@ async function getPost(slug: string): Promise<Post | null> {
     }
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const post = await getPost(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params
+    const post = await getPost(slug)
 
     if (!post) {
         return {
@@ -80,15 +81,16 @@ const portableTextComponents = {
     },
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = await getPost(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
+    const post = await getPost(slug)
 
     if (!post) {
         notFound()
     }
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-transparent">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="mb-8">
                     <Link
@@ -107,18 +109,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         </p>
 
                         <div className="flex items-center text-gray-500">
-                            {post.author.image && (
+                            {post.author?.image && (
                                 <div className="w-12 h-12 relative rounded-full overflow-hidden mr-4">
                                     <Image
                                         src={urlForImage(post.author.image).width(48).height(48).url()}
-                                        alt={post.author.name}
+                                        alt={post.author?.name || 'Author'}
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
                             )}
                             <div>
-                                <div className="font-medium text-gray-900">{post.author.name}</div>
+                                <div className="font-medium text-gray-900">{post.author?.name || 'DemandTech'}</div>
                                 <time dateTime={post.publishedAt} className="text-sm">
                                     {new Date(post.publishedAt).toLocaleDateString('en-US', {
                                         year: 'numeric',
@@ -152,21 +154,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     )}
                 </div>
 
-                {post.author.bio && (
+                {post.author?.bio && (
                     <div className="mt-12 pt-8 border-t border-gray-200">
                         <div className="flex items-start space-x-4">
-                            {post.author.image && (
+                            {post.author?.image && (
                                 <div className="w-16 h-16 relative rounded-full overflow-hidden flex-shrink-0">
                                     <Image
                                         src={urlForImage(post.author.image).width(64).height(64).url()}
-                                        alt={post.author.name}
+                                        alt={post.author?.name || 'Author'}
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
                             )}
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">About {post.author.name}</h3>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">About {post.author?.name || 'DemandTech'}</h3>
                                 <div className="text-gray-600">
                                     <PortableText value={post.author.bio} />
                                 </div>

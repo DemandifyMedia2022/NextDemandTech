@@ -17,8 +17,8 @@ interface Post {
     excerpt: string
     mainImage?: any
     publishedAt: string
-    author: {
-        name: string
+    author?: {
+        name?: string
         image?: any
     }
 }
@@ -64,17 +64,17 @@ export default async function BlogsPage() {
                                     )}
                                     <div className="p-6">
                                         <div className="flex items-center text-sm text-gray-500 mb-3">
-                                            {post.author.image && (
+                                            {post.author?.image && (
                                                 <div className="w-8 h-8 relative rounded-full overflow-hidden mr-3">
                                                     <Image
                                                         src={urlForImage(post.author.image).width(32).height(32).url()}
-                                                        alt={post.author.name}
+                                                        alt={post.author?.name || 'Author'}
                                                         fill
                                                         className="object-cover"
                                                     />
                                                 </div>
                                             )}
-                                            <span>{post.author.name}</span>
+                                            <span>{post.author?.name || 'DemandTech'}</span>
                                             <span className="mx-2">•</span>
                                             <time dateTime={post.publishedAt}>
                                                 {new Date(post.publishedAt).toLocaleDateString('en-US', {
