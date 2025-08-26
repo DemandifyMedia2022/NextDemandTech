@@ -200,7 +200,7 @@ export default function HomePage() {
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
-            marginBottom: '20px',
+            marginBottom: '10px',
             textAlign: 'center'
           }}>
             <GSAPTextReveal
@@ -245,32 +245,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className='globe-content'>
-          <div className="globe-wrapper">
+        <div className='globe-content' >
+          <div className="globe-wrapper"style={{ zIndex: -5 , marginTop: '-100px', marginLeft: '-250px'}}>
             <SimpleGlobe globeConfig={globeConfig} />
-          </div>
-
-          <div className="globe-text-card">
-            <p style={{ 
-              fontFamily: 'Clash Display', 
-              fontSize: 'clamp(24px, 5vw, 36px)', 
-              textAlign: 'center', 
-              color: '#1D00F8', 
-              marginTop: 'clamp(20px, 5vw, 100px)',
-              lineHeight: '1.2'
-            }}>
-              At DemandTech, we believe growth knows no boundaries.
-            </p>
-            <p style={{ 
-              fontFamily: 'Neue Montreal', 
-              fontSize: 'clamp(14px, 2.5vw, 18px)', 
-              textAlign: 'center', 
-              color: '#000000', 
-              marginTop: 'clamp(20px, 4vw, 50px)',
-              lineHeight: '1.5'
-            }}>
-               That&apos;s why our solutions are designed to support businesses across the globe—helping companies expand their presence, generate demand, and connect with buyers wherever they are. We proudly deliver services in North America, Asia Pacific, the Middle East, Europe, and Africa, ensuring that our clients benefit from a truly international approach.
-            </p>
           </div>
         </div>
       </div>
