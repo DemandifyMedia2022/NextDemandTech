@@ -20,7 +20,7 @@ export default function SolutionsPage() {
           className="leading-tight text-[#000000]"
           style={{
             fontFamily: 'Clash Display, sans-serif',
-            fontSize: 'clamp(32px, 5vw, 72px)',
+            fontSize: 'clamp(32px, 5vw, 92px)',
             fontWeight: 400,
           }}
         >
@@ -32,7 +32,7 @@ export default function SolutionsPage() {
           className="mt-4 text-[#574bef] leading-snug  "
           style={{
             fontFamily: 'Clash Display, sans-serif',
-            fontSize: 'clamp(24px, 5vw, 55px)',
+            fontSize: 'clamp(48px, 5vw, 92px)',
             fontWeight: 500,
           }}
         >

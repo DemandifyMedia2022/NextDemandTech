@@ -21,7 +21,7 @@ export default function AboutPage() {
                             className="leading-tight text-gray-900"
                             style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(42px, 6vw, 96px)' }}
                         >
-                           Your Partner in Scalable  <span className="text-[#5B5BFF]">Futuristic Solutions</span>
+                           Partner in Scalable  <span className="text-[#5B5BFF]">Futuristic Solutions</span>
                         </h1>
                         <p className="mt-6 text-base sm:text-lg text-gray-700 max-w-2xl">
                             We deliver quality leads to B2B companies worldwide using multi‑channel and data‑driven strategies to engage target markets and boost sales for your business.

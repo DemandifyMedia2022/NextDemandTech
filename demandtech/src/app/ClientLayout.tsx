@@ -3,8 +3,6 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import NoomoPreloader from '@/components/preloader/NoomoPreloader';
-import PageTransition from '../../components/ui/PageTransition';
-import { usePageTransition } from '../../hooks/usePageTransition';
 import { SmoothScroll } from '../../components';
 import HeaderNav from '@/components/ui/HeaderNav';
 import Footer from '@/components/ui/Footer';
@@ -13,7 +11,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const [isInitialLoading, setIsInitialLoading] = React.useState(true);
   const [showPreloader, setShowPreloader] = React.useState(true);
   const pathname = usePathname();
-  const { isTransitioning, completeTransition } = usePageTransition();
   const hasInitialized = React.useRef(false);
   const isStudioRoute = pathname?.startsWith('/studio');
 
@@ -42,18 +39,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     };
   }, [showPreloader]);
 
-  // Add page transition class when transitioning
-  React.useEffect(() => {
-    if (isTransitioning) {
-      document.body.classList.add('page-transition-active');
-    } else {
-      document.body.classList.remove('page-transition-active');
-    }
-    return () => {
-      document.body.classList.remove('page-transition-active');
-    };
-  }, [isTransitioning]);
-
   const handlePreloaderComplete = () => {
     setIsInitialLoading(false);
     setShowPreloader(false);
@@ -79,12 +64,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <SmoothScroll />
       {!isStudioRoute && <HeaderNav />}
       
-      <PageTransition 
-        isTransitioning={isTransitioning} 
-        onTransitionComplete={completeTransition}
-      >
-        <main>{children}</main>
-      </PageTransition>
+      <main>{children}</main>
       
       {!isStudioRoute && (
         <div className="footer-container" style={{ padding: '0px', marginTop: '50px' }}>
@@ -105,5 +85,3 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
-
-
