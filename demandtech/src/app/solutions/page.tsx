@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Button3 from '@/components/ui/Button3'
-import LogoSlider from '@/components/ui/LogoSlider' 
+import { Button2 } from '@/components/index'
 export const metadata: Metadata = {
   title: 'Solutions | DemandTech',
   description:
@@ -63,10 +63,61 @@ export default function SolutionsPage() {
           />
         </div>
       </section>
-      {/* Logo Slider */}
-      <div className="logo-slider-container my-14 sm:my-12 xs:my-6">
-        <LogoSlider />
-      </div>
+        {/* Trust / Marketing ROI section */}
+        <section className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-12 items-start gap-8 md:gap-12 lg:gap-16">   
+            <div className="md:col-span-7 text-left md:pr-6 lg:pr-12">
+              <h3
+                className="text-gray-900"
+                style={{
+                  fontFamily: 'Clash Display, sans-serif',
+                  fontWeight: 400,
+                  fontSize: 'clamp(26px, 3.8vw, 44px)', // keeps single line at desktop
+                  lineHeight: 1.15, // slightly tighter like screenshot
+                  letterSpacing: '-0.02em', // tighten spacing between letters
+                }}
+              >
+                50+ B2B software companies trust us to improve their{' '}
+                <span className="text-[#5B5BFF] font-medium">Marketing ROI</span>
+              </h3>
+            
+              <p
+                className="mt-2 text-gray-700 max-w-2xl"
+                style={{
+                  fontFamily:
+                    'neue-haas-grotesk, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial',
+                  fontSize: 'clamp(14px, 1.1vw, 16px)',
+                  lineHeight: 1.6,
+                  letterSpacing: '-0.01em', // subtle tighten for body too
+                }}
+              >
+                In a world where attention spans are short and digital channels are
+                overflowing with noise, standing out isn’t optional—it’s essential. At
+                DemandTech, we create scroll-stopping, conversion-driven content that
+                captures attention, sparks engagement, and positions your brand as the one
+                to watch. We don’t just make prospects pause—we make them take action.
+              </p>
+            
+              {/* CTA */}
+              <div className="mt-4">
+                <Button3 text="Contact Us" href="/contact" />
+              </div>
+            </div>
+        
+              {/* Right: Image */}
+              <div className="md:col-span-5 flex md:justify-end">
+                <div className="w-full max-w-[560px] rounded-[28px] overflow-hidden shadow-sm self-start md:mt-2">
+                  <img
+                    src="/Creative Edge.png"
+                    alt="Marketing team reviewing analytics on screen"
+                    className="block w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
     </div>
   )
 }
