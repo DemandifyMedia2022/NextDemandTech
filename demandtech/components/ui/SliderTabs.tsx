@@ -2,18 +2,9 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "./navigation-menu";
 
 interface Position {
     left: number;
@@ -26,15 +17,29 @@ interface TabProps {
     setPosition: (position: Position | ((prev: Position) => Position)) => void;
     href?: string;
     isActive?: boolean;
+    hasDropdown?: boolean;
+    dropdownItems?: DropdownItem[];
+    dropdownKey?: string;
+}
+
+interface DropdownItem {
+    title: string;
+    href: string;
+    description?: string;
 }
 
 interface CursorProps {
     position: Position;
 }
 
+interface DropdownMenuProps {
+    items: DropdownItem[];
+    isOpen: boolean;
+}
+
 export const SlideTabsExample: React.FC = () => {
     return (
-        <div className="bg-transparent py-5 px-125">
+        <div className="bg-transparent py-5 px-125 z-[1000]">
             <SlideTabs />
         </div>
     );
@@ -46,11 +51,82 @@ const SlideTabs: React.FC = () => {
         width: 0,
         opacity: 0,
     });
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [isDropdownHovered, setIsDropdownHovered] = useState(false);
     const pathname = usePathname();
+
+    // Dropdown menu configurations
+    const servicesDropdown: DropdownItem[] = [
+        {
+            title: "Demand Generation",
+            href: "/services/demand-generation",
+            description: "Strategic demand generation campaigns"
+        },
+        {
+            title: "Lead Generation",
+            href: "/services/lead-generation",
+            description: "Quality lead generation services"
+        },
+        {
+            title: "Digital Marketing",
+            href: "/services/digital-marketing",
+            description: "Comprehensive digital marketing solutions"
+        },
+        {
+            title: "Content Marketing",
+            href: "/services/content-marketing",
+            description: "Engaging content marketing strategies"
+        }
+    ];
+
+    const aboutDropdown: DropdownItem[] = [
+        {
+            title: "Company Overview",
+            href: "/about/overview",
+            description: "Learn about our mission and vision"
+        },
+        {
+            title: "Our Team",
+            href: "/about/team",
+            description: "Meet our experienced professionals"
+        },
+        {
+            title: "Clients",
+            href: "/about/clients",
+            description: "Our valued clients and partnerships"
+        },
+        {
+            title: "Case Studies",
+            href: "/about/case-studies",
+            description: "Success stories and results"
+        },
+        {
+            title: "Careers",
+            href: "/about/careers",
+            description: "Join our growing team"
+        }
+    ];
+
+    const solutionsDropdown: DropdownItem[] = [
+        {
+            title: "B2B Solutions",
+            href: "/solutions/b2b",
+            description: "Tailored B2B marketing solutions"
+        },
+        {
+            title: "Enterprise Solutions",
+            href: "/solutions/enterprise",
+            description: "Scalable enterprise marketing"
+        },
+        {
+            title: "Startup Solutions",
+            href: "/solutions/startup",
+            description: "Growth solutions for startups"
+        }
+    ];
 
     // Set initial cursor position for active tab
     useEffect(() => {
-        // Small delay to ensure DOM is ready
         const timer = setTimeout(() => {
             const activeTab = document.querySelector(`[data-href="${pathname}"]`) as HTMLLIElement;
             if (activeTab) {
@@ -61,7 +137,6 @@ const SlideTabs: React.FC = () => {
                     opacity: 1,
                 });
             } else {
-                // Fallback: set cursor to first tab if no active tab found
                 const firstTab = document.querySelector('[data-href]') as HTMLLIElement;
                 if (firstTab) {
                     const { width } = firstTab.getBoundingClientRect();
@@ -77,100 +152,215 @@ const SlideTabs: React.FC = () => {
         return () => clearTimeout(timer);
     }, [pathname]);
 
-    return (
-        <motion.ul
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            onMouseLeave={() => {
+    const handleMouseLeave = () => {
+        // Only hide if not hovering over dropdown
+        setTimeout(() => {
+            if (!isDropdownHovered) {
                 setPosition((pv) => ({
                     ...pv,
                     opacity: 0,
                 }));
-            }}
-            className="relative mx-auto flex w-fit rounded-full px-1 py-2"
-            style={{
-                background: 'rgba(158, 146, 146, 0.25)',
-                backdropFilter: 'blur(25px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                alignContent: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '0px',
-            }}
-        >
-            <Tab setPosition={setPosition} href="/" isActive={pathname === "/"}>Home</Tab>
-            <Tab setPosition={setPosition} href="/services" isActive={pathname.startsWith("/services")}>Services</Tab>
-            <Tab setPosition={setPosition} href="/solutions" isActive={pathname === "/solutions"}>Solutions</Tab>
-            <Tab setPosition={setPosition} href="/about" isActive={pathname.startsWith("/about")}>About</Tab>
-            <Tab setPosition={setPosition} href="/pricing" isActive={pathname === "/pricing"}>Pricing</Tab>
-
-            <Cursor position={position} />
-        </motion.ul>
-    );
-};
-
-const Tab: React.FC<TabProps> = ({ children, setPosition, href, isActive = false }) => {
-    const ref = useRef<HTMLLIElement>(null);
-    const router = useRouter();
-
-    const handleMouseEnter = () => {
-        if (!ref?.current) return;
-
-        const { width } = ref.current.getBoundingClientRect();
-
-        setPosition({
-            left: ref.current.offsetLeft,
-            width,
-            opacity: 1,
-        });
+                setActiveDropdown(null);
+            }
+        }, 100);
     };
 
-    const handleClick = () => {
-        if (href) {
-            // Trigger page transition event before navigation
-            window.dispatchEvent(new CustomEvent('start-page-transition'));
-            
-            // Small delay to allow transition to start
-            setTimeout(() => {
-                router.push(href);
-            }, 100);
-        }
+    const handleDropdownMouseEnter = () => {
+        setIsDropdownHovered(true);
+    };
+
+    const handleDropdownMouseLeave = () => {
+        setIsDropdownHovered(false);
+        setActiveDropdown(null);
+        setPosition((pv) => ({
+            ...pv,
+            opacity: 0,
+        }));
     };
 
     return (
-        <li
-            ref={ref}
-            data-href={href}
-            onMouseEnter={handleMouseEnter}
-            onClick={handleClick}
-            className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${
-                isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
-            }`}
-            style={{
-                fontFamily: 'Clash Display, sans-serif',
-                fontWeight: isActive ? '500' : '400',
-                fontSize: '17px',
-                padding: '3.8px 24px',
-                textAlign: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minWidth: '90px',
-                backgroundColor: 'transparent'
-            }}
-        >
-            {children}
-            {isActive && (
-                <motion.div
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                />
-            )}
-        </li>
+        <div className="relative">
+            <motion.ul
+                initial={{ y: -40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                onMouseLeave={handleMouseLeave}
+                className="relative mx-auto flex w-fit rounded-full px-1 py-2"
+                style={{
+                    background: 'rgba(158, 146, 146, 0.25)',
+                    backdropFilter: 'blur(25px)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    alignContent: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0px',
+                }}
+            >
+                <Tab
+                    setPosition={setPosition}
+                    setActiveDropdown={setActiveDropdown}
+                    href="/"
+                    isActive={pathname === "/"}
+                >
+                    Home
+                </Tab>
+
+                <Tab
+                    setPosition={setPosition}
+                    setActiveDropdown={setActiveDropdown}
+                    href="/services"
+                    isActive={pathname.startsWith("/services")}
+                    hasDropdown={true}
+                    dropdownItems={servicesDropdown}
+                    dropdownKey="services"
+                >
+                    Services
+                </Tab>
+
+                <Tab
+                    setPosition={setPosition}
+                    setActiveDropdown={setActiveDropdown}
+                    href="/solutions"
+                    isActive={pathname === "/solutions"}
+                    hasDropdown={true}
+                    dropdownItems={solutionsDropdown}
+                    dropdownKey="solutions"
+                >
+                    Solutions
+                </Tab>
+
+                <Tab
+                    setPosition={setPosition}
+                    setActiveDropdown={setActiveDropdown}
+                    href="/about"
+                    isActive={pathname.startsWith("/about")}
+                    hasDropdown={true}
+                    dropdownItems={aboutDropdown}
+                    dropdownKey="about"
+                >
+                    About
+                </Tab>
+
+                <Tab
+                    setPosition={setPosition}
+                    setActiveDropdown={setActiveDropdown}
+                    href="/pricing"
+                    isActive={pathname === "/pricing"}
+                >
+                    Pricing
+                </Tab>
+
+                <Cursor position={position} />
+            </motion.ul>
+
+            {/* Dropdown positioning container */}
+            <div
+                className="absolute top-full left-0 right-0 flex justify-center mt-2"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+            >
+                <AnimatePresence>
+                    {activeDropdown === 'services' && (
+                        <DropdownMenu items={servicesDropdown} isOpen={true} />
+                    )}
+                    {activeDropdown === 'solutions' && (
+                        <DropdownMenu items={solutionsDropdown} isOpen={true} />
+                    )}
+                    {activeDropdown === 'about' && (
+                        <DropdownMenu items={aboutDropdown} isOpen={true} />
+                    )}
+                </AnimatePresence>
+            </div>
+        </div>
     );
+
+    function Tab({ children, setPosition, setActiveDropdown, href, isActive = false, hasDropdown = false, dropdownItems, dropdownKey }: TabProps & { setActiveDropdown: (key: string | null) => void; dropdownKey?: string }) {
+        const ref = useRef<HTMLLIElement>(null);
+        const router = useRouter();
+        const [isHovered, setIsHovered] = useState(false);
+
+        const handleMouseEnter = () => {
+            if (!ref?.current) return;
+
+            const { width } = ref.current.getBoundingClientRect();
+
+            setPosition({
+                left: ref.current.offsetLeft,
+                width,
+                opacity: 1,
+            });
+
+            setIsHovered(true);
+
+            if (hasDropdown && dropdownKey) {
+                setActiveDropdown(dropdownKey);
+            }
+        };
+
+        const handleMouseLeave = () => {
+            setIsHovered(false);
+        };
+
+        const handleClick = () => {
+            if (href) {
+                window.dispatchEvent(new CustomEvent('start-page-transition'));
+
+                setTimeout(() => {
+                    router.push(href);
+                }, 100);
+            }
+        };
+
+        return (
+            <li
+                ref={ref}
+                data-href={href}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleClick}
+                className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${
+                    isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
+                }`}
+                style={{
+                    fontFamily: 'Clash Display, sans-serif',
+                    fontWeight: isActive ? '500' : '400',
+                    fontSize: '17px',
+                    padding: '3.8px 24px',
+                    textAlign: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minWidth: '90px',
+                    backgroundColor: 'transparent'
+                }}
+            >
+                <span className="flex items-center gap-1">
+                    {children}
+                    {hasDropdown && (
+                        <motion.svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="currentColor"
+                            className="ml-1"
+                            animate={{ rotate: isHovered ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                        </motion.svg>
+                    )}
+                </span>
+                {isActive && (
+                    <motion.div
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                    />
+                )}
+            </li>
+        );
+    }
 };
 
 const Cursor: React.FC<CursorProps> = ({ position }) => {
@@ -196,146 +386,149 @@ const Cursor: React.FC<CursorProps> = ({ position }) => {
     );
 };
 
-// Enhanced Navigation Menu Component
-export const EnhancedNavigationMenu: React.FC = () => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
     return (
-        <NavigationMenu>
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                    <Link href="/" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Home
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/services"
-                                    >
-                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                            Our Services
-                                        </div>
-                                        <p className="text-sm leading-tight text-muted-foreground">
-                                            Discover our comprehensive range of demand generation and marketing services.
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                        href="/services/demand-generation"
-                                    >
-                                        <div className="text-sm font-medium leading-none">Demand Generation</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Strategic demand generation campaigns
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                        href="/services/marketing"
-                                    >
-                                        <div className="text-sm font-medium leading-none">Marketing</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Comprehensive marketing solutions
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
+        <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="z-50 rounded-2xl shadow-2xl overflow-hidden"
+            style={{
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                minWidth: '280px',
+                maxWidth: '400px'
+            }}
+        >
+            <div className="p-6">
+                <div className="grid gap-3">
+                    {items.map((item, index) => (
+                        <motion.div
+                            key={item.href}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05, duration: 0.2 }}
+                        >
+                            <Link
+                                href={item.href}
+                                className="block p-3 rounded-xl transition-all duration-200 hover:bg-white/50 group"
+                            >
+                                <div className="flex flex-col">
+                                    <span className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                        {item.title}
+                                    </span>
+                                    {item.description && (
+                                        <span className="text-sm text-gray-600 mt-1">
+                                            {item.description}
+                                        </span>
+                                    )}
+                                </div>
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
 
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/about"
-                                    >
-                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                            About Us
-                                        </div>
-                                        <p className="text-sm leading-tight text-muted-foreground">
-                                            Learn more about our company, team, and mission.
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                        href="/about/overview"
-                                    >
-                                        <div className="text-sm font-medium leading-none">Overview</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Company overview and mission
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                        href="/about/clients"
-                                    >
-                                        <div className="text-sm font-medium leading-none">Clients</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Our valued clients and partnerships
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                        href="/about/case-studies"
-                                    >
-                                        <div className="text-sm font-medium leading-none">Case Studies</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Success stories and case studies
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
+// Enhanced Navigation Menu Component (for compatibility)
+export const EnhancedNavigationMenu: React.FC = () => {
+    const router = useRouter();
 
-                <NavigationMenuItem>
-                    <Link href="/solutions" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Solutions
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
+    const handleNavigation = (href: string) => {
+        window.dispatchEvent(new CustomEvent('start-page-transition'));
+        setTimeout(() => {
+            router.push(href);
+        }, 100);
+    };
 
-                <NavigationMenuItem>
-                    <Link href="/pricing" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Pricing
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+    return (
+        <nav className="flex items-center gap-6">
+            <button
+                onClick={() => handleNavigation('/')}
+                className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
+            >
+                Home
+            </button>
+
+            <div className="relative group">
+                <button
+                    onClick={() => handleNavigation('/services')}
+                    className="text-white hover:text-blue-200 transition-colors duration-200 font-medium flex items-center gap-1"
+                >
+                    Services
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
+                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+
+                <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 min-w-[280px] p-4">
+                        <Link href="/services/demand-generation" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Demand Generation</div>
+                            <div className="text-sm text-gray-600 mt-1">Strategic demand generation campaigns</div>
+                        </Link>
+                        <Link href="/services/lead-generation" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Lead Generation</div>
+                            <div className="text-sm text-gray-600 mt-1">Quality lead generation services</div>
+                        </Link>
+                        <Link href="/services/digital-marketing" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Digital Marketing</div>
+                            <div className="text-sm text-gray-600 mt-1">Comprehensive digital marketing solutions</div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                onClick={() => handleNavigation('/solutions')}
+                className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
+            >
+                Solutions
+            </button>
+
+            <div className="relative group">
+                <button
+                    onClick={() => handleNavigation('/about')}
+                    className="text-white hover:text-blue-200 transition-colors duration-200 font-medium flex items-center gap-1"
+                >
+                    About
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
+                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+
+                <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 min-w-[280px] p-4">
+                        <Link href="/about/overview" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Company Overview</div>
+                            <div className="text-sm text-gray-600 mt-1">Learn about our mission and vision</div>
+                        </Link>
+                        <Link href="/about/team" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Our Team</div>
+                            <div className="text-sm text-gray-600 mt-1">Meet our experienced professionals</div>
+                        </Link>
+                        <Link href="/about/clients" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Clients</div>
+                            <div className="text-sm text-gray-600 mt-1">Our valued clients and partnerships</div>
+                        </Link>
+                        <Link href="/about/case-studies" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                            <div className="font-medium text-gray-900">Case Studies</div>
+                            <div className="text-sm text-gray-600 mt-1">Success stories and results</div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                onClick={() => handleNavigation('/pricing')}
+                className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
+            >
+                Pricing
+            </button>
+        </nav>
     );
 };
