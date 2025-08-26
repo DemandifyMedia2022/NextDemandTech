@@ -4,7 +4,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import Button3 from "@/components/ui/Button3";
+import Button3, { Button4 } from "@/components/ui/Button3";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,30 +93,26 @@ function PricingContent() {
               {/* Title + description */}
               <div>
                 <h2
-                  className={`text-2xl font-bold mb-2 ${
-                    isMiddle ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-2xl font-bold mb-2 ${isMiddle ? "text-white" : "text-gray-900"
+                    }`}
                 >
                   {plan.title}
                 </h2>
                 <p
-                  className={`${
-                    isMiddle ? "text-indigo-200" : "text-gray-600"
-                  } mb-4`}
+                  className={`${isMiddle ? "text-indigo-200" : "text-gray-600"
+                    } mb-4`}
                 >
                   {plan.desc}
                 </p>
 
                 <p
-                  className={`text-4xl font-extrabold mb-6 ${
-                    isMiddle ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-4xl font-extrabold mb-6 ${isMiddle ? "text-white" : "text-gray-900"
+                    }`}
                 >
                   {plan.price}
                   <span
-                    className={`text-lg font-normal ml-1 ${
-                      isMiddle ? "text-indigo-300" : "text-gray-500"
-                    }`}
+                    className={`text-lg font-normal ml-1 ${isMiddle ? "text-indigo-300" : "text-gray-500"
+                      }`}
                   >
                     {plan.sub}
                   </span>
@@ -124,16 +120,14 @@ function PricingContent() {
 
                 {/* Feature List */}
                 <ul
-                  className={`space-y-3 mb-8 text-left ${
-                    isMiddle ? "text-indigo-200" : "text-gray-700"
-                  }`}
+                  className={`space-y-3 mb-8 text-left ${isMiddle ? "text-indigo-200" : "text-gray-700"
+                    }`}
                 >
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <svg
-                        className={`mt-0.5 h-5 w-5 flex-none ${
-                          isMiddle ? "text-indigo-400" : "text-green-500"
-                        }`}
+                        className={`mt-0.5 h-5 w-5 flex-none ${isMiddle ? "text-indigo-400" : "text-green-500"
+                          }`}
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -150,15 +144,15 @@ function PricingContent() {
               </div>
 
               {/* Button pinned at bottom */}
-              <div className="mt-auto">
-                <Button3
-                  className={`w-full ${
-                    isMiddle
+              <div className="mt-auto text-white">
+                <Button4
+                  className={`w-full ${isMiddle
                       ? "bg-indigo-700 hover:bg-indigo-600 text-white"
-                      : "bg-black hover:bg-gray-800 text-white"
-                  }`}
+                      : "hover:bg-gray-800 text-white"
+                    }`}
                   text={plan.button}
                 />
+
               </div>
             </motion.div>
           );

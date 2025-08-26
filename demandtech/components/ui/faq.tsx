@@ -64,7 +64,7 @@ export default function FAQ() {
               onClick={() => toggleFAQ(index)}
               onKeyDown={(e) => e.key === "Enter" && toggleFAQ(index)}
               className="cursor-pointer w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 
-              text-left text-gray-900 hover:bg-white/40 transition font-neu text-base sm:text-lg 
+              text-left text-white hover:bg-white/40 transition font-neu text-base sm:text-lg 
               backdrop-blur-md border-b border-white/30"
             >
               <span>{faq.question}</span>
@@ -90,7 +90,7 @@ export default function FAQ() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-gray-800 leading-relaxed text-sm sm:text-base bg-white/10 backdrop-blur-sm">
+                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-white leading-relaxed text-sm sm:text-base bg-white/10 backdrop-blur-sm">
                     {faq.answer}
                   </div>
                 </motion.div>

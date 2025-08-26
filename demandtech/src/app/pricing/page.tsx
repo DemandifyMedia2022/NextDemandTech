@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import PricingContent from "@/components/ui/PricingContent"
+import Faq from '@/components/ui/faq';
+
 export const metadata: Metadata = {
     title: 'Pricing | DemandTech',
     description: 'Choose the perfect plan for your business. Transparent pricing with no hidden fees.',
@@ -22,9 +24,9 @@ export default function PricingPage() {
   <PricingContent />
 </div>
 
-                <div className="mt-16">
-                </div>
-                
+<div className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <Faq />
+      </div>
                 </div>
             </div>
         
