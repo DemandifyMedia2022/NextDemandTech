@@ -17,6 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.blue {
+  color: #000cf8;
+}
+
 a {
   font-weight: 500;
   color: #000cf8;
@@ -120,16 +124,17 @@ button:focus-visible {
 .font-inter {
   font-family: var(--font-inter);
 }
+
 .font-clash {
   font-family: 'Clash Display', sans-serif;
 }
 
-.font-neu{
+.font-neu {
   font-family: 'Neue Montreal';
 
 }
 
-h2{
+h2 {
   font-family: 'Clash Display';
   font-weight: 500;
 }
@@ -139,7 +144,7 @@ h2{
   .animate-fadeIn {
     animation: fadeIn 0.8s ease-out;
   }
-  
+
   .page-transition-active {
     overflow: hidden;
   }
@@ -150,6 +155,7 @@ h2{
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

@@ -318,9 +318,8 @@ const SlideTabs: React.FC = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClick}
-                className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${
-                    isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
-                }`}
+                className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
+                    }`}
                 style={{
                     fontFamily: 'Clash Display, sans-serif',
                     fontWeight: isActive ? '500' : '400',
@@ -346,7 +345,7 @@ const SlideTabs: React.FC = () => {
                             animate={{ rotate: isHovered ? 180 : 0 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                         </motion.svg>
                     )}
                 </span>
@@ -461,7 +460,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
                 >
                     Services
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
-                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
 
@@ -497,7 +496,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
                 >
                     About
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
-                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
 
