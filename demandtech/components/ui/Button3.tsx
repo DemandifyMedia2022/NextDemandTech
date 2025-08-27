@@ -10,9 +10,10 @@ interface Button3Props {
     text?: string;
     href?: string;
     className?: string;
+    onClick?: () => void;
 }
 
-const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
+const Button3 = ({ text = "Demand Generation", href, className, onClick }: Button3Props) => {
     const [isHover, setIsHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -33,7 +34,7 @@ const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
     };
 
     const content = (
-        <div className="font-inter">
+        <div className={`font-inter ${className ?? ''}`.trim()} onClick={onClick}>
             <motion.div
                 className={styles.buttonContainer}
                 onMouseEnter={() => handleInteraction(true)}
@@ -89,11 +90,12 @@ const Button3 = ({ text = "Demand Generation", href }: Button3Props) => {
             <Link
                 href={href}
                 className="inline-block"
-                onClick={() => {
+                onClick={(e) => {
                     // Dispatch a custom event so the layout can show preloader before navigation
                     if (typeof window !== 'undefined') {
                         window.dispatchEvent(new Event('show-preloader'));
                     }
+                    if (onClick) onClick();
                 }}
             >
                 {content}
