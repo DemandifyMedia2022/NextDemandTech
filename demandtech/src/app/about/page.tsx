@@ -4,6 +4,7 @@ import SmoothScroll from '@/components/ui/SmoothScroll'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 import { Features } from '@/components/ui/Features'
 import { TimelineDemo } from '@/components/ui/UseTimeline'
+import { MultiStepContactForm } from '@/components/index'
 
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default function AboutPage() {
             <div className='contact-title'>
                 <GSAPTextReveal
                     style={{
-                        marginTop: '100px',
+                        marginTop: '50px',
                         alignItems: 'center',
                         alignContent: 'center',
                         fontFamily: 'Clash Display',
@@ -77,13 +78,13 @@ export default function AboutPage() {
                     Our Impact
                 </GSAPTextReveal>
             </div>
-            <div className="mt-[10px]">
+            <div className="mt-[-50px]">
                 <Features />
             </div>
             <div className='contact-title'>
                 <GSAPTextReveal
                     style={{
-                        marginTop: '100px',
+                        marginTop: '30px',
                         alignContent: 'center',
                         fontFamily: 'Clash Display',
                         fontSize: 'clamp(48px, 8vw, 92px)',
@@ -98,8 +99,32 @@ export default function AboutPage() {
                     Our Journey
                 </GSAPTextReveal>
             </div>
-            <div className="mt-[-100px]">
+            <div className="mt-[-50px]">
                 <TimelineDemo />
+            </div>
+            {/* Contact Section */}
+            <div className='contact-section section-spacing'>
+                <div className='contact-title'>
+                    <GSAPTextReveal
+                        style={{
+                            alignItems: 'center',
+                            alignContent: 'center',
+                            fontFamily: 'Clash Display',
+                            fontSize: 'clamp(48px, 8vw, 92px)',
+                            textAlign: 'center',
+                            color: '#000000'
+                        }}
+                        stagger={0.15}
+                        duration={1.0}
+                        yOffset={80}
+                        start="top 75%"
+                    >
+                        Contact Us
+                    </GSAPTextReveal>
+                </div>
+                <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
+                    <MultiStepContactForm />
+                </div>
             </div>
         </div>
     )
