@@ -1,7 +1,10 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import Button3 from '@/components/ui/Button3'
 import VideoCard from '@/components/ui/VideoCard'
+import SmoothScroll from '@/components/ui/SmoothScroll'
+import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
+import { Features } from '@/components/ui/Features'
+import { TimelineDemo } from '@/components/ui/UseTimeline'
+
 
 export const metadata: Metadata = {
     title: 'About | DemandTech',
@@ -11,6 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-transparent">
+            <SmoothScroll />
             {/* Hero Section with VideoCard */}
             <div>
                 <div
@@ -30,7 +34,7 @@ export default function AboutPage() {
                     Know
                 </div>
                 <div
-                    className="text-[#000000] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
+                    className="text-[#000cf8] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
                     style={{
                         fontFamily: 'Clash Display, sans-serif',
                         textAlign: 'center',
@@ -48,13 +52,54 @@ export default function AboutPage() {
                 <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8 py-2 mt-[-100px] z-[-1]">
                     <VideoCard />
                 </div>
-
             </div>
             {/*Description*/}
+            <div className="text-[#000000] max-w-7xl mx-auto px-4 sm:px-6 lg:px-55 py-20 mt-[-100px] z-[1000]">
+                <p className="text-2xl">Our mission is to help businesses grow by providing innovative technology solutions that drive results. We are committed to delivering exceptional service and support to our clients, and we are dedicated to helping them achieve their goals.</p>
+            </div>
 
-            {/* Navigation Sections */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                {/* Add navigation sections here */}
+            <div className='contact-title'>
+                <GSAPTextReveal
+                    style={{
+                        marginTop: '100px',
+                        alignItems: 'center',
+                        alignContent: 'center',
+                        fontFamily: 'Clash Display',
+                        fontSize: 'clamp(48px, 8vw, 92px)',
+                        textAlign: 'center',
+                        color: '#000cf8'
+                    }}
+                    stagger={0.15}
+                    duration={1.0}
+                    yOffset={80}
+                    start="top 75%"
+                >
+                    Our Impact
+                </GSAPTextReveal>
+            </div>
+            <div className="mt-[10px]">
+                <Features />
+            </div>
+            <div className='contact-title'>
+                <GSAPTextReveal
+                    style={{
+                        marginTop: '100px',
+                        alignContent: 'center',
+                        fontFamily: 'Clash Display',
+                        fontSize: 'clamp(48px, 8vw, 92px)',
+                        textAlign: 'center',
+                        color: '#000cf8'
+                    }}
+                    stagger={0.15}
+                    duration={1.0}
+                    yOffset={80}
+                    start="top 75%"
+                >
+                    Our Journey
+                </GSAPTextReveal>
+            </div>
+            <div className="mt-[-100px]">
+                <TimelineDemo />
             </div>
         </div>
     )
