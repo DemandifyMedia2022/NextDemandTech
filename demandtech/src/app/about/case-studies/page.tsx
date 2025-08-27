@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { client } from '@/lib/sanity.client'
-import { allCaseStudiesQuery } from '@/lib/sanity.queries'
-import { urlForImage } from '@/lib/sanity.image'
+// No Sanity usage here
+// Sanity removed for case studies. Keep page, remove Sanity fetching.
 
 export const metadata: Metadata = {
     title: 'Case Studies | DemandTech',
@@ -20,17 +18,11 @@ interface CaseStudy {
         metric: string
         value: string
     }>
-    mainImage?: any
+    mainImageUrl?: string
 }
 
-async function getCaseStudies(): Promise<CaseStudy[]> {
-    try {
-        return await client.fetch(allCaseStudiesQuery)
-    } catch (error) {
-        console.error('Error fetching case studies:', error)
-        return []
-    }
-}
+// Static placeholder until new data source is provided
+async function getCaseStudies(): Promise<CaseStudy[]> { return [] }
 
 export default async function CaseStudiesPage() {
     const caseStudies = await getCaseStudies()
@@ -43,7 +35,7 @@ export default async function CaseStudiesPage() {
                         Case Studies
                     </h1>
                     <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        Discover how we've helped businesses across industries achieve remarkable growth through strategic demand generation.
+                        Discover how we&apos;ve helped businesses across industries achieve remarkable growth through strategic demand generation.
                     </p>
                 </div>
 
@@ -52,16 +44,7 @@ export default async function CaseStudiesPage() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             {caseStudies.map((caseStudy) => (
                                 <div key={caseStudy._id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                                    {caseStudy.mainImage && (
-                                        <div className="aspect-video relative">
-                                            <Image
-                                                src={urlForImage(caseStudy.mainImage).width(600).height(338).url()}
-                                                alt={caseStudy.mainImage.alt || caseStudy.title}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                    )}
+                                    {/* main image removed with Sanity */}
                                     <div className="p-8">
                                         <div className="mb-4">
                                             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
@@ -208,7 +191,7 @@ export default async function CaseStudiesPage() {
                         Ready to Write Your Success Story?
                     </h2>
                     <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        Join the growing list of companies that have transformed their growth with DemandTech's proven strategies.
+                        Join the growing list of companies that have transformed their growth with DemandTech&apos;s proven strategies.
                     </p>
                     <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                         Start Your Journey

@@ -1,9 +1,6 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import { client } from '@/lib/sanity.client'
-import { allResourcesQuery } from '@/lib/sanity.queries'
-import { urlForImage } from '@/lib/sanity.image'
+// No Sanity usage here
+// Sanity removed for resources. Keep page, remove Sanity fetching.
 
 export const metadata: Metadata = {
     title: 'Resources | DemandTech',
@@ -13,21 +10,12 @@ export const metadata: Metadata = {
 interface Resource {
     _id: string
     title: string
-    slug: { current: string }
-    type: string
     description: string
-    coverImage?: any
-    file?: any
+    type: string
 }
 
-async function getResources(): Promise<Resource[]> {
-    try {
-        return await client.fetch(allResourcesQuery)
-    } catch (error) {
-        console.error('Error fetching resources:', error)
-        return []
-    }
-}
+// Static placeholder until new data source is provided
+async function getResources(): Promise<Resource[]> { return [] }
 
 const resourceTypeColors: { [key: string]: string } = {
     whitepaper: 'bg-blue-100 text-blue-800',
@@ -58,16 +46,7 @@ export default async function ResourcesPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {resources.map((resource) => (
                                 <div key={resource._id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                                    {resource.coverImage && (
-                                        <div className="aspect-video relative">
-                                            <Image
-                                                src={urlForImage(resource.coverImage).width(400).height(225).url()}
-                                                alt={resource.coverImage.alt || resource.title}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                    )}
+                                    {/* cover image removed with Sanity */}
                                     <div className="p-6">
                                         <div className="flex items-center justify-between mb-3">
                                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${resourceTypeColors[resource.type] || 'bg-gray-100 text-gray-800'}`}>
@@ -91,7 +70,7 @@ export default async function ResourcesPage() {
                 ) : (
                     <div className="mt-16">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {/* Sample resources when no Sanity data */}
+                            {/* Sample resources when no data source */}
                             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <div className="aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                                     <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +151,7 @@ export default async function ResourcesPage() {
                         Need Something Specific?
                     </h2>
                     <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                        Can't find the resource you're looking for? Let us know what you need and we'll create it for you.
+                        Can&apos;t find the resource you&apos;re looking for? Let us know what you need and we&apos;ll create it for you.
                     </p>
                     <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                         Request a Resource

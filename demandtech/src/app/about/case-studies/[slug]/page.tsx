@@ -1,11 +1,9 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
+// No Sanity usage here
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
-import { client } from '@/lib/sanity.client'
-import { singleCaseStudyQuery } from '@/lib/sanity.queries'
-import { urlForImage } from '@/lib/sanity.image'
+// Sanity removed for case studies. Keep page, remove Sanity fetching.
 
 interface CaseStudy {
     _id: string
@@ -17,18 +15,11 @@ interface CaseStudy {
         metric: string
         value: string
     }>
-    mainImage?: any
-    body: any[]
+    mainImageUrl?: string
+    body: unknown[]
 }
 
-async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
-    try {
-        return await client.fetch(singleCaseStudyQuery, { slug })
-    } catch (error) {
-        console.error('Error fetching case study:', error)
-        return null
-    }
-}
+async function getCaseStudy(_slug: string): Promise<CaseStudy | null> { return null }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const caseStudy = await getCaseStudy(params.slug)
@@ -45,39 +36,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-const portableTextComponents = {
-    types: {
-        image: ({ value }: any) => (
-            <div className="my-8">
-                <Image
-                    src={urlForImage(value).width(800).height(450).url()}
-                    alt={value.alt || ''}
-                    width={800}
-                    height={450}
-                    className="rounded-lg"
-                />
-            </div>
-        ),
-    },
-    block: {
-        h1: ({ children }: any) => <h1 className="text-3xl font-bold text-gray-900 mt-8 mb-4">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="text-2xl font-semibold text-gray-900 mt-6 mb-3">{children}</h2>,
-        h3: ({ children }: any) => <h3 className="text-xl font-semibold text-gray-900 mt-4 mb-2">{children}</h3>,
-        normal: ({ children }: any) => <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>,
-        blockquote: ({ children }: any) => (
-            <blockquote className="border-l-4 border-blue-500 pl-6 my-6 italic text-gray-600">
-                {children}
-            </blockquote>
-        ),
-    },
-    marks: {
-        link: ({ children, value }: any) => (
-            <a href={value.href} className="text-blue-600 hover:text-blue-800 underline">
-                {children}
-            </a>
-        ),
-    },
-}
+const portableTextComponents = {}
 
 export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
     const caseStudy = await getCaseStudy(params.slug)
@@ -109,16 +68,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
                         </p>
                     </div>
 
-                    {caseStudy.mainImage && (
-                        <div className="aspect-video relative rounded-lg overflow-hidden mb-8">
-                            <Image
-                                src={urlForImage(caseStudy.mainImage).width(800).height(450).url()}
-                                alt={caseStudy.mainImage.alt || caseStudy.title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    )}
+                    {/* main image removed with Sanity */}
 
                     {caseStudy.results && caseStudy.results.length > 0 && (
                         <div className="bg-gray-50 rounded-lg p-8 mb-8">
@@ -136,8 +86,8 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
                 </div>
 
                 <div className="prose prose-lg max-w-none">
-                    {caseStudy.body && caseStudy.body.length > 0 ? (
-                        <PortableText value={caseStudy.body} components={portableTextComponents} />
+                    {caseStudy.body && (caseStudy.body as unknown[]).length > 0 ? (
+                        <PortableText value={caseStudy.body as never} components={portableTextComponents as never} />
                     ) : (
                         <div className="bg-gray-50 rounded-lg p-8 text-center">
                             <p className="text-gray-600">This case study content is being updated. Please check back soon.</p>
