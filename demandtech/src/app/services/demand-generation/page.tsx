@@ -115,9 +115,8 @@ export default function DemandGenerationPage() {
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 sm:gap-12">
               {/* Text */}
               <div
-                className={`text-left ${
-                  index % 2 !== 0 ? 'md:order-2' : 'md:order-1'
-                }`}
+                className={`text-left ${index % 2 !== 0 ? 'md:order-2' : 'md:order-1'
+                  }`}
               >
                 <h2
                   className="text-black mb-4 text-xl sm:text-2xl md:text-3xl"
@@ -136,9 +135,8 @@ export default function DemandGenerationPage() {
 
               {/* Image */}
               <div
-                className={`flex justify-center ${
-                  index % 2 !== 0 ? 'md:order-1' : 'md:order-2'
-                }`}
+                className={`flex justify-center ${index % 2 !== 0 ? 'md:order-1' : 'md:order-2'
+                  }`}
               >
                 <Card2 imageSrc={section.image} alt={section.title} />
               </div>
