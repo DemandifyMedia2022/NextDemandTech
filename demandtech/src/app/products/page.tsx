@@ -1,14 +1,53 @@
-import { Metadata } from 'next'
-import Button3 from '@/components/ui/Button3'
-import { Button2 } from '@/components/index'
+import { Metadata } from "next";
+import Button3 from "@/components/ui/Button3";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 export const metadata: Metadata = {
-  title: 'Products | DemandTech',
+  title: "Products | DemandTech",
   description:
-    'Discover our offerings designed to solve your business challenges and drive growth.',
-}
+    "Discover our offerings designed to solve your business challenges and drive growth.",
+};
 
 export default function ProductsPage() {
+  // Example cards (replace with real product data later)
+  const cards = [
+    {
+      src: "/Creative Edge.png",
+      title: "Lead Generation",
+      category: "Marketing",
+      content: (
+        <p>
+          Scale your sales pipeline with high-quality leads tailored to your ICP.
+        </p>
+      ),
+    },
+    {
+      src: "/Creative Edge.png",
+      title: "Sales Development",
+      category: "Outreach",
+      content: (
+        <p>
+          Boost engagement with outbound campaigns and warm introductions.
+        </p>
+      ),
+    },
+    {
+      src: "/Creative Edge.png",
+      title: "Market Research",
+      category: "Insights",
+      content: (
+        <p>
+          Actionable insights and competitor benchmarking to fuel smarter GTM
+          strategies.
+        </p>
+      ),
+    },
+  ];
+
+  const items = cards.map((card, index) => (
+    <Card key={index} card={card} index={index} layout />
+  ));
+
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
       {/* keep navbar area as-is */}
@@ -16,24 +55,22 @@ export default function ProductsPage() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        {/* Heading */}
         <h1
           className="leading-tight text-[#000000]"
           style={{
-            fontFamily: 'Clash Display, sans-serif',
-            fontSize: 'clamp(32px, 5vw, 92px)',
+            fontFamily: "Clash Display, sans-serif",
+            fontSize: "clamp(32px, 5vw, 92px)",
             fontWeight: 400,
           }}
         >
           Demand Tech Lead Generation and
         </h1>
 
-        {/* Subheading */}
         <p
-          className="mt-4 text-[#574bef] leading-snug  "
+          className="mt-4 text-[#574bef] leading-snug"
           style={{
-            fontFamily: 'Clash Display, sans-serif',
-            fontSize: 'clamp(48px, 5vw, 92px)',
+            fontFamily: "Clash Display, sans-serif",
+            fontSize: "clamp(48px, 5vw, 92px)",
             fontWeight: 500,
           }}
         >
@@ -43,13 +80,15 @@ export default function ProductsPage() {
         <p
           className="mt-6 text-gray-700 text-base sm:text-lg max-w-3xl mx-auto"
           style={{
-            fontFamily: 'Clash Display, sans-serif',
+            fontFamily: "Clash Display, sans-serif",
             fontWeight: 400,
-            lineHeight: '1.2',
+            lineHeight: "1.2",
           }}
         >
-          Sales and marketing solutions for enterprise and scaling businesse's growth challenges
+          Sales and marketing solutions for enterprise and scaling businesses'
+          growth challenges
         </p>
+
         {/* CTAs */}
         <div className="mt-5 flex items-center justify-center gap-3 flex-wrap">
           <Button3
@@ -64,33 +103,34 @@ export default function ProductsPage() {
           />
         </div>
       </section>
+
       {/* Trust / Marketing ROI section */}
       <section className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 items-start gap-8 md:gap-12 lg:gap-16">   
+          <div className="grid grid-cols-1 md:grid-cols-12 items-start gap-8 md:gap-12 lg:gap-16">
             <div className="md:col-span-7 text-left md:pr-6 lg:pr-12">
               <h3
                 className="text-gray-900"
                 style={{
-                  fontFamily: 'Clash Display, sans-serif',
+                  fontFamily: "Clash Display, sans-serif",
                   fontWeight: 400,
-                  fontSize: 'clamp(26px, 3.8vw, 44px)',
+                  fontSize: "clamp(26px, 3.8vw, 44px)",
                   lineHeight: 1.15,
-                  letterSpacing: '-0.02em',
+                  letterSpacing: "-0.02em",
                 }}
               >
-                50+ B2B software companies trust us to improve their{' '}
+                50+ B2B software companies trust us to improve their{" "}
                 <span className="text-[#5B5BFF] font-medium">Marketing ROI</span>
               </h3>
-            
+
               <p
                 className="mt-2 text-gray-700 max-w-2xl"
                 style={{
                   fontFamily:
-                    'neue-haas-grotesk, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial',
-                  fontSize: 'clamp(14px, 1.1vw, 16px)',
+                    "neue-haas-grotesk, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial",
+                  fontSize: "clamp(14px, 1.1vw, 16px)",
                   lineHeight: 1.6,
-                  letterSpacing: '-0.01em',
+                  letterSpacing: "-0.01em",
                 }}
               >
                 In a world where attention spans are short and digital channels are
@@ -99,13 +139,13 @@ export default function ProductsPage() {
                 captures attention, sparks engagement, and positions your brand as the one
                 to watch. We don’t just make prospects pause—we make them take action.
               </p>
-            
+
               {/* CTA */}
               <div className="mt-4">
                 <Button3 text="Contact Us" href="/contact" />
               </div>
             </div>
-        
+
             {/* Right: Image */}
             <div className="md:col-span-5 flex md:justify-end">
               <div className="w-full max-w-[560px] rounded-[28px] overflow-hidden shadow-sm self-start md:mt-2">
@@ -119,6 +159,11 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+
+      {/* Carousel Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <Carousel items={items} />
+      </div>
     </div>
-  )
+  );
 }
