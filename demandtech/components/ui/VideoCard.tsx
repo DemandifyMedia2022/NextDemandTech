@@ -28,11 +28,11 @@ const sampleMediaContent: MediaContentCollection = {
         poster: '/video-frame.png', // Place your video poster in public folder
         background: 'transparent', // Changed to transparent
         title: null,
-        date: 'Since 2019',
+        date: 'Since 2022',
         scrollToExpand: 'Scroll to Explore',
         about: {
             overview:
-                'Revolutionizing B2B marketing since 2019. We\'re passionate marketers with expertise across diverse disciplines - performance specialists, content marketers, designers, and more, all dedicated to driving your business growth.',
+                'Revolutionizing B2B marketing since 2022. We\'re passionate marketers with expertise across diverse disciplines - performance specialists, content marketers, designers, and more, all dedicated to driving your business growth.',
             conclusion:
                 'Our data-driven strategies and cutting-edge technology solutions help businesses across 15+ industries achieve unprecedented growth and success.',
         },

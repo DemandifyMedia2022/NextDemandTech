@@ -3,8 +3,8 @@ import { Shield, Users } from 'lucide-react'
 
 export function Features() {
     return (
-        <section className="bg-gray-50 py-16 md:py-32 dark:bg-transparent">
-            <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
+        <section className="bg-gray-50 py-20 md:py-32 dark:bg-transparent">
+            <div className="mx-auto max-w-3xl lg:max-w-5xl px-10">
                 <div className="relative">
                     <div className="relative z-10 grid grid-cols-6 gap-3">
                         <Card className="relative col-span-full flex overflow-hidden lg:col-span-2">
@@ -16,9 +16,9 @@ export function Features() {
                                             fill="currentColor"
                                         />
                                     </svg>
-                                    <span className="mx-auto block w-fit text-5xl font-semibold">98%</span>
+                                    <span className="mx-auto block w-fit text-5xl font-semibold">25%</span>
                                 </div>
-                                <h2 className="mt-6 text-center text-3xl font-semibold">Conversion Rate</h2>
+                                <h2 className="mt-6 text-center text-3xl font-semibold">Lead to Opportunity Conversion </h2>
                             </CardContent>
                         </Card>
                         <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
@@ -49,8 +49,8 @@ export function Features() {
                                     </svg>
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                                    <h2 className="group-hover:text-secondary-950 text-lg font-medium transition dark:text-blue">Secure by default</h2>
-                                    <p className="text-foreground">Provident fugit and vero voluptate. magnam magni doloribus dolores voluptates a sapiente nisi.</p>
+                                    <h2 className="group-hover:text-secondary-950 text-xl font-semibold transition dark:text-blue">Global Data Accuracy</h2>
+                                    <p className="text-foreground">Ensure data accuracy on a global scale with direct access to verified decision-makers. </p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -96,8 +96,8 @@ export function Features() {
                                     </svg>
                                 </div>
                                 <div className="relative z-10 mt-14 space-y-2 text-center text-black">
-
-                                    <p className="text-black">Provident fugit vero voluptate. magnam magni doloribus dolores voluptates inventore nisi.Provident fugit vero voluptate. magnam magni doloribus dolores voluptates inventore nisi</p>
+                                <h2 className="group-hover:text-secondary-950 text-xl font-semibold transition dark:text-blue">Content Consumption & Multi Touchpoint </h2>
+                                    <p className="text-black">Engage your audience across multiple touchpoints with meaningful content consumption and interactions that drive stronger brand connections.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -108,8 +108,9 @@ export function Features() {
                                         <Shield className="m-auto size-5" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="group-hover:text-secondary-950 text-lg font-medium text-black transition">Faster than light</h2>
-                                        <p className="text-black">Provident fugit vero voluptate. Voluptates a sapiente inventore nisi.Provident fugit vero voluptate. Voluptates a sapiente inventore nisi</p>
+                                        <h2 className="group-hover:text-secondary-950 text-lg font-medium text-black transition">Analytics & Performance Tracking</h2>
+                                        <p className="text-black">Measure, optimize, and grow with confidence.
+                                        Access real-time reporting and deep insights to track campaign performance, maximize ROI, and drive smarter decisions.</p>
                                     </div>
                                 </div>
                                 <div className="rounded-tl-(--radius) relative -mb-6 -mr-6 mt-6 h-fit border-l border-t p-6 py-6 sm:ml-6">
@@ -148,8 +149,9 @@ export function Features() {
                                         <Users className="m-auto size-6" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-lg font-medium transition">Keep your loved ones safe</h2>
-                                        <p className="text-foreground">Voluptate. magnam magni doloribus dolores voluptates a sapiente inventore nisi.</p>
+                                        <h2 className="text-lg font-medium transition">Intent-Driven Targeting</h2>
+                                        <p className="text-foreground">Connect with the right prospects at the right time.
+                                        Leverage advanced intent data to identify buyers actively searching for your solutions and engage them with precision.</p>
                                     </div>
                                 </div>
                                 <div className="before:bg-(--color-border) relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px sm:-my-6 sm:-mr-6">

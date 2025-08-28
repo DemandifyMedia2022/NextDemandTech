@@ -19,7 +19,7 @@ export default function AboutPage() {
             {/* Hero Section with VideoCard */}
             <div>
                 <div
-                    className="text-[#000000] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
+                    className="hidden md:block text-[#000000] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
                     style={{
                         fontFamily: 'Clash Display, sans-serif',
                         textAlign: 'center',
@@ -35,7 +35,7 @@ export default function AboutPage() {
                     Know
                 </div>
                 <div
-                    className="text-[#000cf8] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
+                    className="hidden md:block text-[#000cf8] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
                     style={{
                         fontFamily: 'Clash Display, sans-serif',
                         textAlign: 'center',
@@ -56,7 +56,7 @@ export default function AboutPage() {
             </div>
             {/*Description*/}
             <div className="text-[#000000] max-w-7xl mx-auto px-4 sm:px-6 lg:px-55 py-20 mt-[-100px] z-[1000]">
-                <p className="text-2xl">Our mission is to help businesses grow by providing innovative technology solutions that drive results. We are committed to delivering exceptional service and support to our clients, and we are dedicated to helping them achieve their goals.</p>
+                <p className="text-2xl sm:text[14px]:">At DemandTech, our mission is to empower businesses with the right technology and marketing solutions to accelerate growth. We believe in combining innovation with strategy to help companies streamline operations, generate high-quality leads, and build lasting customer relationships.</p>
             </div>
 
             <div className='contact-title'>

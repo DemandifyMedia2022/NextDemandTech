@@ -12,6 +12,7 @@ export { default as SmoothScroll } from './ui/SmoothScroll';
 export { ProgressiveBlurBentoGrid } from './ui/progressive-blur-bento-grid';
 export { default as MultiStepContactForm } from './ui/MultiStepContactForm';
 export { default as Testimonials } from './ui/TestimonialGridUse';
+export { default as GradientHeroSection } from './ui/GradientHeroSection';
 
 // Core Components
 export { ProgressiveBlur } from './core/progressive-blur';

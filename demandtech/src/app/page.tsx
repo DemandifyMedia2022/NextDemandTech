@@ -17,6 +17,8 @@ import SimpleGlobe from "@/components/ui/globe";
 import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
 import Footer from '@/components/ui/Footer';
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
+import GradientHeroSection from '@/components/ui/GradientHeroSection';
+
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -56,45 +58,14 @@ export default function HomePage() {
 
   return (
     <>
+    <div style={{ overflow: 'hidden' }}>  
       <ScrollAnimations />
       <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
         <Ribbon1 />
       </div>
 
       {/* Hero Section */}
-      <section className="hero section-spacing">
-        <div className="headline" style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          marginTop: '30px', 
-          marginBottom: '50px', 
-          fontFamily: 'Clash Display',
-          textAlign: 'center',
-          padding: '0 1rem'
-        }}>
-          <HeroTitle />
-        </div>
-
-        <section className='cardAndDesc'>
-          <div className="card-col">
-            <Card1 />
-          </div>
-
-          <div className="desc-col">
-            <AnimatedParagraph
-              className="lead"
-              stagger={0.03}
-              duration={0.5}
-              start="top 80%"
-            >
-              We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast. We combine cutting-edge tech with expert insight to pinpoint your highest-value prospects—accelerating your path to revenue fast.
-            </AnimatedParagraph>
-            <div className="actions">
-              <Button />
-            </div>
-          </div>
-        </section>
-      </section>
+     
 
       {/* Logo Slider */}
       <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
@@ -190,118 +161,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Globe Section */}
-      <div className='globe-section section-spacing'>
-        <div className='globe-titles'>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            marginBottom: '10px',
-            textAlign: 'center'
-          }}>
-            <GSAPTextReveal
-              style={{ 
-                alignItems: 'center', 
-                alignContent: 'center', 
-                fontFamily: 'Clash Display', 
-                fontSize: 'clamp(48px, 8vw, 92px)', 
-                textAlign: 'center', 
-                color: '#000000' 
-              }}
-              stagger={0.15}
-              duration={1.0}
-              yOffset={80}
-              start="top 75%"
-            >
-              Global Reach
-            </GSAPTextReveal>
-          </div>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            textAlign: 'center'
-          }}>
-            <GSAPTextReveal
-              style={{ 
-                alignItems: 'center', 
-                alignContent: 'center', 
-                fontFamily: 'Clash Display', 
-                fontSize: 'clamp(48px, 8vw, 92px)', 
-                textAlign: 'center', 
-                color: '#000cf7' 
-              }}
-              stagger={0.15}
-              duration={1.0}
-              yOffset={80}
-              start="top 75%"
-            >
-              Local Impact
-            </GSAPTextReveal>
-          </div>
-        </div>
-
-        <div className='globe-content' >
-          <div className="globe-wrapper"style={{ zIndex: -5 , marginTop: '-100px', marginLeft: '-250px'}}>
-            <SimpleGlobe globeConfig={globeConfig} />
-          </div>
-        </div>
-      </div>
+      
 
       {/* Services Grid */}
-      <div className='services-grid-section section-spacing'>
-        <div className='services-grid-title'>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            fontFamily: 'Clash Display', 
-            textAlign: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '10px'
-          }}>
-            <GSAPTextReveal
-              style={{ 
-                alignItems: 'center', 
-                alignContent: 'center', 
-                fontFamily: 'Clash Display', 
-                fontSize: 'clamp(48px, 8vw, 92px)', 
-                textAlign: 'center', 
-                color: '#000cf8' 
-              }}
-              stagger={0.15}
-              duration={1.0}
-              yOffset={80}
-              start="top 75%"
-            >
-              Services
-            </GSAPTextReveal>
-            <span style={{ color: '#000000' }}>
-              <GSAPTextReveal
-                style={{ 
-                  alignItems: 'center', 
-                  alignContent: 'center', 
-                  fontFamily: 'Clash Display', 
-                  fontSize: 'clamp(48px, 8vw, 92px)', 
-                  textAlign: 'center', 
-                  color: '#000000' 
-                }}
-                stagger={0.15}
-                duration={1.0}
-                yOffset={80}
-                start="top 75%"
-              >
-                We Offer
-              </GSAPTextReveal>
-            </span>
-          </div>
-        </div>
-        
-        <div className="bento-grid-container">
-          <ProgressiveBlurBentoGridV2 />
-        </div>
-      </div>
+      
 
       {/* Contact Section */}
       <div className='contact-section section-spacing'>
@@ -330,6 +193,8 @@ export default function HomePage() {
         {/* Ensure scrollable space after content */}
         <div style={{ height: '100%', width: '100%' }} />
       </div>
+    </div>
     </>
+    
   );
 }
