@@ -107,20 +107,20 @@ const SlideTabs: React.FC = () => {
         }
     ];
 
-    const solutionsDropdown: DropdownItem[] = [
+    const productsDropdown: DropdownItem[] = [
         {
-            title: "B2B Solutions",
-            href: "/solutions/b2b",
+            title: "B2B Products",
+            href: "/products/b2b",
             description: "Tailored B2B marketing solutions"
         },
         {
-            title: "Enterprise Solutions",
-            href: "/solutions/enterprise",
+            title: "Enterprise Products",
+            href: "/products/enterprise",
             description: "Scalable enterprise marketing"
         },
         {
-            title: "Startup Solutions",
-            href: "/solutions/startup",
+            title: "Startup Products",
+            href: "/products/startup",
             description: "Growth solutions for startups"
         }
     ];
@@ -220,13 +220,13 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
-                    href="/solutions"
-                    isActive={pathname === "/solutions"}
+                    href="/products"
+                    isActive={pathname === "/products"}
                     hasDropdown={true}
-                    dropdownItems={solutionsDropdown}
-                    dropdownKey="solutions"
+                    dropdownItems={productsDropdown}
+                    dropdownKey="products"
                 >
-                    Solutions
+                    Products
                 </Tab>
 
                 <Tab
@@ -263,8 +263,8 @@ const SlideTabs: React.FC = () => {
                     {activeDropdown === 'services' && (
                         <DropdownMenu items={servicesDropdown} isOpen={true} />
                     )}
-                    {activeDropdown === 'solutions' && (
-                        <DropdownMenu items={solutionsDropdown} isOpen={true} />
+                    {activeDropdown === 'products' && (
+                        <DropdownMenu items={productsDropdown} isOpen={true} />
                     )}
                     {activeDropdown === 'about' && (
                         <DropdownMenu items={aboutDropdown} isOpen={true} />
@@ -483,10 +483,10 @@ export const EnhancedNavigationMenu: React.FC = () => {
             </div>
 
             <button
-                onClick={() => handleNavigation('/solutions')}
+                onClick={() => handleNavigation('/products')}
                 className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
             >
-                Solutions
+                Products
             </button>
 
             <div className="relative group">

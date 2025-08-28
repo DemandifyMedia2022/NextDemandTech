@@ -19,7 +19,7 @@ export default function GDPRPage() {
                             fontSize: 'clamp(48px, 8vw, 72px)',
                             textAlign: 'center',
                             color: 'blue',
-                            marginBottom: '60px'
+                            marginBottom: '40px'
                         }}
                         stagger={0.15}
                         duration={1.0}
@@ -28,6 +28,19 @@ export default function GDPRPage() {
                     >
                         GDPR Compliance
                     </GSAPTextReveal>
+                    
+                    <div className="text-center mb-8">
+                        <a
+                            href="/gdpr-policy.pdf"
+                            download="DemandTech-GDPR-Policy.pdf"
+                            className="inline-flex items-center px-6 py-3 bg-white text-blue font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                        >
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                             GDPR Policy
+                        </a>
+                    </div>
                     
                     <div className="prose prose-lg max-w-none">
                         <p className="text-gray-600 mb-6">Effective Date: May 25, 2018</p>

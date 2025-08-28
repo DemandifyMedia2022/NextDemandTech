@@ -14,7 +14,7 @@ const linkSections = [
     links: [
       { label: "About", href: "/about" },
       { label: "Services", href: "/services" },
-      { label: "Solutions", href: "/solutions" },
+      { label: "Products", href: "/products" },
       { label: "Pricing", href: "/pricing" },
       { label: "Careers", href: "/careers" },
     ],
