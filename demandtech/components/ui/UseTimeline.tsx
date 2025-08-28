@@ -71,13 +71,13 @@ export function TimelineDemo() {
                     Delivered end-to-end support combining marketing services and business software.
                     </p>
                     <div className="mb-8">
-                        <div className="flex gap-2 items-center text-neutral-700 text-sm">
+                        <div className="flex gap-2 items-center text-neutral-700 text-md">
                             HRMS
                         </div>
-                        <div className="flex gap-2 items-center text-neutral-700 text-sm">
+                        <div className="flex gap-2 items-center text-neutral-700 text-md">
                             CRM
                         </div>
-                        <div className="flex gap-2 items-center text-neutral-700 text-sm">
+                        <div className="flex gap-2 items-center text-neutral-700 text-md">
                             Dialer Software Solution
                         </div>
                         
