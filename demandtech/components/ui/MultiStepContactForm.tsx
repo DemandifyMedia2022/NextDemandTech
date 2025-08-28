@@ -195,7 +195,7 @@ const MultiStepContactForm = () => {
 
   return (
     <div className="min-h-screen bg-transparent flex items-center justify-center p-2 sm:p-4 lg:p-6">
-      <div className="w-full max-w-6xl bg-gray-50">
+      <div className="w-full max-w-6xl bg-gray-50 rounded-2xl">
         <div
           className="rounded-2xl sm:rounded-3xl overflow-hidden p-3 sm:p-4 lg:p-6 xl:p-8"
         >

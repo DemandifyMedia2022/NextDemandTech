@@ -133,7 +133,22 @@ export default function ServicesPage() {
           </div>
         </BackgroundGradientAnimation>
       </div>
-
+      <GSAPTextReveal
+                        style={{
+                            fontFamily: 'Clash Display',
+                            fontSize: 'clamp(48px, 8vw, 92px)',
+                            textAlign: 'center',
+                            color: 'blue',
+                            marginBottom: '-150px',
+                            marginTop: '150px'
+                        }}
+                        stagger={0.15}
+                        duration={1.0}
+                        yOffset={80}
+                        start="top 75%"
+                    >
+                        How it works
+                    </GSAPTextReveal>
       <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
 		    <Stepper />
 	    </div>
@@ -141,13 +156,13 @@ export default function ServicesPage() {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
       <GSAPTextReveal
         split="lines"
-        className="text-center text-7xl sm:text-5xl md:text-3xl lg:text-4xl text-gray-900 font-medium font-clash leading-relaxed"
+        className="line-height-[0.1] text-center text-7xl sm:text-5xl md:text-3xl lg:text-[84px] text-gray-900 font-medium font-clash leading-relaxed"
         stagger={0.2}
         duration={1.0}
         yOffset={80}
         start="top 75%"
       >
-        {"See how Demand Tech powers your business forward."}
+        {"See how Demand Tech powers your Business forward."}
       </GSAPTextReveal>
       <div className="mt-6 flex justify-center">
         <Button3 text="Contact Us" href="/services/demand-generation" />
