@@ -1,12 +1,9 @@
 import { Metadata } from 'next'
 import {
   Ribbon1,
-  Ribbon2,
   LogoSlider,
   Card1,
-  SlideTabsExample,
-  Button,
-  DotGrid
+  Button, 
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';

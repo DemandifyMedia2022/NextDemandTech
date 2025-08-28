@@ -5,6 +5,8 @@ import Link from "next/link";
 
 
 import { FaLinkedin, FaTwitter, FaInstagram, FaArrowRight } from "react-icons/fa";
+import Button2 from "./Button2";
+import Button3 from "./Button3";
 
 const linkSections = [
   {
@@ -14,6 +16,7 @@ const linkSections = [
       { label: "Services", href: "/services" },
       { label: "Solutions", href: "/solutions" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Careers", href: "/careers" },
     ],
   },
   {
@@ -22,12 +25,23 @@ const linkSections = [
       { label: "Blogs", href: "/about/blogs" },
       { label: "Case Studies", href: "/about/case-studies" },
       { label: "Clients", href: "/about/clients" },
+      { label: "Resources", href: "/about/resources" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "Contact", href: "/contact" },
+      { label: "Help Center", href: "/help" },
+      { label: "Documentation", href: "/docs" },
     ],
   },
   {
     title: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "GDPR", href: "/gdpr" },
+      { label: "CCPA", href: "/ccpa" },
       { label: "Terms of Service", href: "/terms-of-service" },
     ],
   },
@@ -39,10 +53,10 @@ export default function Footer() {
 
 
 <footer className="relative bg-#F0F1FA text-gray-800 pt-20 pb-10 overflow-hidden">
-      <div className="container mx-auto px-8 md:px-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
         {/* Logo + Newsletter */}
-        <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-1">
+        <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-2">
           <h1 className="text-4xl font-bold tracking-tight">
             Demand<span className="text-blue-600">Tech</span>
           </h1>
@@ -57,22 +71,18 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
-              style={{
-                borderRadius: '50%',
-                marginLeft: '10px',
-              }}
+              className="ml-2 px-4 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
             >
               <FaArrowRight />
             </button>
-          </form>
+          </form> 
         </div>
 
         {/* Navigation Links */}
         {linkSections.map((section) => (
-          <div key={section.title} className="space-y-4">
+          <div key={section.title} className="space-y-6">
             <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {section.links.map((link) => (
                 <li key={link.label}>
                   <motion.div whileHover={{ x: 4 }} className="relative group">

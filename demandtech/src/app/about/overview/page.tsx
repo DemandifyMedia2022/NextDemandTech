@@ -1,164 +1,129 @@
 import { Metadata } from 'next'
-import Button3 from '@/components/ui/Button3'
+import VideoCard from '@/components/ui/VideoCard'
+import SmoothScroll from '@/components/ui/SmoothScroll'
+import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
+import { Features } from '@/components/ui/Features'
+import { TimelineDemo } from '@/components/ui/UseTimeline'
+import { MultiStepContactForm } from '@/components/index'
+
 
 export const metadata: Metadata = {
-    title: 'Company Overview | DemandTech',
-    description: 'Get a comprehensive overview of DemandTech - our history, mission, and the team behind our success.',
+    title: 'Overview | DemandTech',
+    description: 'Learn about DemandTech - our mission, values, and commitment to driving business growth through innovative technology solutions.',
 }
 
-export default function OverviewPage() {
+export default function AboutPage() {
     return (
-
         <div className="min-h-screen bg-transparent">
-            {/* Hero */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 xl:gap-16 items-center">
-                    {/* Left: Headline and CTA */}
-                    <div>
-
-                        <h1
-                            className="leading-tight text-gray-900"
-                            style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(42px, 6vw, 96px)' }}
-                        >
-                            Partner in Scalable  <span className="text-[#5B5BFF]">Futuristic Solutions</span>
-                        </h1>
-                        <p className="mt-6 text-base sm:text-lg text-gray-700 max-w-2xl">
-                            We deliver quality leads to B2B companies worldwide using multi‑channel and data‑driven strategies to engage target markets and boost sales for your business.
-                        </p>
-                        <div className="mt-8">
-                            <Button3 text="Overview" href="/about/overview" />
-                        </div>
-                    </div>
-
-                    {/* Right: 3‑image responsive grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 ">
-                        {/* Top left */}
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg">
-                            <img src="/about1.jpeg" alt="Team" className="h-40 sm:h-48 md:h-56 lg:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        {/* Top right */}
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg">
-                            <img src="/about3.jpeg" alt="Collaboration" className="h-40 sm:h-48 md:h-56 lg:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                        {/* Bottom full width */}
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg col-span-1 sm:col-span-2">
-                            <img src="/about2.jpeg" alt="Culture" className="h-48 sm:h-56 md:h-64 lg:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        </div>
-                    </div>
+            <SmoothScroll />
+            {/* Hero Section with VideoCard */}
+            <div>
+                <div
+                    className="text-[#000000] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
+                    style={{
+                        fontFamily: 'Clash Display, sans-serif',
+                        textAlign: 'center',
+                        zIndex: '1000',
+                        overflow: 'overlay',
+                        position: 'absolute',
+                        marginTop: '300px',
+                        left: '15%',
+                        transform: 'translateX(-25%)',
+                    }}
+                    id="know-text"
+                >
+                    Know
+                </div>
+                <div
+                    className="text-[#000cf8] text-4xl sm:text-5xl md:text-8xl lg:text-[120px] transition-opacity duration-500"
+                    style={{
+                        fontFamily: 'Clash Display, sans-serif',
+                        textAlign: 'center',
+                        zIndex: '1000',
+                        overflow: 'overlay',
+                        position: 'absolute',
+                        marginTop: '300px',
+                        right: '15%',
+                        transform: 'translateX(25%)'
+                    }}
+                    id="more-text"
+                >
+                    More
+                </div>
+                <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8 py-2 mt-[-100px] z-[-1]">
+                    <VideoCard />
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                        Company Overview
-                    </h1>
-                    <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        A comprehensive look at DemandTech's journey, mission, and the expertise that drives our success.
-                    </p>
+            {/*Description*/}
+            <div className="text-[#000000] max-w-7xl mx-auto px-4 sm:px-6 lg:px-55 py-20 mt-[-100px] z-[1000]">
+                <p className="text-2xl">Our mission is to help businesses grow by providing innovative technology solutions that drive results. We are committed to delivering exceptional service and support to our clients, and we are dedicated to helping them achieve their goals.</p>
+            </div>
+
+            <div className='contact-title'>
+                <GSAPTextReveal
+                    style={{
+                        marginTop: '50px',
+                        alignItems: 'center',
+                        alignContent: 'center',
+                        fontFamily: 'Clash Display',
+                        fontSize: 'clamp(48px, 8vw, 92px)',
+                        textAlign: 'center',
+                        color: '#000cf8'
+                    }}
+                    stagger={0.15}
+                    duration={1.0}
+                    yOffset={80}
+                    start="top 75%"
+                >
+                    Our Impact
+                </GSAPTextReveal>
+            </div>
+            <div className="mt-[-50px]">
+                <Features />
+            </div>
+            <div className='contact-title'>
+                <GSAPTextReveal
+                    style={{
+                        marginTop: '30px',
+                        alignContent: 'center',
+                        fontFamily: 'Clash Display',
+                        fontSize: 'clamp(48px, 8vw, 92px)',
+                        textAlign: 'center',
+                        color: '#000cf8'
+                    }}
+                    stagger={0.15}
+                    duration={1.0}
+                    yOffset={80}
+                    start="top 75%"
+                >
+                    Our Journey
+                </GSAPTextReveal>
+            </div>
+            <div className="mt-[-50px]">
+                <TimelineDemo />
+            </div>
+            {/* Contact Section */}
+            <div className='contact-section section-spacing'>
+                <div className='contact-title'>
+                    <GSAPTextReveal
+                        style={{
+                            alignItems: 'center',
+                            alignContent: 'center',
+                            fontFamily: 'Clash Display',
+                            fontSize: 'clamp(48px, 8vw, 92px)',
+                            textAlign: 'center',
+                            color: '#000000'
+                        }}
+                        stagger={0.15}
+                        duration={1.0}
+                        yOffset={80}
+                        start="top 75%"
+                    >
+                        Contact Us
+                    </GSAPTextReveal>
                 </div>
-
-                <div className="mt-16 space-y-16">
-                    <section>
-                        <h2 className="text-3xl font-semibold text-gray-900 mb-8">Our Mission</h2>
-                        <div className="bg-blue-50 rounded-lg p-8">
-                            <p className="text-lg text-gray-700 leading-relaxed">
-                                To empower businesses of all sizes with innovative demand generation and marketing technology solutions that drive measurable growth, enhance customer engagement, and create lasting competitive advantages in the digital marketplace.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2 className="text-3xl font-semibold text-gray-900 mb-8">Company Timeline</h2>
-                        <div className="space-y-8">
-                            <div className="flex items-start space-x-4">
-                                <div className="flex-shrink-0 w-4 h-4 bg-blue-600 rounded-full mt-2"></div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900">2020 - Foundation</h3>
-                                    <p className="text-gray-600 mt-1">DemandTech was founded with a vision to revolutionize demand generation through technology.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="flex-shrink-0 w-4 h-4 bg-blue-600 rounded-full mt-2"></div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900">2021 - First Major Client</h3>
-                                    <p className="text-gray-600 mt-1">Secured our first enterprise client and delivered 300% ROI in the first quarter.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="flex-shrink-0 w-4 h-4 bg-blue-600 rounded-full mt-2"></div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900">2022 - Platform Launch</h3>
-                                    <p className="text-gray-600 mt-1">Launched our proprietary demand generation platform serving 50+ clients.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="flex-shrink-0 w-4 h-4 bg-blue-600 rounded-full mt-2"></div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900">2023 - Expansion</h3>
-                                    <p className="text-gray-600 mt-1">Expanded to serve clients across multiple industries with specialized solutions.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="flex-shrink-0 w-4 h-4 bg-green-600 rounded-full mt-2"></div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900">2024 - Present</h3>
-                                    <p className="text-gray-600 mt-1">Continuing to innovate and scale, serving 200+ clients worldwide.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2 className="text-3xl font-semibold text-gray-900 mb-8">Key Statistics</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <div className="text-center">
-                                <div className="text-4xl font-bold text-blue-600 mb-2">200+</div>
-                                <div className="text-gray-600">Active Clients</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-bold text-green-600 mb-2">$50M+</div>
-                                <div className="text-gray-600">Revenue Generated</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-bold text-purple-600 mb-2">15+</div>
-                                <div className="text-gray-600">Industries Served</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-bold text-orange-600 mb-2">98%</div>
-                                <div className="text-gray-600">Client Satisfaction</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2 className="text-3xl font-semibold text-gray-900 mb-8">Leadership Team</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                                <h3 className="text-xl font-semibold text-gray-900">Sarah Johnson</h3>
-                                <p className="text-blue-600 mb-2">CEO & Founder</p>
-                                <p className="text-gray-600 text-sm">15+ years in demand generation and marketing technology</p>
-                            </div>
-
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                                <h3 className="text-xl font-semibold text-gray-900">Michael Chen</h3>
-                                <p className="text-blue-600 mb-2">CTO</p>
-                                <p className="text-gray-600 text-sm">Former tech lead at major SaaS companies, expert in scalable platforms</p>
-                            </div>
-
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                                <h3 className="text-xl font-semibold text-gray-900">Emily Rodriguez</h3>
-                                <p className="text-blue-600 mb-2">VP of Strategy</p>
-                                <p className="text-gray-600 text-sm">Marketing strategist with expertise in B2B growth and analytics</p>
-                            </div>
-                        </div>
-                    </section>
+                <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
+                    <MultiStepContactForm />
                 </div>
             </div>
         </div>
