@@ -10,8 +10,10 @@ import Footer from '@/components/ui/Footer';
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isInitialLoading, setIsInitialLoading] = React.useState(true);
   const [showPreloader, setShowPreloader] = React.useState(true);
+  const [hideHeader, setHideHeader] = React.useState(false);
   const pathname = usePathname();
   const hasInitialized = React.useRef(false);
+  const lastScrollY = React.useRef(0);
   const isStudioRoute = pathname?.startsWith('/studio');
 
   // Determine if preloader has already been shown this session
@@ -59,11 +61,45 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     }
   }, [pathname]);
 
+  // Hide header on scroll down, show on scroll up
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const onScroll = () => {
+      const currentY = window.scrollY || 0;
+      const delta = currentY - lastScrollY.current;
+
+      // Show when near top
+      if (currentY < 20) {
+        setHideHeader(false);
+      } else {
+        // Hide when scrolling down, show when scrolling up
+        if (delta > 4) {
+          setHideHeader(true);
+        } else if (delta < -4) {
+          setHideHeader(false);
+        }
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll as any);
+  }, []);
+
   return (
     <div className={showPreloader ? '' : 'animate-fadeIn'}>
       <SmoothScroll />
       {!isStudioRoute && (
-        <div className="sticky top-0 z-[9999] w-full overflow-visible">
+        <div
+          className="sticky top-0 z-[9999] w-full overflow-visible"
+          style={{
+            transform: hideHeader ? 'translateY(-100%)' : 'translateY(0)',
+            transition: 'transform 300ms ease',
+            willChange: 'transform'
+          }}
+        >
           <HeaderNav />
         </div>
       )}
