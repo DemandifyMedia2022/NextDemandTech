@@ -165,6 +165,14 @@ export const Card = ({
           ✕
         </button>
 
+        {/* Category */}
+        <motion.p
+          layoutId={layout ? `category-${card.title}` : undefined}
+          className="text-xl font-medium text-[#898989] dark:text-[#898989] font-clash"
+        >
+          {card.category}
+        </motion.p>
+
         {/* Title */}
         <motion.p
           layoutId={layout ? `title-${card.title}` : undefined}
@@ -200,7 +208,7 @@ export const Card = ({
         <div className="relative z-40 p-6">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-clash text-sm sm:text-base md:text-lg font-medium text-white"
+            className="text-left font-clash text-xs sm:text-sm md:text-base font-medium text-white"
           >
             {card.category}
           </motion.p>

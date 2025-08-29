@@ -14,6 +14,9 @@ interface GSAPTextRevealProps {
   start?: string;
   /** Animate by words (default) or lines */
   split?: 'words' | 'lines';
+  /** Optionally apply a class to the last N words */
+  highlightLastWords?: number;
+  highlightClassName?: string;
 }
 
 export const GSAPTextReveal = ({
