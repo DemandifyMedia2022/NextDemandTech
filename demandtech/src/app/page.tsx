@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import {
   Ribbon1,
   LogoSlider,   
-  SlideTabsExample,
+ 
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';
@@ -17,7 +17,7 @@ import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
 import Footer from '@/components/ui/Footer';
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
 import GradientHeroSection from '@/components/ui/GradientHeroSection';
-
+import { SlideTabsExample } from '@/components/ui/SliderTabs';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -65,7 +65,7 @@ export default function HomePage() {
       
 
       {/* Hero Section */}
-     
+    
       {/* Logo Slider */}
       <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
         <LogoSlider />

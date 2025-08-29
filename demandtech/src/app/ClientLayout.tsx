@@ -93,10 +93,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <div className={showPreloader ? '' : 'animate-fadeIn'}>
       <SmoothScroll />
       <div
-        className="header-nav sticky top-0 z-[500] bg-transparent transition-transform duration-300 will-change-transform"
+        className="w-full header-nav sticky top-0 z-[500] bg-transparent transition-transform duration-300 will-change-transform px-2 sm:px-4 lg:px-0"
         style={{ transform: showNav ? 'translateY(0)' : 'translateY(-120%)' }}
       >
-        <SlideTabsExample />
+        <div className="max-w-7xl mx-auto">
+          <SlideTabsExample />
+        </div>
       </div>
       
       <main>{children}</main>
