@@ -13,12 +13,38 @@ export default function ProductsPage() {
   const cards = [
     {
       src: "/Creative Edge.png",
-      title: "Lead Generation",
-      category: "Marketing",
+      title: "Intent Data Platform",
       content: (
-        <p>
-          Scale your sales pipeline with high-quality leads tailored to your ICP.
-        </p>
+        <div className="space-y-4">
+          <p>
+            <span className="font-semibold">Stop guessing and start knowing.</span> Our Intent Data Platform empowers businesses to discover prospects who are already showing buying interest in solutions like yours.
+          </p>
+          <p>
+            By monitoring online research patterns, content consumption habits, and digital buying signals, we help you prioritize high-value accounts that are most likely to convert. This results in smarter targeting, stronger engagement, and higher ROI.
+          </p>
+
+          <div className="pt-2">
+            <h4 className="font-clash text-xl text-[#574BEF]">With DemandTech’s Intent Data:</h4>
+            <ul className="mt-3 grid gap-2 md:gap-3">
+              <li className="flex gap-3">
+                <span className="select-none">•</span>
+                <span>Uncover hidden opportunities by identifying buyers at different stages of their journey.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="select-none">•</span>
+                <span>Personalize campaigns with actionable insights into prospect needs and pain points.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="select-none">•</span>
+                <span>Shorten the sales cycle by focusing efforts on prospects ready to make decisions.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="select-none">•</span>
+                <span>Reduce wasted spend by eliminating low-intent accounts from your pipeline.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       ),
     },
     {
@@ -124,10 +150,8 @@ export default function ProductsPage() {
               </h3>
 
               <p
-                className="mt-2 text-gray-700 max-w-2xl"
+                className="mt-2 text-gray-700 max-w-2xl font-neu"
                 style={{
-                  fontFamily:
-                    "neue-haas-grotesk, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial",
                   fontSize: "clamp(14px, 1.1vw, 16px)",
                   lineHeight: 1.6,
                   letterSpacing: "-0.01em",
@@ -159,11 +183,18 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
       {/* Carousel Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <Carousel items={items} />
-      </div>
+  <h2
+    className="font-bold text-gray-900 mb-8 text-center leading-tight"
+    style={{
+      fontSize: "clamp(32px, 8vw, 92px)",
+    }}
+  >
+    Our In-House Software Solutions
+  </h2>
+  <Carousel items={items} />
+</div>
     </div>
   );
 }
