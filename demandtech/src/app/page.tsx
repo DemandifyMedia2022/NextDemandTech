@@ -1,9 +1,8 @@
 import { Metadata } from 'next'
 import {
   Ribbon1,
-  LogoSlider,
-  Card1,
-  Button, 
+  LogoSlider,   
+  SlideTabsExample,
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';
@@ -63,10 +62,10 @@ export default function HomePage() {
       <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
         <Ribbon1 />
       </div>
+      
 
       {/* Hero Section */}
      
-
       {/* Logo Slider */}
       <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
         <LogoSlider />

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "lenis/dist/lenis.css";
-import { SmoothScroll } from "../../components";
-import HeaderNav from "@/components/ui/HeaderNav";
-import Footer from "@/components/ui/Footer";
 import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
