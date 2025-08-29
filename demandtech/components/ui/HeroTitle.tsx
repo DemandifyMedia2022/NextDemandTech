@@ -11,6 +11,7 @@ export const HeroTitle = () => {
         if (typeof window === 'undefined') return;
 
         // Register ScrollTrigger
+
         gsap.registerPlugin(ScrollTrigger);
 
         const container = containerRef.current;

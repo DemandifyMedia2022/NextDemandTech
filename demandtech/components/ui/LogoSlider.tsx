@@ -1,18 +1,26 @@
 import './LogoSlider.css';
 
+
+
 const placeholderLogos: string[] = [
-    'https://logo.clearbit.com/google.com?size=256',
-    'https://logo.clearbit.com/apple.com?size=256',
-    'https://logo.clearbit.com/microsoft.com?size=256',
-    'https://logo.clearbit.com/amazon.com?size=256',
-    'https://logo.clearbit.com/netflix.com?size=256',
-    'https://logo.clearbit.com/spotify.com?size=256',
-    'https://logo.clearbit.com/airbnb.com?size=256',
-    'https://logo.clearbit.com/uber.com?size=256',
-    'https://logo.clearbit.com/nike.com?size=256',
-    'https://logo.clearbit.com/adidas.com?size=256',
-    'https://logo.clearbit.com/coca-cola.com?size=256',
-    'https://logo.clearbit.com/salesforce.com?size=256',
+    '/Redis.png',
+    '/paycor.png',
+    '/peoplestrong.png',
+    '/hp.png',
+    '/tally.png',
+    '/sd.png',
+    '/Sophos.png',
+    '/tatacommunication.png',
+    '/thoughtspot.png',
+    '/epicor.png',
+    '/RedHat.png', 
+    '/Zoho.png',
+    '/Zoom.png',
+    '/bamboohr.png',
+    '/commvault.png',
+    '/tmp.png',
+    '/salesforce.png',
+        
 ];
 
 function LogoSlider() {

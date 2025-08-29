@@ -13,37 +13,37 @@ export default function DemandGenerationPage() {
     {
       title: 'Brand Awareness',
       text: 'DemandTeq enhances your brand visibility through multi-channel campaigns that ensure your business stays top-of-mind, strengthens credibility, and builds lasting market presence.',
-      image: '/image2.jpeg',
+      image: '/Brand Awareness.jpg'
     },
     {
       title: 'Intent Qualified Leads',
       text: 'DemandTech delivers high-quality leads backed by verified intent data, connecting you directly with prospects who are actively researching solutions and have a high likelihood of conversion.',
-      image: '/IQL.png',
+      image: '/IQL.JPG',
     },
     {
       title: 'Webinar',
       text: 'DemandTech educates and engages your target audience through professional, interactive, and value-driven sessions that position your brand as a thought leader, generate quality leads, and foster meaningful business relationships.',
-      image: '/Webinar.png',
+      image: '/webinar.jpg',
     },
     {
       title: 'Multi Touch Content Syndication',
       text: 'DemandTech’s Multi-Touch Content Syndication focuses on long-term relationship building and lead nurturing. Instead of a one-time push, we distribute your content through multiple, strategically timed touchpoints—keeping your brand consistently in front of high-intent prospects.',
-      image: '/MTCS.PNG',
+      image: '/MTCS.JPG',
     },
     {
       title: 'Single Touch Content Syndication',
       text: 'DemandTech’s Single-Touch Content Syndication is designed for businesses that need fast, precise, and measurable results. By leveraging our intent data and industry-specific targeting, we distribute your content directly to decision-makers in one powerful, strategic outreach.',
-      image: '/STCS.png',
+      image: '/STCS.JPG',
     },
     {
       title: 'Callback Consent',
       text: 'DemandTech provides direct, permission-based opportunities to connect with decision-makers, ensuring conversations start with warm prospects who are open to discussing your solutions.',
-      image: '/callbackconsent.png',
+      image: '/CBC.JPG',
     },
     {
       title: 'Lead Nurture Program',
       text: 'DemandTeq provides direct, permission-based opportunities to connect with decision-makers, ensuring conversations start with warm prospects who are open to discussing your solutions.',
-      image: '/LNP.png',
+      image: '/LNP.JPG',
     },
   ]
 
