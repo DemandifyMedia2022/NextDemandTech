@@ -62,40 +62,25 @@ const SlideTabs: React.FC = () => {
         {
             title: "Demand Generation",
             href: "/services/demand-generation",
-            description: "Strategic demand generation campaigns"
+            description: "End-to-end demand creation"
         },
         {
-            title: "Lead Generation",
-            href: "/services/lead-generation",
-            description: "Quality lead generation services"
-        },
-        {
-            title: "Digital Marketing",
-            href: "/services/digital-marketing",
-            description: "Comprehensive digital marketing solutions"
-        },
-        {
-            title: "Content Marketing",
-            href: "/services/content-marketing",
-            description: "Engaging content marketing strategies"
+            title: "Marketing",
+            href: "/services/marketing",
+            description: "Performance-led marketing"
         }
     ];
 
     const aboutDropdown: DropdownItem[] = [
         {
-            title: "Company Overview",
-            href: "/about/overview",
-            description: "Learn about our mission and vision"
-        },
-        {
-            title: "Our Team",
-            href: "/about/team",
-            description: "Meet our experienced professionals"
-        },
-        {
             title: "Clients",
             href: "/about/clients",
-            description: "Our valued clients and partnerships"
+            description: "Our valued partnerships"
+        },
+        {
+            title: "Blogs",
+            href: "/about/blogs",
+            description: "Insights and thought leadership"
         },
         {
             title: "Case Studies",
@@ -103,9 +88,9 @@ const SlideTabs: React.FC = () => {
             description: "Success stories and results"
         },
         {
-            title: "Careers",
-            href: "/about/careers",
-            description: "Join our growing team"
+            title: "Learning Resources",
+            href: "/about/resources",
+            description: "Guides, templates, and more"
         }
     ];
 
@@ -293,7 +278,7 @@ const SlideTabs: React.FC = () => {
         </div>
     );
 
-    function Tab({ children, setPosition, setActiveDropdown, setDropdownPos, href, isActive = false, hasDropdown = false, dropdownItems, dropdownKey }: TabProps & { setActiveDropdown: (key: string | null) => void; setDropdownPos: (pos: {left: number; top: number} | null) => void; dropdownKey?: string }) {
+    function Tab({ children, setPosition, setActiveDropdown, setDropdownPos, href, isActive = false, hasDropdown = false, dropdownItems, dropdownKey }: TabProps & { setActiveDropdown: (key: string | null) => void; setDropdownPos: (pos: { left: number; top: number } | null) => void; dropdownKey?: string }) {
         const ref = useRef<HTMLLIElement>(null);
         const router = useRouter();
         const [isHovered, setIsHovered] = useState(false);
@@ -414,16 +399,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="z-[10000] rounded-2xl shadow-2xl overflow-visible"
+            className="z-[10000] rounded-2xl shadow-2xl overflow-visible border"
             style={{
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                background: 'rgba(145, 145, 145, 0.55)',
+                backdropFilter: 'blur(14px) saturate(140%)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 8px 60px rgba(199, 199, 199, 0.5)',
                 minWidth: '280px',
                 maxWidth: '400px'
             }}
         >
-            <div className="p-6">
+            <div className="p-5">
                 <div className="grid gap-3">
                     {items.map((item, index) => (
                         <motion.div
@@ -434,14 +420,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
                         >
                             <Link
                                 href={item.href}
-                                className="block p-3 rounded-xl transition-all duration-200 hover:bg-white/50 group"
+                                className="group block p-3 rounded-xl transition-all duration-200 hover:bg-white/5"
                             >
                                 <div className="flex flex-col">
-                                    <span className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                    <span className="font-medium text-white group-hover:text-[#5B5BFF] transition-colors duration-200">
                                         {item.title}
                                     </span>
                                     {item.description && (
-                                        <span className="text-sm text-gray-600 mt-1">
+                                        <span className="text-sm text-white/80 mt-1">
                                             {item.description}
                                         </span>
                                     )}
