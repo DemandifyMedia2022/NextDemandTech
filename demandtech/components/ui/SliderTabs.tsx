@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import type { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -39,7 +40,7 @@ interface DropdownMenuProps {
 
 export const SlideTabsExample: React.FC = () => {
     return (
-        <div className="bg-transparent py-5 px-125 z-[1000]">
+        <div className="bg-transparent py-5 px-125 z-[10000]">
             <SlideTabs />
         </div>
     );
@@ -53,6 +54,7 @@ const SlideTabs: React.FC = () => {
     });
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isDropdownHovered, setIsDropdownHovered] = useState(false);
+    const [dropdownPos, setDropdownPos] = useState<{ left: number; top: number } | null>(null);
     const pathname = usePathname();
 
     // Dropdown menu configurations
@@ -179,7 +181,7 @@ const SlideTabs: React.FC = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative z-[10000] overflow-visible">
             <motion.ul
                 initial={{ y: -40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -199,6 +201,7 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
+                    setDropdownPos={setDropdownPos}
                     href="/"
                     isActive={pathname === "/"}
                 >
@@ -208,6 +211,7 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
+                    setDropdownPos={setDropdownPos}
                     href="/services"
                     isActive={pathname.startsWith("/services")}
                     hasDropdown={true}
@@ -220,6 +224,7 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
+                    setDropdownPos={setDropdownPos}
                     href="/products"
                     isActive={pathname === "/products"}
                     hasDropdown={true}
@@ -232,6 +237,7 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
+                    setDropdownPos={setDropdownPos}
                     href="/about"
                     isActive={pathname.startsWith("/about")}
                     hasDropdown={true}
@@ -244,6 +250,7 @@ const SlideTabs: React.FC = () => {
                 <Tab
                     setPosition={setPosition}
                     setActiveDropdown={setActiveDropdown}
+                    setDropdownPos={setDropdownPos}
                     href="/pricing"
                     isActive={pathname === "/pricing"}
                 >
@@ -253,28 +260,40 @@ const SlideTabs: React.FC = () => {
                 <Cursor position={position} />
             </motion.ul>
 
-            {/* Dropdown positioning container */}
-            <div
-                className="absolute top-full left-0 right-0 flex justify-center mt-2"
-                onMouseEnter={handleDropdownMouseEnter}
-                onMouseLeave={handleDropdownMouseLeave}
-            >
-                <AnimatePresence>
-                    {activeDropdown === 'services' && (
-                        <DropdownMenu items={servicesDropdown} isOpen={true} />
-                    )}
-                    {activeDropdown === 'products' && (
-                        <DropdownMenu items={productsDropdown} isOpen={true} />
-                    )}
-                    {activeDropdown === 'about' && (
-                        <DropdownMenu items={aboutDropdown} isOpen={true} />
-                    )}
-                </AnimatePresence>
-            </div>
+            {/* Portal-based dropdown to avoid clipping */}
+            {typeof window !== 'undefined' && activeDropdown && dropdownPos && createPortal(
+                (
+                    <div
+                        className="z-[10000]"
+                        onMouseEnter={handleDropdownMouseEnter}
+                        onMouseLeave={handleDropdownMouseLeave}
+                        style={{
+                            position: 'fixed',
+                            left: dropdownPos.left,
+                            top: dropdownPos.top,
+                            transform: 'translateX(-50%)',
+                            pointerEvents: 'auto'
+                        }}
+                    >
+                        <AnimatePresence>
+                            {activeDropdown === 'services' && (
+                                <DropdownMenu items={servicesDropdown} isOpen={true} />
+                            )}
+                            {activeDropdown === 'products' && (
+                                <DropdownMenu items={productsDropdown} isOpen={true} />
+                            )}
+                            {activeDropdown === 'about' && (
+                                <DropdownMenu items={aboutDropdown} isOpen={true} />
+                            )}
+                        </AnimatePresence>
+                    </div>
+                ),
+                document.body
+            )}
         </div>
     );
 
-    function Tab({ children, setPosition, setActiveDropdown, href, isActive = false, hasDropdown = false, dropdownItems, dropdownKey }: TabProps & { setActiveDropdown: (key: string | null) => void; dropdownKey?: string }) {
+    function Tab({ children, setPosition, setActiveDropdown, setDropdownPos, href, isActive = false, hasDropdown = false, dropdownItems, dropdownKey }: TabProps & { setActiveDropdown: (key: string | null) => void; setDropdownPos: (pos: {left: number; top: number} | null) => void; dropdownKey?: string }) {
         const ref = useRef<HTMLLIElement>(null);
         const router = useRouter();
         const [isHovered, setIsHovered] = useState(false);
@@ -294,6 +313,9 @@ const SlideTabs: React.FC = () => {
 
             if (hasDropdown && dropdownKey) {
                 setActiveDropdown(dropdownKey);
+                const rect = ref.current.getBoundingClientRect();
+                // Position dropdown centered under the tab with 8px gap
+                setDropdownPos({ left: rect.left + rect.width / 2, top: rect.bottom + 8 });
             }
         };
 
@@ -392,7 +414,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="z-50 rounded-2xl shadow-2xl overflow-hidden"
+            className="z-[10000] rounded-2xl shadow-2xl overflow-visible"
             style={{
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(20px)',
@@ -464,7 +486,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
                     </svg>
                 </button>
 
-                <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[10000]">
                     <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 min-w-[280px] p-4">
                         <Link href="/services/demand-generation" className="block p-3 rounded-xl hover:bg-white/50 transition-colors duration-200">
                             <div className="font-medium text-gray-900">Demand Generation</div>

@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Button3 from "@/components/ui/Button3";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-
+import CardSwap, { Card6 } from '@/components/ui/CardSwap'
+import Image from "next/image";
 export const metadata: Metadata = {
   title: "Products | DemandTech",
   description:
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   // Example cards (replace with real product data later)
-  
+
 
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
@@ -27,18 +28,18 @@ export default function ProductsPage() {
             fontWeight: 400,
           }}
         >
-          Demand Tech Lead Generation and
+          Delivering  Innovative,  Scalable,  and  Secure
         </h1>
 
         <p
           className="mt-4 text-[#574bef] leading-snug"
           style={{
             fontFamily: "Clash Display, sans-serif",
-            fontSize: "clamp(48px, 5vw, 92px)",
+            fontSize: "clamp(48px, 5vw, 110px)",
             fontWeight: 500,
           }}
         >
-          Sales Development Solutions
+          Software Solutions
         </p>
 
         <p
@@ -49,8 +50,7 @@ export default function ProductsPage() {
             lineHeight: "1.2",
           }}
         >
-          Sales and marketing solutions for enterprise and scaling businesses'
-          growth challenges
+          Empowering enterprises with intelligent, future-ready software ecosystems.
         </p>
 
         {/* CTAs */}
@@ -66,9 +66,35 @@ export default function ProductsPage() {
             className="px-4 py-2 text-sm"
           />
         </div>
+        {/* Description + Cards row */}
+
+        {/* Left description */}
+
+        {/* Right cards */}
+        <div style={{ height: '600px', position: 'relative' }}>
+
+          <CardSwap cardDistance={60} verticalDistance={70} delay={5000} pauseOnHover={false}>
+            <Card6>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image src="/ProductsCard3.png" alt="Product visual 1" fill quality={100} sizes="(max-width: 1024px) 100vw, 500px" style={{ objectFit: 'cover' }} priority />
+              </div>
+            </Card6>
+            <Card6>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image src="/ProductsCard2.png" alt="Product visual 2" fill quality={100} sizes="(max-width: 1024px) 100vw, 500px" style={{ objectFit: 'cover' }} />
+              </div>
+            </Card6>
+            <Card6>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image src="/ProductsCard1.png" alt="Product visual 3" fill quality={100} sizes="(max-width: 1024px) 100vw, 500px" style={{ objectFit: 'cover' }} />
+              </div>
+            </Card6>
+          </CardSwap>
+        </div>
+        <div />
       </section>
 
-      
+
     </div>
   );
 }

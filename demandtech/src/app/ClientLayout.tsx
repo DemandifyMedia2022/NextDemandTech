@@ -62,7 +62,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <div className={showPreloader ? '' : 'animate-fadeIn'}>
       <SmoothScroll />
-      {!isStudioRoute && <HeaderNav />}
+      {!isStudioRoute && (
+        <div className="sticky top-0 z-[9999] w-full overflow-visible">
+          <HeaderNav />
+        </div>
+      )}
       
       <main>{children}</main>
       

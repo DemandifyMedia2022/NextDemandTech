@@ -7,130 +7,130 @@ import LogoSlider from '@/components/ui/LogoSlider' // ✅ fixed to alias import
 import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation'
 import { Stepper } from '@/components/ui/stepperScroller'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
-import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';import { MultiStepContactForm } from '@/components/index'
+import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'; import { MultiStepContactForm } from '@/components/index'
 export const metadata: Metadata = {
   title: 'Services | DemandTech',
   description:
     'Explore our comprehensive range of services designed to accelerate your business growth.',
 }
 
-     const cards = [
-       {
-         src: "/Creative Edge.png",
-         title: "Intent Data Platform",
-         category: "Demand Generation",
-         content: (
-           <div className="space-y-4">
-             <p>
-               <span className="font-semibold">Stop guessing and start knowing.</span> Our Intent Data Platform empowers businesses to discover prospects who are already showing buying interest in solutions like yours.
-             </p>
-             <p>
-               By monitoring online research patterns, content consumption habits, and digital buying signals, we help you prioritize high-value accounts that are most likely to convert. This results in smarter targeting, stronger engagement, and higher ROI.
-             </p>
-     
-             <div className="pt-2">
-               <h4 className="font-clash text-xl text-[#574BEF]">With DemandTech’s Intent Data:</h4>
-               <ul className="mt-3 grid gap-2 md:gap-3">
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Uncover hidden opportunities by identifying buyers at different stages of their journey.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Personalize campaigns with actionable insights into prospect needs and pain points.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Shorten the sales cycle by focusing efforts on prospects ready to make decisions.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Reduce wasted spend by eliminating low-intent accounts from your pipeline.</span>
-                 </li>
-               </ul>
-             </div>
-           </div>
-         ),
-       },
-       {
-         src: "/Creative Edge.png",
-         title: "Automated Content Syndication",
-         category: "Demand Generation",
-         content: (
-           <div className="space-y-4">
-             <p>
-               <span className="font-semibold">Your content deserves the right audience.</span> With Automated Content Syndication, DemandTech amplifies your brand message across trusted digital platforms where decision-makers are most active.
-             </p>
-             <p>
-               We don’t just distribute content—we ensure it drives qualified engagement. Whether it’s whitepapers, eBooks, case studies, or thought leadership assets, we place them directly in front of the right people, at the right time.
-             </p>
-     
-             <div className="pt-2">
-               <h4 className="font-clash text-xl text-[#574BEF]">Key benefits of Content Syndication:</h4>
-               <ul className="mt-3 grid gap-2 md:gap-3">
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Targeted reach across multiple industries, regions, and job roles.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Intent-qualified leads verified through strict validation processes.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Scalable demand generation that drives consistent pipeline growth.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Brand positioning by aligning your expertise with buyer needs.</span>
-                 </li>
-               </ul>
-             </div>
-           </div>
-         ),
-       },
-       {
-         src: "/Creative Edge.png",
-         title: "Automated Appointment Generation",
-         category: "Demand Generation",
-         content: (
-           <div className="space-y-4">
-             <p>
-               <span className="font-semibold">Sales teams need conversations, not cold leads.</span> Our Automated Appointment Generation service ensures your pipeline is filled with qualified prospects ready to engage.
-             </p>
-             <p>
-               Through a blend of AI-driven outreach, personalized email sequencing, tele-verification, and multi-channel engagement, we connect your team with decision-makers who matter most.
-             </p>
-     
-             <div className="pt-2">
-               <h4 className="font-clash text-xl text-[#574BEF]">How DemandTech powers your sales pipeline:</h4>
-               <ul className="mt-3 grid gap-2 md:gap-3">
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Accelerate conversations by booking meetings with high-potential prospects.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Save time & resources by removing the burden of cold outreach from sales reps.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Enhance productivity by ensuring reps focus only on conversion-ready opportunities.</span>
-                 </li>
-                 <li className="flex gap-3">
-                   <span className="select-none">•</span>
-                   <span>Boost ROI by aligning sales efforts with pre-qualified appointments.</span>
-                 </li>
-               </ul>
-             </div>
-           </div>
-         ),
-       },
-     ];
-     
-     const items = cards.map((card, index) => (
-       <Card key={index} card={card} index={index} layout />
-     ));
+const cards = [
+  {
+    src: "/Creative Edge.png",
+    title: "Intent Data Platform",
+    category: "",
+    content: (
+      <div className="space-y-4">
+        <p>
+          <span className="font-semibold">Stop guessing and start knowing.</span> Our Intent Data Platform empowers businesses to discover prospects who are already showing buying interest in solutions like yours.
+        </p>
+        <p>
+          By monitoring online research patterns, content consumption habits, and digital buying signals, we help you prioritize high-value accounts that are most likely to convert. This results in smarter targeting, stronger engagement, and higher ROI.
+        </p>
+
+        <div className="pt-2">
+          <h4 className="font-clash text-xl text-[#574BEF]">With DemandTech’s Intent Data:</h4>
+          <ul className="mt-3 grid gap-2 md:gap-3">
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Uncover hidden opportunities by identifying buyers at different stages of their journey.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Personalize campaigns with actionable insights into prospect needs and pain points.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Shorten the sales cycle by focusing efforts on prospects ready to make decisions.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Reduce wasted spend by eliminating low-intent accounts from your pipeline.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
+    src: "/Creative Edge.png",
+    title: "Automated Content Syndication",
+    category: "",
+    content: (
+      <div className="space-y-4">
+        <p>
+          <span className="font-semibold">Your content deserves the right audience.</span> With Automated Content Syndication, DemandTech amplifies your brand message across trusted digital platforms where decision-makers are most active.
+        </p>
+        <p>
+          We don’t just distribute content—we ensure it drives qualified engagement. Whether it’s whitepapers, eBooks, case studies, or thought leadership assets, we place them directly in front of the right people, at the right time.
+        </p>
+
+        <div className="pt-2">
+          <h4 className="font-clash text-xl text-[#574BEF]">Key benefits of Content Syndication:</h4>
+          <ul className="mt-3 grid gap-2 md:gap-3">
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Targeted reach across multiple industries, regions, and job roles.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Intent-qualified leads verified through strict validation processes.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Scalable demand generation that drives consistent pipeline growth.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Brand positioning by aligning your expertise with buyer needs.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
+    src: "/Creative Edge.png",
+    title: "Automated Appointment Generation",
+    category: "",
+    content: (
+      <div className="space-y-4">
+        <p>
+          <span className="font-semibold">Sales teams need conversations, not cold leads.</span> Our Automated Appointment Generation service ensures your pipeline is filled with qualified prospects ready to engage.
+        </p>
+        <p>
+          Through a blend of AI-driven outreach, personalized email sequencing, tele-verification, and multi-channel engagement, we connect your team with decision-makers who matter most.
+        </p>
+
+        <div className="pt-2">
+          <h4 className="font-clash text-xl text-[#574BEF]">How DemandTech powers your sales pipeline:</h4>
+          <ul className="mt-3 grid gap-2 md:gap-3">
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Accelerate conversations by booking meetings with high-potential prospects.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Save time & resources by removing the burden of cold outreach from sales reps.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Enhance productivity by ensuring reps focus only on conversion-ready opportunities.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="select-none">•</span>
+              <span>Boost ROI by aligning sales efforts with pre-qualified appointments.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+];
+
+const items = cards.map((card, index) => (
+  <Card key={index} card={card} index={index} layout />
+));
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
@@ -170,7 +170,7 @@ export default function ServicesPage() {
 
         <div className="mt-10 flex flex-wrap gap-4">
           <Button3 text="Demand Generation" href="/services/demand-generation" />
-          <Button3 text="Marketing" href="/services/marketing"/>
+          <Button3 text="Marketing" href="/services/marketing" />
         </div>
       </div>
 
@@ -252,61 +252,59 @@ export default function ServicesPage() {
         </BackgroundGradientAnimation>
       </div>
       <GSAPTextReveal
-                        style={{
-                            fontFamily: 'Clash Display',
-                            fontSize: 'clamp(48px, 8vw, 92px)',
-                            textAlign: 'center',
-                            color: 'blue',
-                            marginBottom: '-150px',
-                            marginTop: '150px'
-                        }}
-                        stagger={0.15}
-                        duration={1.0}
-                        yOffset={80}
-                        start="top 75%"
-                    >
-                        How it works
-                    </GSAPTextReveal>
-      <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
-		    <Stepper />
-	    </div>
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
-      <GSAPTextReveal
-        split="lines"
-        className="line-height-[0.1] text-center text-7xl sm:text-5xl md:text-3xl lg:text-[84px] text-gray-900 font-medium font-clash leading-relaxed"
-        stagger={0.2}
+        style={{
+          fontFamily: 'Clash Display',
+          fontSize: 'clamp(48px, 8vw, 92px)',
+          textAlign: 'center',
+          color: 'blue',
+          marginBottom: '-150px',
+          marginTop: '150px'
+        }}
+        stagger={0.15}
         duration={1.0}
         yOffset={80}
         start="top 75%"
       >
-        {"See how Demand Tech powers your Business forward."}
+        How it works
       </GSAPTextReveal>
-      <div className="mt-6 flex justify-center">
-        <Button3 text="Contact Us" href="/services/demand-generation" />
+      <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
+        <Stepper />
       </div>
-    </div>
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
+          <GSAPTextReveal
+            split="lines"
+            className="line-height-[0.1] text-center text-7xl sm:text-5xl md:text-3xl lg:text-[84px] text-gray-900 font-medium font-clash leading-relaxed"
+            stagger={0.2}
+            duration={1.0}
+            yOffset={80}
+            start="top 75%"
+          >
+            {"See how Demand Tech powers your Business forward."}
+          </GSAPTextReveal>
+          <div className="mt-6 flex justify-center">
+            <Button3 text="Contact Us" href="/services/demand-generation" />
+          </div>
+        </div>
       </div>
       <GSAPTextReveal
-              style={{ 
-                alignItems: 'center', 
-                alignContent: 'center', 
-                fontFamily: 'Clash Display', 
-                fontSize: 'clamp(48px, 8vw, 92px)', 
-                textAlign: 'center', 
-                color: '#000cf8' 
-              }}
-              stagger={0.15}
-              duration={1.0}
-              yOffset={80}
-              start="top 75%"
-            >
-              Services
-            </GSAPTextReveal>
-        <div className="bento-grid-container px-4 sm:px-8 md:px-12 lg:px-24 pt-8 pb-16 sm:pt-10 sm:pb-20">
-          <ProgressiveBlurBentoGridV2 />
-        </div>
-        {/* Trust / Marketing ROI section */}
+        style={{
+          alignItems: 'center',
+          alignContent: 'center',
+          fontFamily: 'Clash Display',
+          fontSize: 'clamp(48px, 8vw, 92px)',
+          textAlign: 'center',
+          color: '#000cf8'
+        }}
+        stagger={0.15}
+        duration={1.0}
+        yOffset={80}
+        start="top 75%"
+      >
+        Services
+      </GSAPTextReveal>
+
+      {/* Trust / Marketing ROI section */}
       <section className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 items-start gap-8 md:gap-12 lg:gap-16">
@@ -367,21 +365,21 @@ export default function ServicesPage() {
             fontSize: "clamp(24px, 5vw, 56px)",
           }}
         >
-          Our In-House <span className="text-[#574BEF]">Software Solutions</span>
+          Exclusive  <span className="text-[#574BEF]">Solutions</span>
         </h2>
         <Carousel items={items} />
       </div>
-        {/* Contact Section */}
+      {/* Contact Section */}
       <div className='contact-section section-spacing'>
         <div className='contact-title'>
           <GSAPTextReveal
-            style={{ 
-              alignItems: 'center', 
-              alignContent: 'center', 
-              fontFamily: 'Clash Display', 
-              fontSize: 'clamp(48px, 8vw, 92px)', 
-              textAlign: 'center', 
-              color: '#000000' 
+            style={{
+              alignItems: 'center',
+              alignContent: 'center',
+              fontFamily: 'Clash Display',
+              fontSize: 'clamp(48px, 8vw, 92px)',
+              textAlign: 'center',
+              color: '#000000'
             }}
             stagger={0.15}
             duration={1.0}
