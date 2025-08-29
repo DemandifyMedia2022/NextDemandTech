@@ -76,6 +76,32 @@ export default function MarketingPage() {
       <div className="bento-grid-container px-4 sm:px-8 md:px-12 lg:px-24 py-16 sm:py-20">
         <ProgressiveBlurBentoGridV2 />
       </div>
+       
+            {/* ✅ Prospect Attention Section */}
+            <div className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
+          
+          {/* Left Text Section */}
+          <div className="text-left md:text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-clash font-semibold text-gray-900 leading-tight">
+              We know how to grab your{" "}
+              <span className="text-[#5B5BFF]">prospect’s attention</span>
+            </h2>
+            <p className="mt-6 text-gray-600 text-base sm:text-lg lg:text-lg font-neu leading-relaxed max-w-xl">
+              Attention spans are shrinking, and social media is more crowded than ever. 
+              Now’s the time for content and creative that truly stands out. 
+              We’ll make your prospects stop scrolling.
+            </p>
+          </div>
+
+          {/* Right Image Section */}
+          <div className="flex justify-center md:justify-end">
+          <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+          </div>
+        </div>
+      </div>
+
+
 
       {/* FAQ Section */}
       <div className="mt-16 sm:mt-20 flex flex-col justify-center items-center text-center px-4">
