@@ -3,6 +3,7 @@ import Button3 from "@/components/ui/Button3";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import CardSwap, { Card6 } from '@/components/ui/CardSwap'
 import Image from "next/image";
+import Faq from '@/components/ui/faq'
 export const metadata: Metadata = {
   title: "Products | DemandTech",
   description:
@@ -94,6 +95,21 @@ export default function ProductsPage() {
         <div />
       </section>
 
+      {/* Products FAQ */}
+      <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+        <Faq
+          heading="FAQ"
+          titleLine1="Quick Answers to"
+          titleLine2="Common Questions"
+          items={[
+            { question: 'Do your products integrate with our stack?', answer: 'Yes. We support integrations with common CRMs, MAPs, data platforms, and can scope custom connectors.' },
+            { question: 'Can we request custom features?', answer: 'Enterprise plans support customizations and roadmap prioritization based on business impact.' },
+            { question: 'How is security handled?', answer: 'We follow best practices for encryption, access control, and compliance. Security documentation is available upon request.' },
+            { question: 'What onboarding support is included?', answer: 'Implementation assistance, training, and documentation are provided. Dedicated CSMs for enterprise.' },
+            { question: 'Is there a free trial or demo?', answer: 'Yes. Book a demo and we can arrange a guided trial based on your use case.' },
+          ]}
+        />
+      </div>
 
     </div>
   );

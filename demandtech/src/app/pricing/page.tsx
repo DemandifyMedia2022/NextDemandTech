@@ -24,9 +24,21 @@ export default function PricingPage() {
   <PricingContent />
 </div>
 
-<div className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <Faq />
+<div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+        <Faq
+          heading="Pricing FAQ"
+          titleLine1="Questions About"
+          titleLine2="Our Pricing"
+          items={[
+            { question: 'Do you offer custom pricing?', answer: 'Yes. We tailor pricing to your scope, regions, ICP, and volume commitments.' },
+            { question: 'Is there a minimum commitment?', answer: 'We support pilots as well as ongoing retainers. Minimums depend on channel and region.' },
+            { question: 'What payment terms do you support?', answer: 'Standard NET terms are available. Prepaid discounts can be arranged for longer commitments.' },
+            { question: 'Are there setup fees?', answer: 'Setup fees apply for complex integrations or custom data workflows. Most standard programs have no setup fee.' },
+            { question: 'How do I get a detailed quote?', answer: 'Contact us with your goals and ICP. We will share a scoped proposal within 2–3 business days.' },
+          ]}
+        />
       </div>
+
                 </div>
             </div>
         

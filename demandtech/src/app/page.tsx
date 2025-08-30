@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 import {
   Ribbon1,
-  LogoSlider,   
- 
+  LogoSlider,
+
 } from '../../components';
 import './Homepage.css';
 import Card2 from '../../components/ui/Card2';
@@ -19,7 +19,7 @@ import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/componen
 import GradientHeroSection from '@/components/ui/GradientHeroSection';
 import { SlideTabsExample } from '@/components/ui/SliderTabs';
 import VideoHero from '@/components/ui/VideoHero';
-
+import VideoCard from '@/components/ui/VideoCard';
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
@@ -58,143 +58,145 @@ export default function HomePage() {
 
   return (
     <>
-    <div style={{ overflow: 'hidden' }}>  
-      <ScrollAnimations />
-      <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
-        <Ribbon1 />
-      </div>
-      
-
-      {/* Hero Section */}
-    {/* <VideoHero /> */}
-      {/* Logo Slider */}
-      <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
-        <LogoSlider />
-      </div>
-
-      {/* Features Section */}
-      <div className='features-section section-spacing'>
-        <div className='features-title'>
-          <GSAPTextReveal
-            style={{ 
-              alignItems: 'center', 
-              alignContent: 'center', 
-              fontFamily: 'Clash Display', 
-              fontSize: 'clamp(48px, 8vw, 92px)', 
-              textAlign: 'center', 
-              color: '#000cf8' 
-            }}
-            stagger={0.15}
-            duration={1.0}
-            yOffset={80}
-            start="top 75%"
-          >
-            Features
-          </GSAPTextReveal>
+      <div style={{ overflow: 'hidden' }}>
+        <ScrollAnimations />
+        <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
+          <Ribbon1 />
         </div>
-        <div className='servicescards'>
-          <div className='service-item'>
-            <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
-            <Button2 text="Intent-Based Lead" />
-          </div>
-          <div className='service-item'>
-            <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
-            <Button2 text="Brand Awareness" />
-          </div>
-          <div className='service-item'>
-            <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
-            <Button2 text="Sales Intent Profile" />
-          </div>
-        </div>
-      </div>
 
-      {/* Testimonials Section */}
-      <div className='testimonials-section section-spacing'>
-        <div className='testimonials-title'>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            fontFamily: 'Clash Display', 
-            textAlign: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '10px'
-          }}>
+
+        {/* Hero Section */}
+        <HeroTitle />
+
+        {/* <VideoHero /> */}
+        {/* Logo Slider */}
+        <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
+          <LogoSlider />
+        </div>
+
+        {/* Features Section */}
+        <div className='features-section section-spacing'>
+          <div className='features-title'>
             <GSAPTextReveal
-              style={{ 
-                alignItems: 'center', 
-                alignContent: 'center', 
-                fontFamily: 'Clash Display', 
-                fontSize: 'clamp(40px, 7vw, 85px)', 
-                textAlign: 'center', 
-                color: '#000cf8' 
+              style={{
+                alignItems: 'center',
+                alignContent: 'center',
+                fontFamily: 'Clash Display',
+                fontSize: 'clamp(48px, 8vw, 92px)',
+                textAlign: 'center',
+                color: '#000cf8'
               }}
-              stagger={0.12}
-              duration={0.9}
-              yOffset={70}
-              start="top 80%"
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
             >
-              Success
+              Features
             </GSAPTextReveal>
-            <span style={{ color: '#000000' }}>
+          </div>
+          <div className='servicescards'>
+            <div className='service-item'>
+              <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
+              <Button2 text="Intent-Based Lead" />
+            </div>
+            <div className='service-item'>
+              <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
+              <Button2 text="Brand Awareness" />
+            </div>
+            <div className='service-item'>
+              <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
+              <Button2 text="Sales Intent Profile" />
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className='testimonials-section section-spacing'>
+          <div className='testimonials-title'>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              fontFamily: 'Clash Display',
+              textAlign: 'center',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '10px'
+            }}>
               <GSAPTextReveal
-                style={{ 
-                  alignItems: 'center', 
-                  alignContent: 'center', 
-                  fontFamily: 'Clash Display', 
-                  fontSize: 'clamp(36px, 6vw, 75px)', 
-                  textAlign: 'center', 
-                  color: '#000000' 
+                style={{
+                  alignItems: 'center',
+                  alignContent: 'center',
+                  fontFamily: 'Clash Display',
+                  fontSize: 'clamp(40px, 7vw, 85px)',
+                  textAlign: 'center',
+                  color: '#000cf8'
                 }}
                 stagger={0.12}
                 duration={0.9}
                 yOffset={70}
                 start="top 80%"
               >
-                Through Their Lens
+                Success
               </GSAPTextReveal>
-            </span>
+              <span style={{ color: '#000000' }}>
+                <GSAPTextReveal
+                  style={{
+                    alignItems: 'center',
+                    alignContent: 'center',
+                    fontFamily: 'Clash Display',
+                    fontSize: 'clamp(36px, 6vw, 75px)',
+                    textAlign: 'center',
+                    color: '#000000'
+                  }}
+                  stagger={0.12}
+                  duration={0.9}
+                  yOffset={70}
+                  start="top 80%"
+                >
+                  Through Their Lens
+                </GSAPTextReveal>
+              </span>
+            </div>
+          </div>
+          <div className="testimonials-container">
+            <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
           </div>
         </div>
-        <div className="testimonials-container">
-          <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+
+
+
+        {/* Services Grid */}
+
+
+        {/* Contact Section */}
+        <div className='contact-section section-spacing'>
+          <div className='contact-title'>
+            <GSAPTextReveal
+              style={{
+                alignItems: 'center',
+                alignContent: 'center',
+                fontFamily: 'Clash Display',
+                fontSize: 'clamp(48px, 8vw, 92px)',
+                textAlign: 'center',
+                color: '#000000'
+              }}
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
+            >
+              Contact Us
+            </GSAPTextReveal>
+          </div>
+          <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
+            <MultiStepContactForm />
+          </div>
+
+          {/* Ensure scrollable space after content */}
+          <div style={{ height: '100%', width: '100%' }} />
         </div>
       </div>
-
-      
-
-      {/* Services Grid */}
-      
-
-      {/* Contact Section */}
-      <div className='contact-section section-spacing'>
-        <div className='contact-title'>
-          <GSAPTextReveal
-            style={{ 
-              alignItems: 'center', 
-              alignContent: 'center', 
-              fontFamily: 'Clash Display', 
-              fontSize: 'clamp(48px, 8vw, 92px)', 
-              textAlign: 'center', 
-              color: '#000000' 
-            }}
-            stagger={0.15}
-            duration={1.0}
-            yOffset={80}
-            start="top 75%"
-          >
-            Contact Us
-          </GSAPTextReveal>
-        </div>
-        <div className="bg-[#F0F1FA] min-h-screen px-0 py-2">
-          <MultiStepContactForm />
-        </div>
-
-        {/* Ensure scrollable space after content */}
-        <div style={{ height: '100%', width: '100%' }} />
-      </div>
-    </div>
     </>
-    
+
   );
 }

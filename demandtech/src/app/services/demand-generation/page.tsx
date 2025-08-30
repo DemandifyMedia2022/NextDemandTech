@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Button3 from '@/components/ui/Button3'
 import Card2 from '@/components/ui/Card2'
+import Faq from '@/components/ui/faq'
 
 export const metadata: Metadata = {
   title: 'Demand Generation | DemandTech',
@@ -143,6 +144,21 @@ export default function DemandGenerationPage() {
             </div>
           </div>
         ))}
+      </div>
+      {/* Demand Generation FAQ */}
+      <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+        <Faq
+          heading="Demand Generation FAQ"
+          titleLine1="Questions About"
+          titleLine2="Demand Generation"
+          items={[
+            { question: 'What defines a qualified lead?', answer: 'We align to your ICP and qualification criteria (title, function, company size, tech stack, region, and intent) and validate through multi-step checks.' },
+            { question: 'Which industries do you specialize in?', answer: 'We primarily serve B2B SaaS, cybersecurity, cloud, data, DevOps, and enterprise IT segments.' },
+            { question: 'How do you attribute pipeline?', answer: 'We support UTMs, CRM sync, and custom tracking to attribute opportunities and revenue to specific programs.' },
+            { question: 'Do you support multi-region programs?', answer: 'Yes. We operate across NA, EMEA, APAC, and LATAM with localized compliance and outreach.' },
+            { question: 'What is a typical timeline to see results?', answer: 'Early signals in 1–2 weeks; qualified pipeline generation typically within the first 30–60 days depending on scope.' },
+          ]}
+        />
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function MarketingPage() {
   return (
-    <div className="min-h-screen bg-[#F0F1FA]"> 
+    <div className="min-h-screen bg-[#F0F1FA]">
       {/* Hero Section */}
       <div className="bg-[#F0F1FA] py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
@@ -76,11 +76,11 @@ export default function MarketingPage() {
       <div className="bento-grid-container px-4 sm:px-8 md:px-12 lg:px-24 py-16 sm:py-20">
         <ProgressiveBlurBentoGridV2 />
       </div>
-       
-            {/* ✅ Prospect Attention Section */}
-            <div className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-24">
+
+      {/* ✅ Prospect Attention Section */}
+      <div className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
-          
+
           {/* Left Text Section */}
           <div className="text-left md:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-clash font-semibold text-gray-900 leading-tight">
@@ -88,15 +88,15 @@ export default function MarketingPage() {
               <span className="text-[#5B5BFF]">prospect’s attention</span>
             </h2>
             <p className="mt-6 text-gray-600 text-base sm:text-lg lg:text-lg font-neu leading-relaxed max-w-xl">
-              Attention spans are shrinking, and social media is more crowded than ever. 
-              Now’s the time for content and creative that truly stands out. 
+              Attention spans are shrinking, and social media is more crowded than ever.
+              Now’s the time for content and creative that truly stands out.
               We’ll make your prospects stop scrolling.
             </p>
           </div>
 
           {/* Right Image Section */}
           <div className="flex justify-center md:justify-end">
-          <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
           </div>
         </div>
       </div>
@@ -104,27 +104,21 @@ export default function MarketingPage() {
 
 
       {/* FAQ Section */}
-      <div className="mt-16 sm:mt-20 flex flex-col justify-center items-center text-center px-4">
-        <div>
-          <span
-            className="text-black font-clash
-            text-[28px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[64px]"
-          >
-            Quick Answers to Common
-          </span>
-        </div>
-        <div>
-          <span
-            className="text-[#2717E8] font-clash
-            text-[28px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[64px]"
-          >
-            Questions
-          </span>
-        </div>
-      </div>
 
-      <div className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <Faq />
+
+      <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+        <Faq
+          heading="Marketing FAQ"
+          titleLine1="Questions About"
+          titleLine2="Marketing Solutions"
+          items={[
+            { question: 'What channels do you support?', answer: 'We execute across LinkedIn, email, content syndication, paid social, webinars, and nurture automation.' },
+            { question: 'Do you create content as well?', answer: 'Yes. We produce thought leadership, ad creatives, landing pages, and nurture content aligned to your ICP.' },
+            { question: 'How do you measure marketing impact?', answer: 'We track engagement, MQL/SQL conversions, pipeline contribution, and ROI via agreed KPIs.' },
+            { question: 'Can you work with our in-house team?', answer: 'Absolutely. We can operate as an extension, collaborating with your marketing and sales teams.' },
+            { question: 'How soon can campaigns go live?', answer: 'Typically 1–2 weeks after creative, targeting, and tracking are finalized.' },
+          ]}
+        />
       </div>
     </div>
   )

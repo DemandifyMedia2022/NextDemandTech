@@ -8,6 +8,7 @@ import { BackgroundGradientAnimation } from '@/components/ui/background-gradient
 import { Stepper } from '@/components/ui/stepperScroller'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'; import { MultiStepContactForm } from '@/components/index'
+import Faq from '@/components/ui/faq'
 export const metadata: Metadata = {
   title: 'Services | DemandTech',
   description:
@@ -267,45 +268,18 @@ export default function ServicesPage() {
       >
         How it works
       </GSAPTextReveal>
-      <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-20 pt-14'>
+      <div className='max-w-7xl mx-auto px-2 sm:px-4 lg:px-5 pb-10 pt-14'>
         <Stepper />
       </div>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-20 pt-2 text-center">
-          <GSAPTextReveal
-            split="lines"
-            className="line-height-[0.1] text-center text-7xl sm:text-5xl md:text-3xl lg:text-[84px] text-gray-900 font-medium font-clash leading-relaxed"
-            stagger={0.2}
-            duration={1.0}
-            yOffset={80}
-            start="top 75%"
-          >
-            {"See how Demand Tech powers your Business forward."}
-          </GSAPTextReveal>
-          <div className="mt-6 flex justify-center">
-            <Button3 text="Contact Us" href="/services/demand-generation" />
-          </div>
+
         </div>
       </div>
-      <GSAPTextReveal
-        style={{
-          alignItems: 'center',
-          alignContent: 'center',
-          fontFamily: 'Clash Display',
-          fontSize: 'clamp(48px, 8vw, 92px)',
-          textAlign: 'center',
-          color: '#000cf8'
-        }}
-        stagger={0.15}
-        duration={1.0}
-        yOffset={80}
-        start="top 75%"
-      >
-        Services
-      </GSAPTextReveal>
+
 
       {/* Trust / Marketing ROI section */}
-      <section className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-28">
+      <section className="mt-[-120px] bg-[#F0F1FA] py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 items-start gap-8 md:gap-12 lg:gap-16">
             <div className="md:col-span-7 text-left md:pr-6 lg:pr-12">
@@ -358,19 +332,35 @@ export default function ServicesPage() {
         </div>
       </section>
       {/* Carousel Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <h2
-          className="font-bold text-gray-900 mb-8 text-center leading-tight font-clash"
+      <div className="mt-25 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <h1
+          className="font-regular text-gray-900 mb-8 text-center leading-tight font-clash"
           style={{
-            fontSize: "clamp(24px, 5vw, 56px)",
+            fontSize: "clamp(24px, 5vw, 96px)",
           }}
         >
           Exclusive  <span className="text-[#574BEF]">Solutions</span>
-        </h2>
+        </h1>
         <Carousel items={items} />
       </div>
+      {/* Services FAQ (above contact) */}
+      <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+        <Faq
+          heading="FAQ"
+          titleLine1="Quick Answers to"
+          titleLine2="Common Questions"
+          items={[
+            { question: 'What services does DemandTech provide?', answer: 'We offer demand generation, automated content syndication, appointment generation, and marketing solutions tailored to B2B growth.' },
+            { question: 'How do you ensure lead quality?', answer: 'We use intent data, multi-step validation, and enrichment to deliver high-quality, sales-ready leads.' },
+            { question: 'Can services be customized?', answer: 'Yes. We scope programs to your ICP, regions, channels, and KPIs. Engagements are fully modular.' },
+            { question: 'How quickly can we launch?', answer: 'Typical kickoff to launch is 1–2 weeks after alignment on scope, assets, and targeting.' },
+            { question: 'What KPIs do you track?', answer: 'Conversion rates, pipeline contribution, cost per opportunity, and revenue impact based on your goals.' },
+          ]}
+        />
+      </div>
+
       {/* Contact Section */}
-      <div className='contact-section section-spacing'>
+      <div className='mt-36 contact-section section-spacing'>
         <div className='contact-title'>
           <GSAPTextReveal
             style={{

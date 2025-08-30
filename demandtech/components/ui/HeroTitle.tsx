@@ -39,32 +39,35 @@ export const HeroTitle = () => {
                 ease: 'power2.out'
             }, '-=0.8');
 
-        // Parallax effect - opposite directions
-        gsap.to('.hero-line-1', {
-            x: -120, // Move first line 120px to the left
-            scrollTrigger: {
-                trigger: container,
-                start: 'top center',
-                end: 'bottom top',
-                scrub: 0.2
-            }
-        });
+        // Parallax effect only on tablet/desktop. Automatically removed on viewport change.
+        ScrollTrigger.matchMedia({
+            '(min-width: 768px)': function () {
+                gsap.to('.hero-line-1', {
+                    x: -120,
+                    scrollTrigger: {
+                        trigger: container,
+                        start: 'top center',
+                        end: 'bottom top',
+                        scrub: 0.2
+                    }
+                });
 
-        gsap.to('.hero-line-2', {
-            x: 120, // Move second line 120px to the right
-            scrollTrigger: {
-                trigger: container,
-                start: 'top center',
-                end: 'bottom top',
-                scrub: 0.2
+                gsap.to('.hero-line-2', {
+                    x: 120,
+                    scrollTrigger: {
+                        trigger: container,
+                        start: 'top center',
+                        end: 'bottom top',
+                        scrub: 0.2
+                    }
+                });
             }
         });
 
         return () => {
+            // Kill only triggers associated with this container
             ScrollTrigger.getAll().forEach(trigger => {
-                if (trigger.trigger === container) {
-                    trigger.kill();
-                }
+                if (trigger.trigger === container) trigger.kill();
             });
         };
     }, []);
@@ -78,7 +81,8 @@ export const HeroTitle = () => {
                 lineHeight: '1.5',
                 width: '100%',
                 overflow: 'visible',
-                position: 'relative'
+                position: 'relative',
+                marginTop: '100px'
             }}
         >
             <div style={{ overflow: 'visible' }}>
@@ -90,15 +94,17 @@ export const HeroTitle = () => {
                         fontSize: 'inherit',
                         fontWeight: 'inherit',
                         lineHeight: 'inherit',
-                        fontFamily: 'inherit',
+                        fontFamily: 'Clash Display',
                         margin: 0,
-                        whiteSpace: 'nowrap'
+                        whiteSpace: 'normal',
+                        wordBreak: 'break-word',
+                        overflowWrap: 'anywhere'
                     }}
                 >
                     Intelligence that
                 </div>
             </div>
-            <div style={{ overflow: 'visible', marginTop: '-20px' }}>
+            <div style={{ overflow: 'visible', marginTop: '0' }}>
                 <div
                     className="hero-line-2"
                     style={{
@@ -107,9 +113,11 @@ export const HeroTitle = () => {
                         fontSize: 'inherit',
                         fontWeight: 'inherit',
                         lineHeight: 'inherit',
-                        fontFamily: 'inherit',
+                        fontFamily: 'Clash Display',
                         margin: 0,
-                        whiteSpace: 'nowrap'
+                        whiteSpace: 'normal',
+                        wordBreak: 'break-word',
+                        overflowWrap: 'anywhere'
                     }}
                 >
                     Drives <span className="accent">Growth</span>
