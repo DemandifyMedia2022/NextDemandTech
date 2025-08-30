@@ -58,7 +58,7 @@ export default function HeaderNav() {
                 <SlideTabsExample />
             </motion.div>
             <motion.div className="absolute right-4 sm:right-6 lg:right-8 " variants={itemVariants}>
-                <Button label="Let's Talk" href="/contact" />
+
             </motion.div>
         </motion.div>
     );
