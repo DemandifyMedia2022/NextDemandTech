@@ -52,13 +52,13 @@ export default function Footer() {
 
 
 
-<footer className="relative bg-#F0F1FA text-gray-800 pt-20 pb-10 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
+<footer className="relative bg-#F0F1FA text-gray-800 pt-40 pb-10 overflow-hidden">
+      <div className="container mx-auto px-6 md:px-6 lg:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-20">
         {/* Logo + Newsletter */}
-        <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-2">
+        {/* <div className="space-y-6 col-span-1 md:col-span-2 lg:col-span-1">
           <h1 className="text-4xl font-bold tracking-tight">
-            Demand<span className="text-blue-600">Tech</span>
+            <span className="text-blue-600"></span>
           </h1>
           <p className="text-gray-500">
             Stay ahead of the curve. Get the latest marketing insights and trends delivered to your inbox.
@@ -76,7 +76,7 @@ export default function Footer() {
               <FaArrowRight />
             </button>
           </form> 
-        </div>
+        </div> */}
 
         {/* Navigation Links */}
         {linkSections.map((section) => (

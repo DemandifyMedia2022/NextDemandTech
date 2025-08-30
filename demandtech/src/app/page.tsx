@@ -18,6 +18,7 @@ import Footer from '@/components/ui/Footer';
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
 import GradientHeroSection from '@/components/ui/GradientHeroSection';
 import { SlideTabsExample } from '@/components/ui/SliderTabs';
+import VideoHero from '@/components/ui/VideoHero';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -65,7 +66,7 @@ export default function HomePage() {
       
 
       {/* Hero Section */}
-    
+    {/* <VideoHero /> */}
       {/* Logo Slider */}
       <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
         <LogoSlider />
@@ -94,7 +95,7 @@ export default function HomePage() {
         <div className='servicescards'>
           <div className='service-item'>
             <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
-            <Button2 text="Intent-Verified Lead" />
+            <Button2 text="Intent-Based Lead" />
           </div>
           <div className='service-item'>
             <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
