@@ -20,6 +20,8 @@ import GradientHeroSection from '@/components/ui/GradientHeroSection';
 import { SlideTabsExample } from '@/components/ui/SliderTabs';
 import VideoHero from '@/components/ui/VideoHero';
 import VideoCard from '@/components/ui/VideoCard';
+import RightScrollExpandVideo from '../../components/ui/VideoRight';
+
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
@@ -59,7 +61,7 @@ export default function HomePage() {
   return (
     <>
       <div style={{ overflow: 'hidden' }}>
-        <ScrollAnimations />
+        {/* <ScrollAnimations /> */}
         <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
           <Ribbon1 />
         </div>
@@ -68,9 +70,19 @@ export default function HomePage() {
         {/* Hero Section */}
         <HeroTitle />
 
+        {/* Right-side scroll expand video */}
+        <RightScrollExpandVideo
+          videoSrc="/herovideo.mp4"
+          posterSrc="/image1.jpeg"
+          expandDuration={3000}
+        />
+
         {/* <VideoHero /> */}
         {/* Logo Slider */}
-        <div className="logo-slider-container section-spacing" style={{ padding: '0 0' }}>
+        <div className="logo-slider-container section-spacing" style={{
+          padding: '0 0'
+          , marginTop: '-700px'
+        }}>
           <LogoSlider />
         </div>
 
