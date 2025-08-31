@@ -72,7 +72,7 @@ export default function HomePage() {
 
         {/* Right-side scroll expand video */}
         <RightScrollExpandVideo
-          videoSrc="/herovideo.mp4"
+          videoSrc="/herovid.mp4"
           posterSrc="/image1.jpeg"
           expandDuration={3000}
         />
