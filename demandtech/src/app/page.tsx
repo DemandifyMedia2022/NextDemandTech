@@ -177,7 +177,7 @@ export default function HomePage() {
 
 
 
-        {/* Services Grid */}
+        {/* Globe  */}
 
 
         {/* Contact Section */}

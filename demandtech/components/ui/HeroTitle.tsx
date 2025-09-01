@@ -82,7 +82,7 @@ export const HeroTitle = () => {
                 width: '100%',
                 overflow: 'visible',
                 position: 'relative',
-                marginTop: '80px'
+                marginTop: '60px'
             }}
         >
             <div style={{ overflow: 'visible' }}>

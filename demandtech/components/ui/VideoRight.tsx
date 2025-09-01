@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Button from './Button';
 
 interface RightScrollExpandProps {
     videoSrc: string;
@@ -86,15 +87,18 @@ const RightScrollExpandVideo = ({
                 {/* Left description content */}
                 <div className="absolute inset-0 flex items-center" style={{ pointerEvents: 'none' }}>
                     <div
-                        className="px-[5vw] max-w-[38vw]"
+                        className="px-[5vw] max-w-[49vw]"
                         style={{ opacity: descOpacity, transition: 'opacity 300ms ease-out' }}
                     >
                         <h3 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'Clash Display' }}>
 
                         </h3>
-                        <p className="mt-4 text-base md:text-xl text-neutral-700">
+                        <p className="mt-4 text-base md:text-xl text-neutral-700 text-center leading-relaxed">
                             {description}
                         </p>
+                        <div className="mt-8" style={{ pointerEvents: 'auto' }}>
+                            <Button label="Get Started" href="/contact" />
+                        </div>
                     </div>
                 </div>
                 <div
