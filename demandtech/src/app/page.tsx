@@ -21,6 +21,7 @@ import { SlideTabsExample } from '@/components/ui/SliderTabs';
 import VideoHero from '@/components/ui/VideoHero';
 import VideoCard from '@/components/ui/VideoCard';
 import RightScrollExpandVideo from '../../components/ui/VideoRight';
+import ChatWidget from '@/components/ui/ChatWidget';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -67,8 +68,10 @@ export default function HomePage() {
         </div>
 
 
-        {/* Hero Section */}
-        <HeroTitle />
+        {/* Hero Section with background video */}
+        <section className="hero-with-funnel">
+          <HeroTitle />
+        </section>
 
         {/* Right-side scroll expand video */}
         <RightScrollExpandVideo
@@ -79,10 +82,7 @@ export default function HomePage() {
 
         {/* <VideoHero /> */}
         {/* Logo Slider */}
-        <div className="logo-slider-container section-spacing" style={{
-          padding: '0 0'
-          , marginTop: '-700px'
-        }}>
+        <div className="logo-slider-container section-spacing">
           <LogoSlider />
         </div>
 
@@ -207,6 +207,9 @@ export default function HomePage() {
           {/* Ensure scrollable space after content */}
           <div style={{ height: '100%', width: '100%' }} />
         </div>
+
+        {/* Floating AI Chatbot Widget */}
+        <ChatWidget />
       </div>
     </>
 

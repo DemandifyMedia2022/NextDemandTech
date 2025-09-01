@@ -582,3 +582,14 @@
         padding: 0 0.5rem;
     }
 }
+
+/* Logo Slider responsive offset: positive on small, negative on >=768px */
+.logo-slider-container {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .logo-slider-container {
+        margin-top: -700px; /* large screens: maintain negative offset */
+    }
+}

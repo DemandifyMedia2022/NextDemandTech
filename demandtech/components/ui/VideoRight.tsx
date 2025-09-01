@@ -80,6 +80,36 @@ const RightScrollExpandVideo = ({
     // Description fades out in first half of the scroll
     const descOpacity = 1 - Math.min(progress * 2, 1);
 
+    // Mobile/small devices: render simple stacked layout (no sticky/scroll expand)
+    if (viewport.width < 768) {
+        return (
+            <section className="relative z-0 bg-[#F0F1FA] my-16 py-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+                    <div className="w-full rounded-2xl overflow-hidden shadow-xl relative">
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            poster={posterSrc}
+                            className="w-full h-auto object-cover"
+                        >
+                            <source src={videoSrc} type="video/mp4" />
+                        </video>
+                    </div>
+                    <div className="mt-6">
+                        <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-neu">
+                            {description}
+                        </p>
+                        <div className="mt-6">
+                            <Button label="Get Started" href="/contact" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section ref={sectionRef} className="relative overflow-hidden" style={{ height: '200vh' }}>
             {/* Sticky viewport area to pin the animation while scrolling this section */}
