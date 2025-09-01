@@ -54,7 +54,7 @@ const cards = [
     ),
   },
   {
-    src: "/Creative Edge.png",
+    src: "/AutomedGeneraion.png",
     title: "Automated Content Syndication",
     category: "",
     content: (
@@ -91,7 +91,7 @@ const cards = [
     ),
   },
   {
-    src: "/Creative Edge.png",
+    src: "/Automation_Syndication.png",
     title: "Automated Appointment Generation",
     category: "",
     content: (

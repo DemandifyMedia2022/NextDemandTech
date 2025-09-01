@@ -86,14 +86,15 @@ export default function HRMS() {
             </motion.div>
 
             {/* Image */}
-            <motion.img
-              src="/trial.png"
-              alt="HRMS Illustration"
-              className="w-60 h-60 object-contain"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            />
+            {/* Image */}
+           <motion.img
+             src="/futuristic-technology-concept.jpg"
+             alt="HRMS Illustration"
+             className="w-80 h-[500px] object-cover rounded-[50px] shadow-lg"
+             initial={{ opacity: 0, scale: 0.9 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 0.6 }}
+           />
           </div>
         </div>
       </section>
