@@ -128,7 +128,7 @@ export const Card = ({
     <>
 <AnimatePresence>
   {open && (
-    <div className="fixed inset-0 z-50 h-screen overflow-hidden">
+    <div className="fixed inset-0 z-50 h-screen overflow-hidden flex items-center justify-center p-2 sm:p-4">
       {/* Dark overlay */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -144,10 +144,11 @@ export const Card = ({
         exit={{ opacity: 0, scale: 0.95 }}
         ref={containerRef}
         layoutId={layout ? `card-${card.title}` : undefined}
-        className="relative z-[60] mx-auto my-10 max-w-5xl 
-                   max-h-[85vh] overflow-y-auto overscroll-contain flex flex-col
-                   rounded-3xl bg-white/90 backdrop-blur-xl 
-                   shadow-2xl p-6 md:p-10"
+        className="relative z-[60] mx-auto my-0 
+                   w-[94vw] sm:w-[90vw] md:w-auto max-w-[94vw] sm:max-w-[90vw] md:max-w-3xl lg:max-w-5xl
+                   max-h-[80vh] md:max-h-[85vh] overflow-y-auto overscroll-contain flex flex-col
+                   rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-xl 
+                   shadow-2xl p-4 sm:p-6 md:p-10"
         style={{
           WebkitOverflowScrolling: "touch",
           overscrollBehavior: "contain", // ✅ Prevent background scroll chaining
@@ -168,7 +169,7 @@ export const Card = ({
         {/* Category */}
         <motion.p
           layoutId={layout ? `category-${card.title}` : undefined}
-          className="text-xl font-medium text-[#898989] dark:text-[#898989] font-clash"
+          className="text-base sm:text-lg md:text-xl font-medium text-[#898989] dark:text-[#898989] font-clash"
         >
           {card.category}
         </motion.p>
@@ -176,13 +177,13 @@ export const Card = ({
         {/* Title */}
         <motion.p
           layoutId={layout ? `title-${card.title}` : undefined}
-          className="mt-2 text-3xl md:text-5xl font-semibold text-[#574BEF] dark:text-[#574BEF] font-clash"
+          className="mt-2 text-2xl sm:text-3xl md:text-5xl font-semibold text-[#574BEF] dark:text-[#574BEF] font-clash"
         >
           {card.title}
         </motion.p>
 
         {/* Content */}
-        <div className="py-6 text-lg leading-relaxed text-[#000000] font-neu">
+        <div className="py-4 sm:py-6 text-base sm:text-lg leading-relaxed text-[#000000] font-neu">
           {card.content}
         </div>
       </motion.div>
