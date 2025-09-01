@@ -17,7 +17,7 @@ export const HeroTitle = () => {
         const container = containerRef.current;
         if (!container) return;
 
-        // Animate hero title lines
+        // Animate hero lines
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,

@@ -148,11 +148,11 @@ export default function ServicesPage() {
           <span className="text-[#5B5BFF] font-regular">Start Closing</span>
         </p>
 
-        <h1
+        <div
           className="mt-4 leading-tight tracking-tight text-gray-900"
           style={{
             fontFamily: 'Clash Display, sans-serif',
-            fontSize: '92px',
+            fontSize: 'clamp(48px, 8vw, 92px)',
             lineHeight: '1.1',
           }}
         >
@@ -161,7 +161,7 @@ export default function ServicesPage() {
             into <span className="text-[#5B5BFF]">Sales-Ready</span>
           </span>
           <span className="block">Opportunity</span>
-        </h1>
+        </div>
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-gray-700">
           At Demand Tech, we deliver Intent Qualified Leads powered by

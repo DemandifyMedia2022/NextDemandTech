@@ -24,7 +24,7 @@ export default function MarketingPage() {
           <div className="text-center md:text-center">
             <div
               className="mt-4 leading-tight tracking-tight text-gray-900 font-clash
-              text-[32px] sm:text-[48px] md:text-[72px] lg:text-[80px] xl:text-[88px] 2xl:text-[92px]"
+              text-[32px] sm:text-[48px] md:text-[72px] lg:text-[72px] xl:text-[72px] 2xl:text-[72px]"
             >
               <span className="block">Your B2B</span>
               <span className="text-[#5B5BFF]">Creative Edge</span>
@@ -39,8 +39,7 @@ export default function MarketingPage() {
               overflowing with noise, standing out isn’t optional—it’s essential.
               At DemandTech, we create scroll-stopping, conversion-driven content
               that captures attention, sparks engagement, and positions your brand
-              as the one to watch. We don’t just make prospects pause—we make them
-              take action.
+              as the one to watch. 
             </p>
           </div>
         </div>
@@ -64,12 +63,6 @@ export default function MarketingPage() {
             {" "}B2B content
           </span>
         </div>
-        <p
-          className="text-gray-600 font-neu mt-4
-          text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl"
-        >
-          From SEO to LinkedIn Thoughtleadership, and everything in between.
-        </p>
       </div>
 
       {/* ✅ Bento Grid Section */}
@@ -78,16 +71,16 @@ export default function MarketingPage() {
       </div>
 
       {/* ✅ Prospect Attention Section */}
-      <div className="bg-[#F0F1FA] py-16 sm:py-20 lg:py-24">
+      <div className="bg-[#F0F1FA] py-16 sm:py-20 md:py-24 lg:py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
 
           {/* Left Text Section */}
           <div className="text-left md:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-clash font-semibold text-gray-900 leading-tight">
+            <h2 className="text-5xl sm:text-5xl lg:text-5xl font-clash font-semibold text-gray-900 leading-tight">
               We know how to grab your{" "}
               <span className="text-[#5B5BFF]">prospect’s attention</span>
             </h2>
-            <p className="mt-6 text-gray-600 text-base sm:text-lg lg:text-lg font-neu leading-relaxed max-w-xl">
+            <p className="mt-6 text-gray-600 text-lg sm:text-lg lg:text-lg font-neu leading-relaxed max-w-xl">
               Attention spans are shrinking, and social media is more crowded than ever.
               Now’s the time for content and creative that truly stands out.
               We’ll make your prospects stop scrolling.

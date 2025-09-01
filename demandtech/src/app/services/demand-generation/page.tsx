@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Button3 from '@/components/ui/Button3'
 import Card2 from '@/components/ui/Card2'
 import Faq from '@/components/ui/faq'
+import { TextEffect } from '@/components/core/text-effect'
 
 export const metadata: Metadata = {
   title: 'Demand Generation | DemandTech',
@@ -50,22 +51,36 @@ export default function DemandGenerationPage() {
 
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center mt-[-50px]">
         {/* Heading */}
-        <div
+        <TextEffect
+          per='line'
+          as='div'
+          segmentWrapperClassName='overflow-hidden block'
+          variants={{
+            container: { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } },
+            item: { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }
+          }}
           className="text-[#574BEF] text-4xl sm:text-5xl md:text-8xl lg:text-[92px] leading-tight"
           style={{ fontFamily: 'Clash Display, sans-serif' }}
         >
-          Demand Generation
-        </div>
+          {['Demand Generation']}
+        </TextEffect>
 
         {/* Subheading */}
-        <div
-          className="mt-4 text-black text-2xl sm:text-3xl md:text-3xl lg:text-[55px] leading-snug"
+        <TextEffect
+          per='line'
+          as='div'
+          segmentWrapperClassName='overflow-hidden block'
+          variants={{
+            container: { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } },
+            item: { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }
+          }}
+          className="mt-4 text-black text-4xl sm:text-4xl md:text-4xl lg:text-[70px] leading-snug"
           style={{ fontFamily: 'Clash Display, sans-serif' }}
         >
-          That Turns Interest into Revenue
-        </div>
+          {['That Turns Interest into Revenue']}
+        </TextEffect>
 
         {/* Description */}
         <p
@@ -83,10 +98,9 @@ export default function DemandGenerationPage() {
           className="mt-4 text-gray-600 leading-relaxed mx-auto text-sm sm:text-base md:text-lg max-w-3xl"
           style={{ fontFamily: 'Neue Montreal, sans-serif' }}
         >
-          At Demand Tech, our demand generation services are built to deliver
-          exactly that. We combine data-driven targeting, industry expertise, and
-          multi-channel strategies to ensure your brand reaches, engages, and
-          converts high-intent prospects.
+          We combine data-driven targeting, industry expertise, and multi-channel
+          strategies to ensure your brand reaches, engages, and converts
+          high-intent prospects.
         </p>
 
         {/* Button */}
@@ -95,15 +109,15 @@ export default function DemandGenerationPage() {
         </div>
 
         {/* Section Title */}
-        <div className="mt-20 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
+        <div className="mt-40 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
           <span
-            className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-[70px]"
+            className="text-black text-4xl sm:text-5xl md:text-7xl lg:text-[70px]"
             style={{ fontFamily: 'Clash Display, sans-serif' }}
           >
             Areas of
           </span>
           <span
-            className="text-[#2717E8] text-4xl sm:text-5xl md:text-6xl lg:text-[70px]"
+            className="text-[#2717E8] text-4xl sm:text-5xl md:text-7xl lg:text-[70px]"
             style={{ fontFamily: 'Clash Display, sans-serif' }}
           >
             Focus
