@@ -106,9 +106,9 @@ const RightScrollExpandVideo = ({
                         <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-neu">
                             {description}
                         </p>
-                        <div className="mt-6">
+                        {/* <div className="mt-6">
                             <Button label="Get Started" href="/contact" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
@@ -131,9 +131,9 @@ const RightScrollExpandVideo = ({
                         <p className="mt-4 text-base md:text-xl text-neutral-700 text-center leading-relaxed">
                             {description}
                         </p>
-                        <div className="mt-8 flex justify-center" style={{ pointerEvents: 'auto' }}>
+                        {/* <div className="mt-8 flex justify-center" style={{ pointerEvents: 'auto' }}>
                             <Button label="Get Started" href="/contact" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div

@@ -23,6 +23,7 @@ import VideoCard from '@/components/ui/VideoCard';
 import RightScrollExpandVideo from '../../components/ui/VideoRight';
 import ChatWidget from '@/components/ui/ChatWidget';
 import { Hero } from '@/components/ui/HeroSection';
+import Feature from '@/components/ui/FeatureHomepage';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -73,8 +74,10 @@ export default function HomePage() {
         <section className="hero-with-funnel bg-transparent mt-[-75px]">
           <Hero />
         </section>
-
+        
+        <Feature />
         {/* Right-side scroll expand video */}
+        <div className="mt-[-75px]" />
         <RightScrollExpandVideo
           videoSrc="/herovid.mp4"
           posterSrc="/image1.jpeg"
@@ -83,45 +86,11 @@ export default function HomePage() {
 
         {/* <VideoHero /> */}
         {/* Logo Slider */}
-        <div className="logo-slider-container section-spacing">
+        <div className="logo-slider-container section-spacing mt-[75px]">
           <LogoSlider />
         </div>
 
-        {/* Features Section */}
-        <div className='features-section section-spacing'>
-          <div className='features-title'>
-            <GSAPTextReveal
-              style={{
-                alignItems: 'center',
-                alignContent: 'center',
-                fontFamily: 'Clash Display',
-                fontSize: 'clamp(48px, 8vw, 84px)',
-                textAlign: 'center',
-                color: '#000cf8'
-              }}
-              stagger={0.15}
-              duration={1.0}
-              yOffset={80}
-              start="top 75%"
-            >
-              Features
-            </GSAPTextReveal>
-          </div>
-          <div className='servicescards'>
-            <div className='service-item'>
-              <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
-              <Button2 text="Intent-Based Lead" />
-            </div>
-            <div className='service-item'>
-              <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
-              <Button2 text="Brand Awareness" />
-            </div>
-            <div className='service-item'>
-              <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
-              <Button2 text="Sales Intent Profile" />
-            </div>
-          </div>
-        </div>
+        
 
         {/* Testimonials Section */}
         <div className='testimonials-section section-spacing'>
@@ -133,7 +102,8 @@ export default function HomePage() {
               textAlign: 'center',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '10px'
+              gap: '10px',
+              marginTop: '-75px'
             }}>
               <GSAPTextReveal
                 style={{
@@ -176,9 +146,45 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Features Section */}
+        <div className='features-section section-spacing mt-[75px]'>
+          <div className='features-title'>
+            <GSAPTextReveal
+              style={{
+                alignItems: 'center',
+                alignContent: 'center',
+                fontFamily: 'Clash Display',
+                fontSize: 'clamp(48px, 8vw, 84px)',
+                textAlign: 'center',
+                color: '#000cf8'
+              }}
+              stagger={0.15}
+              duration={1.0}
+              yOffset={80}
+              start="top 75%"
+            >
+              Features
+            </GSAPTextReveal>
+          </div>
+          <div className='servicescards'>
+            <div className='service-item'>
+              <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
+              <Button2 text="Intent-Based Lead" />
+            </div>
+            <div className='service-item'>
+              <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
+              <Button2 text="Brand Awareness" />
+            </div>
+            <div className='service-item'>
+              <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
+              <Button2 text="Sales Intent Profile" />
+            </div>
+          </div>
+        </div>
 
 
-        {/* Globe  */}
+
+        {/* Map  */}
         
 
         {/* Contact Section */}
