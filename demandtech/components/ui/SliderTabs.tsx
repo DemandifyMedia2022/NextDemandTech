@@ -96,20 +96,15 @@ const SlideTabs: React.FC = () => {
 
     const productsDropdown: DropdownItem[] = [
         {
-            title: "B2B Products",
-            href: "/products/b2b",
-            description: "Tailored B2B marketing solutions"
+            title: "Software",
+            href: "/products",
+            description: "Software solutions for marketing"
         },
         {
-            title: "Enterprise Products",
+            title: "Enterprise",
             href: "/products/enterprise",
             description: "Scalable enterprise marketing"
         },
-        {
-            title: "Startup Products",
-            href: "/products/startup",
-            description: "Growth solutions for startups"
-        }
     ];
 
     // Set initial cursor position for active tab

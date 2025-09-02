@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-[#F0F1FA]">
+    <div className="min-h-screen bg-[#F0F1FA] overflow-hidden">
       {/* Navbar Placeholder */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 relative flex items-center justify-center" />
 
@@ -74,8 +74,8 @@ export default function ProductsPage() {
           <LogoSlider />
         </div>
 
-        {/* Card Swap */}
-        <div style={{ height: "600px", position: "relative" }}>
+        
+        {/* <div style={{ height: "600px", position: "relative" }}>
           <CardSwap
             cardDistance={60}
             verticalDistance={70}
@@ -120,11 +120,11 @@ export default function ProductsPage() {
               </div>
             </Card6>
           </CardSwap>
-        </div>
+        </div> */}
       </section>
 
       {/* Haridialler Section */}
-      <div className="container mx-auto px-4 mt-24 md:mt-32 lg:mt-40 md:px-8 lg:px-16">
+      <div className="container mx-auto px-4 mt-14 md:mt-24 lg:mt-32 md:px-8 lg:px-16">
         <Haridialler />
       </div>
       <div className="container mx-auto px-4 mt-24 md:mt-32 lg:mt-40 md:px-8 lg:px-16">

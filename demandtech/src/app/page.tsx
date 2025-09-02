@@ -22,6 +22,7 @@ import VideoHero from '@/components/ui/VideoHero';
 import VideoCard from '@/components/ui/VideoCard';
 import RightScrollExpandVideo from '../../components/ui/VideoRight';
 import ChatWidget from '@/components/ui/ChatWidget';
+import Hero from '@/components/ui/HeroSection';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -70,7 +71,7 @@ export default function HomePage() {
 
         {/* Hero Section with background video */}
         <section className="hero-with-funnel">
-          <HeroTitle />
+          <Hero />
         </section>
 
         {/* Right-side scroll expand video */}
@@ -178,7 +179,7 @@ export default function HomePage() {
 
 
         {/* Globe  */}
-
+        
 
         {/* Contact Section */}
         <div className='contact-section section-spacing'>
