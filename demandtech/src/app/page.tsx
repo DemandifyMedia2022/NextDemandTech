@@ -22,7 +22,7 @@ import VideoHero from '@/components/ui/VideoHero';
 import VideoCard from '@/components/ui/VideoCard';
 import RightScrollExpandVideo from '../../components/ui/VideoRight';
 import ChatWidget from '@/components/ui/ChatWidget';
-import Hero from '@/components/ui/HeroSection';
+import { Hero } from '@/components/ui/HeroSection';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -70,7 +70,7 @@ export default function HomePage() {
 
 
         {/* Hero Section with background video */}
-        <section className="hero-with-funnel">
+        <section className="hero-with-funnel bg-transparent mt-[-75px]">
           <Hero />
         </section>
 
@@ -95,7 +95,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 alignContent: 'center',
                 fontFamily: 'Clash Display',
-                fontSize: 'clamp(48px, 8vw, 92px)',
+                fontSize: 'clamp(48px, 8vw, 84px)',
                 textAlign: 'center',
                 color: '#000cf8'
               }}
@@ -140,7 +140,7 @@ export default function HomePage() {
                   alignItems: 'center',
                   alignContent: 'center',
                   fontFamily: 'Clash Display',
-                  fontSize: 'clamp(40px, 7vw, 85px)',
+                  fontSize: 'clamp(48px, 8vw, 84px)',
                   textAlign: 'center',
                   color: '#000cf8'
                 }}
@@ -157,7 +157,7 @@ export default function HomePage() {
                     alignItems: 'center',
                     alignContent: 'center',
                     fontFamily: 'Clash Display',
-                    fontSize: 'clamp(36px, 6vw, 75px)',
+                    fontSize: 'clamp(48px, 8vw, 84px)',
                     textAlign: 'center',
                     color: '#000000'
                   }}
@@ -189,7 +189,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 alignContent: 'center',
                 fontFamily: 'Clash Display',
-                fontSize: 'clamp(48px, 8vw, 92px)',
+                fontSize: 'clamp(48px, 8vw, 84px)',
                 textAlign: 'center',
                 color: '#000000'
               }}
@@ -210,7 +210,7 @@ export default function HomePage() {
         </div>
 
         {/* Floating AI Chatbot Widget */}
-        <ChatWidget />
+        {/* <ChatWidget /> */}
       </div>
     </>
 

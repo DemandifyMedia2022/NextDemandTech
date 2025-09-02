@@ -18,24 +18,24 @@ const RightScrollExpandVideo = ({
 }: RightScrollExpandProps) => {
     // progress goes 0 -> 1 across the section scroll
     const [progress, setProgress] = useState(0);
-    const [viewport, setViewport] = useState({
-        width: typeof window !== 'undefined' ? window.innerWidth : 0,
-        height: typeof window !== 'undefined' ? window.innerHeight : 0,
-    });
+    // Use a stable desktop-like default to ensure SSR and first client render match
+    const [viewport, setViewport] = useState({ width: 1024, height: 768 });
 
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const handleResize = () => {
             setViewport({ width: window.innerWidth, height: window.innerHeight });
+            // Recompute on resize as well
+            handleScroll();
         };
 
         const handleScroll = () => {
             const el = sectionRef.current;
             if (!el) return;
             const rect = el.getBoundingClientRect();
-            const total = rect.height - viewport.height; // scrollable distance while sticky
-            // when the top hits the top of viewport => 0, when bottom hits bottom => 1
+            const vpH = window.innerHeight || viewport.height;
+            const total = rect.height - vpH; // scrollable distance while sticky
             const distFromTop = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
             const p = total > 0 ? distFromTop / total : 0;
             setProgress(Math.min(Math.max(p, 0), 1));
@@ -44,11 +44,15 @@ const RightScrollExpandVideo = ({
         window.addEventListener('scroll', handleScroll, { passive: true });
         window.addEventListener('resize', handleResize);
 
+        // Initial measure on mount
+        handleResize();
+        handleScroll();
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, [viewport.height]);
+    }, []);
 
     // Calculate video dimensions and position
     // Start at 45% of viewport width with 16:9 ratio
@@ -83,8 +87,9 @@ const RightScrollExpandVideo = ({
     // Mobile/small devices: render simple stacked layout (no sticky/scroll expand)
     if (viewport.width < 768) {
         return (
-            <section className="relative z-0 bg-[#F0F1FA] my-16 py-10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <section className="relative overflow-hidden"
+                style={{ height: "200vh" }}>
+                <div className="sticky top-0 h-screen">
                     <div className="w-full rounded-2xl overflow-hidden shadow-xl relative">
                         <video
                             autoPlay
@@ -126,7 +131,7 @@ const RightScrollExpandVideo = ({
                         <p className="mt-4 text-base md:text-xl text-neutral-700 text-center leading-relaxed">
                             {description}
                         </p>
-                        <div className="mt-8" style={{ pointerEvents: 'auto' }}>
+                        <div className="mt-8 flex justify-center" style={{ pointerEvents: 'auto' }}>
                             <Button label="Get Started" href="/contact" />
                         </div>
                     </div>

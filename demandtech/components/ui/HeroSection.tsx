@@ -1,82 +1,74 @@
-'use client';
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import Button from "@/components/ui/Button";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+function Hero() {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["amazing", "new", "wonderful", "beautiful", "smart"],
+    []
+  );
 
-export default function HeroSection() {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center bg-transparent px-6 overflow-hidden">
-      
-      {/* Background Shapes */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 2 }}
-        className="absolute top-20 left-10 w-96 h-96 bg-[#1A2FFB] rounded-full blur-[120px] opacity-30"
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-[100px] opacity-20"
-      />
+    <div className="w-full">
+      <div className="container mx-auto">
+        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
+          <div className="">
+            <div className="text-[clamp(48px,8vw,92px)] leading-none text-center font-regular">
+              <span className="font-clash">This is something</span>
+              <span className="relative inline-flex justify-center overflow-hidden text-center align-baseline md:pb-4 md:pt-1">
+                &nbsp;
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={index}
+                    className="absolute font-clash text-[#000cf8]"
+                    initial={{ opacity: 0, y: "-100" }}
+                    transition={{ type: "spring", stiffness: 50 }}
+                    animate={
+                      titleNumber === index
+                        ? {
+                            y: 0,
+                            opacity: 1,
+                          }
+                        : {
+                            y: titleNumber > index ? -150 : 150,
+                            opacity: 0,
+                          }
+                    }
+                  >
+                    {title}
+                  </motion.span>
+                ))}
+              </span>
+            </div>
 
-      {/* Hero Content */}
-      <motion.h1
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-bold font-['Clash_Display'] text-white leading-tight"
-      >
-        Empowering Businesses <br />
-        <span className="text-[#1A2FFB]">with Next-Gen Tech Solutions</span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl"
-      >
-        We deliver cutting-edge solutions that drive growth, innovation, and efficiency for your business.
-      </motion.p>
-
-      {/* CTA Buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="mt-8 flex gap-4"
-      >
-        <Link href="/get-started">
-          <button className="bg-[#1A2FFB] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-            Get Started
-          </button>
-        </Link>
-        <Link href="/about">
-          <button className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
-            Learn More
-          </button>
-        </Link>
-      </motion.div>
-
-      {/* Floating Icons */}
-      <motion.img
-        src="/next.svg"
-        alt="Next"
-        className="absolute top-32 right-20 w-10 h-10 opacity-80"
-        initial={{ y: 0 }}
-        animate={{ y: [0, -15, 0] }}
-        transition={{ repeat: Infinity, duration: 4 }}
-      />
-      <motion.img
-        src="/next.svg"
-        alt="Next"
-        className="absolute bottom-32 left-20 w-10 h-10 opacity-80"
-        initial={{ y: 0 }}
-        animate={{ y: [0, 15, 0] }}
-        transition={{ repeat: Infinity, duration: 4, delay: 1 }}
-      />
-    </section>
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our
+              goal is to streamline SMB trade, making it easier and faster than
+              ever.
+            </p>
+          </div>
+          <div className="flex flex-row gap-3">
+            <Button label="Jump on a call" href="/contact" />
+            <Button label="Sign up here" href="/signup" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
+
+export { Hero };
