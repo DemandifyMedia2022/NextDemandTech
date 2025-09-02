@@ -24,6 +24,7 @@ import RightScrollExpandVideo from '../../components/ui/VideoRight';
 import ChatWidget from '@/components/ui/ChatWidget';
 import { Hero } from '@/components/ui/HeroSection';
 import Feature from '@/components/ui/FeatureHomepage';
+import RuixenStats from '@/components/ui/Statistics';
 
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
@@ -185,7 +186,7 @@ export default function HomePage() {
 
 
         {/* Map  */}
-        
+        <RuixenStats />
 
         {/* Contact Section */}
         <div className='contact-section section-spacing'>
