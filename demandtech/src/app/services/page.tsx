@@ -175,10 +175,10 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* Logo Slider */}
+      {/* Logo Slider
       <div className="logo-slider-container my-20 sm:my-16 xs:my-10">
         <LogoSlider />
-      </div>
+      </div> */}
 
       {/* Lead Nurture Program Section */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14">
