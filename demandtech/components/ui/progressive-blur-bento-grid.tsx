@@ -61,7 +61,7 @@ export function ProgressiveBentoItem({
 
 export function ProgressiveBlurBentoGrid() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
+    <div className="text-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
       {/* 🔧 RESPONSIVE GRID LAYOUT - Customize these values:
           grid-cols-1 = 1 column on mobile (default)
           sm:grid-cols-2 = 2 columns on small screens (640px+)
@@ -153,18 +153,18 @@ export function ProgressiveBlurBentoGridV2() {
         <div className="grid grid-cols-2 gap-6">
           <ProgressiveBentoItem
             title="Small Campaign 3"
-            imageSrc="/LNP.png"
+            imageSrc="/LNP.JPG"
           />
           <ProgressiveBentoItem
             title="Small Campaign 4"
-            imageSrc="/MTCS.png"
+            imageSrc="/MTCS.JPG"
           />
         </div>
 
         {/* Large card on bottom */}
         <ProgressiveBentoItem
           title="Brand Awareness and Display Campaign"
-          imageSrc="/webinar.png"
+          imageSrc="/webinar.JPG"
           className="row-span-1"
         />
         

@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import Button3 from '@/components/ui/Button3'
-import ExpandableReadMore from '@/components/ui/ExpandableReadMore'
 import Card2 from '@/components/ui/Card2'
 import Faq from '@/components/ui/faq'
 import { TextEffect } from '@/components/core/text-effect'
+import DemandGenerationSection from '../../../../components/ui/DemandGenerationSection'
 
 export const metadata: Metadata = {
   title: 'Demand Generation | DemandTech',
@@ -146,11 +146,9 @@ export default function DemandGenerationPage() {
                 >
                   {section.text}
                 </p>
-                <ExpandableReadMore
+                <DemandGenerationSection
                   title={section.title}
-                  subtitle="Service details"
                   imageSrc={section.image}
-                  includeRandom={true}
                   triggerClassName="mt-2 inline-block origin-left scale-90 sm:scale-95"
                 />
               </div>
