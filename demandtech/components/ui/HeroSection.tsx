@@ -62,8 +62,8 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button label="Jump on a call" href="/contact" />
-            <Button label="Sign up here" href="/signup" />
+            <Button label="About Us" href="/about" />
+            <Button label="Get Started" href="/contact" />
           </div>
         </div>
       </div>
