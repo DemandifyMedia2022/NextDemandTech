@@ -2,11 +2,9 @@ import { Metadata } from "next";
 import Button3 from "@/components/ui/Button3";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import CardSwap, { Card6 } from "@/components/ui/CardSwap";
-import Image from "next/image";
 import Faq from "@/components/ui/faq";
 import LogoSlider from "@/components/ui/LogoSlider";
-import Haridialler from "@/components/ui/HaridiallerSection"; // ✅ Corrected import
-import HRMS from "@/components/ui/HRMS";
+
 export const metadata: Metadata = {
   title: "Products | DemandTech",
   description:
@@ -122,14 +120,6 @@ export default function ProductsPage() {
           </CardSwap>
         </div> */}
       </section>
-
-      {/* Haridialler Section */}
-      <div className="container mx-auto px-4 mt-14 md:mt-24 lg:mt-32 md:px-8 lg:px-16">
-        <Haridialler />
-      </div>
-      <div className="container mx-auto px-4 mt-24 md:mt-32 lg:mt-40 md:px-8 lg:px-16">
-        <HRMS />
-      </div>
         
       {/* FAQ Section */}
       <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
