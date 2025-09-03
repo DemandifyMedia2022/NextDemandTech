@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 
 type FAQItem = { question: string; answer: string };
 
@@ -50,21 +51,34 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
 
   return (
     <div className="mt-16 sm:mt-20 flex flex-col justify-center items-center text-center px-4">
+      <GSAPTextReveal
+        className="font-regular text-gray-900 mb-8 text-center leading-tight font-clash"
+        style={{
+          fontSize: "clamp(24px, 5vw, 96px)",
+        }}
+        stagger={0.15}
+        duration={.75}
+        yOffset={80}
+        start="top 75%"
+      >
+        {titleLine1 ?? "Quick Answers to"}
+      </GSAPTextReveal>
       <div>
-        <span
-          className="text-black font-clash
-            text-[28px] sm:text-[40px] md:text-[52px] lg:text-[92px] xl:text-[92px]"
-        >
-          {titleLine1 ?? "Quick Answers to"}
-        </span>
+        
       </div>
-      <div className="mb-20">
-        <span
-          className="text-[#2717E8] font-clash
-            text-[28px] sm:text-[40px] md:text-[52px] lg:text-[92px] xl:text-[92px]"
+      <div className="mb-20 mt-4">
+        <GSAPTextReveal
+          className="text-[#2717E8] font-clash"
+          style={{
+            fontSize: "clamp(24px, 5vw, 96px)",
+          }}
+          stagger={0.15}
+          duration={.75}
+          yOffset={80}
+          start="top 75%"
         >
           {titleLine2 ?? "Common Questions"}
-        </span>
+        </GSAPTextReveal>
       </div>
 
       <BackgroundGradientAnimation

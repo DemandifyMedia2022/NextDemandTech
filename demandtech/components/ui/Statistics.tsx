@@ -19,12 +19,12 @@ export default function RuixenStats() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
+    <section className="w-full max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
       {/* Left: Text & CTA */}
-      <div className="flex flex-col justify-center gap-6">
-        <h4 className="text-lg sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
+      <div className="flex flex-col justify-center gap-5 sm:gap-6">
+        <h4 className="text-base sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
             Intuitive Dashboard Experience <span className="text-primary">Ruixen UI</span>{" "}
-            <span className="text-black text-sm sm:text-base lg:text-3xl">Experience an analytics UI that blends speed, clarity, and design precision—giving your team
+            <span className="block mt-2 text-black text-sm sm:text-base lg:text-2xl">Experience an analytics UI that blends speed, clarity, and design precision—giving your team
             everything they need to make decisions faster.</span>
           </h4>
         <div className="mt-4">
@@ -33,7 +33,7 @@ export default function RuixenStats() {
       </div>
 
       {/* Right: Chart + Stats */}
-      <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)'}}>
+      <div className="relative w-full h-64 sm:h-80 lg:h-[400px] rounded-2xl overflow-hidden shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)'}}>
         {/* Chart */}
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
@@ -54,26 +54,43 @@ export default function RuixenStats() {
         </ResponsiveContainer>
 
         {/* Overlay Hero Number */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-          <h3 className="text-[64px] font-normal text-[blue] drop-shadow-md">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none px-3">
+          <h3 className="text-5xl sm:text-6xl lg:text-[84px] font-medium text-[blue] drop-shadow-md leading-none">
             <CountUp end={145} duration={2.5} />M
           </h3>
-          <p className="text-[blue] text-xl">Global Data Base</p>
+          <p className="text-[blue] text-sm sm:text-base lg:text-xl font-normal">Global Data Base</p>
         </div>
 
         {/* Side Stats */}
-        <div className="absolute right-4 top-4 rounded-xl shadow-md p-4 flex flex-col gap-4 bg-white ">
+        <div className="hidden md:flex absolute right-4 top-4 rounded-xl shadow-md p-4 flex-col gap-4 bg-white/90 backdrop-blur-sm">
           {[
-            { value: "60k+", label: "Active Users" },
-            { value: "2.5M", label: "Tasks Done" },
-            { value: "36%", label: "Productivity" },
-            { value: "~95+", label: "Integrations" },
+            { value: "143M+", label: "Business Leaders" },
+            { value: "260k", label: "Leads Delivered" },
+            { value: "25%", label: "Lead to Opportunity" },
+            { value: "50+", label: "Countries" },
           ].map((stat, idx) => (
             <div key={idx}>
-              <p className="text-xl font-normal text-blue-500">{stat.value}</p>
-              <p className="text-sm text-blue-500">{stat.label}</p>
+              <p className="text-lg lg:text-xl font-normal text-[blue]">{stat.value}</p>
+              <p className="text-xs lg:text-sm font-normal text-[blue]">{stat.label}</p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Stats Bar */}
+        <div className="md:hidden absolute inset-x-3 bottom-3 rounded-xl shadow-md p-3 bg-white/90 backdrop-blur-sm">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+            {[
+              { value: "143M+", label: "Business Leaders" },
+              { value: "260k", label: "Leads Delivered" },
+              { value: "25%", label: "Lead to Opportunity" },
+              { value: "50+", label: "Countries" },
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col">
+                <span className="text-base font-medium text-[blue]">{stat.value}</span>
+                <span className="text-[11px] text-[blue] opacity-80">{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

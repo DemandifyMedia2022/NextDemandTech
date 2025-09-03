@@ -26,7 +26,6 @@ interface TabProps {
 interface DropdownItem {
     title: string;
     href: string;
-    description?: string;
 }
 
 interface CursorProps {
@@ -62,48 +61,44 @@ const SlideTabs: React.FC = () => {
         {
             title: "Demand Generation",
             href: "/services/demand-generation",
-            description: "End-to-end demand creation"
         },
         {
             title: "Marketing",
             href: "/services/marketing",
-            description: "Performance-led marketing"
         }
     ];
 
     const aboutDropdown: DropdownItem[] = [
         {
-            title: "Clients",
+            title: "Our Clients",
             href: "/about/clients",
-            description: "Our valued partnerships"
         },
         {
             title: "Blogs",
             href: "/about/blogs",
-            description: "Insights and thought leadership"
         },
         {
             title: "Case Studies",
             href: "/about/case-studies",
-            description: "Success stories and results"
         },
         {
             title: "Learning Resources",
             href: "/about/resources",
-            description: "Guides, templates, and more"
         }
     ];
 
     const productsDropdown: DropdownItem[] = [
         {
-            title: "Software",
+            title: "Dialer Solution",
             href: "/products",
-            description: "Software solutions for marketing"
         },
         {
-            title: "Enterprise",
-            href: "/products/enterprise",
-            description: "Scalable enterprise marketing"
+            title: "CRM Platform",
+            href: "/products/crm",
+        },
+        {
+            title: "HRMS Platform",
+            href: "/products/hrms",
         },
     ];
 
@@ -421,11 +416,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
                                     <span className="font-medium text-white group-hover:text-[#5B5BFF] transition-colors duration-200">
                                         {item.title}
                                     </span>
-                                    {item.description && (
-                                        <span className="text-sm text-white/80 mt-1">
-                                            {item.description}
-                                        </span>
-                                    )}
                                 </div>
                             </Link>
                         </motion.div>

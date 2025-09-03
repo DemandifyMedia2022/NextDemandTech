@@ -2,21 +2,18 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface GSAPTextRevealProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  stagger?: number;
-  duration?: number;
-  yOffset?: number;
-  start?: string;
-  /** Animate by words (default) or lines */
-  split?: 'words' | 'lines';
-  /** Optionally apply a class to the last N words */
-  highlightLastWords?: number;
-  highlightClassName?: string;
+  stagger?: number;      // used
+  duration?: number;     // used
+  yOffset?: number;      // unused in SplitText mode (kept for compat)
+  start?: string;        // unused (kept for compat)
+  split?: 'words' | 'lines'; // unused (SplitText handles lines)
+  highlightLastWords?: number; // unused (kept for compat)
+  highlightClassName?: string; // unused (kept for compat)
 }
 
 export const GSAPTextReveal = ({
@@ -24,210 +21,112 @@ export const GSAPTextReveal = ({
   className = '',
   style = {},
   stagger = 0.1,
-  duration = 0.5,
+  duration = 0.6,
   yOffset = 60,
   start = 'top 80%',
   split = 'words',
 }: GSAPTextRevealProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
   const [isClient, setIsClient] = useState(false);
-  const [words, setWords] = useState<string[]>([]);
+  const timelineRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null);
 
   useEffect(() => {
     setIsClient(true);
-    const text =
-      typeof children === 'string' ? children : children?.toString() || '';
-    setWords(text.trim().split(/\s+/));
   }, [children]);
 
-  // unwrap previous line wrappers
-  const unwrapPreviousLines = () => {
-    const el = containerRef.current;
-    if (!el) return;
-    el.querySelectorAll('.line-span').forEach((w) => {
-      while (w.firstChild) w.parentNode?.insertBefore(w.firstChild, w);
-      w.parentNode?.removeChild(w);
-    });
-  };
-
-  // group words by visual lines using offsetTop and wrap them
-  const buildLineWrappers = () => {
-    const el = containerRef.current;
-    if (!el) return;
-    const wordEls = Array.from(el.querySelectorAll<HTMLElement>('.word-span'));
-    if (!wordEls.length) return;
-
-    let currentTop: number | null = null;
-    let line: HTMLElement[] = [];
-
-    const wrapLine = () => {
-      if (!line.length) return;
-      const wrapper = document.createElement('span');
-      wrapper.className = 'line-span';
-      Object.assign(wrapper.style, {
-        display: 'inline-block',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-      });
-      const first = line[0];
-      first.parentNode?.insertBefore(wrapper, first);
-      line.forEach((w) => wrapper.appendChild(w));
-      line = [];
-    };
-
-    wordEls.forEach((w) => {
-      const top = w.offsetTop;
-      if (currentTop === null || Math.abs(top - currentTop) <= 2) {
-        line.push(w);
-        currentTop = top;
-      } else {
-        wrapLine();
-        currentTop = top;
-        line = [w];
-      }
-    });
-    wrapLine();
-  };
-
   useEffect(() => {
-    if (!isClient || typeof window === 'undefined' || words.length === 0) return;
+    if (!isClient || typeof window === 'undefined') return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    let cleanup: (() => void) | null = null;
+    let tween: gsap.core.Tween | gsap.core.Timeline | null = null;
+    let trigger: any = null;
 
-    const containerElement = containerRef.current;
-    if (!containerElement) return;
+    (async () => {
+      try {
+        // dynamic import of SplitText plugin
+        const [splitMod, stMod]: any = await Promise.all([
+          import('gsap/SplitText'),
+          import('gsap/ScrollTrigger'),
+        ]);
+        const SplitText = splitMod.SplitText || splitMod.default || splitMod;
+        const ScrollTrigger = stMod.ScrollTrigger || stMod.default || stMod;
+        gsap.registerPlugin(SplitText, ScrollTrigger);
 
-    // kill previous timeline & triggers
-    if (tlRef.current) {
-      tlRef.current.kill();
-      tlRef.current = null;
-    }
-    ScrollTrigger.getAll().forEach((t) => {
-      if (t.trigger === containerElement) t.kill();
-    });
+        // wait for fonts to be ready to avoid layout shift
+        try {
+          // @ts-ignore
+          if (document?.fonts?.ready) await (document as any).fonts.ready;
+        } catch {}
 
-    // prepare structure
-    unwrapPreviousLines();
-    if (split === 'lines') {
-      // wait for layout so offsetTop is correct
-      requestAnimationFrame(() => {
-        buildLineWrappers();
-        const targets = containerElement.querySelectorAll('.line-span');
-        gsap.set(targets, { y: yOffset, opacity: 0 });
+        const root = containerRef.current;
+        if (!root) return;
+        const target = root.querySelector<HTMLElement>('.split');
+        if (!target) return;
 
-        tlRef.current = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerElement,
-            start,
-            toggleActions: 'play none none reverse',
+        gsap.set(target, { opacity: 1 });
+
+        // create split and animate lines
+        let splitInst: any = null;
+        SplitText.create(target, {
+          type: 'words,lines',
+          linesClass: 'line',
+          autoSplit: true,
+          mask: 'lines',
+          onSplit: (self: any) => {
+            // set initial state and build a paused tween
+            gsap.set(self.lines, { yPercent: 100, opacity: 0 });
+            tween = gsap.to(self.lines, {
+              duration,
+              yPercent: 0,
+              opacity: 1,
+              stagger,
+              ease: 'expo.out',
+              paused: true,
+            });
+            splitInst = self;
+            return tween;
           },
         });
 
-        tlRef.current.to(targets, {
-          y: 0,
-          opacity: 1,
-          duration,
-          ease: 'power2.out',
-          stagger,
-        });
-      });
-    } else {
-      const targets = containerElement.querySelectorAll('.word-span');
-      gsap.set(targets, { y: yOffset, opacity: 0 });
-
-      tlRef.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerElement,
-          start,
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      tlRef.current.to(targets, {
-        y: 0,
-        opacity: 1,
-        duration,
-        ease: 'power2.out',
-        stagger,
-      });
-    }
-
-    // responsive rebuild for line mode
-    let resizeRaf: number | null = null;
-    const onResize = () => {
-      if (split !== 'lines') return;
-      if (resizeRaf) cancelAnimationFrame(resizeRaf);
-      resizeRaf = requestAnimationFrame(() => {
-        if (!containerElement) return;
-        if (tlRef.current) {
-          tlRef.current.kill();
-          tlRef.current = null;
-        }
-        ScrollTrigger.getAll().forEach((t) => {
-          if (t.trigger === containerElement) t.kill();
+        // ScrollTrigger to control tween both ways
+        trigger = ScrollTrigger.create({
+          trigger: target,
+          start: start || 'top 80%',
+          end: 'bottom 20%',
+          onEnter: () => tween && (tween as gsap.core.Tween).play(0),
+          onEnterBack: () => tween && (tween as gsap.core.Tween).play(0),
+          onLeave: () => tween && (tween as gsap.core.Tween).reverse(),
+          onLeaveBack: () => tween && (tween as gsap.core.Tween).reverse(),
         });
 
-        unwrapPreviousLines();
-        buildLineWrappers();
+        // optional replay on first button click (global button like snippet)
+        const btn = document.querySelector('button');
+        const handler = () => {
+          if (tween) (tween as gsap.core.Tween).timeScale(0.2).play(0);
+        };
+        if (btn) btn.addEventListener('click', handler);
 
-        const targets = containerElement.querySelectorAll('.line-span');
-        gsap.set(targets, { y: yOffset, opacity: 0 });
-        tlRef.current = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerElement,
-            start,
-            toggleActions: 'play none none reverse',
-          },
-        });
-        tlRef.current.to(targets, {
-          y: 0,
-          opacity: 1,
-          duration,
-          ease: 'power2.out',
-          stagger,
-        });
-      });
-    };
-    window.addEventListener('resize', onResize);
+        cleanup = () => {
+          if (btn) btn.removeEventListener('click', handler);
+          if (tween) tween.kill();
+          try { trigger?.kill?.(); } catch {}
+          // Attempt to revert split if available
+          try { splitInst?.revert?.(); } catch {}
+        };
+      } catch (e) {
+        // SplitText not available; skip
+      }
+    })();
 
     return () => {
-      window.removeEventListener('resize', onResize);
-      if (tlRef.current) tlRef.current.kill();
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === containerElement) t.kill();
-      });
-      unwrapPreviousLines();
+      if (cleanup) cleanup();
     };
-  }, [isClient, words, stagger, duration, yOffset, start, split]);
-
-  if (!isClient) {
-    return (
-      <div ref={containerRef}>
-        <h1 className={className} style={style}>
-          {children}
-        </h1>
-      </div>
-    );
-  }
+  }, [isClient, duration, stagger, start]);
 
   return (
     <div ref={containerRef}>
-      <h1 className={className} style={style}>
-        {words.map((word, index) => (
-          <span
-            key={index}
-            className="word-span"
-            style={{
-              display: 'inline-block',
-              overflow: 'hidden',
-              marginRight: '0.25em',
-              opacity: 1,
-            }}
-          >
-            {word}
-          </span>
-        ))}
+      <h1 className={`split ${className}`} style={{ opacity: 0, ...style }}>
+        {children}
       </h1>
     </div>
   );

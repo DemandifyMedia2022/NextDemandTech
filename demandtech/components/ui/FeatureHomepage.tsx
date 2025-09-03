@@ -16,19 +16,19 @@ type FeatureText = {
    
 const featureText: FeatureText[] = [
   {
-    icon: <ChartNoAxesCombined className="h-6 w-6" />,
+    icon: <ChartNoAxesCombined className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />,
     title: "Lorem Ipsum",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
+    icon: <Coins className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />,
     title: "Lorem Ipsum",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    icon: <Sheet className="h-6 w-6" />,
+    icon: <Sheet className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />,
     title: "Lorem Ipsum",
     description:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -39,24 +39,24 @@ const Feature = () => {
   return (
     <section className="section-spacing">
       <div className="container not-prose mx-auto px-4">
-        <div className="flex flex-col gap-6 py-12 px-10 rounded-[50px]"
+        <div className="flex flex-col gap-5 sm:gap-6 py-8 sm:py-12 px-6 sm:px-8 lg:px-10 rounded-[24px] sm:rounded-[32px] lg:rounded-[50px]"
         style={{
             background: 'rgba(252, 252, 252, 0.25)',
             backdropFilter: 'blur(25px)',
             boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',        }}>
-          <h3 className="text-4xl text-[blue]">
+          <h3 className="text-2xl sm:text-lg lg:text-3xl text-[blue] font-medium leading-tight">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit
           </h3>
-          <h4 className="text-xl font-normal opacity-70 font-neu">
+          <h4 className="text-sm sm:text-sm lg:text-xl font-normal opacity-70 font-neu">
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </h4>
 
-          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
+          <div className="mt-6 sm:mt-8 md:mt-12 grid gap-6 md:grid-cols-3">
             {featureText.map(({ icon, title, description }, index) => (
-              <div className="flex flex-col gap-4" key={index}>
+              <div className="flex flex-col gap-3 sm:gap-4" key={index}>
                 {icon}
-                <h4 className="text-xl text-primary">{title}</h4>
-                <p className="text-base opacity-75">{description}</p>
+                <h4 className="text-base sm:text-lg lg:text-xl text-primary">{title}</h4>
+                <p className="text-sm sm:text-base opacity-75">{description}</p>
               </div>
             ))}
           </div>

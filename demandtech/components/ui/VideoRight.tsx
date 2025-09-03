@@ -88,7 +88,7 @@ const RightScrollExpandVideo = ({
     if (viewport.width < 768) {
         return (
             <section className="relative overflow-hidden"
-                style={{ height: "200vh" }}>
+                style={{ height: "80vh", marginTop: "200px" }}>
                 <div className="sticky top-0 h-screen">
                     <div className="w-full rounded-2xl overflow-hidden shadow-xl relative">
                         <video

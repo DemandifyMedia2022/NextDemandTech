@@ -34,7 +34,7 @@ function Ribbon1({ className = '' }: Ribbon1Props) {
             const pathLength = path.getTotalLength();
             
             // Start completely off-screen (add extra offset)
-            const totalOffset = pathLength + 1000; // Extra 1000px to ensure it starts off-screen
+            const totalOffset = pathLength; // Extra 1000px to ensure it starts off-screen
             const drawLength = totalOffset * easeOutCubic;
             const dashOffset = totalOffset - drawLength;
             

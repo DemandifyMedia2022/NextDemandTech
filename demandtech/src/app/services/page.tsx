@@ -262,7 +262,7 @@ export default function ServicesPage() {
           marginTop: '150px'
         }}
         stagger={0.15}
-        duration={1.0}
+        duration={.75}
         yOffset={80}
         start="top 75%"
       >
@@ -333,14 +333,18 @@ export default function ServicesPage() {
       </section>
       {/* Carousel Section */}
       <div className="mt-25 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <h1
+        <GSAPTextReveal
           className="font-regular text-gray-900 mb-8 text-center leading-tight font-clash"
           style={{
             fontSize: "clamp(24px, 5vw, 96px)",
           }}
+          stagger={0.15}
+          duration={.75}
+          yOffset={80}
+          start="top 75%"
         >
           Exclusive  <span className="text-[#574BEF]">Solutions</span>
-        </h1>
+        </GSAPTextReveal>
         <Carousel items={items} />
       </div>
       {/* Services FAQ (above contact) */}
@@ -372,7 +376,7 @@ export default function ServicesPage() {
               color: '#000000'
             }}
             stagger={0.15}
-            duration={1.0}
+            duration={.75}
             yOffset={80}
             start="top 75%"
           >

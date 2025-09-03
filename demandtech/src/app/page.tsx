@@ -9,12 +9,7 @@ import Card2 from '../../components/ui/Card2';
 import Button2 from '../../components/ui/Button2';
 import { AnimatedTestimonials } from '../../components/ui/animated-testimonials';
 import { GSAPTextReveal } from '../../components/ui/GSAPTextReveal';
-import { HeroTitle } from '../../components/ui/HeroTitle';
-import { ScrollAnimations } from '../../components/ui/ScrollAnimations';
-import { AnimatedParagraph } from '../../components/ui/AnimatedParagraph';
-import SimpleGlobe from "@/components/ui/globe";
 import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
-import Footer from '@/components/ui/Footer';
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
 import GradientHeroSection from '@/components/ui/GradientHeroSection';
 import { SlideTabsExample } from '@/components/ui/SliderTabs';
@@ -87,7 +82,7 @@ export default function HomePage() {
 
         {/* <VideoHero /> */}
         {/* Logo Slider */}
-        <div className="logo-slider-container section-spacing mt-[75px]">
+        <div className="logo-slider-container section-spacing mt-[75px] sm:mt-[0px]">
           <LogoSlider />
         </div>
 
@@ -111,7 +106,7 @@ export default function HomePage() {
                   alignItems: 'center',
                   alignContent: 'center',
                   fontFamily: 'Clash Display',
-                  fontSize: 'clamp(48px, 8vw, 84px)',
+                  fontSize: 'clamp(48px, 8vw, 64px)',
                   textAlign: 'center',
                   color: '#000cf8'
                 }}
@@ -128,7 +123,7 @@ export default function HomePage() {
                     alignItems: 'center',
                     alignContent: 'center',
                     fontFamily: 'Clash Display',
-                    fontSize: 'clamp(48px, 8vw, 84px)',
+                    fontSize: 'clamp(48px, 8vw, 64px)',
                     textAlign: 'center',
                     color: '#000000'
                   }}
@@ -155,7 +150,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 alignContent: 'center',
                 fontFamily: 'Clash Display',
-                fontSize: 'clamp(48px, 8vw, 84px)',
+                fontSize: 'clamp(48px, 8vw, 64px)',
                 textAlign: 'center',
                 color: '#000cf8'
               }}
@@ -196,7 +191,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 alignContent: 'center',
                 fontFamily: 'Clash Display',
-                fontSize: 'clamp(48px, 8vw, 84px)',
+                fontSize: 'clamp(48px, 8vw, 64px)',
                 textAlign: 'center',
                 color: '#000000'
               }}
