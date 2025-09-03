@@ -7,7 +7,6 @@ import Button4 from "./Button4";
 
 
 type StepKey = "about" | "project" | "company" | "meeting";
-
 type ContactFormData = {
   // Step 1
   firstName: string;
@@ -137,34 +136,46 @@ const MultiStepContactForm = () => {
   const back = () => setStepIndex((i) => Math.max(i - 1, 0));
 
   const handleSubmit = async () => {
-    if (!requiredOk.meeting) return;
-    
-    // Simulate API call
-    console.log("Contact form submission:", data);
-    setIsSubmitted(true);
-    
-    // Reset form after success message
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setStepIndex(0);
-      setData({
-        firstName: "",
-        lastName: "",
-        workEmail: "",
-        phoneCountry: "US",
-        phoneNumber: "",
-        projectType: "",
-        projectDetails: "",
-        priority: "",
-        companyName: "",
-        website: "",
-        industry: "",
-        companySize: "",
-        meetingDate: "",
-        meetingTime: "",
-        meetingFormat: "",
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-    }, 3000);
+
+      const result = await res.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setStepIndex(0);
+          setData({
+            firstName: "",
+            lastName: "",
+            workEmail: "",
+            phoneCountry: "US",
+            phoneNumber: "",
+            projectType: "",
+            projectDetails: "",
+            priority: "",
+            companyName: "",
+            website: "",
+            industry: "",
+            companySize: "",
+            meetingDate: "",
+            meetingTime: "",
+            meetingFormat: "",
+          });
+        }, 3000);
+      } else {
+        console.error("Submission error:", result.error);
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please try again later.");
+    }
   };
 
   if (isSubmitted) {
