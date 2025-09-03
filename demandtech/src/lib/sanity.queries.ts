@@ -24,3 +24,35 @@ export const singlePostQuery = groq`
     author
   }
 `
+
+export const allCaseStudiesQuery = groq`
+  *[_type == "caseStudy"] | order(publishedAt desc) {
+    _id,
+    title,
+    'slug': slug.current,
+    thumbnail,
+    publishedAt,
+    file{
+      asset->{
+        url,
+        originalFilename
+      }
+    }
+  }
+`
+
+export const allLearningResourcesQuery = groq`
+  *[_type == "learningResource"] | order(publishedAt desc) {
+    _id,
+    title,
+    'slug': slug.current,
+    thumbnail,
+    publishedAt,
+    file{
+      asset->{
+        url,
+        originalFilename
+      }
+    }
+  }
+`
