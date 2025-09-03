@@ -3,11 +3,11 @@
 import { motion, Variants } from "framer-motion";
 
 export default function HRMS() {
-  const featureVariants: Variants = {
-    hidden: { opacity: 0, x: -30 },
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         delay: i * 0.2,
         duration: 0.6,
@@ -40,14 +40,22 @@ export default function HRMS() {
   ];
 
   return (
-    <div className="relative p-[4px] rounded-[50px] bg-gradient-to-r from-[#2d40fa] to-[#101c95]">
+    <div className="relative bg-gradient-to-br from-[#f8f9ff] to-[#e6eaff] rounded-3xl overflow-hidden">
       <section
-        id="hrms"
-        className="relative rounded-[50px] bg-[#f0f1fa] shadow-lg px-8 py-12"
-      >
+      id="hrms"
+      className="relative rounded-[50px] p-8"
+      style={{
+      background: "rgba(255, 255, 255, 0.1)",  // frosted effect
+      backdropFilter: "blur(20px)",
+      WebkitBackdropFilter: "blur(20px)",
+      border: "1px solid rgba(255, 255, 255, 0.3)", // subtle glass border
+      borderRadius: "50px",
+      boxShadow: "none",   // 🔹 remove the shadow that caused “coming out” look
+      }}
+     >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* 🔹 Left Column: Features */}
-          <div className="flex flex-col justify-center space-y-8">
+          <div className="flex flex-col justify-between space-y-8">
             {features.map((feature, i) => (
               <motion.div
                 key={i}
@@ -55,15 +63,25 @@ export default function HRMS() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                variants={featureVariants}
-                className="p-6 rounded-3xl bg-gradient-to-br from-[#2d40fa] to-[#101c95]
-                           text-white shadow-md transition-all duration-300 transform
-                           hover:scale-105 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(45,64,250,0.5)]"
+                variants={cardVariants}
+                className="px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 flex flex-col items-start"
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+                  color: "#000",
+                  maxWidth: "420px",
+                  width: "100%",
+                }}
               >
-                <h3 className="text-xl font-clash font-semibold mb-2">
+                <div className="text-2xl sm:text-3xl font-clash font-semibold mb-2 bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent leading-snug tracking-tight">
                   {feature.title}
-                </h3>
-                <p className="text-white/90 font-neu">{feature.description}</p>
+                </div>
+                <p className="text-sm sm:text-base font-neu text-gray-800 leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -77,24 +95,30 @@ export default function HRMS() {
               transition={{ duration: 0.6 }}
               className="text-right mb-6"
             >
-              <h2 className="text-6xl sm:text-7xl font-bold font-clash bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent">
+              <div className="text-6xl sm:text-7xl font-bold font-clash bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent">
                 HRMS
-              </h2>
-              <p className="text-2xl text-gray-700 font-neu">
+              </div>
+              <p className="text-lg sm:text-2xl text-gray-700 font-neu">
                 Human Resource Management System
               </p>
             </motion.div>
 
             {/* Image */}
-            {/* Image */}
-           <motion.img
-             src="/futuristic-technology-concept.jpg"
-             alt="HRMS Illustration"
-             className="w-80 h-[500px] object-cover rounded-[50px] shadow-lg"
-             initial={{ opacity: 0, scale: 0.9 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             transition={{ duration: 0.6 }}
-           />
+            <motion.img
+              src="/futuristic-technology-concept.jpg"
+              alt="HRMS Illustration"
+              className="w-80 sm:w-96 h-[550px] sm:h-[580px] object-cover rounded-2xl shadow-xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              style={{
+                background: "rgba(255, 255, 255, 0.2)",
+                backdropFilter: "blur(15px)",
+                WebkitBackdropFilter: "blur(15px)",
+                border: "1px solid rgba(255, 255, 255, 0.3)",
+                alignSelf: "flex-end",
+              }}
+            />
           </div>
         </div>
       </section>

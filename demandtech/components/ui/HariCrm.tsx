@@ -31,7 +31,7 @@ export default function HariCRM() {
         className="relative rounded-[50px] bg-[#f0f1fa] shadow-lg px-8 py-16"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
-          {/* Left Column: Illustration */}
+          {/* 🔹 Left Column: Illustration */}
           <motion.div
             className="flex justify-center lg:justify-start"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -41,11 +41,11 @@ export default function HariCRM() {
             <img
               src="/futuristic-technology-concept.jpg"
               alt="Hari CRM Illustration"
-              className="w-full max-w-md rounded-[50px] shadow-lg object-cover"
+              className="w-80 sm:w-96 h-[600px] object-cover rounded-[50px] shadow-lg"
             />
           </motion.div>
 
-          {/* Right Column: Content & Features */}
+          {/* 🔹 Right Column: Content & Features */}
           <div className="flex flex-col justify-center space-y-8">
             {/* Heading */}
             <motion.div
@@ -53,12 +53,12 @@ export default function HariCRM() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="text-6xl sm:text-7xl font-bold font-clash bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent">
+              <div className="text-6xl sm:text-7xl font-bold font-clash bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent">
                 Hari CRM
-              </h4>
-              <p className="text-2xl text-gray-700 font-neu mt-2">
+              </div>
+              <div className="text-2xl text-gray-700 font-neu mt-2">
                 Smart CRM with Dialer & Analytics
-              </p>
+              </div>
             </motion.div>
 
             {/* Feature Cards */}
@@ -75,9 +75,9 @@ export default function HariCRM() {
                              text-white shadow-md transition-all duration-300 transform
                              hover:scale-105 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(45,64,250,0.5)]"
                 >
-                  <h4 className="text-lg font-semibold font-clash">
+                  <div className="text-lg sm:text-xl font-semibold font-clash">
                     {feature.title}
-                  </h4>
+                  </div>
                 </motion.div>
               ))}
             </div>
