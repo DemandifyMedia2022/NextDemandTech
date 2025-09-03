@@ -34,11 +34,11 @@ export default function ProductsPage() {
         </h1>
 
         <p
-          className="mt-4 text-[#574bef] leading-snug"
+          className="mt-4 text-[#000cf8] leading-snug"
           style={{
             fontFamily: "Clash Display, sans-serif",
             fontSize: "clamp(48px, 5vw, 110px)",
-            fontWeight: 500,
+            fontWeight: 400,
           }}
         >
           Software Solutions

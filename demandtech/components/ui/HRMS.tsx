@@ -76,7 +76,7 @@ export default function HRMS() {
                   width: "100%",
                 }}
               >
-                <div className="text-2xl sm:text-3xl font-clash font-semibold mb-2 bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent leading-snug tracking-tight">
+                <div className="text-xl sm:text-2xl font-clash font-medium mb-2 text-[#000cf8]">
                   {feature.title}
                 </div>
                 <p className="text-sm sm:text-base font-neu text-gray-800 leading-relaxed">
@@ -95,7 +95,7 @@ export default function HRMS() {
               transition={{ duration: 0.6 }}
               className="text-right mb-6"
             >
-              <div className="text-6xl sm:text-7xl font-bold font-clash bg-gradient-to-r from-[#2d40fa] to-[#101c95] bg-clip-text text-transparent">
+              <div className="text-6xl sm:text-7xl font-medium font-clash text-[#000cf8]">
                 HRMS
               </div>
               <p className="text-lg sm:text-2xl text-gray-700 font-neu">

@@ -158,8 +158,8 @@ export const Card = ({
         {/* Close Button */}
         <button
           className="sticky top-0 right-0 ml-auto flex h-8 w-8 items-center 
-                     justify-center rounded-full bg-black text-white 
-                     dark:bg-white dark:text-black z-50"
+                     justify-center rounded-full bg-black text-blue-500 
+                     dark:bg-blue dark:text-black z-50"
           onClick={handleClose}
         >
           ✕
