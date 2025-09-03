@@ -20,7 +20,7 @@ import ChatWidget from '@/components/ui/ChatWidget';
 import { Hero } from '@/components/ui/HeroSection';
 import Feature from '@/components/ui/FeatureHomepage';
 import RuixenStats from '@/components/ui/Statistics';
-
+import Ribbon2 from '@/components/ui/Ribbon2';
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
@@ -64,6 +64,7 @@ export default function HomePage() {
         <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
           <Ribbon1 />
         </div>
+        
 
 
         {/* Hero Section with background video */}
@@ -85,6 +86,9 @@ export default function HomePage() {
         <div className="logo-slider-container section-spacing mt-[75px] sm:mt-[0px]">
           <LogoSlider />
         </div>
+
+        {/* SVG Animation */}
+       
 
         
 
@@ -165,15 +169,15 @@ export default function HomePage() {
           <div className='servicescards'>
             <div className='service-item'>
               <Card2 imageSrc="/image2.jpeg" alt="Service 1" />
-              <Button2 text="Intent-Based Lead" />
+              <Button2 text="Intent-Qualified Lead" href="/services/demand-generation" />
             </div>
             <div className='service-item'>
               <Card2 imageSrc="/image3.jpeg" alt="Service 2" />
-              <Button2 text="Brand Awareness" />
+              <Button2 text="Brand Awareness" href="/services/demand-generation" />
             </div>
             <div className='service-item'>
               <Card2 imageSrc="/image1.jpeg" alt="Service 3" />
-              <Button2 text="Sales Intent Profile" />
+              <Button2 text="Lead Nurture Program" href="/services/demand-generation" />
             </div>
           </div>
         </div>

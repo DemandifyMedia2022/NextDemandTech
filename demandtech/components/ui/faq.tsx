@@ -57,7 +57,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
           fontSize: "clamp(24px, 5vw, 96px)",
         }}
         stagger={0.15}
-        duration={.75}
+        duration={.5}
         yOffset={80}
         start="top 75%"
       >
@@ -73,7 +73,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
             fontSize: "clamp(24px, 5vw, 96px)",
           }}
           stagger={0.15}
-          duration={.75}
+          duration={.5}
           yOffset={80}
           start="top 75%"
         >

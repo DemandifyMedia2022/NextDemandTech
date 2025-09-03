@@ -556,6 +556,15 @@ const MultiStepContactForm = () => {
                   />
                 )}
               </div>
+              {/* Consent disclaimer */}
+              <p className="mt-12 text-[11px] sm:text-xs text-gray-500 text-center leading-relaxed px-2">
+                By submitting this form, you agree to our{' '}
+                <a href="/privacy-policy" className="underline underline-offset-2 text-gray-700 hover:text-gray-900" target="_blank" rel="noopener noreferrer">
+                  Privacy Policy
+                </a>{' '}
+                and consent to receive communications from DemandTech regarding updates, offers, and other promotional content. You can unsubscribe at any time by clicking the link in the footer of our emails.
+              </p>
+
             </div>
           </div>
         </div>

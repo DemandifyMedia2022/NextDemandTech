@@ -5,6 +5,7 @@ import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 import { Features } from '@/components/ui/Features'
 import { TimelineDemo } from '@/components/ui/UseTimeline'
 import { MultiStepContactForm } from '@/components/index'
+import Ribbon2 from '@/components/ui/Ribbon2'
 
 
 export const metadata: Metadata = {
@@ -16,6 +17,10 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-transparent">
             <SmoothScroll />
+
+            <div style={{ position: 'absolute', width: '100%', zIndex: -1, top: '-1800px' }}>
+                <Ribbon2 />
+            </div>
             {/* Hero Section with VideoCard */}
             <div>
                 <div
@@ -62,7 +67,7 @@ export default function AboutPage() {
             <div className='contact-title'>
                 <GSAPTextReveal
                     style={{
-                        marginTop: '50px',
+                        marginTop: '-50px',
                         alignItems: 'center',
                         alignContent: 'center',
                         fontFamily: 'Clash Display',
@@ -84,7 +89,7 @@ export default function AboutPage() {
             <div className='contact-title'>
                 <GSAPTextReveal
                     style={{
-                        marginTop: '30px',
+                        marginTop: '-90px',
                         alignContent: 'center',
                         fontFamily: 'Clash Display',
                         fontSize: 'clamp(48px, 8vw, 92px)',

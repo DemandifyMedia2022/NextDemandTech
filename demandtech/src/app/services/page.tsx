@@ -176,7 +176,7 @@ export default function ServicesPage() {
       </div>
 
       {/* Logo Slider Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-28">
         <LogoSlider/>
       </div>
 

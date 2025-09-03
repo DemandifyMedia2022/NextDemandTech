@@ -60,7 +60,7 @@ export const Stepper = () => {
   });
 
   const Title = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-4xl font-semibold bg-gradient-to-r from-[#3722D3] to-[#1C126D] bg-clip-text text-transparent font-clash">
+    <h3 className="text-4xl font-normal bg-gradient-to-r from-[#3722D3] to-[#1C126D] bg-clip-text text-transparent font-clash">
       {children}
     </h3>
   );

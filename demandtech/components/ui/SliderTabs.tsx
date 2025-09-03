@@ -87,20 +87,20 @@ const SlideTabs: React.FC = () => {
         }
     ];
 
-    const productsDropdown: DropdownItem[] = [
-        {
-            title: "Dialer Solution",
-            href: "/products",
-        },
-        {
-            title: "CRM Platform",
-            href: "/products/crm",
-        },
-        {
-            title: "HRMS Platform",
-            href: "/products/hrms",
-        },
-    ];
+    // const productsDropdown: DropdownItem[] = [
+    //     {
+    //         title: "Dialer Solution",
+    //         href: "/products",
+    //     },
+    //     {
+    //         title: "CRM Platform",
+    //         href: "/products/crm",
+    //     },
+    //     {
+    //         title: "HRMS Platform",
+    //         href: "/products/hrms",
+    //     },
+    // ];
 
     // Set initial cursor position for active tab
     useEffect(() => {
@@ -202,8 +202,8 @@ const SlideTabs: React.FC = () => {
                     setDropdownPos={setDropdownPos}
                     href="/products"
                     isActive={pathname === "/products"}
-                    hasDropdown={true}
-                    dropdownItems={productsDropdown}
+                    hasDropdown={false}
+                    // dropdownItems={productsDropdown}
                     dropdownKey="products"
                 >
                     Products
@@ -254,9 +254,9 @@ const SlideTabs: React.FC = () => {
                             {activeDropdown === 'services' && (
                                 <DropdownMenu items={servicesDropdown} isOpen={true} />
                             )}
-                            {activeDropdown === 'products' && (
+                            {/* {activeDropdown === 'products' && (
                                 <DropdownMenu items={productsDropdown} isOpen={true} />
-                            )}
+                            )} */}
                             {activeDropdown === 'about' && (
                                 <DropdownMenu items={aboutDropdown} isOpen={true} />
                             )}
