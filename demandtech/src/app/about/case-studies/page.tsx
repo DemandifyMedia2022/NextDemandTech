@@ -5,6 +5,9 @@ import { client } from '@/lib/sanity.client'
 import { allCaseStudiesQuery } from '@/lib/sanity.queries'
 import { urlForImage } from '@/lib/sanity.image'
 
+// Revalidate this page every 60 seconds to keep content fresh in production
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Case Studies | DemandTech',
   description: 'Download case studies showcasing our impact and results.'
