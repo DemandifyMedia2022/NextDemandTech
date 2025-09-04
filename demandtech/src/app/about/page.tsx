@@ -18,9 +18,9 @@ export default function AboutPage() {
         <div className="min-h-screen bg-transparent">
             <SmoothScroll />
 
-            <div style={{ position: 'absolute', width: '100%', zIndex: -1, top: '-1800px' }}>
+            {/* <div style={{ position: 'absolute', width: '100%', zIndex: -1, top: '-1800px' }}>
                 <Ribbon2 />
-            </div>
+            </div> */}
             {/* Hero Section with VideoCard */}
             <div>
                 <div
