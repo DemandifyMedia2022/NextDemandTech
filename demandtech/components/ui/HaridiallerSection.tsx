@@ -73,14 +73,14 @@ export default function HaridiallerSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h3 className="text-5xl font-semibold text-[#000cf8]">
-            <Balancer>Lorem ipsum dolor sit amet</Balancer>
-          </h3>
-          <h4 className="text-2xl font-light text-gray-600 mt-4">
+          <h2 className="text-5xl font-semibold text-[#000cf8]">
+            <Balancer>Hari-Dialer</Balancer>
+          </h2>
+          <p className="text-2xl font-light text-gray-600 mt-4 font-neu">
             <Balancer>
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            Scale Your Business with Clear, Cost-Effective Communication.
             </Balancer>
-          </h4>
+          </p>
         </motion.div>
 
         {/* 🔹 Glassmorphic Feature Cards */}
@@ -98,16 +98,15 @@ export default function HaridiallerSection() {
                 href={href ?? "#"}
                 className="block h-full rounded-[2rem] p-6 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
                 style={{
-                  background: "rgba(255, 255, 255, 0.15)",
+                  background: "rgba(255, 255, 255, 0.86)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
-                  boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                 }}
               >
                 <div className="flex flex-col justify-between h-full">
                   <div className="grid gap-4">
-                    <div className="p-3 rounded-xl bg-white/50 w-fit">{icon}</div>
+                    <div className="p-3 rounded-xl bg-white/25 w-fit">{icon}</div>
                     <h4 className="text-xl font-semibold text-[#000cf8]">
                       {title}
                     </h4>
