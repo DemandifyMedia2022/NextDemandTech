@@ -7,8 +7,7 @@ import Balancer from "react-wrap-balancer";
 import { Coins, ArrowRight } from "lucide-react";
 
 type FeatureText = {
-
-  icon: React.ReactNode;
+  icon: React.ReactElement;
   title: string;
   description: string;
   href?: string;
@@ -18,34 +17,34 @@ type FeatureText = {
 const featureText: FeatureText[] = [
   {
     icon: <Coins className="h-8 w-8 text-[#000cf8]" />,
-    title: "Smart Investment",
+    title: "Real-Time Insights",
     href: "/",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Gain actionable insights with live analytics and performance tracking for smarter decision-making.",
     cta: "Learn More",
   },
   {
     icon: <Coins className="h-8 w-8 text-[#000cf8]" />,
-    title: "Financial Planning",
+    title: "Local Presence Caller ID",
     href: "/",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Boost pickup rates by displaying local numbers, building trust with prospects instantly.",
     cta: "Learn More",
   },
   {
     icon: <Coins className="h-8 w-8 text-[#000cf8]" />,
-    title: "Wealth Management",
+    title: "Advanced Call Monitoring",
     href: "/",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Seamlessly listen, whisper, barge, and transfer calls for enhanced team performance.",
     cta: "Learn More",
   },
   {
     icon: <Coins className="h-8 w-8 text-[#000cf8]" />,
-    title: "Future Security",
+    title: "All/Any CRM Integration",
     href: "/",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Integrate effortlessly with your preferred CRM for a unified, streamlined workflow.",
     cta: "Learn More",
   },
 ];
@@ -79,7 +78,7 @@ export default function HaridiallerSection() {
           </h2>
           <p className="text-2xl font-light text-gray-600 mt-4 font-neu">
             <Balancer>
-            Scale Your Business with Clear, Cost-Effective Communication.
+              Scale Your Business with Clear, Cost-Effective Communication.
             </Balancer>
           </p>
         </motion.div>
@@ -97,18 +96,14 @@ export default function HaridiallerSection() {
             >
               <Link
                 href={href ?? "#"}
-                className="block h-full rounded-[2rem] p-6 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
-                style={{
-                  background: "rgba(255, 255, 255, 0.86)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  border: "1px solid rgba(255, 255, 255, 0.3)",
-                }}
+                className="block h-full rounded-[2rem] p-6 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-white/80 backdrop-blur-xl border border-white/30 shadow-md"
               >
                 <div className="flex flex-col justify-between h-full">
                   <div className="grid gap-4">
-                    <div className="p-3 rounded-xl bg-white/25 w-fit">{icon}</div>
-                    <h4 className="text-xl font-semibold text-[#000cf8]">
+                    <div className="p-3 rounded-xl bg-white/80 w-fit">
+                      {icon}
+                    </div>
+                    <h4 className="text-xl font-semibold font-clash text-[#000cf8]">
                       {title}
                     </h4>
                     <p className="text-gray-700">{description}</p>
