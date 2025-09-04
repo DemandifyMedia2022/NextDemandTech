@@ -8,7 +8,8 @@ export const allPostsQuery = groq`
     excerpt,
     mainImage,
     publishedAt,
-    author
+    author,
+    keywords
   }
 `
 
@@ -21,6 +22,7 @@ export const singlePostQuery = groq`
     mainImage,
     publishedAt,
     body,
-    author
+    author,
+    keywords
   }
 `

@@ -30,37 +30,6 @@ async function getPosts(): Promise<Post[]> {
     }
 }
 
-// Sample posts for when no Sanity data is available
-const samplePosts: Post[] = [
-    {
-        _id: '1',
-        title: 'The Future of B2B Lead Generation: AI-Powered Strategies',
-        excerpt: 'Discover how artificial intelligence is revolutionizing lead generation and what it means for your business growth strategy.',
-        slug: { current: 'future-b2b-lead-generation-ai' },
-        publishedAt: '2024-01-15T00:00:00Z',
-        author: 'Sarah Johnson',
-        category: 'Lead Generation'
-    },
-    {
-        _id: '2',
-        title: '10 Marketing Automation Tools That Actually Work',
-        excerpt: 'A comprehensive review of the best marketing automation platforms that can transform your demand generation efforts.',
-        slug: { current: 'marketing-automation-tools-review' },
-        publishedAt: '2024-01-12T00:00:00Z',
-        author: 'Michael Chen',
-        category: 'Technology'
-    },
-    {
-        _id: '3',
-        title: 'Account-Based Marketing: Complete Guide for 2024',
-        excerpt: 'Learn how to implement effective ABM strategies that drive higher conversion rates and better ROI.',
-        slug: { current: 'account-based-marketing-guide-2024' },
-        publishedAt: '2024-01-10T00:00:00Z',
-        author: 'Emily Rodriguez',
-        category: 'Marketing Strategy'
-    }
-];
-
 export default function BlogsPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -69,13 +38,9 @@ export default function BlogsPage() {
 
     useEffect(() => {
         setIsLoaded(true);
-        // Try to fetch from Sanity, fallback to sample data
+        // Fetch from Sanity only; if empty, show empty state UI
         getPosts().then(sanityPosts => {
-            if (sanityPosts.length > 0) {
-                setPosts(sanityPosts);
-            } else {
-                setPosts(samplePosts);
-            }
+            setPosts(sanityPosts);
         });
     }, []);
 

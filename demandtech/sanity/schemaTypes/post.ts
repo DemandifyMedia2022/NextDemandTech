@@ -29,6 +29,14 @@ export const post = defineType({
             validation: (Rule) => Rule.required().max(200),
         }),
         defineField({
+            name: 'keywords',
+            title: 'Keywords',
+            type: 'array',
+            description: 'Add 3-10 SEO keywords relevant to this post (press Enter after each).',
+            of: [{ type: 'string' }],
+            validation: (Rule) => Rule.required().min(1).max(15),
+        }),
+        defineField({
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
