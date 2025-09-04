@@ -6,6 +6,7 @@ import NoomoPreloader from '@/components/preloader/NoomoPreloader';
 import { SmoothScroll } from '../../components';
 import HeaderNav from '@/components/ui/HeaderNav';
 import Footer from '@/components/ui/Footer';
+import MobileHeader from '@/components/ui/MobileHeader';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isInitialLoading, setIsInitialLoading] = React.useState(true);
@@ -100,6 +101,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             willChange: 'transform'
           }}
         >
+          {/* Mobile header (visible on small screens only) */}
+          <MobileHeader />
           <HeaderNav />
         </div>
       )}
