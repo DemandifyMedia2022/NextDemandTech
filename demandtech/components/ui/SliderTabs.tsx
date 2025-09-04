@@ -300,11 +300,7 @@ const SlideTabs: React.FC = () => {
 
         const handleClick = () => {
             if (href) {
-                window.dispatchEvent(new CustomEvent('start-page-transition'));
-
-                setTimeout(() => {
-                    router.push(href);
-                }, 100);
+                router.push(href);
             }
         };
 
