@@ -8,17 +8,12 @@ const LogoSlider = dynamic(() => import("@/components/ui/LogoSlider"), {
   loading: () => <div className="h-32 bg-gray-100 animate-pulse rounded-lg" />
 });
 
-const HRMS = dynamic(() => import("@/components/ui/HRMS"), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
-});
+
 
 const Haridialler = dynamic(() => import("@/components/ui/HaridiallerSection"), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
 });
 
-const HariCRM = dynamic(() => import("@/components/ui/HariCrm"), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
-});
 
 const Faq = dynamic(() => import("@/components/ui/faq"), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
@@ -102,20 +97,6 @@ export default function ProductsPage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
             <Haridialler />
-          </Suspense>
-        </section>
-        
-        {/* HRMS Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
-            <HRMS />
-          </Suspense>
-        </section>
-
-        {/* HariCRM Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
-            <HariCRM />
           </Suspense>
         </section>
       </main>
