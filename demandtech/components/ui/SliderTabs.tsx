@@ -435,15 +435,17 @@ export const EnhancedNavigationMenu: React.FC = () => {
 
     return (
         <nav className="flex items-center gap-6">
-            <button
-                onClick={() => handleNavigation('/')}
+            <Link
+                href="/"
+                onClick={() => handleNavigation('/')} 
                 className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
             >
                 Home
-            </button>
+            </Link>
 
             <div className="relative group">
-                <button
+                <Link
+                    href="/services"
                     onClick={() => handleNavigation('/services')}
                     className="text-white hover:text-blue-200 transition-colors duration-200 font-medium flex items-center gap-1"
                 >
@@ -451,7 +453,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
                         <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                </button>
+                </Link>
 
                 <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[10000]">
                     <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 min-w-[280px] p-4">
@@ -471,15 +473,17 @@ export const EnhancedNavigationMenu: React.FC = () => {
                 </div>
             </div>
 
-            <button
+            <Link
+                href="/products"
                 onClick={() => handleNavigation('/products')}
                 className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
             >
                 Products
-            </button>
+            </Link>
 
             <div className="relative group">
-                <button
+                <Link
+                    href="/about"
                     onClick={() => handleNavigation('/about')}
                     className="text-white hover:text-blue-200 transition-colors duration-200 font-medium flex items-center gap-1"
                 >
@@ -487,7 +491,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="group-hover:rotate-180 transition-transform duration-200">
                         <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                </button>
+                </Link>
 
                 <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 min-w-[280px] p-4">
@@ -511,12 +515,13 @@ export const EnhancedNavigationMenu: React.FC = () => {
                 </div>
             </div>
 
-            <button
+            <Link
+                href="/pricing"
                 onClick={() => handleNavigation('/pricing')}
                 className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
             >
                 Pricing
-            </button>
+            </Link>
         </nav>
     );
 };
