@@ -7,7 +7,8 @@ import Balancer from "react-wrap-balancer";
 import { Coins, ArrowRight } from "lucide-react";
 
 type FeatureText = {
-  icon: JSX.Element;
+
+  icon: React.ReactNode;
   title: string;
   description: string;
   href?: string;
