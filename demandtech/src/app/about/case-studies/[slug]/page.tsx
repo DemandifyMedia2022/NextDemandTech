@@ -21,8 +21,11 @@ interface CaseStudy {
 
 async function getCaseStudy(_slug: string): Promise<CaseStudy | null> { return null }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const caseStudy = await getCaseStudy(params.slug)
+export async function generateMetadata(
+    { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+    const { slug } = await params
+    const caseStudy = await getCaseStudy(slug)
 
     if (!caseStudy) {
         return {
@@ -38,8 +41,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 const portableTextComponents = {}
 
-export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
-    const caseStudy = await getCaseStudy(params.slug)
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
+    const caseStudy = await getCaseStudy(slug)
 
     if (!caseStudy) {
         notFound()

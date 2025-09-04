@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties, HTMLAttributes, ReactNode, ElementType } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode, ElementType, ComponentType } from 'react';
 import { createContext, useCallback, useContext, useRef, useState } from 'react';
 
 interface CardRotation {
@@ -112,13 +112,16 @@ export function CardItem({
         ...style,
     };
 
+    // Ensure the polymorphic component accepts children in its props
+    const Comp = Component as ComponentType<any>;
+
     return (
-        <Component
+        <Comp
             className={className}
             style={combinedStyle}
             {...rest}
         >
             {children}
-        </Component>
+        </Comp>
     );
 }
