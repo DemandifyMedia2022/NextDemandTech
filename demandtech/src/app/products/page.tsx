@@ -1,10 +1,28 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import Button3 from "@/components/ui/Button3";
-import LogoSlider from "@/components/ui/LogoSlider";
-import HRMS from "@/components/ui/HRMS";
-import Haridialler from "@/components/ui/HaridiallerSection";
-import HariCRM from "@/components/ui/HariCrm";
-import Faq from "@/components/ui/faq";
+
+// Lazy load heavy components
+const LogoSlider = dynamic(() => import("@/components/ui/LogoSlider"), {
+  loading: () => <div className="h-32 bg-gray-100 animate-pulse rounded-lg" />
+});
+
+const HRMS = dynamic(() => import("@/components/ui/HRMS"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
+});
+
+const Haridialler = dynamic(() => import("@/components/ui/HaridiallerSection"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
+});
+
+const HariCRM = dynamic(() => import("@/components/ui/HariCrm"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
+});
+
+const Faq = dynamic(() => import("@/components/ui/faq"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
+});
 
 export const metadata: Metadata = {
   title: "Products | DemandTech",
@@ -73,61 +91,71 @@ export default function ProductsPage() {
 
       {/* Logo Slider */}
       <section className="mb-16">
-        <LogoSlider />
+        <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse rounded-lg" />}>
+          <LogoSlider />
+        </Suspense>
       </section>
 
       {/* Product Sections */}
       <main className="space-y-20">
-
         {/* Haridialler Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Haridialler />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
+            <Haridialler />
+          </Suspense>
         </section>
+        
         {/* HRMS Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <HRMS />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
+            <HRMS />
+          </Suspense>
         </section>
 
         {/* HariCRM Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <HariCRM />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
+            <HariCRM />
+          </Suspense>
         </section>
       </main>
 
       {/* FAQ Section */}
       <section className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
-        <Faq
-          heading="FAQ"
-          titleLine1="Quick Answers to"
-          titleLine2="Common Questions"
-          items={[
-            {
-              question: "Do your products integrate with our stack?",
-              answer:
-                "Yes. We support integrations with common CRMs, MAPs, data platforms, and can scope custom connectors.",
-            },
-            {
-              question: "Can we request custom features?",
-              answer:
-                "Enterprise plans support customizations and roadmap prioritization based on business impact.",
-            },
-            {
-              question: "How is security handled?",
-              answer:
-                "We follow best practices for encryption, access control, and compliance. Security documentation is available upon request.",
-            },
-            {
-              question: "What onboarding support is included?",
-              answer:
-                "Implementation assistance, training, and documentation are provided. Dedicated CSMs for enterprise.",
-            },
-            {
-              question: "Is there a free trial or demo?",
-              answer:
-                "Yes. Book a demo and we can arrange a guided trial based on your use case.",
-            },
-          ]}
-        />
+        <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />}>
+          <Faq
+            heading="FAQ"
+            titleLine1="Quick Answers to"
+            titleLine2="Common Questions"
+            items={[
+              {
+                question: "Do your products integrate with our stack?",
+                answer:
+                  "Yes. We support integrations with common CRMs, MAPs, data platforms, and can scope custom connectors.",
+              },
+              {
+                question: "Can we request custom features?",
+                answer:
+                  "Enterprise plans support customizations and roadmap prioritization based on business impact.",
+              },
+              {
+                question: "How is security handled?",
+                answer:
+                  "We follow best practices for encryption, access control, and compliance. Security documentation is available upon request.",
+              },
+              {
+                question: "What onboarding support is included?",
+                answer:
+                  "Implementation assistance, training, and documentation are provided. Dedicated CSMs for enterprise.",
+              },
+              {
+                question: "Is there a free trial or demo?",
+                answer:
+                  "Yes. Book a demo and we can arrange a guided trial based on your use case.",
+              },
+            ]}
+          />
+        </Suspense>
       </section>
     </div>
   );
