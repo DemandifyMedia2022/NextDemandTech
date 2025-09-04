@@ -3,14 +3,15 @@ import './LogoSlider.css';
 
 
 const placeholderLogos: string[] = [
+    
     '/Redis.png',
     '/paycor.png',
     '/peoplestrong.png',
+    '/salesforce.png',
     '/hp.png',
     '/tally.png',
-    '/sd.png',
     '/Sophos.png',
-    '/tatacommunication.png',
+    '/tata communication.png',
     '/thoughtspot.png',
     '/epicor.png',
     '/RedHat.png', 
@@ -19,7 +20,9 @@ const placeholderLogos: string[] = [
     '/bamboohr.png',
     '/commvault.png',
     '/tmp.png',
-    '/salesforce.png',
+
+           
+    
         
 ];
 

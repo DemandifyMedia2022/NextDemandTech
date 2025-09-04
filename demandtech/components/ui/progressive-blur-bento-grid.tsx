@@ -61,7 +61,7 @@ export function ProgressiveBentoItem({
 
 export function ProgressiveBlurBentoGrid() {
   return (
-    <div className="text-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:gap-6 w-full auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px]">
       {/* 🔧 RESPONSIVE GRID LAYOUT - Customize these values:
           grid-cols-1 = 1 column on mobile (default)
           sm:grid-cols-2 = 2 columns on small screens (640px+)

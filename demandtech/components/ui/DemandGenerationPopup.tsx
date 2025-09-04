@@ -71,7 +71,7 @@ export default function DemandGenerationPopup({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -87,7 +87,7 @@ export default function DemandGenerationPopup({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="relative w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl max-h-[95vh] sm:max-h-[90vh] bg-white rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden mx-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -104,7 +104,7 @@ export default function DemandGenerationPopup({
               </button>
 
               {/* Image */}
-              <div className="relative h-48 sm:h-56 w-full">
+              <div className="relative h-40 sm:h-48 w-full">
                 <Image
                   src={imageSrc}
                   alt={title}
@@ -117,19 +117,19 @@ export default function DemandGenerationPopup({
             </div>
 
             {/* Content */}
-            <div className="p-6 sm:p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               {/* Title */}
               <h2 
-                className="text-2xl sm:text-3xl font-bold text-[#574BEF] mb-4"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#574BEF] mb-3 sm:mb-4"
                 style={{ fontFamily: 'Clash Display, sans-serif' }}
               >
                 {title}
               </h2>
 
               {/* Service Details */}
-              <div className="max-h-60 overflow-y-auto pr-2">
+              <div className="max-h-40 sm:max-h-48 md:max-h-60 overflow-y-auto pr-2">
                 <p 
-                  className="text-gray-700 leading-relaxed text-sm sm:text-base"
+                  className="text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base"
                   style={{ fontFamily: 'Neue Montreal, sans-serif' }}
                 >
                   {detailContent}
