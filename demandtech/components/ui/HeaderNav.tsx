@@ -49,7 +49,7 @@ export default function HeaderNav() {
 
     return (
         <motion.div
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 relative z-[9999] flex items-center justify-center"
+            className="bg-[#F0F1FA] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 relative z-[9999] flex items-center justify-center"
             variants={containerVariants}
             initial="initial"
             animate="animate"

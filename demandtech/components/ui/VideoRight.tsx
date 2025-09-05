@@ -3,18 +3,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import Element2 from '../preloader/Element2';
+import { title } from 'process';
 
 interface RightScrollExpandProps {
     videoSrc: string;
     posterSrc?: string;
     expandDuration?: number;
     description?: string;
+    title?: string;
 }
 
 const RightScrollExpandVideo = ({
     videoSrc,
     posterSrc,
     expandDuration = 3000,
+    title="Turn Data Into Revenue with DemandTech.",
     description = 'We combine cutting-edge technology with expert insights to identify and prioritize your highest-value prospects. By leveraging advanced data intelligence, intent signals, and precision targeting, we ensure your teams focus on the right opportunities at the right time. This strategic approach reduces wasted effort, shortens sales cycles, and increases conversion rates. With DemandTech, you gain a smarter, faster path to revenue growth while building stronger, long-term customer relationships'
 }: RightScrollExpandProps) => {
     // progress goes 0 -> 1 across the section scroll
@@ -105,7 +108,10 @@ const RightScrollExpandVideo = ({
                         </video>
                     </div>
                     <div className="mt-6">
-                        <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-neu">
+                        <h3 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'Clash Display' }}>
+                        {title}
+                        </h3>
+                        <p className="text-base sm:text-lg text-black leading-relaxed font-neu align-left text-left">
                             {description}
                         </p>
                         {/* <div className="mt-6">
@@ -128,10 +134,10 @@ const RightScrollExpandVideo = ({
                         className="px-[5vw] max-w-[49vw]"
                         style={{ opacity: descOpacity, transition: 'opacity 300ms ease-out' }}
                     >
-                        <h3 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'Clash Display' }}>
-
+                        <h3 className="text-3xl text-[blue] md:text-5xl font-normal" style={{ fontFamily: 'Clash Display' }}>
+                        {title}
                         </h3>
-                        <p className="mt-4 text-base md:text-xl text-neutral-700 text-center leading-relaxed">
+                        <p className="mt-4 text-base md:text-xl text-black text-center leading-relaxed align-left text-left">
                             {description}
                         </p>
                         {/* <div className="mt-8 flex justify-center" style={{ pointerEvents: 'auto' }}>

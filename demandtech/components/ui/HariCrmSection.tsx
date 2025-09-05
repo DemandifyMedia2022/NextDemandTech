@@ -141,12 +141,12 @@ const HariCRMSection = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-20 section-header">
-            <h1 className="text-5xl font-semibold text-[#000cf8] leading-tight">
-              H.A.R.I CRM
-            </h1>
-            <p className="text-2xl font-light text-gray-600 mt-4 max-w-4xl mx-auto">
-              Smart CRM with Dialer & Analytics
-            </p>
+            <div className="text-5xl font-normal text-clash text-[#000cf8] leading-tight">
+              CRM Solutions
+            </div>
+            <div className="text-2xl font-normal text-clash text-gray-600 mt-4 max-w-4xl mx-auto">
+              Smart CRM with Analytics
+            </div>
           </div>
 
           {/* Feature Cards Grid */}
