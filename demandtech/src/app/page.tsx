@@ -53,15 +53,11 @@ export default function HomePage() {
     },
     // {
     //   quote: "Working with DemandTech has been a game-changer for our business. Their cutting-edge technology combined with expert insights accelerated our path to revenue like never before.",
-    //   name: "Emily Rodriguez",
-    //   designation: "CEO, MongoDB",
-    //   src: "/testimonial3.png"
-    // }
   ];
 
   return (
     <>
-      <div style={{ overflow: 'hidden' }}>
+      <div style={{ overflow: 'hidden', backgroundColor: '#F0F1FA', minHeight: '100vh' }}>
         {/* <ScrollAnimations /> */}
         <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
           <Ribbon1 />

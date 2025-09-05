@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  
+  background-color: #F0F1FA;
 }
 
 /* Hide scrollbar visuals without disabling scroll */
