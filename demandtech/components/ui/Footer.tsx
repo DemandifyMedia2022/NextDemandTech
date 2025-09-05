@@ -106,13 +106,13 @@ export default function Footer() {
 
         {/* Socials */}
         <div className="flex gap-5">
-          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="https://www.linkedin.com/company/demandify-media/mycompany/" className="text-gray-500">
             <FaLinkedin className="w-5 h-5" />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="https://x.com/Demandifymedia" className="text-gray-500">
             <FaTwitter className="w-5 h-5" />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="#" className="text-gray-500">
+          <motion.a whileHover={{ scale: 1.2, color: '#2563EB' }} href="https://www.instagram.com/demandify_media/" className="text-gray-500">
             <FaInstagram className="w-5 h-5" />
           </motion.a>
         </div>
