@@ -4,22 +4,22 @@ import './LogoSlider.css';
 
 const placeholderLogos: string[] = [
     
-    '/Redis.png',
-    '/paycor.png',
-    '/peoplestrong.png',
-    '/salesforce.png',
-    '/hp.png',
-    '/tally.png',
-    '/Sophos.png',
-    '/tata communication.png',
-    '/thoughtspot.png',
-    '/epicor.png',
-    '/RedHat.png', 
-    '/Zoho.png',
-    '/Zoom.png',
-    '/bamboohr.png',
-    '/commvault.png',
-    '/tmp.png',
+    '/Redis.webp',
+    '/paycor.webp',
+    '/peoplestrong.webp',
+    '/salesforce.webp',
+    '/hp.webp',
+    '/tally.webp',
+    '/Sophos.webp',
+    '/tata communication.webp',
+    '/thoughtspot.webp',
+    '/epicor.webp',
+    '/RedHat.webp', 
+    '/Zoho.webp',
+    '/Zoom.webp',
+    '/bamboohr.webp',
+    '/commvault.webp',
+    '/tmp.webp',
 
            
     

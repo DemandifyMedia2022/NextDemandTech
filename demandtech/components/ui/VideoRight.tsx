@@ -14,7 +14,7 @@ const RightScrollExpandVideo = ({
     videoSrc,
     posterSrc,
     expandDuration = 3000,
-    description = 'Turn intent into revenue. DemandTech unifies data, creative, and GTM execution so your pipeline grows predictably.Turn intent into revenue. DemandTech unifies data, creative, and GTM execution so your pipeline grows predictably.Turn intent into revenue. DemandTech unifies data, creative, and GTM execution so your pipeline grows predictably.'
+    description = 'We combine cutting-edge technology with expert insights to identify and prioritize your highest-value prospects. By leveraging advanced data intelligence, intent signals, and precision targeting, we ensure your teams focus on the right opportunities at the right time. This strategic approach reduces wasted effort, shortens sales cycles, and increases conversion rates. With DemandTech, you gain a smarter, faster path to revenue growth while building stronger, long-term customer relationships'
 }: RightScrollExpandProps) => {
     // progress goes 0 -> 1 across the section scroll
     const [progress, setProgress] = useState(0);

@@ -34,27 +34,27 @@ export default function HomePage() {
     atmosphereColor: "#FFFFFF",
     autoRotate: true,
     autoRotateSpeed: 0.8,
-  };
+   };
 
   const testimonials = [
     {
-      quote: "DemandTech transformed our lead generation process completely. We saw a 300% increase in qualified leads within the first quarter. Their AI-driven approach is simply revolutionary.",
-      name: "Sarah Johnson",
-      designation: "VP of Marketing, Redis",
-      src: "/testimonial1.png"
+      quote: "Partnering with Demandify Media for Niveus's demand generation has been a pleasure. Their expertise and support have been crucial in generating leads.",
+      name: "Abhishek Hegde",
+      designation: "Marketing Director, Niveus",
+      src: "/niveus 1.png"
     },
     {
-      quote: "The intelligence and insights provided by DemandTech helped us identify our highest-value prospects with incredible precision. Our sales team is now more efficient than ever.",
-      name: "Michael Chen",
-      designation: "Sales Director, Autodesk",
-      src: "/testimonial2.jpg"
+      quote: "Working with Demandify has been a smooth and efficient experience. Their team is responsive, and the lead delivery process is well-structured. We saw consistent quality in the leads generated, helping us drive awareness and engagement in our target accounts",
+      name: "Nishanth S",
+      designation: "Senior Demand Generation Manager, ThoughtSpot",
+      src: "/thoughtspot 1.png"
     },
-    {
-      quote: "Working with DemandTech has been a game-changer for our business. Their cutting-edge technology combined with expert insights accelerated our path to revenue like never before.",
-      name: "Emily Rodriguez",
-      designation: "CEO, MongoDB",
-      src: "/testimonial3.png"
-    }
+    // {
+    //   quote: "Working with DemandTech has been a game-changer for our business. Their cutting-edge technology combined with expert insights accelerated our path to revenue like never before.",
+    //   name: "Emily Rodriguez",
+    //   designation: "CEO, MongoDB",
+    //   src: "/testimonial3.png"
+    // }
   ];
 
   return (

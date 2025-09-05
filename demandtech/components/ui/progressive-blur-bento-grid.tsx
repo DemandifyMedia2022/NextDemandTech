@@ -51,9 +51,9 @@ export function ProgressiveBentoItem({
             text-white = text color (text-gray-100, text-blue-50, etc.)
             drop-shadow-lg = shadow intensity (drop-shadow-sm, drop-shadow-xl, etc.)
             mb-0 = bottom margin (mb-1, mb-3, mb-4, etc.) */}
-        <h3 className="text-sm sm:text-base lg:text-lg font-light text-white drop-shadow-md font-neue-montreal">
+        <h4 className="text-sm sm:text-base lg:text-lg font-normal text-white drop-shadow-md font-neue-montreal">
           {title}
-        </h3>
+        </h4>
       </div>
     </div>
   );
@@ -153,18 +153,18 @@ export function ProgressiveBlurBentoGridV2() {
         <div className="grid grid-cols-2 gap-6">
           <ProgressiveBentoItem
             title="Small Campaign 3"
-            imageSrc="/LNP.JPG"
+            imageSrc="/LNP.webp"
           />
           <ProgressiveBentoItem
             title="Small Campaign 4"
-            imageSrc="/MTCS.JPG"
+            imageSrc="/MTCS.webp"
           />
         </div>
 
         {/* Large card on bottom */}
         <ProgressiveBentoItem
           title="Brand Awareness and Display Campaign"
-          imageSrc="/webinar.JPG"
+          imageSrc="/webinar.webp"
           className="row-span-1"
         />
         
