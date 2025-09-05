@@ -56,7 +56,30 @@ export default function AboutPage() {
                     More
                 </div>
                 <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8 py-2 mt-[-100px] z-[-1]">
-                    <VideoCard />
+                    {/* Desktop/Tablet: Interactive expandable video */}
+                    <div className="hidden md:block">
+                        <VideoCard />
+                    </div>
+                    {/* Mobile: Static simple video without expand effect */}
+                    <div className="block md:hidden" style={{ marginTop: '100px', marginBottom: '50px' }}>
+                        <div className="relative w-full max-w-full mx-auto">
+                            <div className="rounded-xl overflow-hidden ">
+                                <video
+                                    src="/about-video.mp4"
+                                    poster="/video-frame.png"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="auto"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
+                            <div className="mt-3 text-center">
+                                <p className="text-sm text-[#000cf8]">Since 2022</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/*Description*/}
