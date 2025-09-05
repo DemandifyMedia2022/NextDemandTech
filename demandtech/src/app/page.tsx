@@ -59,7 +59,7 @@ export default function HomePage() {
     <>
       <div style={{ overflow: 'hidden', backgroundColor: '#F0F1FA', minHeight: '100vh' }}>
         {/* <ScrollAnimations /> */}
-        <div style={{ position: 'absolute', width: '100%', zIndex: -1 }}>
+        <div style={{ position: 'absolute', width: '100%', zIndex: 0 }}>
           <Ribbon1 />
         </div>
         

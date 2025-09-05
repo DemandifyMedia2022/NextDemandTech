@@ -17,7 +17,7 @@ export default function MarketingPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 sm:px-6 lg:px-12">
           {/* Image */}
           <div className="flex justify-center md:justify-start">
-            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+            <Card2 imageSrc="/Creative Edge.jpg" alt="creative edge" />
           </div>
 
           {/* Text */}
@@ -89,7 +89,7 @@ export default function MarketingPage() {
 
           {/* Right Image Section */}
           <div className="flex justify-center md:justify-end">
-            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+            <Card2 imageSrc="/Prospects Attention.jpg" alt="Prospects Attention" />
           </div>
         </div>
       </div>

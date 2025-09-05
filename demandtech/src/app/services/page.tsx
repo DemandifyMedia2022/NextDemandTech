@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const cards = [
   {
-    src: "/Creative Edge.png",
+    src: "/Opportunity.jpg",
     title: "Intent Data Platform",
     category: "",
     content: (
@@ -183,7 +183,7 @@ export default function ServicesPage() {
 
           {/* Image */}
           <div className="flex justify-center md:justify-end">
-            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+            <Card2 imageSrc="/Opportunity.jpg" alt="creative edge" />
           </div>
         </div>
       </div>
