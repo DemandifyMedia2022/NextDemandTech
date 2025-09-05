@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Button from './Button';
+import Element2 from '../preloader/Element2';
 
 interface RightScrollExpandProps {
     videoSrc: string;
@@ -90,6 +91,7 @@ const RightScrollExpandVideo = ({
             <section className="relative overflow-hidden"
                 style={{ height: "80vh", marginTop: "200px" }}>
                 <div className="sticky top-0 h-screen">
+                    
                     <div className="w-full rounded-2xl overflow-hidden shadow-xl relative">
                         <video
                             autoPlay
@@ -120,6 +122,7 @@ const RightScrollExpandVideo = ({
             {/* Sticky viewport area to pin the animation while scrolling this section */}
             <div className="sticky top-0 h-screen">
                 {/* Left description content */}
+               
                 <div className="absolute inset-0 flex items-center" style={{ pointerEvents: 'none' }}>
                     <div
                         className="px-[5vw] max-w-[49vw]"

@@ -21,28 +21,11 @@ import { Hero } from '@/components/ui/HeroSection';
 import Feature from '@/components/ui/FeatureHomepage';
 import RuixenStats from '@/components/ui/Statistics';
 import Ribbon2 from '@/components/ui/Ribbon2';
+import Element1 from '@/components/preloader/Element1';
+import Element2 from '@/components/preloader/Element2';
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
-  keywords: ['Demand Generation', 'B2B Marketing', 'Lead Generation', 'Marketing Automation'],
-  alternates: {
-    canonical: 'https://www.demand-tech.com',
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-    ],
-  },
-  openGraph: {
-    title: 'DemandTech | Accelerate Your Business Growth',
-    description: 'Transform your demand generation with cutting-edge technology and proven strategies.',
-    url: 'https://www.demand-tech.com',
-    siteName: 'DemandTech',
-    type: 'website',
-    locale: 'en_US',
-  }
 }
 
 export default function HomePage() {
@@ -89,11 +72,20 @@ export default function HomePage() {
         {/* Hero Section with background video */}
         <section className="hero-with-funnel bg-transparent mt-[-75px]">
           <Hero />
+          <div className="mt-[-240px] z-[-1] mr-[-1300px] align-right">
+          <Element1 />
+          </div>
+          
         </section>
         
+        
+
+        
         <Feature />
+        
         {/* Right-side scroll expand video */}
         <div className="mt-[-75px]" />
+        
         <RightScrollExpandVideo
           videoSrc="/herovid.mp4"
           posterSrc="/image1.jpeg"

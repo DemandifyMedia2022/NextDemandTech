@@ -9,6 +9,7 @@ import { Stepper } from '@/components/ui/stepperScroller'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'; import { MultiStepContactForm } from '@/components/index'
 import Faq from '@/components/ui/faq'
+import Element3 from '@/components/preloader/Element3';
 export const metadata: Metadata = {
   title: 'Services | DemandTech',
   description:
@@ -212,6 +213,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
+
             {/* Features grid with straight separators */}
             <div className="mt-12 md:mt-14">
               <div className="relative pt-6 md:pt-6">
@@ -252,6 +254,9 @@ export default function ServicesPage() {
           </div>
         </BackgroundGradientAnimation>
       </div>
+      <div className="mt-[20px] z-[999] ml-[-1200px] align-center">
+      <Element3 />
+      </div>
       <GSAPTextReveal
         style={{
           fontFamily: 'Clash Display',
@@ -259,7 +264,7 @@ export default function ServicesPage() {
           textAlign: 'center',
           color: 'blue',
           marginBottom: '-150px',
-          marginTop: '150px'
+          marginTop: '-50px'
         }}
         stagger={0.15}
         duration={.75}
