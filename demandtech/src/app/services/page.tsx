@@ -10,6 +10,8 @@ import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
 import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'; import { MultiStepContactForm } from '@/components/index'
 import Faq from '@/components/ui/faq'
 import Element3 from '@/components/preloader/Element3';
+import Card2 from '@/components/ui/Card2';
+
 export const metadata: Metadata = {
   title: 'Services | DemandTech',
   description:
@@ -141,38 +143,48 @@ export default function ServicesPage() {
 
       {/* Hero section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-14">
-        <p
-          className="text-2xl sm:text-3xl text-gray-900"
-          style={{ fontFamily: 'Clash Display, sans-serif' }}
-        >
-          <span className="font-regular">Stop Guessing. </span>{' '}
-          <span className="text-[#5B5BFF] font-regular">Start Closing</span>
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {/* Text Content */}
+          <div>
+            <p
+              className="text-xl sm:text-2xl text-gray-900"
+              style={{ fontFamily: 'Clash Display, sans-serif' }}
+            >
+              <span className="font-regular">Stop Guessing. </span>{' '}
+              <span className="text-[#5B5BFF] font-regular">Start Closing</span>
+            </p>
 
-        <div
-          className="mt-4 leading-tight tracking-tight text-gray-900"
-          style={{
-            fontFamily: 'Clash Display, sans-serif',
-            fontSize: 'clamp(48px, 8vw, 92px)',
-            lineHeight: '1.1',
-          }}
-        >
-          <span className="block">Turn Buyer Intent</span>
-          <span className="block">
-            into <span className="text-[#5B5BFF]">Sales-Ready</span>
-          </span>
-          <span className="block">Opportunity</span>
-        </div>
+            <div
+              className="mt-4 leading-tight tracking-tight text-gray-900"
+              style={{
+                fontFamily: 'Clash Display, sans-serif',
+                fontSize: 'clamp(36px, 6vw, 72px)',
+                lineHeight: '1.1',
+              }}
+            >
+              <span className="block">Turn Buyer Intent</span>
+              <span className="block">
+                into <span className="text-[#5B5BFF]">Sales-Ready</span>
+              </span>
+              <span className="block">Opportunity</span>
+            </div>
 
-        <p className="mt-6 max-w-2xl text-base sm:text-lg text-gray-700">
-          At Demand Tech, we deliver Intent Qualified Leads powered by
-          real-time intent data, helping you connect with buyers actively
-          searching for your solution.
-        </p>
+            <p className="mt-6 max-w-xl text-sm sm:text-base text-gray-700">
+              At Demand Tech, we deliver Intent Qualified Leads powered by
+              real-time intent data, helping you connect with buyers actively
+              searching for your solution.
+            </p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Button3 text="Demand Generation" href="/services/demand-generation" />
-          <Button3 text="Marketing" href="/services/marketing" />
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button3 text="Demand Generation" href="/services/demand-generation" />
+              <Button3 text="Marketing" href="/services/marketing" />
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="flex justify-center md:justify-end">
+            <Card2 imageSrc="/Creative Edge.png" alt="creative edge" />
+          </div>
         </div>
       </div>
 

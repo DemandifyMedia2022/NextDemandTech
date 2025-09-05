@@ -40,8 +40,8 @@ export const Stepper = () => {
       const lastCenter = lastRect.top - containerRect.top + lastRect.height / 2;
 
       setLineBounds({
-        top: firstCenter,
-        height: Math.max(0, lastCenter - firstCenter),
+        top: firstCenter - 40, // Start 40px before first circle
+        height: Math.max(0, lastCenter - firstCenter + 80), // Add 40px before and after
       });
 
       const totalScrollable = Math.max(1, containerRect.height - window.innerHeight);
@@ -66,7 +66,7 @@ export const Stepper = () => {
   );
 
   return (
-    <div ref={containerRef} className="relative mx-auto max-w-4xl py-20">
+    <div ref={containerRef} className="relative mx-auto max-w-4xl py-20 pb-32">
       {/* Vertical line from step 1 to step 5 */}
       <motion.div
         className="absolute w-[4px] rounded-full"
@@ -82,36 +82,21 @@ export const Stepper = () => {
 
       <div className="space-y-48">
         {steps.map((step, i) => {
-          if (i === 0) {
-            // Step 1: sticky + static
-            return (
-              <div key={i} className="relative flex items-start sticky top-24 z-10">
-                <div
-                  ref={firstCircleRef}
-                  className="absolute left-0 flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
-                  style={{ background: "linear-gradient(135deg, #3722D3, #1C126D)" }}
-                >
-                  <span className="font-bold text-white font-clash text-2xl">{i + 1}</span>
-                </div>
-                <div className="ml-24 max-w-2xl ">
-                  <Title>{step.title}</Title>
-                  <p className="mt-2 text-gray-600 font-neu text-xl">{step.text}</p>
-                </div>
-              </div>
-            );
-          }
-
-          const stepProgress = (i + 1) / steps.length;
-          const circleOpacity = useTransform(clampedProgress, [stepProgress - 0.15, stepProgress], [0, 1]);
-          const circleScale = useTransform(clampedProgress, [stepProgress - 0.15, stepProgress], [0.6, 1]);
-          const textOpacity = useTransform(clampedProgress, [stepProgress - 0.1, stepProgress], [0, 1]);
-          const textY = useTransform(clampedProgress, [stepProgress - 0.1, stepProgress], [40, 0]);
-
+          const isFirst = i === 0;
           const isLast = i === steps.length - 1;
 
           return (
-            <div key={i} className="relative flex items-start">
-              {/* Invisible anchor to measure last circle without transform effects */}
+            <div key={i} className="relative flex items-start sticky top-24 z-10">
+              {/* Reference for first circle */}
+              {isFirst && (
+                <div
+                  ref={firstCircleRef}
+                  aria-hidden
+                  className="absolute left-0 top-0 h-14 w-14 pointer-events-none opacity-0"
+                />
+              )}
+              
+              {/* Reference for last circle */}
               {isLast && (
                 <div
                   ref={lastAnchorRef}
@@ -120,27 +105,19 @@ export const Stepper = () => {
                 />
               )}
 
-              {/* Animated circle with larger number font for ALL steps */}
-              <motion.div
+              {/* Static circle - all preloaded */}
+              <div
                 className="absolute left-0 flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
-                style={{
-                  opacity: circleOpacity,
-                  scale: circleScale,
-                  background: "linear-gradient(135deg, #3722D3, #1C126D)",
-                }}
+                style={{ background: "linear-gradient(135deg, #3722D3, #1C126D)" }}
               >
                 <span className="font-bold text-white font-clash text-2xl">{i + 1}</span>
-              </motion.div>
+              </div>
 
-              {/* Animated text */}
-              <motion.div
-                style={{ opacity: textOpacity, y: textY }}
-                transition={{ duration: 0.6 }}
-                className="ml-24 max-w-2xl"
-              >
+              {/* Static text - all preloaded */}
+              <div className="ml-24 max-w-2xl">
                 <Title>{step.title}</Title>
                 <p className="mt-2 text-gray-600 font-neu text-xl">{step.text}</p>
-              </motion.div>
+              </div>
             </div>
           );
         })}

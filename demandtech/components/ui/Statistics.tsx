@@ -34,7 +34,7 @@ export default function RuixenStats() {
             everything they need to make decisions faster.</span>
           </h4>
         <div className="mt-8">
-          <Button label="Get Started" href="https://ruixen.com/" />
+          <Button label="Get Started" href="/about" />
         </div>
         </div>
       </div>
