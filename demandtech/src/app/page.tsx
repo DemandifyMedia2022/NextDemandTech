@@ -24,6 +24,18 @@ import Ribbon2 from '@/components/ui/Ribbon2';
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
+  keywords: ['Demand Generation', 'B2B Marketing', 'Lead Generation', 'Marketing Automation'],
+  alternates: {
+    canonical: 'https://www.demand-tech.com',
+  },
+  openGraph: {
+    title: 'DemandTech | Accelerate Your Business Growth',
+    description: 'Transform your demand generation with cutting-edge technology and proven strategies.',
+    url: 'https://www.demand-tech.com',
+    siteName: 'DemandTech',
+    type: 'website',
+    locale: 'en_US',
+  }
 }
 
 export default function HomePage() {
