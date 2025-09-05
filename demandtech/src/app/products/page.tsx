@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Button3 from "@/components/ui/Button3";
 import dynamic from "next/dynamic";
+import HaridiallerSection from "@/components/ui/HaridiallerSection";
+import HRMSSection from "@/components/ui/HRMSSection";
+import HariCRMSection from "@/components/ui/HariCrmSection";
 
 // Keep heavy ones dynamic (like in Services)
 const LogoSlider = dynamic(() => import("@/components/ui/LogoSlider"), {
@@ -27,7 +30,7 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
       {/* Hero Section */}
-      <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <h1
           className="leading-tight text-[#000000]"
           style={{
@@ -78,10 +81,23 @@ export default function ProductsPage() {
       </header>
 
       {/* Logo Slider */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 mb-28">
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
         <LogoSlider />
       </div>
 
+      {/* Hari-Dialer Section */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
+        <HaridiallerSection />
+      </div>
+      {/* HRMS Section */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
+        <HRMSSection />
+      </div>
+
+      {/* HariCRM Section */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
+        <HariCRMSection />
+      </div>
       {/* FAQ Section */}
       <section className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
         <Faq
