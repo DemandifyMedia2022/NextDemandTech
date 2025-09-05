@@ -122,27 +122,27 @@ export function ProgressiveBlurBentoGrid() {
 
 export function ProgressiveBlurBentoGridV2() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full 
-    auto-rows-[600px] sm:auto-rows-[640px] lg:auto-rows-[680px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-7xl mx-auto
+    auto-rows-[400px] sm:auto-rows-[450px] lg:auto-rows-[500px]">
 
       {/* LEFT COLUMN */}
       <div className="grid grid-rows-2 gap-6">
         {/* Large card on top */}
         <ProgressiveBentoItem
-          title="Brand Awareness and Display Campaign"
-          imageSrc="/image1.jpeg"
+          title="Content Creation"
+          imageSrc="/content creation.jpg"
           className="row-span-1"
         />
 
         {/* Two small cards below */}
         <div className="grid grid-cols-2 gap-6">
           <ProgressiveBentoItem
-            title="Small Campaign 1"
-            imageSrc="/image2.jpeg"
+            title="Paid Marketing"
+            imageSrc="/Paid Marketing.jpg"
           />
           <ProgressiveBentoItem
-            title="Small Campaign 2"
-            imageSrc="/image3.jpeg"
+            title="PPC"
+            imageSrc="/PPC.jpg"
           />
         </div>
       </div>
@@ -152,18 +152,18 @@ export function ProgressiveBlurBentoGridV2() {
         {/* Two small cards on top */}
         <div className="grid grid-cols-2 gap-6">
           <ProgressiveBentoItem
-            title="Small Campaign 3"
-            imageSrc="/LNP.webp"
+            title="SEO"
+            imageSrc="/SEO.jpg"
           />
           <ProgressiveBentoItem
-            title="Small Campaign 4"
-            imageSrc="/MTCS.webp"
+            title="Social Media Marketing"
+            imageSrc="/Social Media Marketing.jpg"
           />
         </div>
 
         {/* Large card on bottom */}
         <ProgressiveBentoItem
-          title="Brand Awareness and Display Campaign"
+          title=""
           imageSrc="/webinar.webp"
           className="row-span-1"
         />
@@ -173,4 +173,3 @@ export function ProgressiveBlurBentoGridV2() {
 
   );
 }
-
