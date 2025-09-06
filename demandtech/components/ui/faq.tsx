@@ -52,21 +52,21 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
   return (
     <div className="mt-16 sm:mt-20 flex flex-col justify-center items-center text-center px-4">
       <GSAPTextReveal
-        className="font-regular text-gray-900 mb-8 text-center leading-tight font-clash"
+        className="font-regular text-gray-900 mb-3 text-center leading-tight font-clash"
         style={{
           fontSize: "clamp(24px, 5vw, 96px)",
         }}
         stagger={0.15}
-        duration={.5}
+        duration={.6}
         yOffset={80}
         start="top 75%"
       >
         {titleLine1 ?? "Quick Answers to"}
       </GSAPTextReveal>
       <div>
-        
+
       </div>
-      <div className="mb-20 mt-4">
+      <div className="mb-20 ">
         <GSAPTextReveal
           className="text-[#2717E8] font-clash"
           style={{

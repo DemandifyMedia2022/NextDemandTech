@@ -10,33 +10,18 @@ import Button2 from '../../components/ui/Button2';
 import { AnimatedTestimonials } from '../../components/ui/animated-testimonials';
 import { GSAPTextReveal } from '../../components/ui/GSAPTextReveal';
 import MultiStepContactForm from "@/components/ui/MultiStepContactForm";
-import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid';
-import GradientHeroSection from '@/components/ui/GradientHeroSection';
-import { SlideTabsExample } from '@/components/ui/SliderTabs';
-import VideoHero from '@/components/ui/VideoHero';
-import VideoCard from '@/components/ui/VideoCard';
 import RightScrollExpandVideo from '../../components/ui/VideoRight';
-import ChatWidget from '@/components/ui/ChatWidget';
 import { Hero } from '@/components/ui/HeroSection';
 import Feature from '@/components/ui/FeatureHomepage';
 import RuixenStats from '@/components/ui/Statistics';
-import Ribbon2 from '@/components/ui/Ribbon2';
 import Element1 from '@/components/preloader/Element1';
-import Element2 from '@/components/preloader/Element2';
 export const metadata: Metadata = {
   title: 'DemandTech | Accelerate Your Business Growth',
   description: 'Transform your demand generation with cutting-edge technology and proven strategies. Drive qualified leads, increase conversions, and scale your business.',
 }
 
 export default function HomePage() {
-  const globeConfig = {
-    continentColor: "#005be5ff",
-    seaColor: "#FFFFFF",
-    showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
-    autoRotate: true,
-    autoRotateSpeed: 0.8,
-   };
+
 
   const testimonials = [
     {
@@ -62,42 +47,46 @@ export default function HomePage() {
         <div style={{ position: 'absolute', width: '100%', zIndex: 0 }}>
           <Ribbon1 />
         </div>
-        
+
 
 
         {/* Hero Section with background video */}
         <section className="hero-with-funnel bg-transparent mt-[-75px]">
           <Hero />
-          <div className="mt-[-240px] z-[-1] mr-[-1300px] align-right">
-          <Element1 />
+          <div className="mt-[-240px] z-[-1] mr-[-1300px] align-right mb-[100px]">
+            <Element1 />
           </div>
-          
-        </section>
-        
-        
 
-        
+        </section>
+
+
+
+
         <Feature />
-        
+
         {/* Right-side scroll expand video */}
-        <div className="mt-[-75px]" />
-        
+        <div className="mt-[75px]" />
+
         <RightScrollExpandVideo
           videoSrc="/herovid.mp4"
-          posterSrc="/image1.jpeg"
-          expandDuration={3000}
+          posterSrc="/heroimg.png"
         />
 
-        {/* <VideoHero /> */}
-        {/* Logo Slider */}
-        <div className="logo-slider-container section-spacing mt-[75px] sm:mt-[0px]">
+        <div className="w-full px-4 sm:px-6 lg:px-8 mb-28">
           <LogoSlider />
         </div>
 
-        {/* SVG Animation */}
-       
 
-        
+        {/* <VideoHero /> */}
+        {/* Logo Slider */}
+        {/* <div className="logo-slider-container section-spacing mt-[75px] sm:mt-[0px]">
+          <LogoSlider />
+        </div> */}
+
+        {/* SVG Animation */}
+
+
+
 
         {/* Testimonials Section */}
         <div className='testimonials-section section-spacing'>
@@ -154,7 +143,7 @@ export default function HomePage() {
         </div>
 
         {/* Features Section */}
-        <div className='features-section section-spacing mt-[75px]'>
+        <div className='features-section section-spacing mt-[125px] mb-[125px]'>
           <div className='features-title'>
             <GSAPTextReveal
               style={{

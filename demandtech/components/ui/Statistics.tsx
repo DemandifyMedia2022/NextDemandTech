@@ -22,25 +22,24 @@ export default function RuixenStats() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
       {/* Left: Text & CTA */}
-      
+
       <div className="flex flex-col justify-center gap-5 sm:gap-6">
-      <div className="mt-[-180px] z-[999] ml-[-100px] align-center">
+        <div className="mt-[-180px] z-[999] ml-[-100px] align-center">
           <Element2 />
-          </div>
-        <div className="mt-[-0px] z-[999] align-center">
-        <h4 className="text-base sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
-            Intuitive Dashboard Experience <span className="text-primary">Ruixen UI</span>{" "}
-            <span className="block mt-2 text-black text-sm sm:text-base lg:text-2xl">Experience an analytics UI that blends speed, clarity, and design precision—giving your team
-            everything they need to make decisions faster.</span>
-          </h4>
-        <div className="mt-8">
-          <Button label="Get Started" href="/about" />
         </div>
+        <div className="mt-[-0px] z-[999] align-center">
+          <h4 className="text-base sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
+            Data-Driven Growth with  <span className="text-primary">DemandTech</span>{" "}
+            <span className="block mt-2 text-black text-sm sm:text-base lg:text-2xl"> Turn complex data into clear insights with our advanced analytics platform—helping you make faster, smarter, and more confident business decisions.</span>
+          </h4>
+          <div className="mt-8">
+            <Button label="Get Started" href="/about" />
+          </div>
         </div>
       </div>
 
       {/* Right: Chart + Stats */}
-      <div className="relative w-full h-64 sm:h-80 lg:h-[400px] rounded-2xl overflow-hidden shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)'}}>
+      <div className="relative w-full h-64 sm:h-80 lg:h-[400px] rounded-2xl overflow-hidden shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
         {/* Chart */}
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>

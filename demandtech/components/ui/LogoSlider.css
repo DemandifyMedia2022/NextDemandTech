@@ -10,10 +10,14 @@
 
 .logo-slider {
     margin-top: 60px;
+    margin-bottom: 60px;
     overflow: hidden;
     padding: 16px 0;
-    background: transparent;
+    background-color: #F0F1FA;
     position: relative;
+    /* Prevent overlapping outside this component */
+    isolation: isolate;
+    z-index: 0;
 }
 
 .logo-slider::before,
@@ -23,7 +27,9 @@
     width: 250px;
     height: 100%;
     content: "";
-    z-index: 1;
+    /* Keep gradients within the component and non-interactive */
+    z-index: 0;
+    pointer-events: none;
 }
 
 .logo-slider::before {
@@ -62,6 +68,7 @@
 @media (min-width: 768px) {
     .logo-slider {
         margin-top: 80px;
+        margin-bottom: 80px;
         padding: 40px 0;
     }
 
@@ -83,6 +90,7 @@
 @media (min-width: 1024px) {
     .logo-slider {
         margin-top: 100px;
+        margin-bottom: 100px;
         padding: 48px 0;
     }
 
@@ -102,6 +110,7 @@
 
 /* Large desktop styles */
 @media (min-width: 1440px) {
+
     .logo-slider::before,
     .logo-slider::after {
         width: 250px;
@@ -120,6 +129,7 @@
 @media (max-width: 480px) {
     .logo-slider {
         margin-top: 40px;
+        margin-bottom: 40px;
         padding: 24px 0;
     }
 
@@ -130,7 +140,8 @@
 
     .logo-slider-track {
         gap: 32px;
-        animation-duration: 30s; /* Slightly faster on small screens */
+        animation-duration: 30s;
+        /* Slightly faster on small screens */
     }
 
     .logo-slider-track img {

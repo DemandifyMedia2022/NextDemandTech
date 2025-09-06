@@ -12,6 +12,7 @@ export { default as SmoothScroll } from './ui/SmoothScroll';
 export { ProgressiveBlurBentoGrid } from './ui/progressive-blur-bento-grid';
 export { default as MultiStepContactForm } from './ui/MultiStepContactForm';
 export { default as Testimonials } from './ui/TestimonialGridUse';
+export { default as Ribbon3 } from './ui/Ribbon3';
 
 
 // Core Components
