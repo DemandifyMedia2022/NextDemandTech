@@ -11,8 +11,8 @@ interface PreloaderProps {
   brandSubtitle?: string;
 }
 
-export const NoomoPreloader: React.FC<PreloaderProps> = ({ 
-  isLoading = true, 
+export const NoomoPreloader: React.FC<PreloaderProps> = ({
+  isLoading = true,
   onComplete,
   duration = 3000,
   showBrand = true,
@@ -40,16 +40,16 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
         if (prev >= 100) {
           clearInterval(progressInterval);
           setCurrentPhase('complete');
-          
+
           completeTimeout = setTimeout(() => {
             setCurrentPhase('exit');
-            
+
             exitTimeout = setTimeout(handleAnimationComplete, 800);
           }, 500);
-          
+
           return 100;
         }
-        
+
         const increment = prev < 50 ? Math.random() * 8 + 2 : Math.random() * 3 + 0.5;
         return Math.min(prev + increment, 100);
       });
@@ -66,19 +66,16 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
     return null;
   }
 
-  return (    
-    <div className={`fixed inset-0 z-[9999] bg-white transition-all duration-800 ${
-      currentPhase === 'exit' ? 'translate-y-full' : 'translate-y-0'
-    }`}>
+  return (
+    <div className={`fixed inset-0 z-[9999] bg-white transition-all duration-800 ${currentPhase === 'exit' ? 'translate-y-full' : 'translate-y-0'
+      }`}>
       <div className="absolute inset-0 bg-white" />
-      
+
       <div className="absolute inset-0 overflow-hidden">
-        <div className={`absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-white rounded-full blur-3xl transition-all duration-2000 ${
-          currentPhase === 'loading' ? 'scale-100 opacity-50' : 'scale-150 opacity-20'
-        }`} />
-        <div className={`absolute bottom-1/4 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl transition-all duration-2000 delay-500 ${
-          currentPhase === 'loading' ? 'scale-100 opacity-30' : 'scale-150 opacity-10'
-        }`} />
+        <div className={`absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-white rounded-full blur-3xl transition-all duration-2000 ${currentPhase === 'loading' ? 'scale-100 opacity-50' : 'scale-150 opacity-20'
+          }`} />
+        <div className={`absolute bottom-1/4 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl transition-all duration-2000 delay-500 ${currentPhase === 'loading' ? 'scale-100 opacity-30' : 'scale-150 opacity-10'
+          }`} />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
@@ -102,7 +99,7 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
         <div className="w-full max-w-xs md:max-w-md space-y-6 md:space-y-8">
           <div className="relative">
             <div className="w-full h-px bg-white">
-              <div 
+              <div
                 className="h-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-300 transition-all duration-300 ease-out relative"
                 style={{ width: `${progress}%` }}
               >
@@ -130,21 +127,20 @@ export const NoomoPreloader: React.FC<PreloaderProps> = ({
             {progress >= 80 && progress < 100 && "FINALIZING..."}
             {progress >= 100 && currentPhase === 'complete' && "READY TO LAUNCH"}
           </div> */}
-        {/* </div>
+          {/* </div>
 
         <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
           <div className="text-blue-500 text-2xl tracking-widest mb-3 md:mb-4">
             CRAFTING DIGITAL EXCELLENCE
           </div> */}
-          
+
           <div className="flex space-x-1 justify-center">
             {[...Array(3)].map((_, i) => (
               <div
                 key={i}
-                className={`w-1 h-1 bg-blue-500 rounded-full transition-all duration-500 ${
-                  Math.floor((progress / 33.33)) > i ? 'opacity-100 scale-100' : 'opacity-30 scale-75'
-                }`}
-                style={{ 
+                className={`w-1 h-1 bg-blue-500 rounded-full transition-all duration-500 ${Math.floor((progress / 33.33)) > i ? 'opacity-100 scale-100' : 'opacity-30 scale-75'
+                  }`}
+                style={{
                   animationDelay: `${i * 0.2}s`,
                   animation: progress >= 100 ? 'pulse 1s ease-in-out infinite' : 'none'
                 }}

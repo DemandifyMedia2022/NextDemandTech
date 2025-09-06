@@ -54,7 +54,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
       <GSAPTextReveal
         className="font-regular text-gray-900 mb-3 text-center leading-tight font-clash"
         style={{
-          fontSize: "clamp(24px, 5vw, 96px)",
+          fontSize: "clamp(28px, 7vw, 96px)",
         }}
         stagger={0.15}
         duration={.6}
@@ -70,7 +70,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
         <GSAPTextReveal
           className="text-[#2717E8] font-clash"
           style={{
-            fontSize: "clamp(24px, 5vw, 96px)",
+            fontSize: "clamp(28px, 7vw, 96px)",
           }}
           stagger={0.15}
           duration={.5}
@@ -88,7 +88,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
       >
         <div className="max-w-3xl mx-auto text-center relative z-10">
           {/* Responsive heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 font-clash">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 font-clash">
             {heading ?? "FAQ"}
           </h2>
         </div>

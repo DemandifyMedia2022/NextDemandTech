@@ -95,15 +95,17 @@ h4 {
 
 button {
   padding: 12px 24px;
-  font-family: 'Neue Montreal';
+  font-family: 'Clash Display';
   font-size: 18px;
-  font-weight: 300;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1); /* Glass effect */
+  font-weight: 500;
+  color: #0033ff;
+  background: rgba(255, 255, 255, 0.1);
+  /* Glass effect */
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  -webkit-backdrop-filter: blur(12px);
+  /* Safari support */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
   cursor: pointer;
@@ -131,7 +133,7 @@ button:active {
     color: #000cf8;
   }
 
-  
+
 }
 
 /* Utility: Inter font family when using @fontsource-variable/inter */

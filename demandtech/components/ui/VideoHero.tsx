@@ -12,14 +12,14 @@ const VideoHero = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 250]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   useEffect(() => {
     const tl = gsap.timeline();
-    
+
     // Initial animations
     tl.from(titleRef.current, {
       duration: 1.2,
@@ -28,18 +28,18 @@ const VideoHero = () => {
       ease: "power3.out",
       delay: 0.5
     })
-    .from(subtitleRef.current, {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: "power3.out"
-    }, "-=0.8")
-    .from(ctaRef.current, {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: "power3.out"
-    }, "-=0.6");
+      .from(subtitleRef.current, {
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        ease: "power3.out"
+      }, "-=0.8")
+      .from(ctaRef.current, {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        ease: "power3.out"
+      }, "-=0.6");
 
     // Video fade in
     if (videoRef.current) {
@@ -76,7 +76,7 @@ const VideoHero = () => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-hero-gradient-start to-hero-gradient-end"
     >
@@ -94,19 +94,19 @@ const VideoHero = () => {
           <source src="about-video.mp4" type="public/about-video.mp4" />
           <source src="about-video.mp4" type="public/about-video.mp4" />
         </video>
-        
+
         {/* Gradient Overlay */}
-        <div 
+        <div
           ref={overlayRef}
           className="absolute inset-0 bg-gradient-to-t from-hero-overlay/30 via-transparent to-hero-overlay/10"
         />
-        
+
         {/* White Theme Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/70 mix-blend-overlay" />
       </div>
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ y, opacity }}
         className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center"
       >
@@ -155,20 +155,20 @@ const VideoHero = () => {
             size="lg"
             className="px-8 py-6 text-lg font-semibold border-2 border-hero-text-primary/20 text-hero-text-primary hover:bg-hero-text-primary hover:text-white rounded-full backdrop-blur-sm bg-white/50 hover:scale-105 transition-all duration-300"
           > */}
-            Learn More
+          Learn More
           {/* </Button> */}
         </motion.div>
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
         onClick={scrollToContent}
-        animate={{ 
+        animate={{
           y: [0, 10, 0],
         }}
-        transition={{ 
-          duration: 2, 
+        transition={{
+          duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
         }}

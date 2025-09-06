@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Testimonials from '@/components/ui/TestimonialGridUse'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
+import NPSScoreCard from '@/components/ui/NPSScoreCard'
 
 export const metadata: Metadata = {
     title: 'Our Clients | DemandTech',
@@ -24,7 +25,7 @@ export default function ClientsPage() {
 
             </div>
 
-            <div className="mt-20">
+            <div className="mt-30">
                 <div className='contact-title'>
                     <GSAPTextReveal
                         style={{
@@ -44,18 +45,19 @@ export default function ClientsPage() {
                         Net Promoter Score
                     </GSAPTextReveal>
                 </div>
+                <NPSScoreCard />
             </div>
 
-            <div className="mt-20 bg-gray-50 rounded-lg p-8 text-center">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="mt-20 bg-gradient-to-br from-black to-blue-900  p-8 text-center mb-25">
+                <h2 className="text-2xl font-semibold text-white mb-4">
                     Join Our Growing Client Family
                 </h2>
-                <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                <p className="text-white mb-6 max-w-2xl mx-auto">
                     Ready to see the results that our clients experience? Let's discuss how we can help your business achieve its growth objectives.
                 </p>
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                <div className=" bg-blue-600 text-white mx-160 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">
                     Become a Client
-                </button>
+                </div>
             </div>
         </div>
     )
