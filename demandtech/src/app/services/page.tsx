@@ -1,13 +1,11 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import { SlideTabsExample } from '@/components/ui/SliderTabs'
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Button3 from '@/components/ui/Button3'
-import LogoSlider from '@/components/ui/LogoSlider' // ✅ fixed to alias import
+import LogoSlider from '@/components/ui/LogoSlider'
 import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation'
 import { Stepper } from '@/components/ui/stepperScroller'
 import { GSAPTextReveal } from '@/components/ui/GSAPTextReveal'
-import { ProgressiveBlurBentoGrid, ProgressiveBlurBentoGridV2 } from '@/components/ui/progressive-blur-bento-grid'; import { MultiStepContactForm } from '@/components/index'
+import { MultiStepContactForm } from '@/components/index'
 import Faq from '@/components/ui/faq'
 import Element3 from '@/components/preloader/Element3';
 import Card2 from '@/components/ui/Card2';
@@ -57,7 +55,7 @@ const cards = [
     ),
   },
   {
-    src: "/Creative Edge.png",
+    src: "/Creative Edge.jpg",
     title: "Automated Content Syndication",
     category: "",
     content: (
@@ -94,7 +92,7 @@ const cards = [
     ),
   },
   {
-    src: "/Creative Edge.png",
+    src: "/Automated.png",
     title: "Automated Appointment Generation",
     category: "",
     content: (
@@ -190,7 +188,7 @@ export default function ServicesPage() {
 
       {/* Logo Slider Section */}
       <div className="w-full px-4 sm:px-6 lg:px-8 mb-28">
-        <LogoSlider/>
+        <LogoSlider />
       </div>
 
       {/* Lead Nurture Program Section */}
@@ -267,7 +265,7 @@ export default function ServicesPage() {
         </BackgroundGradientAnimation>
       </div>
       <div className="mt-[20px] z-[999] ml-[-1200px] align-center">
-      <Element3 />
+        <Element3 />
       </div>
       <GSAPTextReveal
         style={{

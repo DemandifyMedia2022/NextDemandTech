@@ -27,7 +27,7 @@ export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
   currentIndex: number;
 }>({
-  onCardClose: () => {},
+  onCardClose: () => { },
   currentIndex: 0,
 });
 
@@ -126,69 +126,72 @@ export const Card = ({
 
   return (
     <>
-<AnimatePresence>
-  {open && (
-    <div className="fixed inset-0 z-50 h-screen overflow-hidden">
-      {/* Dark overlay */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
-      />
+      <AnimatePresence>
+        {open && (
+          <div className="fixed inset-0 z-50 h-screen overflow-hidden">
+            {/* Dark overlay */}
+            <motion.div
+              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
+              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="fixed inset-0 h-full w-full bg-black/80"
+            />
 
-      {/* Scrollable Card */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        ref={containerRef}
-        layoutId={layout ? `card-${card.title}` : undefined}
-        className="relative z-[60] mx-auto my-10 max-w-5xl 
+            {/* Scrollable Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 320, damping: 28, mass: 0.8 }}
+              ref={containerRef}
+              layoutId={layout ? `card-${card.title}` : undefined}
+              className="relative z-[60] mx-auto my-10 max-w-5xl 
                    max-h-[85vh] overflow-y-auto overscroll-contain flex flex-col
                    rounded-3xl bg-white/90 backdrop-blur-xl 
                    shadow-2xl p-6 md:p-10"
-        style={{
-          WebkitOverflowScrolling: "touch",
-          overscrollBehavior: "contain", // ✅ Prevent background scroll chaining
-        }}
-        onWheel={(e) => e.stopPropagation()} // ✅ Stop wheel from reaching body
-        onTouchMove={(e) => e.stopPropagation()} // ✅ Stop touch scroll bubbling
-      >
-        {/* Close Button */}
-        <button
-          className="sticky top-0 right-0 ml-auto flex h-8 w-8 items-center 
-                     justify-center rounded-full bg-black text-blue-500 
-                     dark:bg-blue dark:text-black z-50"
-          onClick={handleClose}
-        >
-          ✕
-        </button>
+              style={{
+                WebkitOverflowScrolling: "touch",
+                overscrollBehavior: "contain", // ✅ Prevent background scroll chaining
+              }}
+              onWheel={(e) => e.stopPropagation()} // ✅ Stop wheel from reaching body
+              onTouchMove={(e) => e.stopPropagation()} // ✅ Stop touch scroll bubbling
+            >
+              {/* Close Button */}
+              <div
+                className="sticky top-0 right-0 ml-auto flex h-8 w-8 items-center 
+                     justify-center rounded-full bg-black text-white z-50"
+                onClick={handleClose}
+              >
+                ✕
+              </div>
 
-        {/* Category */}
-        <motion.p
-          layoutId={layout ? `category-${card.title}` : undefined}
-          className="text-xl font-medium text-[#898989] dark:text-[#898989] font-clash"
-        >
-          {card.category}
-        </motion.p>
+              {/* Category */}
+              <motion.p
+                layoutId={layout ? `category-${card.title}` : undefined}
+                className="text-xl font-normal text-[#898989] font-clash"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {card.category}
+              </motion.p>
 
-        {/* Title */}
-        <motion.p
-          layoutId={layout ? `title-${card.title}` : undefined}
-          className="mt-2 text-3xl md:text-5xl font-semibold text-[#574BEF] dark:text-[#574BEF] font-clash"
-        >
-          {card.title}
-        </motion.p>
+              {/* Title */}
+              <motion.p
+                layoutId={layout ? `title-${card.title}` : undefined}
+                className="mt-2 text-3xl md:text-5xl font-normal text-[#574BEF] dark:text-[#574BEF] font-clash"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {card.title}
+              </motion.p>
 
-        {/* Content */}
-        <div className="py-6 text-lg leading-relaxed text-[#000000] font-neu">
-          {card.content}
-        </div>
-      </motion.div>
-    </div>
-  )}
-</AnimatePresence>
+              {/* Content */}
+              <div className="py-6 text-lg leading-relaxed text-[#000000] font-neu">
+                {card.content}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
 
       {/* Preview Card */}

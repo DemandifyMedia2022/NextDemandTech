@@ -11,19 +11,33 @@ export default function Element1() {
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
-    if (imgRef.current) {
-      gsap.to(imgRef.current, {
-        rotation: 720,
-        transformOrigin: "50% 50%",
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
+    if (!imgRef.current) return;
+
+    const el = imgRef.current;
+    let rotationAccum = 0; // total rotation applied (degrees)
+    let lastProgress = 0;  // previous progress from 0..1
+
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: "top bottom",
+      end: "bottom top",
+      onUpdate: (self) => {
+        // Only rotate when scrolling UP (direction === -1)
+        if (self.direction === -1) {
+          const delta = lastProgress - self.progress; // positive when going up
+          if (delta > 0) {
+            rotationAccum += delta * 720; // scale to desired spin amount
+            gsap.set(el, { rotation: rotationAccum, transformOrigin: "50% 50%" });
+          }
+        }
+        // Always update lastProgress so deltas are correct when direction changes
+        lastProgress = self.progress;
+      },
+    });
+
+    return () => {
+      st.kill();
+    };
   }, []);
 
   return (

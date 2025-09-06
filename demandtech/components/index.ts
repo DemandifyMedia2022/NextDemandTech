@@ -13,7 +13,8 @@ export { ProgressiveBlurBentoGrid } from './ui/progressive-blur-bento-grid';
 export { default as MultiStepContactForm } from './ui/MultiStepContactForm';
 export { default as Testimonials } from './ui/TestimonialGridUse';
 export { default as Ribbon3 } from './ui/Ribbon3';
-
+export { default as Products } from './ui/Products';
+export { FeaturesSectionDemo as ProductsFeature } from './ui/ProductsFeature';
 
 // Core Components
 export { ProgressiveBlur } from './core/progressive-blur';

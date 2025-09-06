@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ButtonProduct from "./ButtonProduct";
+import { GSAPTextReveal } from "./GSAPTextReveal";
 
 // Target/Scoring icon for Lead Scoring & Predictive Insights
 const LeadScoringIcon = () => (
@@ -88,14 +88,14 @@ const getFeatureIcon = (index: number) => {
 
 // Simple CSS-only animations instead of framer-motion
 const FeatureCard = ({ feature, index }: { feature: FeatureText; index: number }) => (
-  <div 
+  <div
     className="feature-card opacity-0 translate-y-4"
-    style={{ 
+    style={{
       animationDelay: `${index * 100}ms`,
       animation: 'fadeInUp 0.6s ease-out forwards'
     }}
   >
-    <div className="block h-full rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-white/30 shadow-sm hover:shadow-lg">
+    <div className="block h-full rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-white/30 drop-shadow-sm hover:drop-shadow-lg">
       <div className="flex flex-col justify-between h-full">
         <div className="space-y-4">
           <div className="p-3 rounded-xl bg-white/80 w-fit">
@@ -106,11 +106,6 @@ const FeatureCard = ({ feature, index }: { feature: FeatureText; index: number }
           </h4>
           <p className="text-gray-700 leading-relaxed">{feature.description}</p>
         </div>
-        {feature.cta && (
-          <div className="mt-4">
-            <ButtonProduct text={feature.cta} href={feature.href} />
-          </div>
-        )}
       </div>
     </div>
   </div>
@@ -136,17 +131,27 @@ const HariCRMSection = () => {
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
-      
-      <section className="relative w-full bg-gradient-to-br from-[#f8f9ff] to-[#e6eaff] pt-16 pb-24 min-h-screen rounded-3xl">
+
+      <section className="relative w-full bg-transparent pt-16 pb-24 min-h-screen rounded-3xl">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-20 section-header">
-            <div className="text-5xl font-normal text-clash text-[#000cf8] leading-tight">
+            <GSAPTextReveal
+              style={{
+                alignItems: 'center',
+                alignContent: 'center',
+                fontFamily: 'Clash Display',
+                fontSize: 'clamp(48px, 8vw, 64px)',
+                textAlign: 'center',
+                color: '#000cf8'
+              }}
+              stagger={0.15}
+              duration={0.6}
+              yOffset={100}
+              start="top 75%"
+            >
               CRM Solutions
-            </div>
-            <div className="text-2xl font-normal text-clash text-gray-600 mt-4 max-w-4xl mx-auto">
-              Smart CRM with Analytics
-            </div>
+            </GSAPTextReveal>
           </div>
 
           {/* Feature Cards Grid */}

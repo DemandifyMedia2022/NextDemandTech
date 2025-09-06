@@ -23,16 +23,16 @@ export default function RuixenStats() {
     <section className="w-full max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
       {/* Left: Text & CTA */}
 
-      <div className="flex flex-col justify-center gap-5 sm:gap-6">
-        <div className="mt-[-180px] z-[999] ml-[-100px] align-center">
+      <div className="flex flex-col justify-center gap-2 sm:gap-6">
+        <div className="mt-[-100px] z-[999] ml-[-360px] align-center">
           <Element2 />
         </div>
         <div className="mt-[-0px] z-[999] align-center">
-          <h4 className="text-base sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
+          <div className="text-base font-clash font-regular sm:text-xl lg:text-3xl font-normal text-[blue] leading-relaxed">
             Data-Driven Growth with  <span className="text-primary">DemandTech</span>{" "}
-            <span className="block mt-2 text-black text-sm sm:text-base lg:text-2xl"> Turn complex data into clear insights with our advanced analytics platform—helping you make faster, smarter, and more confident business decisions.</span>
-          </h4>
-          <div className="mt-8">
+            <span className="block mt-2 text-black text-sm sm:text-base lg:text-xl font-clash font-regular"> Turn complex data into clear insights with our advanced analytics platform—helping you make faster, smarter, and more confident business decisions.</span>
+          </div>
+          <div className="mt-15">
             <Button label="Get Started" href="/about" />
           </div>
         </div>

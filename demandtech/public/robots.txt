@@ -51,4 +51,4 @@ User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
 
-Sitemap: https://demand-tech.com/sitemap.xml
+Sitemap: https://demand-tech.com/sitemap.ts

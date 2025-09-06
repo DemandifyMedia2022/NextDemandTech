@@ -28,10 +28,10 @@ export default function Element2() {
   }, []);
 
   return (
-    <div className="circle-container flex justify-center items-center py-20">
+    <div className="circle-container flex justify-center items-center py-20 "  >
       <svg
-        width="200"
-        height="90"
+        width="150"
+        height="60"
         viewBox="0 0 2232 558"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

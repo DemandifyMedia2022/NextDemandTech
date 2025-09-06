@@ -311,7 +311,7 @@ const SlideTabs: React.FC = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClick}
-                className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${isActive ? 'text-white font-medium nav-tab-active' : 'text-white'
+                className={`relative z-10 block cursor-pointer transition-all duration-300 rounded-full ${isActive ? 'text-white font-clash font-medium nav-tab-active' : 'text-white'
                     }`}
                 style={{
                     fontFamily: 'Clash Display, sans-serif',
@@ -326,7 +326,7 @@ const SlideTabs: React.FC = () => {
                     backgroundColor: 'transparent'
                 }}
             >
-                <span className="flex items-center gap-1">
+                <span className="flex items-center gap-1 font-clash">
                     {children}
                     {hasDropdown && (
                         <motion.svg
@@ -409,7 +409,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, isOpen }) => {
                                 className="group block p-3 rounded-xl transition-all duration-200 hover:bg-white/5"
                             >
                                 <div className="flex flex-col">
-                                    <span className="font-medium text-white group-hover:text-[#5B5BFF] transition-colors duration-200">
+                                    <span className="font-medium font-clash text-white group-hover:text-[#5B5BFF] transition-colors duration-200">
                                         {item.title}
                                     </span>
                                 </div>
@@ -437,7 +437,7 @@ export const EnhancedNavigationMenu: React.FC = () => {
         <nav className="flex items-center gap-6">
             <Link
                 href="/"
-                onClick={() => handleNavigation('/')} 
+                onClick={() => handleNavigation('/')}
                 className="text-white hover:text-blue-200 transition-colors duration-200 font-medium"
             >
                 Home

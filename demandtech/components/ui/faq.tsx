@@ -58,7 +58,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
         }}
         stagger={0.15}
         duration={.6}
-        yOffset={80}
+        yOffset={90}
         start="top 75%"
       >
         {titleLine1 ?? "Quick Answers to"}
@@ -74,7 +74,7 @@ export default function FAQ({ items, titleLine1, titleLine2, heading }: FAQProps
           }}
           stagger={0.15}
           duration={.5}
-          yOffset={80}
+          yOffset={100}
           start="top 75%"
         >
           {titleLine2 ?? "Common Questions"}

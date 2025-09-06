@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import Button3 from "@/components/ui/Button3";
+import { ProductsFeature } from "@/components/index";
 import dynamic from "next/dynamic";
-import HaridiallerSection from "@/components/ui/HaridiallerSection";
-import HRMSSection from "@/components/ui/HRMSSection";
 import HariCRMSection from "@/components/ui/HariCrmSection";
-
+import { HeroScrollDemo } from "@/components/ui/ContainerScrollUse";
+import { Products } from "@/components/index";
+import Element1 from "@/components/preloader/Element1";
+import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 // Keep heavy ones dynamic (like in Services)
 const LogoSlider = dynamic(() => import("@/components/ui/LogoSlider"), {
   ssr: true,
@@ -29,77 +30,57 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-[#F0F1FA]">
-      {/* Hero Section */}
-      <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <h1
-          className="leading-tight text-[#000000]"
-          style={{
-            fontFamily: "Clash Display, sans-serif",
-            fontSize: "clamp(32px, 5vw, 92px)",
-            fontWeight: 400,
-          }}
-        >
-          Delivering Innovative, Scalable, and Secure
-        </h1>
+      <div className="mt-0 sm:-mt-1 lg:-mt-40">
+        <HeroScrollDemo />
+      </div>
 
-        <p
-          className="mt-4 text-[#000cf8] leading-snug"
-          style={{
-            fontFamily: "Clash Display, sans-serif",
-            fontSize: "clamp(48px, 5vw, 110px)",
-            fontWeight: 400,
-          }}
-        >
-          Software Solutions
-        </p>
 
-        <p
-          className="mt-6 text-gray-700 text-base sm:text-lg max-w-3xl mx-auto"
-          style={{
-            fontFamily: "Clash Display, sans-serif",
-            fontWeight: 400,
-            lineHeight: "1.2",
-          }}
-        >
-          Empowering enterprises with intelligent, future-ready software
-          ecosystems.
-        </p>
 
-        {/* CTAs */}
-        <div className="mt-5 flex items-center justify-center gap-3 flex-wrap">
-          <Button3
-            text="Let's Talk"
-            href="/contact"
-            className="px-4 py-2 text-sm"
-          />
-          <Button3
-            text="Get Pricing"
-            href="/pricing"
-            className="px-4 py-2 text-sm"
-          />
-        </div>
-      </header>
 
       {/* Logo Slider */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="w-full px-4 sm:px-6 lg:px-0 mb-12 sm:mb-16 lg:mb-20 mt-0 sm:-mt-24 lg:-mt-60">
         <LogoSlider />
       </div>
-
-      {/* Hari-Dialer Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
-        <HaridiallerSection />
-      </div>
-      {/* HRMS Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
-        <HRMSSection />
+      <div className="w-full px-4 sm:px-6 lg:px-18 mb-16 lg:mb-20">
+        <div className="hidden md:block w-full z-[-10] mb-[-2rem] md:mb-[-3rem] md:-ml-80 lg:mb-[-5rem] lg:-ml-[42rem]">
+          <Element1 />
+        </div>
+        <Products />
       </div>
 
       {/* HariCRM Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 lg:mb-20">
         <HariCRMSection />
       </div>
+      <div className="mt-0 lg:-mt-[150px]">
+        <GSAPTextReveal
+          style={{
+            alignItems: 'center',
+            alignContent: 'center',
+            fontFamily: 'Clash Display',
+            fontSize: 'clamp(48px, 8vw, 64px)',
+            textAlign: 'center',
+            color: '#000cf8',
+            // margin handled by parent div responsively
+          }}
+          stagger={0.15}
+          duration={0.6}
+          yOffset={100}
+          start="top 75%"
+        >
+          Features
+        </GSAPTextReveal>
+      </div>
+      <div
+        className="mt-8 sm:mt-10 max-w-7xl mx-auto mb-16 lg:mb-20 rounded-2xl rounded-sm:0 overflow-hidden"
+        style={{
+          background: 'linear-gradient(210deg, rgba(38, 0, 255, 1) 2%, rgba(0, 0, 0, 1) 46%, rgba(10, 68, 242, 1) 100%)'
+        }}
+      >
+        <ProductsFeature />
+      </div>
       {/* FAQ Section */}
-      <section className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-12">
+      <section className="max-w-5xl mt-0 lg:-mt-[50px] mx-auto py-10 sm:py-12 px-4 sm:px-6 lg:px-12">
         <Faq
           heading="FAQ"
           titleLine1="Quick Answers to"
